@@ -1,12 +1,11 @@
 {
   "basics": {
     "name": "Amir Masoud Nourollah",
-    "label": "Machine Learning Researcher",
     "image": "",
     "email": "nourollah.am@gmail.com",
     "phone": "(912) 019-7503",
     "url": "https://nourollah.me/",
-    "summary": "Graduated from the Shahrood University of Technology",
+    "thesis": "Using deep learning to detect neurons and segment their components in microscopy images of neurons",
     "location": {
       "address": "182 Tehranpars East St",
       "postalCode": "Ir 1655973363",
@@ -16,13 +15,62 @@
     },
     "profiles": []
   },
-  "work": [],
+  "work": [
+    {
+      "NOBKA": {
+        "role": "Machine Learning Researcher",
+        "projects": {
+          "Speech to Text": "I have used several English STT models to fine-tune them on a Persian dataset in order to enhance their accuracy.",
+          "Text to Speech for Persian Language": "I have utilized several English TTS models to fine-tune them on a Persian dataset in order to facilitate this process for Iranian. Even I tried to add emotion speech generation (angry, happy, and etc) to the system in order to get new a novelty for this language.",
+          "Image Steganography": "I have developed a novel method to hide information such as image, text, and etc either encrypted or raw into the image without loss with high performance action.",
+          "Text Steganography": "Regarding to the monitoring system in some countries beside hackers attacks, I create a technique for completely changing the structure of the a text (it could be a word, a sentence or a paragraph) to a new thing which is completely different with the original text. It could be revert to the base form by have some hyperparameter and the algorithm and the book which have been using for transforming the text."
+        }
+      },
+      "NOVE": {
+        "role": "Machine Learning Engineer",
+        "projects": {
+          "Aerial Image Segmentation": "I have used several sota models to segment the aerial image accurately as much as possible.",
+          "Objects Detection in Instagram Screenshots": "By using the template matching and several other image processing algorithm I developed a service to find some details about instagram screenshots.",
+          "Sneeze and Cough Detection": "Although many model for voice classification have already existed, I made a highly light one to use in mobile devices to detect environment cough and sneeze.",
+        }
+      },
+      "Faradid Payesh System": {
+        "role": "Software Developer",
+        "projects": {
+          "Target (Navigation Cross Platform Application)": "I contributed to developing some features of this application and enhancing the network layer performance",
+          "Linux Admin": "I maintained the company Linux servers for multi applications.",
+          "A Multi-thread Core for a Messenger": "I developed a engine for serialize and transfer information over network using TCP protocol using C++."
+        }
+      }
+    }
+  ],
   "volunteer": [],
-  "education": [],
+  "education": [
+    {
+      "Master of Science Student in Artificial Intelligence and Robotics": {
+        "thesis": " • Thesis: Using deep learning to detect neurons and segment them either binary or semantic for their components to compute their length in fluorescence microscopy images.",
+        "Teaching Assistant": "Neural Networks and Deep Learning - Digital Image Processing - Big Data and Scalable Machine Learning.",
+        "GPA": "3.8/4"
+      },
+      "Bachelor of Science in Chemistry- Information Technology": {
+        "GPA": "3.8/4"
+      }
+    }
+  ],
   "awards": [],
   "certificates": [],
   "publications": [],
-  "skills": [],
+  "skills": [
+    {
+      "Programming Language": "Python, C++, Bash Scripting",
+      "Python ML Libraries, Frameworks, and Platforms": "PyTorch, HuggingFace, OpenMMLab Projects (MMSegmentation, MMDetection, ane etc), SciKit Libraries, OpenCV, Pydub, NumPy, Plotly, Pandas, Coqui-ai TTS",
+      "Python Software Frameworks and Libraries": "Django, FastAPI, Gradio, Flet, SQLModel, SQLAlchemy, PyQT",
+      "C++ Libraries": "Boost, libcurl, libusb",
+      "OS": "Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS",
+      "Databases": "PostgreSQL, SQLite",
+      "Tools": "Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop"
+    }
+  ],
   "languages": [
     {
       "language": "Persian",
@@ -35,9 +83,18 @@
     {
       "language": "English",
       "fluency": "Fluent"
+    },
+    {
+      "language": "Germany",
+      "fluency": "Basic"
     }
   ],
-  "interests": [],
+  "interests": [
+    {
+      "Computer Science": "Multimodal Deep Learning(unstructured data such as vision, acoustic, and text and structured data), Reinforcement Learning, Multi-task Learning",
+      "Chemistry": "Computational Chemistry, Semiconductors and Optimization in Molecule Synthesizing"
+    }
+  ],
   "references": [],
   "projects": []
 }
