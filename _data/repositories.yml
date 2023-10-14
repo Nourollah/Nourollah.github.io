@@ -1,12 +1,7 @@
 github_users:
-  - torvalds
-  - alshedivat
+  - Nourollah
 
 github_repos:
-  - alshedivat/al-folio
-  - twbs/bootstrap
-  - jekyll/jekyll
-  - jquery/jquery
-  - FortAwesome/Font-Awesome
-  - jpswalsh/academicons
-  - mathjax/MathJax
+  - Nourollah/Python_ImageProcessing
+  - open-mmlab/mmdetection
+  - open-mmlab/mmsegmentation
