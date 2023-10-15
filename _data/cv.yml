@@ -6,7 +6,11 @@
     - name: Date of Birth
       value: 16th August 1997
     - name: Languages
-      value: Persian, Azerbaijani, English, Germany
+      value: 
+        - Persian: Native speaker
+        - Azerbaijani: Native speaker
+        - English: Fluent
+        - Germany: Basic
 
 - title: Education
   type: time_table
@@ -15,13 +19,15 @@
       institution: Shahrood University of Technology, Semnan, Iran
       year: 2023
       description:
-        - title: Using deep learning to detect neurons and segment their components in microscopy images of neurons
+        - title: Using deep learning to detect neurons and segment them either binary or semantic for their components to compute their length in fluorescence microscopy images
           contents:
             - Medical Image Segmentation
             - Object Detection
+        - GPA: 3.8 / 4
     - title: Bachlore
       institution: Islamic Azad University, Tehran, Iran
       year: 2020
+      GPA: 3.5 / 4
 
 
 - title: Experience
@@ -30,26 +36,23 @@
     - title: Machine Learning Research Assistant
       institution: Novin Barnameh Kara (NOBKA)
       year: 2023 - 2024
-      description:
-        - Voice Conversion
-        - Text to Text Steganography
-        - title: Image Steganography
-          contents:
-            - Raw Encrypted Data to Image Steganography
-            - Image to Image Steganography
-    - title: Deep Learning Researcher, Sharif University of Technology, Iran, Tehran
+      Projects:
+        - Speech to Text: I have used several English STT models to fine-tune them on a Persian dataset in order to enhance their accuracy.
+        - Text to Speech for Persian Language: I have utilized several English TTS models to fine-tune them on a Persian dataset in order to facilitate this process for Iranian. Even I tried to add emotion speech generation (angry, happy, and etc) to the system in order to get new a novelty for this language.
+        - Image Steganography: I have developed a novel method to hide information such as image, text, and etc either encrypted or raw into the image without loss with high performance action.
+        - Text Steganography: Regarding to the monitoring system in some countries beside hackers attacks, I create a technique for completely changing the structure of the a text (it could be a word, a sentence or a paragraph) to a new thing which is completely different with the original text. It could be revert to the base form by have some hyperparameter and the algorithm and the book which have been using for transforming the text.
+    - title: Deep Learning Engineer, Sharif University of Technology, Iran, Tehran
       institution: Payesh Pishrafteh Amin (NOVE)
       year: 2021 - 2022
-      description:
-        - Aerial Image Segmentatiom
-        - Sneeze and Cough Detection
-        - Classic Object Detection
-        - Object Tracking
-
+      Projects:
+        - Aerial Image Segmentation: I have used several sota models to segment the aerial image accurately as much as possible.
+        - Objects Detection in Instagram Screenshots: By using the template matching and several other image processing algorithm I developed a service to find some details about instagram screenshots.
+        - Sneeze and Cough Detection: Although many model for voice classification have already existed, I made a highly light one to use in mobile devices to detect environment cough and sneeze.
+  
     - title: Teaching Assistant
       institution: Shahrood University of Technology, Iran, Semnan
       year: 2021 - 2022
-      description:
+      Courses:
         - Neural Networks and Deep Learning
         - Image Processing
         - Scalable Machine Learning and Big Data
@@ -59,8 +62,10 @@
     - title: Software Developer
       institution: Faradid Payesh System
       year: 2017 - 2020
-
-
+      Projects: 
+        - Target (Navigation Cross Platform Application): I contributed to developing some features of this application and enhancing the network layer performance.
+        - Linux Admin: I maintained the company Linux servers for multi applications.
+        - A Multi-thread Core for a Messenger: "I developed a engine for serialize and transfer information over network using TCP protocol using C++.
 
 - title: Open Source Projects
   type: time_table
@@ -68,6 +73,15 @@
     - title: <a href="https://github.com/Nourollah/Python_ImageProcessing">An Image Processing Book Codes</a>
       year: 2021-now
       description: A translation on famous Iranian image processing book code sources from MATLAB to Python.
+
+- skills:
+    - Programming Language: Python, C++, Bash Scripting
+    - Python ML Libraries, Frameworks, and Platforms: PyTorch, HuggingFace, OpenMMLab Projects (MMSegmentation, MMDetection, ane etc), SciKit Libraries, OpenCV, Pydub, NumPy, Plotly, Pandas, Coqui-ai TTS
+    - Python Software Frameworks and Libraries: Django, FastAPI, Gradio, Flet, SQLModel, SQLAlchemy, PyQT
+    - C++ Libraries: Boost, libcurl, libusb
+    - OS: Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS
+    - Databases: PostgreSQL, SQLite
+    - Tools: Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop
 
 - title: Honors and Awards
   type: time_table
@@ -86,7 +100,9 @@
         - Multi-task Learning
     - title: Chemistry.
       items:
-        - Material Optimization with Machine Learning
+        - Computational Chemistry
+        - Optimization in Molecule Synthesizing
+        - Semiconductors
 
 - title: Other Interests
   type: list
