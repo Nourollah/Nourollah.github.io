@@ -18,11 +18,11 @@
       institution: Shahrood University of Technology, Semnan, Iran
       year: 2023
       description:
-        - title: Using deep learning to detect neurons and segment them either binary or semantic for their components to compute their length in fluorescence microscopy images
-          contents:
-            - Medical Image Segmentation
-            - Object Detection
-        - GPA: 3.8 / 4
+        title: Using deep learning to detect neurons and segment them either binary or semantic for their components to compute their length in fluorescence microscopy images
+        contents:
+          - Medical Image Segmentation
+          - Object Detection
+        GPA: 3.8 / 4
     - title: Bachlore
       institution: Islamic Azad University, Tehran, Iran
       year: 2020
@@ -68,13 +68,13 @@
       year: 2021-now
       description: A translation on famous Iranian image processing book code sources from MATLAB to Python.
 - skills:
-    - Programming Language: Python, C++, Bash Scripting
-    - Python ML Libraries, Frameworks, and Platforms: PyTorch, HuggingFace, OpenMMLab Projects (MMSegmentation, MMDetection, ane etc), SciKit Libraries, OpenCV, Pydub, NumPy, Plotly, Pandas, Coqui-ai TTS
-    - Python Software Frameworks and Libraries: Django, FastAPI, Gradio, Flet, SQLModel, SQLAlchemy, PyQT
-    - C++ Libraries: Boost, libcurl, libusb
-    - OS: Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS
-    - Databases: PostgreSQL, SQLite
-    - Tools: Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop
+  - Programming Language: Python, C++, Bash Scripting
+  - Python ML Libraries, Frameworks, and Platforms: PyTorch, HuggingFace, OpenMMLab Projects (MMSegmentation, MMDetection, ane etc), SciKit Libraries, OpenCV, Pydub, NumPy, Plotly, Pandas, Coqui-ai TTS
+  - Python Software Frameworks and Libraries: Django, FastAPI, Gradio, Flet, SQLModel, SQLAlchemy, PyQT
+  - C++ Libraries: Boost, libcurl, libusb
+  - OS: Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS
+  - Databases: PostgreSQL, SQLite
+  - Tools: Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop
 - title: Honors and Awards
   type: time_table
   contents:
