@@ -11,7 +11,6 @@
         - Azerbaijani: Native speaker
         - English: Fluent
         - Germany: Basic
-
 - title: Education
   type: time_table
   contents:
@@ -28,8 +27,6 @@
       institution: Islamic Azad University, Tehran, Iran
       year: 2020
       GPA: 3.5 / 4
-
-
 - title: Experience
   type: time_table
   contents:
@@ -48,7 +45,6 @@
         - Aerial Image Segmentation: I have used several sota models to segment the aerial image accurately as much as possible.
         - Objects Detection in Instagram Screenshots: By using the template matching and several other image processing algorithm I developed a service to find some details about instagram screenshots.
         - Sneeze and Cough Detection: Although many model for voice classification have already existed, I made a highly light one to use in mobile devices to detect environment cough and sneeze.
-  
     - title: Teaching Assistant
       institution: Shahrood University of Technology, Iran, Semnan
       year: 2021 - 2022
@@ -58,22 +54,19 @@
         - Scalable Machine Learning and Big Data
         - Optimization Algorithms
         - Artificial Intelligence
-
     - title: Software Developer
       institution: Faradid Payesh System
       year: 2017 - 2020
       Projects: 
         - Target (Navigation Cross Platform Application): I contributed to developing some features of this application and enhancing the network layer performance.
         - Linux Admin: I maintained the company Linux servers for multi applications.
-        - A Multi-thread Core for a Messenger: "I developed a engine for serialize and transfer information over network using TCP protocol using C++.
-
+        - A Multi-thread Core for a Messenger: I developed a engine for serialize and transfer information over network using TCP protocol using C++.
 - title: Open Source Projects
   type: time_table
   contents:
     - title: <a href="https://github.com/Nourollah/Python_ImageProcessing">An Image Processing Book Codes</a>
       year: 2021-now
       description: A translation on famous Iranian image processing book code sources from MATLAB to Python.
-
 - skills:
     - Programming Language: Python, C++, Bash Scripting
     - Python ML Libraries, Frameworks, and Platforms: PyTorch, HuggingFace, OpenMMLab Projects (MMSegmentation, MMDetection, ane etc), SciKit Libraries, OpenCV, Pydub, NumPy, Plotly, Pandas, Coqui-ai TTS
@@ -82,14 +75,12 @@
     - OS: Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS
     - Databases: PostgreSQL, SQLite
     - Tools: Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop
-
 - title: Honors and Awards
   type: time_table
   contents:
     - year: 2023
       items: 
         - Among top 1% high grade of grade in the Shahrood University of Technology, Computer Engineering
-
 - title: Academic Interests
   type: nested_list
   contents:
@@ -103,7 +94,6 @@
         - Computational Chemistry
         - Optimization in Molecule Synthesizing
         - Semiconductors
-
 - title: Other Interests
   type: list
   contents:
