@@ -5,17 +5,24 @@
       value: Amir Masoud Nourollah
     - name: Date of Birth
       value: 16th August 1997
-    - name: Languages
-      type: map
-      content: 
-        - name: Persian
-          value: Native speaker
-        - name: Azerbaijani
-          value: Native speaker
-        - name: English
-          value: Fluent
-        - name: Germany
-          value: Basic
+    - name: Nationality
+      value: Iranian
+- title: Languages
+  type: nested_list
+  content: 
+    - title: English
+      items:
+        - GRE (Verbal Reasoning = 162, Quantitative Reasoning = 169, Analytical Writing = 4) Overal = 335
+        - TOEFL (Reading = 26, Listening = 30, Speaking = 20, Writing = 26) Overal = 102
+    - title: Persian
+      items: 
+        - Native speaker
+    - title: Azerbaijani
+      items: 
+        - Native speaker
+    - title: Germany
+      items: 
+        - Basic
 - title: Education
   type: time_table
   contents:
