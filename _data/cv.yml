@@ -9,7 +9,7 @@
       value: Iranian
 - title: Languages
   type: nested_list
-  content: 
+  contents: 
     - title: English
       items:
         - GRE (Verbal Reasoning = 162, Quantitative Reasoning = 169, Analytical Writing = 4) Overal = 335
