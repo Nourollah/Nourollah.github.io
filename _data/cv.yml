@@ -6,11 +6,16 @@
     - name: Date of Birth
       value: 16th August 1997
     - name: Languages
-      value: 
-        - Persian: Native speaker
-        - Azerbaijani: Native speaker
-        - English: Fluent
-        - Germany: Basic
+      type: map
+      content: 
+        - name: Persian
+          value: Native speaker
+        - name: Azerbaijani
+          value: Native speaker
+        - name: English
+          value: Fluent
+        - name: Germany
+          value: Basic
 - title: Education
   type: time_table
   contents:
