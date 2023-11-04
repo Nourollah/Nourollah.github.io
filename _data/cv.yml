@@ -12,17 +12,20 @@
   contents: 
     - title: English
       items:
-        - GRE (Verbal Reasoning = 162, Quantitative Reasoning = 169, Analytical Writing = 4) Overal = 335
-        - TOEFL (Reading = 26, Listening = 30, Speaking = 20, Writing = 26) Overal = 102
+        - GRE Overal 335 (Verbal Reasoning 162, Quantitative Reasoning 169, Analytical Writing 4) 
+        - TOEFL Overal 102 (Reading 26, Listening 30, Speaking 20, Writing 26) 
     - title: Persian
       items: 
         - Native speaker
+        - ""
     - title: Azerbaijani
       items: 
         - Native speaker
+        - ""
     - title: Germany
       items: 
         - Basic
+        - ""
 - title: Education
   type: time_table
   contents:
@@ -105,12 +108,12 @@
 - title: Academic Interests
   type: nested_list
   contents:
-    - title: Computer Science.
+    - title: Computer Science
       items: 
         - Multimodal Deep Learning(Vision, Natural Language, Acoustic, Graphs)
         - Reinforcement Learning
         - Multi-task Learning
-    - title: Chemistry.
+    - title: Chemistry
       items:
         - Computational Chemistry
         - Optimization in Molecule Synthesizing
