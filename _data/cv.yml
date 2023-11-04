@@ -67,14 +67,23 @@
     - title: <a href="https://github.com/Nourollah/Python_ImageProcessing">An Image Processing Book Codes</a>
       year: 2021-now
       description: A translation on famous Iranian image processing book code sources from MATLAB to Python.
-- skills:
-  - Programming Language: Python, C++, Bash Scripting
-  - Python ML Libraries, Frameworks, and Platforms: PyTorch, HuggingFace, OpenMMLab Projects (MMSegmentation, MMDetection, ane etc), SciKit Libraries, OpenCV, Pydub, NumPy, Plotly, Pandas, Coqui-ai TTS
-  - Python Software Frameworks and Libraries: Django, FastAPI, Gradio, Flet, SQLModel, SQLAlchemy, PyQT
-  - C++ Libraries: Boost, libcurl, libusb
-  - OS: Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS
-  - Databases: PostgreSQL, SQLite
-  - Tools: Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop
+- title: skills
+  type: map
+  contents:
+  - name: Programming Language 
+    value: Python, C++, Bash Scripting
+  - name: Python ML Libraries, Frameworks, and Platforms
+    value: PyTorch, HuggingFace, OpenMMLab Projects (MMSegmentation, MMDetection, ane etc), SciKit Libraries, OpenCV, Pydub, NumPy, Plotly, Pandas, Coqui-ai TTS
+  - name: Python Software Frameworks and Libraries
+    value: Django, FastAPI, Gradio, Flet, SQLModel, SQLAlchemy, PyQT
+  - name: C++ Libraries
+    value: Boost, libcurl, libusb
+  - name: OS
+    value: Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS
+  - name: Databases
+    value: PostgreSQL, SQLite
+  - name: Tools
+    value: Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop
 - title: Honors and Awards
   type: time_table
   contents:
