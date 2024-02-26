@@ -2,7 +2,7 @@
 layout: page
 permalink: /publications/
 title: publications
-description: Follow me in Google Scholar
+description: You can follow my publications on <a href='https://scholar.google.com/citations?hl=en&user=jnindL8AAAAJ'>Google Scholar</a>
 nav: true
 nav_order: 1
 ---

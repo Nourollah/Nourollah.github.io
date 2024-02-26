@@ -2,14 +2,14 @@
 layout: about
 title: about
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Moto. Etc.
+subtitle: <a href='#'>Shahrood University of Technology</a> Iran, Semnan
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false # crops the image to make it circular
   more_info: >
-    <p>Iran, Tehran, Tehranpars</p>
+    <p>Iran, Tehran</p>
 
 news: true  # includes a list of news items
 latest_posts: true  # includes a list of the newest posts
