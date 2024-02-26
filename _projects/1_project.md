@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Neuron Segmentation
-description: Analyzing Neurons in Microscopic Images Using Deep Learning
+description: Analyzing neurons in microscopic images using deep learning
 img: assets/img/neuron.jpeg
 importance: 1
 category: Academic
