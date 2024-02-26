@@ -5,9 +5,15 @@ nav: true
 nav_order: 7
 dropdown: true
 children:
-    - title: publications
-      permalink: /publications/
+    - title: Curriculum Vitae
+      permalink: /cv/
     - title: divider
-    - title: projects
-      permalink: /projects/
+    - title: Teaching
+      permalink: /teaching/
+    - title: divider
+    - title: Repositories
+      permalink: /repositories/
+    - title: divider
+    - title: People
+      permalink: /people/
 ---
