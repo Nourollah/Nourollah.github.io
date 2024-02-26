@@ -12,20 +12,20 @@
   contents: 
     - title: English
       items:
+        - IELTS Overal 6.5 (Reading 6.5, Listening 6, Speaking 6, Writing 6.5) 
         - GRE Overal 335 (Verbal Reasoning 162, Quantitative Reasoning 169, Analytical Writing 4) 
-        - TOEFL Overal 102 (Reading 26, Listening 30, Speaking 20, Writing 26) 
     - title: Persian
       items: 
-        - Native speaker
-        - ""
+        - Native
+        - "First Language and Mother Tongue"
     - title: Azerbaijani
       items: 
-        - Native speaker
-        - ""
+        - Native
+        - "Mother Tongue"
     - title: Germany
       items: 
         - Basic
-        - ""
+        - "A1"
 - title: Education
   type: time_table
   contents:
@@ -86,19 +86,19 @@
   type: map
   contents:
   - name: Programming Language 
-    value: Python, C++, Bash Scripting
+    value: Python, C++, Java
   - name: Python ML Libraries, Frameworks, and Platforms
-    value: PyTorch, HuggingFace, OpenMMLab Projects (MMSegmentation, MMDetection, ane etc), SciKit Libraries, OpenCV, Pydub, NumPy, Plotly, Pandas, Coqui-ai TTS
+    value: PyTorch, PyTorch Geometric, OpenMMLab Projects, SciKit Libraries, OpenCV, Coqui-ai TTS, RDKit
   - name: Python Software Frameworks and Libraries
-    value: Django, FastAPI, Gradio, Flet, SQLModel, SQLAlchemy, PyQT
+    value: Django, FastAPI, SQLModel, SQLAlchemy
   - name: C++ Libraries
-    value: Boost, libcurl, libusb
+    value: Boost, libcurl
   - name: OS
     value: Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS
   - name: Databases
     value: PostgreSQL, SQLite
   - name: Tools
-    value: Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop
+    value: Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop, ChemOffice
 - title: Honors and Awards
   type: time_table
   contents:
@@ -110,14 +110,16 @@
   contents:
     - title: Computer Science
       items: 
-        - Multimodal Deep Learning(Vision, Natural Language, Acoustic, Graphs)
+        - Multimodal Deep Learning
         - Reinforcement Learning
+        - Graph Neural Networks
         - Multi-task Learning
     - title: Chemistry
       items:
         - Computational Chemistry
         - Optimization in Molecule Synthesizing
         - Semiconductors
+        - Energy
 - title: Other Interests
   type: list
   contents:

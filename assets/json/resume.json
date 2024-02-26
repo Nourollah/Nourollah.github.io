@@ -62,13 +62,13 @@
   "publications": [],
   "skills": [
     {
-      "Programming Language": "Python, C++, Bash Scripting",
-      "Python ML Libraries, Frameworks, and Platforms": "PyTorch, HuggingFace, OpenMMLab Projects (MMSegmentation, MMDetection, ane etc), SciKit Libraries, OpenCV, Pydub, NumPy, Plotly, Pandas, Coqui-ai TTS",
-      "Python Software Frameworks and Libraries": "Django, FastAPI, Gradio, Flet, SQLModel, SQLAlchemy, PyQT",
-      "C++ Libraries": "Boost, libcurl, libusb",
-      "OS": "Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS",
+      "Programming Language": "Python, C++, Java",
+      "Python ML Libraries, Frameworks, and Platforms": "PyTorch, Pytorch Geometric, OpenMMLab Projects, SciKit Libraries, OpenCV, Plotly, Coqui-ai TTS, RDKit",
+      "Python Software Frameworks and Libraries": "Django, FastAPI, SQLModel, SQLAlchemy",
+      "C++ Libraries": "Boost, libcurl",
+      "OS": "Linux (Debian, Red Hat, Arch Linux), WSL, macOS",
       "Databases": "PostgreSQL, SQLite",
-      "Tools": "Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop"
+      "Tools": "Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop, ChemOffice"
     }
   ],
   "languages": [
@@ -91,8 +91,8 @@
   ],
   "interests": [
     {
-      "Computer Science": "Multimodal Deep Learning(unstructured data such as vision, acoustic, and text and structured data), Reinforcement Learning, Multi-task Learning",
-      "Chemistry": "Computational Chemistry, Semiconductors and Optimization in Molecule Synthesizing"
+      "Computer Science": "Multimodal Deep Learning(unstructured data such as vision, acoustic, and text and structured data), Reinforcement Learning, Graph Neural Networks, Multi-task Learning",
+      "Chemistry": "Computational Chemistry, Energy, Semiconductors and Optimization in Molecule Synthesizing"
     }
   ],
   "references": [],

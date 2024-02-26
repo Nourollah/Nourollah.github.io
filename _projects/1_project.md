@@ -1,10 +1,11 @@
 ---
 layout: page
-title: project 1
-description: a project with a background image
-img: assets/img/12.jpg
+title: Neuron Segmentation
+description: Analyzing Neurons in Microscopic Images Using Deep Learning
+img: assets/img/neuron.jpeg
 importance: 1
-category: work
-related_publications: einstein1956investigations, einstein1950meaning
+category: Academic
+related_publications: nourollah2024quantifying
 ---
-Not Updated yet
+
+Description will be add here soon.
