@@ -16,10 +16,13 @@ latest_posts: true  # includes a list of the newest posts
 selected_papers: true # includes a list of papers marked as "selected={true}"
 social: true  # includes social icons at the bottom of the page
 ---
-Currently, I am doing my PhD on the explainability of deep neural networks in the field of chemistry. I did my master's at Shahrood University of Technology, with a focus on image segmentation for neuroscience images. Meanwhile, I have been working in the industry for years. and I will tell my story here!
+I am PhD Student at Cardiff University. My research field is an interdisciplinary area between Computer Science and Chemistry.
+My research interests include multimodal deep learning, reinforcement learning and computational chemistry.
 
-Presently, my research interests include graph neural networks, reinforcement learning, multimodal deep learning, and chemistry. While my fervor lies in contributing substantively to the field of computer science, I am particularly compelled to spearhead groundbreaking advancements in deep learning, transcending disciplinary boundaries to enrich the landscape of chemistry as an interdisciplinary frontier.
+Before starting my PhD, I worked as a software engineer and machine learning researcher in the industry for several years.
+I have a Master's degree in Computer Science from the Shahrood Univeristy of Technology.
+Moreover, I have a Bachelor's degree in Chemistry from the Islamic Azad University. 
 
-I believe in the symbiotic relationship between various scientific disciplines, where techniques and insights from one field have the transformative power to catalyze breakthroughs in another. This interconnectedness fosters a dynamic environment where innovations in one science can ignite the inception of new paradigms in others, ushering in an era of collaborative progress and interdisciplinary discovery.
-
-In the tapestry of my daily life, fitness, and sports weave a profound and essential thread. I immerse myself in rigorous training sessions that span the disciplines of Muay Thai, Judo, running, and swimming. Embracing an ethos of active living and holistic well-being, I welcome the challenges inherent in these sports, pushing my boundaries and savoring every step of the journey toward enhanced fitness and vitality.
+My daily life is a combination of coding, reading papers and books, and sports. 
+In Addition, I am playing Dota 2 game with my friends in some of my free time.
+I am always looking for new challenges and opportunities to learn new things either in my research field or in my personal life, meet new people, and explore new places.
