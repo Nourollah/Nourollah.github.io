@@ -5,14 +5,13 @@
       value: Amir Masoud Nourollah
     - name: Date of Birth
       value: 16th August 1997
-    - name: Nationality
-      value: Iranian
+
 - title: Languages
   type: nested_list
   contents: 
     - title: English
       items:
-        - IELTS Overal 6.5 (Reading 6.5, Listening 6, Speaking 6, Writing 6.5) 
+        - TOEFL Overal 109 (Reading 28, Listening 30, Speaking 25, Writing 26)
         - GRE Overal 335 (Verbal Reasoning 162, Quantitative Reasoning 169, Analytical Writing 4) 
     - title: Persian
       items: 
@@ -22,13 +21,13 @@
       items: 
         - Native
         - "Mother Tongue"
-    - title: Germany
-      items: 
-        - Basic
-        - "A1"
+
 - title: Education
   type: time_table
   contents:
+    - title: PhD Student
+      institution: Cardiff University, Cardiff, Wales, UK
+      year: 2024
     - title: Master
       institution: Shahrood University of Technology, Semnan, Iran
       year: 2023
@@ -86,41 +85,12 @@
   type: map
   contents:
   - name: Programming Language 
-    value: Python, C++, Java
+    value: Python, C/C++
   - name: Python ML Libraries, Frameworks, and Platforms
     value: PyTorch, PyTorch Geometric, OpenMMLab Projects, SciKit Libraries, OpenCV, Coqui-ai TTS, RDKit
-  - name: Python Software Frameworks and Libraries
-    value: Django, FastAPI, SQLModel, SQLAlchemy
-  - name: C++ Libraries
-    value: Boost, libcurl
-  - name: OS
-    value: Linux (Debian, Red Hat), BSD (FreeBSD), WSL, macOS
-  - name: Databases
-    value: PostgreSQL, SQLite
-  - name: Tools
-    value: Docker, Docker-compose, Podman, Git, Postman, CMake, MATLAB, Adobe Photoshop, ChemOffice
 - title: Honors and Awards
   type: time_table
   contents:
     - year: 2023
       items: 
-        - Among top 1% high grade of grade in the Shahrood University of Technology, Computer Engineering
-- title: Academic Interests
-  type: nested_list
-  contents:
-    - title: Computer Science
-      items: 
-        - Multimodal Deep Learning
-        - Reinforcement Learning
-        - Graph Neural Networks
-        - Multi-task Learning
-    - title: Chemistry
-      items:
-        - Computational Chemistry
-        - Optimization in Molecule Synthesizing
-        - Semiconductors
-        - Energy
-- title: Other Interests
-  type: list
-  contents:
-    - <u>Hobbies:</u> Muay Thai, Judo, Swimming, Running, Mountaineering, Reading, Teaching.
+        - Among top 1% high grade in the Shahrood University of Technology, Computer Engineering
