@@ -1,0 +1,47 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "Amir Masoud Nourollah"
+  site-url: "https://nourollah.me"
+  description: "PhD Student · Scientific Machine Learning · Cardiff University"
+
+  navbar:
+    background: "#8b1538"
+    collapse: true
+    left:
+      - href: about.qmd
+        text: About
+      - href: projects/index.qmd
+        text: Projects
+      - href: presentations/index.qmd
+        text: Presentations
+    right:
+      - icon: mortarboard
+        href: https://scholar.google.com/citations?user=jnindL8AAAAJ
+        aria-label: Google Scholar
+      - icon: github
+        href: https://github.com/Nourollah
+        aria-label: GitHub
+      - icon: linkedin
+        href: https://www.linkedin.com/in/amnrl
+        aria-label: LinkedIn
+      - icon: twitter-x
+        href: https://twitter.com/amirmasoudnrl
+        aria-label: X (Twitter)
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    lang: en-GB
+    toc: true
+    toc-location: right
+    smooth-scroll: true
+    code-copy: true
+    link-external-newwindow: true
+    highlight-style: ayu
+
+execute:
+  freeze: auto

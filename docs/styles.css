@@ -1,0 +1,147 @@
+/* ===== Colour Variables ===== */
+:root {
+  --maroon: #8b1538;
+  --maroon-light: #fdf5f7;
+  --text-dark: #1a1a1a;
+  --text-muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+/* ===== Navbar ===== */
+.navbar-brand {
+  font-weight: 600;
+  letter-spacing: 0.01em;
+}
+
+/* ===== Home page — trestles layout tweaks ===== */
+#quarto-content .about-entity .about-links {
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+/* ===== Publication list on home page ===== */
+.quarto-about-trestles h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--maroon);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.25rem;
+  margin-top: 1.8rem;
+}
+
+/* ===== Project & Presentation resource tables ===== */
+.resource-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 0.25rem;
+  table-layout: fixed;
+}
+
+.resource-table tr {
+  border-bottom: 1px solid var(--border);
+  transition: background-color 0.15s ease;
+}
+
+.resource-table tr:last-child {
+  border-bottom: none;
+}
+
+.resource-table tr:hover {
+  background-color: var(--maroon-light);
+}
+
+.resource-table td {
+  padding: 0.8rem 0.5rem;
+  vertical-align: middle;
+}
+
+/* Left column — title + meta */
+.resource-table .rt-title {
+  width: 82%;
+}
+
+.resource-table .rt-title .title-text {
+  font-weight: 500;
+  font-size: 0.96rem;
+  color: var(--text-dark);
+  text-decoration: none;
+}
+
+.resource-table .rt-title .title-text:hover {
+  color: var(--maroon);
+  text-decoration: underline;
+}
+
+.resource-table .rt-title .rt-meta {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+/* Right column — icon links */
+.resource-table .rt-links {
+  text-align: right;
+  white-space: nowrap;
+  width: 18%;
+}
+
+.resource-table .rt-links a {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+  margin-left: 0.6rem;
+  text-decoration: none;
+  transition: color 0.15s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+}
+
+.resource-table .rt-links a:hover {
+  color: var(--maroon);
+  transform: translateY(-1px);
+}
+
+/* ===== Presentation page sections ===== */
+.pres-section {
+  margin-bottom: 2rem;
+}
+
+.pres-section h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--maroon);
+  border-bottom: 2px solid var(--maroon);
+  padding-bottom: 0.35rem;
+  margin-top: 2.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.pres-section h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 1.4rem;
+  margin-bottom: 0.3rem;
+}
+
+/* ===== Projects page section headers ===== */
+.projects-section h2 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--maroon);
+  border-bottom: 2px solid var(--maroon);
+  padding-bottom: 0.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* ===== About page ===== */
+.about-page h2 {
+  color: var(--maroon);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 0.3rem;
+}
+
+/* ===== Utility ===== */
+.text-maroon {
+  color: var(--maroon);
+}

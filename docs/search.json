@@ -1,0 +1,128 @@
+[
+  {
+    "objectID": "presentations/index.html",
+    "href": "presentations/index.html",
+    "title": "Presentations",
+    "section": "",
+    "text": "Slides built with Quarto Reveal.js. Icons link to related resources."
+  },
+  {
+    "objectID": "presentations/index.html#phd-studies",
+    "href": "presentations/index.html#phd-studies",
+    "title": "Presentations",
+    "section": "PhD Studies",
+    "text": "PhD Studies\n\nAnnual Reviews\n\n\n\n\n\n\n\nFirst Year Review — Compositional Generalisation in Machine Learning Potentials\n\nCardiff University · 2025\n\n\n\n\n\n\n\nSchool & Departmental Workshops\n\n\n\n\n\n\n\nStarting the PhD — Kickoff Talk\n\nCardiff University · April 2024\n\n\n\n\nIntroduction to Machine Learning Potentials\n\nCardiff NLP Reading Group · 2024"
+  },
+  {
+    "objectID": "presentations/index.html#conferences-talks",
+    "href": "presentations/index.html#conferences-talks",
+    "title": "Presentations",
+    "section": "Conferences & Talks",
+    "text": "Conferences & Talks\n\n\n\n\n\n\n\nLarge Language and Reasoning Models are Shallow Disjunctive Reasoners\n\nACL 2025 · Vienna\n\n\n\n\nBenchmarking Compositional Generalisation for Inter-atomic Potentials\n\n2026"
+  },
+  {
+    "objectID": "presentations/index.html#tutorials-teaching",
+    "href": "presentations/index.html#tutorials-teaching",
+    "title": "Presentations",
+    "section": "Tutorials & Teaching",
+    "text": "Tutorials & Teaching\n\nMachine Learning\n\n\n\n\n\n\n\nIntroduction to Graph Neural Networks for Molecules\n\nTutorial · Coming soon\n\n\n\n\nScientific Machine Learning with PyTorch\n\nTutorial · Coming soon\n\n\n\n\n\n\n\nTools & Workflows\n\n\n\n\n\n\n\nReproducible Research with Quarto and Git\n\nWorkshop · Coming soon\n\n\n\n\n\n\n\nSlides are built with Quarto Reveal.js and hosted on this site. Source files are available on GitHub."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Amir Masoud Nourollah",
+    "section": "",
+    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nMy academic background spans both chemistry and computer science. I studied Chemistry (2017–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain strongly interested in engineering practices, infrastructure, and open-source software."
+  },
+  {
+    "objectID": "index.html#background",
+    "href": "index.html#background",
+    "title": "Amir Masoud Nourollah",
+    "section": "",
+    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nMy academic background spans both chemistry and computer science. I studied Chemistry (2017–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain strongly interested in engineering practices, infrastructure, and open-source software."
+  },
+  {
+    "objectID": "index.html#research",
+    "href": "index.html#research",
+    "title": "Amir Masoud Nourollah",
+    "section": "Research",
+    "text": "Research\nBroadly, I am interested in scientific machine learning (SciML), particularly for chemistry and molecular systems.\nMy research focuses on generalisation, interpretability, and explainability in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular modelling and computational chemistry.\nMore generally, I am interested in robust and interpretable methods for scientific machine learning and chemistry-oriented AI systems."
+  },
+  {
+    "objectID": "index.html#other-interests",
+    "href": "index.html#other-interests",
+    "title": "Amir Masoud Nourollah",
+    "section": "Other Interests",
+    "text": "Other Interests\nOutside of research, I enjoy studying languages, reading history and philosophy, and exploring programming languages and Linux systems. I am currently studying French and German, and I maintain a strong interest in Persian and English literature. I also practise Muay Thai and Judo."
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "A selection of projects I have worked on, with extended write-ups, animations, figures, and details beyond what appears in the official papers. Icons link to external resources where available."
+  },
+  {
+    "objectID": "projects/index.html#scientific-machine-learning",
+    "href": "projects/index.html#scientific-machine-learning",
+    "title": "Projects",
+    "section": "Scientific Machine Learning",
+    "text": "Scientific Machine Learning\n\n\n\n\n\n\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nNourollah, Khalid, Leoni, Schockaert · 2026\n\n\n\n\nExample SciML Project (Post Coming Soon)\n\nNourollah · 2025 · Cardiff University"
+  },
+  {
+    "objectID": "projects/index.html#natural-language-processing",
+    "href": "projects/index.html#natural-language-processing",
+    "title": "Projects",
+    "section": "Natural Language Processing",
+    "text": "Natural Language Processing\n\n\n\n\n\n\n\nLarge Language and Reasoning Models are Shallow Disjunctive Reasoners\n\nKhalid, Nourollah, Schockaert · ACL 2025"
+  },
+  {
+    "objectID": "projects/index.html#computer-vision-signal-processing",
+    "href": "projects/index.html#computer-vision-signal-processing",
+    "title": "Projects",
+    "section": "Computer Vision & Signal Processing",
+    "text": "Computer Vision & Signal Processing\n\n\n\n\n\n\n\nQuantifying Morphologies of Developing Neuronal Cells Using Deep Learning with Imperfect Annotations\n\nNourollah, Hassanpour, Zehtabian · 2024\n\n\n\n\nWhisperNetV2: SlowFast Siamese Network for Lip-Based Biometrics\n\nZakeri, Hassanpour, Khosravi, Nourollah · arXiv 2024\n\n\n\n\n\n\n\nPosts are extended write-ups with additional figures, animations, and implementation details not included in the published paper."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "Degree\nInstitution\nPeriod\n\n\n\n\nPhD, Computer Science\nCardiff University\n2024 – present\n\n\nMSc, Artificial Intelligence & Robotics\nShahrood University of Technology\n2020 – 2023\n\n\nBSc, Chemistry\nIAUTNB\n2017 – 2020"
+  },
+  {
+    "objectID": "about.html#education",
+    "href": "about.html#education",
+    "title": "About",
+    "section": "",
+    "text": "Degree\nInstitution\nPeriod\n\n\n\n\nPhD, Computer Science\nCardiff University\n2024 – present\n\n\nMSc, Artificial Intelligence & Robotics\nShahrood University of Technology\n2020 – 2023\n\n\nBSc, Chemistry\nIAUTNB\n2017 – 2020"
+  },
+  {
+    "objectID": "about.html#research-groups",
+    "href": "about.html#research-groups",
+    "title": "About",
+    "section": "Research Groups",
+    "text": "Research Groups\nI am a member of the Cardiff NLP group and the Knowledge Representation and Reasoning (KRR) group at Cardiff University."
+  },
+  {
+    "objectID": "about.html#research-interests",
+    "href": "about.html#research-interests",
+    "title": "About",
+    "section": "Research Interests",
+    "text": "Research Interests\n\nScientific machine learning (SciML)\nMultimodal machine learning\nGeometric deep learning and graph neural networks\nGeneralisation and distribution shift in machine learning\n\nInterpretability and explainability in ML models\n\nNeural Rendering & Simulation"
+  },
+  {
+    "objectID": "about.html#industry-experience",
+    "href": "about.html#industry-experience",
+    "title": "About",
+    "section": "Industry Experience",
+    "text": "Industry Experience\nBefore starting my PhD, I worked as a software engineer and machine learning engineer, leading AI teams across different companies. My applied work has covered:\n\nComputer vision\n\nSpeech processing and lip-based biometrics\n\nNatural language processing\n\nML infrastructure and open-source software"
+  },
+  {
+    "objectID": "about.html#contact",
+    "href": "about.html#contact",
+    "title": "About",
+    "section": "Contact",
+    "text": "Contact\n\nEmail: am@nourollah.me\n\nGitHub: github.com/Nourollah\n\nGoogle Scholar: scholar.google.com\n\nORCID: 0000-0002-6083-6673\n\nLinkedIn: linkedin.com/in/amnrl\n\nTelegram: t.me/amirmasoudnrl"
+  }
+]

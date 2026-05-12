@@ -1,0 +1,102 @@
+---
+title: "Projects"
+page-layout: full
+toc: false
+---
+
+A selection of projects I have worked on, with extended write-ups, animations, figures, and details beyond what appears in the official papers. Icons link to external resources where available.
+
+::: {.d-flex .justify-content-end .mb-2 style="font-size: 0.82rem; color: var(--text-muted);"}
+<span class="me-3"><span class="bi bi-journal-text"></span> Post</span>
+<span class="me-3"><span class="bi bi-file-earmark-text"></span> Paper</span>
+<span class="me-3"><span class="bi bi-github"></span> Code</span>
+<span class="me-3"><span class="bi bi-easel2"></span> Slides</span>
+<span><span class="bi bi-youtube"></span> Video</span>
+:::
+
+---
+
+## Scientific Machine Learning
+
+```{=html}
+<table class="resource-table">
+  <tbody>
+
+    <tr>
+      <td class="rt-title">
+        <span class="title-text">Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</span>
+        <div class="rt-meta">Nourollah, Khalid, Leoni, Schockaert &middot; 2026</div>
+      </td>
+      <td class="rt-links">
+        <a href="https://arxiv.org/abs/2605.08988" title="Paper" target="_blank" rel="noopener noreferrer"><span class="bi bi-file-earmark-text"></span></a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="rt-title">
+        <span class="title-text">Example SciML Project (Post Coming Soon)</span>
+        <div class="rt-meta">Nourollah &middot; 2025 &middot; Cardiff University</div>
+      </td>
+      <td class="rt-links">
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+```
+
+## Natural Language Processing
+
+```{=html}
+<table class="resource-table">
+  <tbody>
+
+    <tr>
+      <td class="rt-title">
+        <span class="title-text">Large Language and Reasoning Models are Shallow Disjunctive Reasoners</span>
+        <div class="rt-meta">Khalid, Nourollah, Schockaert &middot; ACL 2025</div>
+      </td>
+      <td class="rt-links">
+        <a href="https://aclanthology.org/2025.acl-long.433/" title="Paper" target="_blank" rel="noopener noreferrer"><span class="bi bi-file-earmark-text"></span></a>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+```
+
+## Computer Vision & Signal Processing
+
+```{=html}
+<table class="resource-table">
+  <tbody>
+
+    <tr>
+      <td class="rt-title">
+        <span class="title-text">Quantifying Morphologies of Developing Neuronal Cells Using Deep Learning with Imperfect Annotations</span>
+        <div class="rt-meta">Nourollah, Hassanpour, Zehtabian &middot; 2024</div>
+      </td>
+      <td class="rt-links">
+        <a href="https://www.sciencedirect.com/science/article/pii/S2667242123022959" title="Paper" target="_blank" rel="noopener noreferrer"><span class="bi bi-file-earmark-text"></span></a>
+      </td>
+    </tr>
+
+    <tr>
+      <td class="rt-title">
+        <span class="title-text">WhisperNetV2: SlowFast Siamese Network for Lip-Based Biometrics</span>
+        <div class="rt-meta">Zakeri, Hassanpour, Khosravi, Nourollah &middot; arXiv 2024</div>
+      </td>
+      <td class="rt-links">
+        <a href="https://arxiv.org/abs/2407.08717" title="Paper" target="_blank" rel="noopener noreferrer"><span class="bi bi-file-earmark-text"></span></a>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+```
+
+---
+
+::: {style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;"}
+Posts are extended write-ups with additional figures, animations, and implementation details not included in the published paper.
+:::

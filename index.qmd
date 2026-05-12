@@ -1,0 +1,53 @@
+---
+title: "Amir Masoud Nourollah"
+image: assets/profile.png
+
+about:
+  template: trestles
+  image-width: 14em
+  image-shape: round
+  links:
+    - icon: envelope
+      text: Email
+      href: mailto:am@nourollah.me
+    - icon: mortarboard
+      text: Google Scholar
+      href: https://scholar.google.com/citations?user=jnindL8AAAAJ
+    - icon: github
+      text: GitHub
+      href: https://github.com/Nourollah
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/amnrl
+    - icon: twitter-x
+      text: X / Twitter
+      href: https://twitter.com/amirmasoudnrl
+    - text: "ORCID"
+      href: https://orcid.org/0000-0002-6083-6673
+
+toc: false
+---
+
+## Background
+
+I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at [Cardiff University](https://www.cardiff.ac.uk/), where I am part of the [Cardiff NLP](https://cardiffnlp.github.io/) and [Knowledge Representation and Reasoning](https://krr.cs.cf.ac.uk/) groups. I started my PhD in 2024.
+
+My academic background spans both chemistry and computer science. I studied Chemistry (2017–2020) before moving into Computer Science, completing a Master's degree focused on artificial intelligence and robotics (2020–2023).
+
+Before starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain strongly interested in engineering practices, infrastructure, and open-source software.
+
+---
+
+## Research
+
+Broadly, I am interested in **scientific machine learning (SciML)**, particularly for chemistry and molecular systems.
+
+My research focuses on **generalisation, interpretability, and explainability** in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular modelling and computational chemistry.
+
+More generally, I am interested in robust and interpretable methods for scientific machine learning and chemistry-oriented AI systems.
+
+---
+
+## Other Interests
+
+Outside of research, I enjoy studying languages, reading history and philosophy, and exploring programming languages and Linux systems. I am currently studying French and German, and I maintain a strong interest in Persian and English literature. I also practise Muay Thai and Judo.

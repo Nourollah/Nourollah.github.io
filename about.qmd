@@ -1,0 +1,44 @@
+---
+title: "About"
+toc: true
+toc-depth: 2
+---
+
+## Education
+
+| Degree | Institution | Period |
+|--------|-------------|--------|
+| PhD, Computer Science | Cardiff University | 2024 – present |
+| MSc, Artificial Intelligence & Robotics | Shahrood University of Technology | 2020 – 2023 |
+| BSc, Chemistry | IAUTNB | 2017 – 2020 |
+
+## Research Groups
+
+I am a member of the [Cardiff NLP](https://cardiffnlp.github.io/) group and the [Knowledge Representation and Reasoning (KRR)](https://krr.cs.cf.ac.uk/) group at Cardiff University.
+
+## Research Interests
+
+- Scientific machine learning (SciML)
+- Multimodal machine learning
+- Geometric deep learning and graph neural networks
+- Generalisation and distribution shift in machine learning  
+- Interpretability and explainability in ML models  
+- Neural Rendering & Simulation
+
+## Industry Experience
+
+Before starting my PhD, I worked as a **software engineer** and **machine learning engineer**, leading AI teams across different companies. My applied work has covered:
+
+- Computer vision  
+- Speech processing and lip-based biometrics  
+- Natural language processing  
+- ML infrastructure and open-source software  
+
+## Contact
+
+- **Email:** [am@nourollah.me](mailto:am@nourollah.me)  
+- **GitHub:** [github.com/Nourollah](https://github.com/Nourollah)  
+- **Google Scholar:** [scholar.google.com](https://scholar.google.com/citations?user=jnindL8AAAAJ)  
+- **ORCID:** [0000-0002-6083-6673](https://orcid.org/0000-0002-6083-6673)  
+- **LinkedIn:** [linkedin.com/in/amnrl](https://www.linkedin.com/in/amnrl)  
+- **Telegram:** [t.me/amirmasoudnrl](https://t.me/amirmasoudnrl)  
