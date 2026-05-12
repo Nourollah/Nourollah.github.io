@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-GB" xml:lang="en-GB"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Amir Masoud Nourollah">
+<meta name="dcterms.date" content="2026-05-07">
+<meta name="description" content="A personal account of years spent distro-hopping across the Linux ecosystem — and how I finally settled on Fedora Workstation, fixed the packages problem with pixi, and built a setup I actually enjoy living in.">
+
+<title>My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Never Looked Back – Amir Masoud Nourollah</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<script src="../../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap-cdd13912a56c529c216a958367180166.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../../styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">Amir Masoud Nourollah</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../index.html"> <i class="bi bi-house" role="img" aria-label="Home">
+</i> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../about.html"> <i class="bi bi-person" role="img" aria-label="About">
+</i> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../projects/index.html"> <i class="bi bi-folder" role="img" aria-label="Projects">
+</i> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../presentations/index.html"> <i class="bi bi-display" role="img" aria-label="Presentations">
+</i> 
+<span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ"> <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
+</i> 
+<span class="menu-text">Publications</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../blog/index.html"> <i class="bi bi-pencil-square" role="img" aria-label="Blog">
+</i> 
+<span class="menu-text">Blog</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:nourollah.am@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Contact">
+</i> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#how-i-landed-on-fedora-workstation" id="toc-how-i-landed-on-fedora-workstation" class="nav-link active" data-scroll-target="#how-i-landed-on-fedora-workstation">How I Landed on Fedora Workstation</a></li>
+  <li><a href="#how-i-fixed-the-packages-problem" id="toc-how-i-fixed-the-packages-problem" class="nav-link" data-scroll-target="#how-i-fixed-the-packages-problem">How I Fixed the Packages Problem</a>
+  <ul class="collapse">
+  <li><a href="#pixi-the-missing-piece-for-the-python-ecosystem" id="toc-pixi-the-missing-piece-for-the-python-ecosystem" class="nav-link" data-scroll-target="#pixi-the-missing-piece-for-the-python-ecosystem">Pixi: The Missing Piece for the Python Ecosystem</a></li>
+  <li><a href="#managing-packages-on-fedora" id="toc-managing-packages-on-fedora" class="nav-link" data-scroll-target="#managing-packages-on-fedora">Managing Packages on Fedora</a></li>
+  </ul></li>
+  <li><a href="#the-setup" id="toc-the-setup" class="nav-link" data-scroll-target="#the-setup">The Setup</a>
+  <ul class="collapse">
+  <li><a href="#terminal-tools" id="toc-terminal-tools" class="nav-link" data-scroll-target="#terminal-tools">Terminal Tools</a></li>
+  <li><a href="#shell-aliases" id="toc-shell-aliases" class="nav-link" data-scroll-target="#shell-aliases">Shell Aliases</a></li>
+  <li><a href="#slurm-helpers-for-supercomputers" id="toc-slurm-helpers-for-supercomputers" class="nav-link" data-scroll-target="#slurm-helpers-for-supercomputers">SLURM Helpers for Supercomputers</a></li>
+  </ul></li>
+  <li><a href="#where-i-ended-up" id="toc-where-i-ended-up" class="nav-link" data-scroll-target="#where-i-ended-up">Where I Ended Up</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Never Looked Back</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">linux</div>
+    <div class="quarto-category">desktop</div>
+    <div class="quarto-category">fedora</div>
+    <div class="quarto-category">workstation</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    A personal account of years spent distro-hopping across the Linux ecosystem — and how I finally settled on Fedora Workstation, fixed the packages problem with pixi, and built a setup I actually enjoy living in.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Amir Masoud Nourollah </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">7 May 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="how-i-landed-on-fedora-workstation" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-landed-on-fedora-workstation">How I Landed on Fedora Workstation</h2>
+<p>For many years, I used a Debian-based distribution as my primary operating system. I started with <a href="https://www.debian.org/">Debian</a> itself, and later switched to <a href="https://ubuntu.com/">Ubuntu</a> for convenience. I had a good experience with both, but the more I learnt about the Linux ecosystem, the more I felt I did not need the extra layers Ubuntu puts on top of Debian. I started exploring a variety of popular and expert-level distributions. I wanted a more “pure” Linux experience — closer to the upstream projects and communities. Soon, I realised that the Debian package ecosystem is far wider than the Red Hat ecosystem, and switching to a Red Hat-based distribution such as <a href="https://fedoraproject.org/">Fedora</a> or <a href="https://www.centos.org/">CentOS</a> was difficult because some of the software I used daily was not published as <code>.rpm</code> packages.</p>
+<p>Considering simplicity, full control over my system, and the breadth of available packages, <a href="https://archlinux.org/">Arch Linux</a> eventually made its way onto my list. My first installation attempt was unpleasant, but feeling the installation process — the fingerprint of control over every individual part of the OS — made me warm to it quickly. I could find almost anything in the <a href="https://aur.archlinux.org/">AUR</a>, spanning from packages available in other distributions to wrapped legacy packages whose development had been discontinued and removed from mainstream repositories. I had a lot of fun, even though I nearly broke my system more than once. But the complexity of installation and personalisation, and the differences between my desktop and server environments, eventually made Arch difficult to sustain. Along the way I tried some Arch-based distributions — <a href="https://manjaro.org/">Manjaro</a>, <a href="https://endeavouros.com/">EndeavourOS</a>, and <a href="https://blackarch.org/">BlackArch</a> as an alternative to <a href="https://www.kali.org/">Kali</a>. All of them were pleasant experiences, but none of them addressed my real problem: a unified ecosystem for both production and personal use.</p>
+<p>I had always had a careful appreciation for Red Hat and was a fan of it for production servers. At the time, Red Hat was not free for personal use, so I went with CentOS to unify my environment. But as a developer who was not yet familiar with containerisation — tools like <a href="https://podman.io/">Podman</a> and <a href="https://www.docker.com/">Docker</a> — I needed bleeding-edge packages to practise with and keep up with the software I was building. CentOS was not the answer either.</p>
+<p>I had always known about Fedora — it has long been one of the pioneer distributions in the Linux ecosystem — but I had run into problems configuring my Nvidia GPU drivers and occasional glitches in video games due to missing or improperly configured components. Around that time, a new distribution was rising: <a href="https://nobaraproject.org/">Nobara</a>, a highly optimised Fedora-based distribution built for gaming. If a distribution is tuned for gaming, it tends to get along well with machine learning setups too, and Nobara became my daily driver for a while. But I eventually realised it is not a community-driven project — it is maintained by a single person. I needed to respect my commitment to the open-source and community-driven spirit, so I started looking for an alternative and stumbled upon the <a href="https://github.com/devangshekhawat/Fedora-44-Post-Install-Guide">Fedora Post Install Guide</a>.</p>
+<p>I thought: why not give Fedora one final, honest try? That try ended years of distro-hopping. Following the guide transformed Fedora — I have always been a <a href="https://kde.org/">KDE</a> user and have never warmed to GNOME — into an OS that was smooth, stable, and genuinely enjoyable to live in. Everything I had been looking for was there. One problem remained, though: some packages were unavailable in the default repositories, or required adding custom sources. Especially with the recent wave of <a href="https://www.rust-lang.org/">Rust</a>-based tools for Linux, I had adopted several in my daily workflow that simply were not in DNF.</p>
+<hr>
+</section>
+<section id="how-i-fixed-the-packages-problem" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-fixed-the-packages-problem">How I Fixed the Packages Problem</h2>
+<p>That remaining problem — missing packages — was not unique to Fedora. It had been following me across every distribution I had ever used, in different forms. On Debian it was outdated versions. On Arch it was AUR maintenance risk. On CentOS it was the gap between stability and currency. Fedora brought me closer than anything else had, but it did not fully close it. The answer, when it finally arrived, did not come from the distribution at all.</p>
+<p>Before getting to that, I want to talk about my relationship with Python — because the solution to the packages problem and the solution to surviving the Python ecosystem turned out to be the same thing.</p>
+<section id="pixi-the-missing-piece-for-the-python-ecosystem" class="level3">
+<h3 class="anchored" data-anchor-id="pixi-the-missing-piece-for-the-python-ecosystem"><a href="https://pixi.prefix.dev/latest/">Pixi</a>: The Missing Piece for the Python Ecosystem</h3>
+<p>I started my programming journey with Java in 2010. It was one of the most elegant languages available at the time, and I vividly remember compiling Android apps before Android Studio with <a href="https://eclipseide.org">Eclipse</a>, installing them through a <a href="https://www.bluestacks.com/">BlueStacks</a> emulator. Later I switched to C/C++ to get closer to the underlying machine — learning the hard way about setting up projects, installing libraries system-wide, writing <code>Makefile</code>s, and eventually <code>CMakeLists.txt</code>. Cross-compiling for another architecture was painful, but it was structured and I understood every piece of it. I never touched package managers like <a href="https://conan.io/">Conan</a> or <a href="https://vcpkg.io/">vcpkg</a> until much later.</p>
+<p>Python was initially forced on me by an assignment. I just started writing it — some trial and error — and it worked. There was no AI to answer questions in 2020, so I learnt mostly by searching. Within a year Python had become my default language for assignments and eventually for shell scripting, replacing Bash in many places. Its package manager made the ecosystem feel welcoming, and the breadth of available libraries was remarkable.</p>
+<p>To avoid dependency conflicts I kept a set of virtual environments in <code>$HOME/.venv/</code> — one for computer vision, one for networking, one for scripting, one for signal processing — and activated whichever I needed. It worked, until I tried moving a project between systems. Binary packages were a particular nightmare. <a href="https://docs.conda.io/">Conda</a> was the standard answer for that, but it was too slow and too heavy for my taste. I kept trying to avoid it, compiling packages from source with my own compiler out of old C/C++ habits. Something was fundamentally wrong at the portability level — Python is interpreted, it should be portable, and yet reproducing an environment reliably across machines felt like a constant struggle. I tried <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/"><code>requirements.txt</code></a>, then <a href="https://python-poetry.org/">Poetry</a>, then <a href="https://github.com/astral-sh/uv">uv</a>. Both Poetry and uv were excellent tools, but neither handled binary packages independently — I still needed <code>mamba</code> alongside them for <code>torch</code>-based projects, and anything involving <a href="https://github.com/rusty1s/pytorch_scatter"><code>torch_scatter</code></a> could turn into a nightmare.</p>
+<p>Then I read a post about <a href="https://pixi.prefix.dev/latest/">pixi</a> somewhere and it immediately caught my attention. I ran to try it — a project manager that handles <code>pip</code> via <code>uv</code> and <code>conda</code> via <code>mamba</code> simultaneously, in a single environment file, without installing a heavy default package set. It worked across platforms: not just <code>x86_64</code>, but <code>aarch64</code> and others too. You could even add custom channels. I had found what I had been looking for — a single tool to manage everything from a simple shell script to a complex multi-platform project with heavy binary dependencies.</p>
+</section>
+<section id="managing-packages-on-fedora" class="level3">
+<h3 class="anchored" data-anchor-id="managing-packages-on-fedora">Managing Packages on Fedora</h3>
+<p>The default package manager <a href="https://dnf.readthedocs.io/en/latest/"><code>DNF</code></a> remains my favourite package manager in Linux and is always the first place I look. For GUI applications, <a href="https://flatpak.org/">Flatpak</a> has become indispensable — developers tend to keep their Flatpak releases more up to date than distribution repositories, and it covers the applications I use most: <a href="https://telegram.org/">Telegram</a>, <a href="https://discord.com/">Discord</a>, and others. I install almost everything GUI-related through Flatpak.</p>
+<p>For terminal tools and binary utilities, however, neither DNF nor Flatpak covers everything — particularly the newer wave of Rust-based CLI tools. On remote servers where I have no installation privileges, the situation is even more constrained.</p>
+<p>Pixi turned out to solve this problem too. I had initially found its <code>pixi shell</code> activation requirement slightly annoying for tools I wanted available globally. Then I discovered:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> global install <span class="op">&lt;</span>package_name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>This was a game changer. I could install tools outside any virtual environment — not as project dependencies, but as system-level utilities available anywhere. It became the first command I run on any new machine:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine xh sd helix neovim tmux zellij btop zsh xonsh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>No custom repositories. No extra layers. No searching for obscure PPAs or Copr entries. Everything in one command.</p>
+<hr>
+</section>
+</section>
+<section id="the-setup" class="level2">
+<h2 class="anchored" data-anchor-id="the-setup">The Setup</h2>
+<p>If you are curious about the tools and how I configure them, this section is for you.</p>
+<section id="terminal-tools" class="level3">
+<h3 class="anchored" data-anchor-id="terminal-tools">Terminal Tools</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tool</th>
+<th style="text-align: left;">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/ajeetdsouza/zoxide"><code>zoxide</code></a></td>
+<td style="text-align: left;">Smarter <code>cd</code> with directory history and frecency ranking</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/BurntSushi/ripgrep"><code>ripgrep</code></a></td>
+<td style="text-align: left;">Fast recursive text search (<code>rg</code>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/sharkdp/fd"><code>fd-find</code></a></td>
+<td style="text-align: left;">Fast, ergonomic <code>find</code> replacement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/sharkdp/bat"><code>bat</code></a></td>
+<td style="text-align: left;"><code>cat</code> with syntax highlighting and Git integration</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/eza-community/eza"><code>eza</code></a></td>
+<td style="text-align: left;">Modern <code>ls</code> replacement with icons and tree view</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/ClementTsang/bottom"><code>btm</code></a></td>
+<td style="text-align: left;">Interactive terminal system monitor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/bootandy/dust"><code>dust</code></a> / <a href="https://dev.yorhel.nl/ncdu"><code>ncdu</code></a></td>
+<td style="text-align: left;">Fast, intuitive disk usage analyser</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/dandavison/delta"><code>delta</code></a></td>
+<td style="text-align: left;">Improved <code>git diff</code> pager with syntax highlighting</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/sharkdp/hyperfine"><code>hyperfine</code></a></td>
+<td style="text-align: left;">CLI benchmarking tool</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/ducaale/xh"><code>xh</code></a></td>
+<td style="text-align: left;">Friendly, fast HTTP client</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/chmln/sd"><code>sd</code></a></td>
+<td style="text-align: left;">Intuitive search-and-replace for the command line</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://helix-editor.com/"><code>helix</code></a> / <a href="https://neovim.io/"><code>neovim</code></a></td>
+<td style="text-align: left;">Modal text editors</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://zellij.dev/"><code>zellij</code></a> / <a href="https://github.com/tmux/tmux"><code>tmux</code></a></td>
+<td style="text-align: left;">Terminal workspace and session managers</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/aristocratos/btop"><code>btop</code></a></td>
+<td style="text-align: left;">Beautiful terminal resource monitor</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="shell-aliases" class="level3">
+<h3 class="anchored" data-anchor-id="shell-aliases">Shell Aliases</h3>
+<p>I add the following to my <code>.zshrc</code> or <code>.bashrc</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modern replacements</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> ls=<span class="st">"eza --icons --group-directories-first"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> tree=<span class="st">"eza --icons --tree"</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> treed=<span class="st">"eza --icons --tree --level"</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> lsdu=<span class="st">'du -a -h --max-depth=1 | sort -hr'</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> du=<span class="st">'dust'</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> top=<span class="st">'btm'</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> cd=<span class="st">'z'</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> grep=<span class="st">'rg'</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> vim=<span class="st">'nvim'</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipe --help and -h output through bat for syntax highlighting</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> <span class="at">-g</span> <span class="at">--</span> <span class="at">-h</span><span class="op">=</span><span class="st">'-h 2&gt;&amp;1 | bat --language=help --style=plain'</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> <span class="at">-g</span> <span class="at">--</span> <span class="at">--help</span><span class="op">=</span><span class="st">'--help 2&gt;&amp;1 | bat --language=help --style=plain'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>For <a href="https://neovim.io/">Neovim</a>, I use <a href="https://astronvim.com/">AstroNvim</a> as my configuration framework:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--depth</span> 1 https://github.com/AstroNvim/template ~/.config/nvim <span class="dt">\</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="at">-rf</span> ~/.config/nvim/.git <span class="dt">\</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="ex">nvim</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</section>
+<section id="slurm-helpers-for-supercomputers" class="level3">
+<h3 class="anchored" data-anchor-id="slurm-helpers-for-supercomputers">SLURM Helpers for Supercomputers</h3>
+<p>This part is for the HPC crowd. If you have never touched a SLURM cluster, feel free to skip ahead to the conclusion — nothing below will be relevant to you.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SLURM shell helpers — click to expand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For HPC environments running <a href="https://slurm.schedmd.com/">SLURM</a>, I keep these functions in my shell configuration. They make interactive GPU sessions much less tedious to manage — particularly on <a href="https://isambard.ac.uk/">Isambard-AI</a>, where I spend a lot of time.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NODE_SHELL</span><span class="op">=</span><span class="st">"zsh"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getgnode()</span> <span class="kw">{</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">ngpus</span><span class="op">=</span>1</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">time_limit</span><span class="op">=</span><span class="st">"02:00:00"</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">partition</span><span class="op">=</span><span class="st">"workq"</span>  <span class="co"># Adjust for your cluster</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="kw">[[</span> <span class="va">$#</span> <span class="ot">-gt</span> 0 <span class="kw">]];</span> <span class="cf">do</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-h</span><span class="kw">|</span><span class="ss">--help</span><span class="kw">)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Usage: getgnode [OPTIONS]"</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Allocate and attach to an interactive SLURM GPU node."</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">""</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Options:"</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -g, --gpus INT         Number of GPUs to request (default: 1)"</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -p, --partition NAME   SLURM partition (default: workq)"</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -t, --time HH:MM:SS    Time limit (default: 02:00:00)"</span></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -h, --help             Show this help"</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">;;</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-g</span><span class="kw">|</span><span class="ss">--gpus</span><span class="kw">)</span>      <span class="va">ngpus</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span><span class="kw">;</span>      <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-p</span><span class="kw">|</span><span class="ss">--partition</span><span class="kw">)</span> <span class="va">partition</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span><span class="kw">;</span>  <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-t</span><span class="kw">|</span><span class="ss">--time</span><span class="kw">)</span>      <span class="va">time_limit</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span><span class="kw">;</span> <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>            <span class="pp">*</span><span class="kw">)</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Error: Unknown argument '</span><span class="va">$1</span><span class="st">'"</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Type 'getgnode --help' for usage."</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>                <span class="cf">;;</span></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">esac</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">salloc</span> <span class="at">--partition</span><span class="op">=</span><span class="st">"</span><span class="va">${partition}</span><span class="st">"</span> <span class="dt">\</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>           <span class="at">--gres</span><span class="op">=</span>gpu:<span class="st">"</span><span class="va">${ngpus}</span><span class="st">"</span> <span class="dt">\</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">--time</span><span class="op">=</span><span class="st">"</span><span class="va">${time_limit}</span><span class="st">"</span> <span class="dt">\</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>           srun <span class="at">--pty</span> <span class="st">"</span><span class="va">${NODE_SHELL</span><span class="op">:-</span>zsh<span class="va">}</span><span class="st">"</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="fu">fetchgnode()</span> <span class="kw">{</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"-h"</span> <span class="kw">||</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"--help"</span> <span class="kw">||</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: fetchgnode &lt;jobid&gt;"</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Attach a new shell to an existing SLURM job."</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="ex">srun</span> <span class="at">--jobid</span><span class="op">=</span><span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="at">--overlap</span> <span class="at">--pty</span> <span class="st">"</span><span class="va">${NODE_SHELL</span><span class="op">:-</span>zsh<span class="va">}</span><span class="st">"</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> sqm=<span class="st">"squeue --me"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="where-i-ended-up" class="level2">
+<h2 class="anchored" data-anchor-id="where-i-ended-up">Where I Ended Up</h2>
+<p>Looking back, the journey was not really about finding the right distribution. Every distribution I used taught me something — Debian gave me discipline, Arch gave me depth, CentOS gave me an appreciation for stability, Nobara reminded me why community matters. What I was actually searching for, without fully realising it, was a coherent philosophy: a system I could understand completely, trust in production, enjoy on the desktop, and extend without fighting it.</p>
+<p>Fedora, combined with KDE, DNF, Flatpak, and pixi, turned out to be that system. The distribution handles the OS. Flatpak handles GUI applications cleanly and keeps them up to date. DNF handles anything system-level that belongs there. And pixi handles everything else — Python environments, binary tools, cross-platform reproducibility — with a single unified interface that works identically on my workstation, my laptop, and a GH200 node on Isambard-AI.</p>
+<p>The packages problem that once felt like an unsolvable compromise turned out to have a clean answer. I just had to wait for the Rust ecosystem to mature enough to build it.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/nourollah\.me");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+<script src="../../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

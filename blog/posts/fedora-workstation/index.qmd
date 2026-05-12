@@ -1,0 +1,182 @@
+---
+title: "My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Never Looked Back"
+description: "A personal account of years spent distro-hopping across the Linux ecosystem — and how I finally settled on Fedora Workstation, fixed the packages problem with pixi, and built a setup I actually enjoy living in."
+author: "Amir Masoud Nourollah"
+date: "2026-05-07"
+categories: [linux, desktop, fedora, workstation]
+draft: false
+---
+
+## How I Landed on Fedora Workstation
+
+For many years, I used a Debian-based distribution as my primary operating system. I started with [Debian](https://www.debian.org/) itself, and later switched to [Ubuntu](https://ubuntu.com/) for convenience. I had a good experience with both, but the more I learnt about the Linux ecosystem, the more I felt I did not need the extra layers Ubuntu puts on top of Debian. I started exploring a variety of popular and expert-level distributions. I wanted a more "pure" Linux experience — closer to the upstream projects and communities. Soon, I realised that the Debian package ecosystem is far wider than the Red Hat ecosystem, and switching to a Red Hat-based distribution such as [Fedora](https://fedoraproject.org/) or [CentOS](https://www.centos.org/) was difficult because some of the software I used daily was not published as `.rpm` packages.
+
+Considering simplicity, full control over my system, and the breadth of available packages, [Arch Linux](https://archlinux.org/) eventually made its way onto my list. My first installation attempt was unpleasant, but feeling the installation process — the fingerprint of control over every individual part of the OS — made me warm to it quickly. I could find almost anything in the [AUR](https://aur.archlinux.org/), spanning from packages available in other distributions to wrapped legacy packages whose development had been discontinued and removed from mainstream repositories. I had a lot of fun, even though I nearly broke my system more than once. But the complexity of installation and personalisation, and the differences between my desktop and server environments, eventually made Arch difficult to sustain. Along the way I tried some Arch-based distributions — [Manjaro](https://manjaro.org/), [EndeavourOS](https://endeavouros.com/), and [BlackArch](https://blackarch.org/) as an alternative to [Kali](https://www.kali.org/). All of them were pleasant experiences, but none of them addressed my real problem: a unified ecosystem for both production and personal use.
+
+I had always had a careful appreciation for Red Hat and was a fan of it for production servers. At the time, Red Hat was not free for personal use, so I went with CentOS to unify my environment. But as a developer who was not yet familiar with containerisation — tools like [Podman](https://podman.io/) and [Docker](https://www.docker.com/) — I needed bleeding-edge packages to practise with and keep up with the software I was building. CentOS was not the answer either.
+
+I had always known about Fedora — it has long been one of the pioneer distributions in the Linux ecosystem — but I had run into problems configuring my Nvidia GPU drivers and occasional glitches in video games due to missing or improperly configured components. Around that time, a new distribution was rising: [Nobara](https://nobaraproject.org/), a highly optimised Fedora-based distribution built for gaming. If a distribution is tuned for gaming, it tends to get along well with machine learning setups too, and Nobara became my daily driver for a while. But I eventually realised it is not a community-driven project — it is maintained by a single person. I needed to respect my commitment to the open-source and community-driven spirit, so I started looking for an alternative and stumbled upon the [Fedora Post Install Guide](https://github.com/devangshekhawat/Fedora-44-Post-Install-Guide).
+
+I thought: why not give Fedora one final, honest try? That try ended years of distro-hopping. Following the guide transformed Fedora — I have always been a [KDE](https://kde.org/) user and have never warmed to GNOME — into an OS that was smooth, stable, and genuinely enjoyable to live in. Everything I had been looking for was there. One problem remained, though: some packages were unavailable in the default repositories, or required adding custom sources. Especially with the recent wave of [Rust](https://www.rust-lang.org/)-based tools for Linux, I had adopted several in my daily workflow that simply were not in DNF.
+
+------------------------------------------------------------------------
+
+## How I Fixed the Packages Problem
+
+That remaining problem — missing packages — was not unique to Fedora. It had been following me across every distribution I had ever used, in different forms. On Debian it was outdated versions. On Arch it was AUR maintenance risk. On CentOS it was the gap between stability and currency. Fedora brought me closer than anything else had, but it did not fully close it. The answer, when it finally arrived, did not come from the distribution at all.
+
+Before getting to that, I want to talk about my relationship with Python — because the solution to the packages problem and the solution to surviving the Python ecosystem turned out to be the same thing.
+
+### [Pixi](https://pixi.prefix.dev/latest/): The Missing Piece for the Python Ecosystem
+
+I started my programming journey with Java in 2010. It was one of the most elegant languages available at the time, and I vividly remember compiling Android apps before Android Studio with [Eclipse](https://eclipseide.org), installing them through a [BlueStacks](https://www.bluestacks.com/) emulator. Later I switched to C/C++ to get closer to the underlying machine — learning the hard way about setting up projects, installing libraries system-wide, writing `Makefile`s, and eventually `CMakeLists.txt`. Cross-compiling for another architecture was painful, but it was structured and I understood every piece of it. I never touched package managers like [Conan](https://conan.io/) or [vcpkg](https://vcpkg.io/) until much later.
+
+Python was initially forced on me by an assignment. I just started writing it — some trial and error — and it worked. There was no AI to answer questions in 2020, so I learnt mostly by searching. Within a year Python had become my default language for assignments and eventually for shell scripting, replacing Bash in many places. Its package manager made the ecosystem feel welcoming, and the breadth of available libraries was remarkable.
+
+To avoid dependency conflicts I kept a set of virtual environments in `$HOME/.venv/` — one for computer vision, one for networking, one for scripting, one for signal processing — and activated whichever I needed. It worked, until I tried moving a project between systems. Binary packages were a particular nightmare. [Conda](https://docs.conda.io/) was the standard answer for that, but it was too slow and too heavy for my taste. I kept trying to avoid it, compiling packages from source with my own compiler out of old C/C++ habits. Something was fundamentally wrong at the portability level — Python is interpreted, it should be portable, and yet reproducing an environment reliably across machines felt like a constant struggle. I tried [`requirements.txt`](https://pip.pypa.io/en/stable/reference/requirements-file-format/), then [Poetry](https://python-poetry.org/), then [uv](https://github.com/astral-sh/uv). Both Poetry and uv were excellent tools, but neither handled binary packages independently — I still needed `mamba` alongside them for `torch`-based projects, and anything involving [`torch_scatter`](https://github.com/rusty1s/pytorch_scatter) could turn into a nightmare.
+
+Then I read a post about [pixi](https://pixi.prefix.dev/latest/) somewhere and it immediately caught my attention. I ran to try it — a project manager that handles `pip` via `uv` and `conda` via `mamba` simultaneously, in a single environment file, without installing a heavy default package set. It worked across platforms: not just `x86_64`, but `aarch64` and others too. You could even add custom channels. I had found what I had been looking for — a single tool to manage everything from a simple shell script to a complex multi-platform project with heavy binary dependencies.
+
+### Managing Packages on Fedora
+
+The default package manager [`DNF`](https://dnf.readthedocs.io/en/latest/) remains my favourite package manager in Linux and is always the first place I look. For GUI applications, [Flatpak](https://flatpak.org/) has become indispensable — developers tend to keep their Flatpak releases more up to date than distribution repositories, and it covers the applications I use most: [Telegram](https://telegram.org/), [Discord](https://discord.com/), and others. I install almost everything GUI-related through Flatpak.
+
+For terminal tools and binary utilities, however, neither DNF nor Flatpak covers everything — particularly the newer wave of Rust-based CLI tools. On remote servers where I have no installation privileges, the situation is even more constrained.
+
+Pixi turned out to solve this problem too. I had initially found its `pixi shell` activation requirement slightly annoying for tools I wanted available globally. Then I discovered:
+
+``` bash
+pixi global install <package_name>
+```
+
+This was a game changer. I could install tools outside any virtual environment — not as project dependencies, but as system-level utilities available anywhere. It became the first command I run on any new machine:
+
+``` bash
+pixi global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine xh sd helix neovim tmux zellij btop zsh xonsh
+```
+
+No custom repositories. No extra layers. No searching for obscure PPAs or Copr entries. Everything in one command.
+
+------------------------------------------------------------------------
+
+## The Setup
+
+If you are curious about the tools and how I configure them, this section is for you.
+
+### Terminal Tools
+
+| Tool | What it does |
+|:-----------------------------------|:-----------------------------------|
+| [`zoxide`](https://github.com/ajeetdsouza/zoxide) | Smarter `cd` with directory history and frecency ranking |
+| [`ripgrep`](https://github.com/BurntSushi/ripgrep) | Fast recursive text search (`rg`) |
+| [`fd-find`](https://github.com/sharkdp/fd) | Fast, ergonomic `find` replacement |
+| [`bat`](https://github.com/sharkdp/bat) | `cat` with syntax highlighting and Git integration |
+| [`eza`](https://github.com/eza-community/eza) | Modern `ls` replacement with icons and tree view |
+| [`btm`](https://github.com/ClementTsang/bottom) | Interactive terminal system monitor |
+| [`dust`](https://github.com/bootandy/dust) / [`ncdu`](https://dev.yorhel.nl/ncdu) | Fast, intuitive disk usage analyser |
+| [`delta`](https://github.com/dandavison/delta) | Improved `git diff` pager with syntax highlighting |
+| [`hyperfine`](https://github.com/sharkdp/hyperfine) | CLI benchmarking tool |
+| [`xh`](https://github.com/ducaale/xh) | Friendly, fast HTTP client |
+| [`sd`](https://github.com/chmln/sd) | Intuitive search-and-replace for the command line |
+| [`helix`](https://helix-editor.com/) / [`neovim`](https://neovim.io/) | Modal text editors |
+| [`zellij`](https://zellij.dev/) / [`tmux`](https://github.com/tmux/tmux) | Terminal workspace and session managers |
+| [`btop`](https://github.com/aristocratos/btop) | Beautiful terminal resource monitor |
+
+### Shell Aliases
+
+I add the following to my `.zshrc` or `.bashrc`:
+
+``` bash
+# Modern replacements
+alias ls="eza --icons --group-directories-first"
+alias tree="eza --icons --tree"
+alias treed="eza --icons --tree --level"
+alias lsdu='du -a -h --max-depth=1 | sort -hr'
+alias du='dust'
+alias top='btm'
+alias cd='z'
+alias grep='rg'
+alias vim='nvim'
+
+# Pipe --help and -h output through bat for syntax highlighting
+alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+```
+
+For [Neovim](https://neovim.io/), I use [AstroNvim](https://astronvim.com/) as my configuration framework:
+
+``` bash
+git clone --depth 1 https://github.com/AstroNvim/template ~/.config/nvim \
+  && rm -rf ~/.config/nvim/.git \
+  && nvim
+```
+
+### SLURM Helpers for Supercomputers
+
+This part is for the HPC crowd. If you have never touched a SLURM cluster, feel free to skip ahead to the conclusion — nothing below will be relevant to you.
+
+::: {.callout-note collapse="true"}
+## SLURM shell helpers — click to expand
+
+For HPC environments running [SLURM](https://slurm.schedmd.com/), I keep these functions in my shell configuration. They make interactive GPU sessions much less tedious to manage — particularly on [Isambard-AI](https://isambard.ac.uk/), where I spend a lot of time.
+
+``` bash
+export NODE_SHELL="zsh"
+
+getgnode() {
+    local ngpus=1
+    local time_limit="02:00:00"
+    local partition="workq"  # Adjust for your cluster
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -h|--help)
+                echo "Usage: getgnode [OPTIONS]"
+                echo "Allocate and attach to an interactive SLURM GPU node."
+                echo ""
+                echo "Options:"
+                echo "  -g, --gpus INT         Number of GPUs to request (default: 1)"
+                echo "  -p, --partition NAME   SLURM partition (default: workq)"
+                echo "  -t, --time HH:MM:SS    Time limit (default: 02:00:00)"
+                echo "  -h, --help             Show this help"
+                return 0
+                ;;
+            -g|--gpus)      ngpus="$2";      shift 2 ;;
+            -p|--partition) partition="$2";  shift 2 ;;
+            -t|--time)      time_limit="$2"; shift 2 ;;
+            *)
+                echo "Error: Unknown argument '$1'"
+                echo "Type 'getgnode --help' for usage."
+                return 1
+                ;;
+        esac
+    done
+
+    salloc --partition="${partition}" \
+           --gres=gpu:"${ngpus}" \
+           --time="${time_limit}" \
+           srun --pty "${NODE_SHELL:-zsh}"
+}
+
+fetchgnode() {
+    if [[ "$1" == "-h" || "$1" == "--help" || -z "$1" ]]; then
+        echo "Usage: fetchgnode <jobid>"
+        echo "Attach a new shell to an existing SLURM job."
+        return 0
+    fi
+    srun --jobid="$1" --overlap --pty "${NODE_SHELL:-zsh}"
+}
+
+alias sqm="squeue --me"
+```
+:::
+
+------------------------------------------------------------------------
+
+## Where I Ended Up
+
+Looking back, the journey was not really about finding the right distribution. Every distribution I used taught me something — Debian gave me discipline, Arch gave me depth, CentOS gave me an appreciation for stability, Nobara reminded me why community matters. What I was actually searching for, without fully realising it, was a coherent philosophy: a system I could understand completely, trust in production, enjoy on the desktop, and extend without fighting it.
+
+Fedora, combined with KDE, DNF, Flatpak, and pixi, turned out to be that system. The distribution handles the OS. Flatpak handles GUI applications cleanly and keeps them up to date. DNF handles anything system-level that belongs there. And pixi handles everything else — Python environments, binary tools, cross-platform reproducibility — with a single unified interface that works identically on my workstation, my laptop, and a GH200 node on Isambard-AI.
+
+The packages problem that once felt like an unsolvable compromise turned out to have a clean answer. I just had to wait for the Rust ecosystem to mature enough to build it.

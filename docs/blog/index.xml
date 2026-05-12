@@ -65,5 +65,701 @@
   <guid>https://nourollah.me/blog/posts/chemical-foundation-models/</guid>
   <pubDate>Mon, 11 May 2026 23:00:00 GMT</pubDate>
 </item>
+<item>
+  <title>My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Never Looked Back</title>
+  <dc:creator>Amir Masoud Nourollah</dc:creator>
+  <link>https://nourollah.me/blog/posts/fedora-workstation/</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="how-i-landed-on-fedora-workstation" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-landed-on-fedora-workstation">How I Landed on Fedora Workstation</h2>
+<p>For many years, I used a Debian-based distribution as my primary operating system. I started with <a href="https://www.debian.org/">Debian</a> itself, and later switched to <a href="https://ubuntu.com/">Ubuntu</a> for convenience. I had a good experience with both, but the more I learnt about the Linux ecosystem, the more I felt I did not need the extra layers Ubuntu puts on top of Debian. I started exploring a variety of popular and expert-level distributions. I wanted a more “pure” Linux experience — closer to the upstream projects and communities. Soon, I realised that the Debian package ecosystem is far wider than the Red Hat ecosystem, and switching to a Red Hat-based distribution such as <a href="https://fedoraproject.org/">Fedora</a> or <a href="https://www.centos.org/">CentOS</a> was difficult because some of the software I used daily was not published as <code>.rpm</code> packages.</p>
+<p>Considering simplicity, full control over my system, and the breadth of available packages, <a href="https://archlinux.org/">Arch Linux</a> eventually made its way onto my list. My first installation attempt was unpleasant, but feeling the installation process — the fingerprint of control over every individual part of the OS — made me warm to it quickly. I could find almost anything in the <a href="https://aur.archlinux.org/">AUR</a>, spanning from packages available in other distributions to wrapped legacy packages whose development had been discontinued and removed from mainstream repositories. I had a lot of fun, even though I nearly broke my system more than once. But the complexity of installation and personalisation, and the differences between my desktop and server environments, eventually made Arch difficult to sustain. Along the way I tried some Arch-based distributions — <a href="https://manjaro.org/">Manjaro</a>, <a href="https://endeavouros.com/">EndeavourOS</a>, and <a href="https://blackarch.org/">BlackArch</a> as an alternative to <a href="https://www.kali.org/">Kali</a>. All of them were pleasant experiences, but none of them addressed my real problem: a unified ecosystem for both production and personal use.</p>
+<p>I had always had a careful appreciation for Red Hat and was a fan of it for production servers. At the time, Red Hat was not free for personal use, so I went with CentOS to unify my environment. But as a developer who was not yet familiar with containerisation — tools like <a href="https://podman.io/">Podman</a> and <a href="https://www.docker.com/">Docker</a> — I needed bleeding-edge packages to practise with and keep up with the software I was building. CentOS was not the answer either.</p>
+<p>I had always known about Fedora — it has long been one of the pioneer distributions in the Linux ecosystem — but I had run into problems configuring my Nvidia GPU drivers and occasional glitches in video games due to missing or improperly configured components. Around that time, a new distribution was rising: <a href="https://nobaraproject.org/">Nobara</a>, a highly optimised Fedora-based distribution built for gaming. If a distribution is tuned for gaming, it tends to get along well with machine learning setups too, and Nobara became my daily driver for a while. But I eventually realised it is not a community-driven project — it is maintained by a single person. I needed to respect my commitment to the open-source and community-driven spirit, so I started looking for an alternative and stumbled upon the <a href="https://github.com/devangshekhawat/Fedora-44-Post-Install-Guide">Fedora Post Install Guide</a>.</p>
+<p>I thought: why not give Fedora one final, honest try? That try ended years of distro-hopping. Following the guide transformed Fedora — I have always been a <a href="https://kde.org/">KDE</a> user and have never warmed to GNOME — into an OS that was smooth, stable, and genuinely enjoyable to live in. Everything I had been looking for was there. One problem remained, though: some packages were unavailable in the default repositories, or required adding custom sources. Especially with the recent wave of <a href="https://www.rust-lang.org/">Rust</a>-based tools for Linux, I had adopted several in my daily workflow that simply were not in DNF.</p>
+<hr>
+</section>
+<section id="how-i-fixed-the-packages-problem" class="level2">
+<h2 class="anchored" data-anchor-id="how-i-fixed-the-packages-problem">How I Fixed the Packages Problem</h2>
+<p>That remaining problem — missing packages — was not unique to Fedora. It had been following me across every distribution I had ever used, in different forms. On Debian it was outdated versions. On Arch it was AUR maintenance risk. On CentOS it was the gap between stability and currency. Fedora brought me closer than anything else had, but it did not fully close it. The answer, when it finally arrived, did not come from the distribution at all.</p>
+<p>Before getting to that, I want to talk about my relationship with Python — because the solution to the packages problem and the solution to surviving the Python ecosystem turned out to be the same thing.</p>
+<section id="pixi-the-missing-piece-for-the-python-ecosystem" class="level3">
+<h3 class="anchored" data-anchor-id="pixi-the-missing-piece-for-the-python-ecosystem"><a href="https://pixi.prefix.dev/latest/">Pixi</a>: The Missing Piece for the Python Ecosystem</h3>
+<p>I started my programming journey with Java in 2010. It was one of the most elegant languages available at the time, and I vividly remember compiling Android apps before Android Studio with <a href="https://eclipseide.org">Eclipse</a>, installing them through a <a href="https://www.bluestacks.com/">BlueStacks</a> emulator. Later I switched to C/C++ to get closer to the underlying machine — learning the hard way about setting up projects, installing libraries system-wide, writing <code>Makefile</code>s, and eventually <code>CMakeLists.txt</code>. Cross-compiling for another architecture was painful, but it was structured and I understood every piece of it. I never touched package managers like <a href="https://conan.io/">Conan</a> or <a href="https://vcpkg.io/">vcpkg</a> until much later.</p>
+<p>Python was initially forced on me by an assignment. I just started writing it — some trial and error — and it worked. There was no AI to answer questions in 2020, so I learnt mostly by searching. Within a year Python had become my default language for assignments and eventually for shell scripting, replacing Bash in many places. Its package manager made the ecosystem feel welcoming, and the breadth of available libraries was remarkable.</p>
+<p>To avoid dependency conflicts I kept a set of virtual environments in <code>$HOME/.venv/</code> — one for computer vision, one for networking, one for scripting, one for signal processing — and activated whichever I needed. It worked, until I tried moving a project between systems. Binary packages were a particular nightmare. <a href="https://docs.conda.io/">Conda</a> was the standard answer for that, but it was too slow and too heavy for my taste. I kept trying to avoid it, compiling packages from source with my own compiler out of old C/C++ habits. Something was fundamentally wrong at the portability level — Python is interpreted, it should be portable, and yet reproducing an environment reliably across machines felt like a constant struggle. I tried <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/"><code>requirements.txt</code></a>, then <a href="https://python-poetry.org/">Poetry</a>, then <a href="https://github.com/astral-sh/uv">uv</a>. Both Poetry and uv were excellent tools, but neither handled binary packages independently — I still needed <code>mamba</code> alongside them for <code>torch</code>-based projects, and anything involving <a href="https://github.com/rusty1s/pytorch_scatter"><code>torch_scatter</code></a> could turn into a nightmare.</p>
+<p>Then I read a post about <a href="https://pixi.prefix.dev/latest/">pixi</a> somewhere and it immediately caught my attention. I ran to try it — a project manager that handles <code>pip</code> via <code>uv</code> and <code>conda</code> via <code>mamba</code> simultaneously, in a single environment file, without installing a heavy default package set. It worked across platforms: not just <code>x86_64</code>, but <code>aarch64</code> and others too. You could even add custom channels. I had found what I had been looking for — a single tool to manage everything from a simple shell script to a complex multi-platform project with heavy binary dependencies.</p>
+</section>
+<section id="managing-packages-on-fedora" class="level3">
+<h3 class="anchored" data-anchor-id="managing-packages-on-fedora">Managing Packages on Fedora</h3>
+<p>The default package manager <a href="https://dnf.readthedocs.io/en/latest/"><code>DNF</code></a> remains my favourite package manager in Linux and is always the first place I look. For GUI applications, <a href="https://flatpak.org/">Flatpak</a> has become indispensable — developers tend to keep their Flatpak releases more up to date than distribution repositories, and it covers the applications I use most: <a href="https://telegram.org/">Telegram</a>, <a href="https://discord.com/">Discord</a>, and others. I install almost everything GUI-related through Flatpak.</p>
+<p>For terminal tools and binary utilities, however, neither DNF nor Flatpak covers everything — particularly the newer wave of Rust-based CLI tools. On remote servers where I have no installation privileges, the situation is even more constrained.</p>
+<p>Pixi turned out to solve this problem too. I had initially found its <code>pixi shell</code> activation requirement slightly annoying for tools I wanted available globally. Then I discovered:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> global install <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>package_name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span></code></pre></div></div>
+<p>This was a game changer. I could install tools outside any virtual environment — not as project dependencies, but as system-level utilities available anywhere. It became the first command I run on any new machine:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine xh sd helix neovim tmux zellij btop zsh xonsh</span></code></pre></div></div>
+<p>No custom repositories. No extra layers. No searching for obscure PPAs or Copr entries. Everything in one command.</p>
+<hr>
+</section>
+</section>
+<section id="the-setup" class="level2">
+<h2 class="anchored" data-anchor-id="the-setup">The Setup</h2>
+<p>If you are curious about the tools and how I configure them, this section is for you.</p>
+<section id="terminal-tools" class="level3">
+<h3 class="anchored" data-anchor-id="terminal-tools">Terminal Tools</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Tool</th>
+<th style="text-align: left;">What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/ajeetdsouza/zoxide"><code>zoxide</code></a></td>
+<td style="text-align: left;">Smarter <code>cd</code> with directory history and frecency ranking</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/BurntSushi/ripgrep"><code>ripgrep</code></a></td>
+<td style="text-align: left;">Fast recursive text search (<code>rg</code>)</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/sharkdp/fd"><code>fd-find</code></a></td>
+<td style="text-align: left;">Fast, ergonomic <code>find</code> replacement</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/sharkdp/bat"><code>bat</code></a></td>
+<td style="text-align: left;"><code>cat</code> with syntax highlighting and Git integration</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/eza-community/eza"><code>eza</code></a></td>
+<td style="text-align: left;">Modern <code>ls</code> replacement with icons and tree view</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/ClementTsang/bottom"><code>btm</code></a></td>
+<td style="text-align: left;">Interactive terminal system monitor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/bootandy/dust"><code>dust</code></a> / <a href="https://dev.yorhel.nl/ncdu"><code>ncdu</code></a></td>
+<td style="text-align: left;">Fast, intuitive disk usage analyser</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/dandavison/delta"><code>delta</code></a></td>
+<td style="text-align: left;">Improved <code>git diff</code> pager with syntax highlighting</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/sharkdp/hyperfine"><code>hyperfine</code></a></td>
+<td style="text-align: left;">CLI benchmarking tool</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/ducaale/xh"><code>xh</code></a></td>
+<td style="text-align: left;">Friendly, fast HTTP client</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/chmln/sd"><code>sd</code></a></td>
+<td style="text-align: left;">Intuitive search-and-replace for the command line</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://helix-editor.com/"><code>helix</code></a> / <a href="https://neovim.io/"><code>neovim</code></a></td>
+<td style="text-align: left;">Modal text editors</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://zellij.dev/"><code>zellij</code></a> / <a href="https://github.com/tmux/tmux"><code>tmux</code></a></td>
+<td style="text-align: left;">Terminal workspace and session managers</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/aristocratos/btop"><code>btop</code></a></td>
+<td style="text-align: left;">Beautiful terminal resource monitor</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="shell-aliases" class="level3">
+<h3 class="anchored" data-anchor-id="shell-aliases">Shell Aliases</h3>
+<p>I add the following to my <code>.zshrc</code> or <code>.bashrc</code>:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Modern replacements</span></span>
+<span id="cb3-2"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> ls=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eza --icons --group-directories-first"</span></span>
+<span id="cb3-3"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> tree=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eza --icons --tree"</span></span>
+<span id="cb3-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> treed=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eza --icons --tree --level"</span></span>
+<span id="cb3-5"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> lsdu=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'du -a -h --max-depth=1 | sort -hr'</span></span>
+<span id="cb3-6"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> du=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'dust'</span></span>
+<span id="cb3-7"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> top=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'btm'</span></span>
+<span id="cb3-8"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> cd=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'z'</span></span>
+<span id="cb3-9"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> grep=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'rg'</span></span>
+<span id="cb3-10"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> vim=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'nvim'</span></span>
+<span id="cb3-11"></span>
+<span id="cb3-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Pipe --help and -h output through bat for syntax highlighting</span></span>
+<span id="cb3-13"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-g</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-h</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'-h 2&gt;&amp;1 | bat --language=help --style=plain'</span></span>
+<span id="cb3-14"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-g</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--help</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'--help 2&gt;&amp;1 | bat --language=help --style=plain'</span></span></code></pre></div></div>
+<p>For <a href="https://neovim.io/">Neovim</a>, I use <a href="https://astronvim.com/">AstroNvim</a> as my configuration framework:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> clone <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--depth</span> 1 https://github.com/AstroNvim/template ~/.config/nvim <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb4-2">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">&amp;&amp;</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rm</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-rf</span> ~/.config/nvim/.git <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb4-3">  <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">&amp;&amp;</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">nvim</span></span></code></pre></div></div>
+</section>
+<section id="slurm-helpers-for-supercomputers" class="level3">
+<h3 class="anchored" data-anchor-id="slurm-helpers-for-supercomputers">SLURM Helpers for Supercomputers</h3>
+<p>This part is for the HPC crowd. If you have never touched a SLURM cluster, feel free to skip ahead to the conclusion — nothing below will be relevant to you.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center collapsed" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>SLURM shell helpers — click to expand
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>For HPC environments running <a href="https://slurm.schedmd.com/">SLURM</a>, I keep these functions in my shell configuration. They make interactive GPU sessions much less tedious to manage — particularly on <a href="https://isambard.ac.uk/">Isambard-AI</a>, where I spend a lot of time.</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">export</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">NODE_SHELL</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"zsh"</span></span>
+<span id="cb5-2"></span>
+<span id="cb5-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">getgnode()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-4">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">ngpus</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>1</span>
+<span id="cb5-5">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">time_limit</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"02:00:00"</span></span>
+<span id="cb5-6">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">partition</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"workq"</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Adjust for your cluster</span></span>
+<span id="cb5-7"></span>
+<span id="cb5-8">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">while</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$#</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-gt</span> 0 <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">do</span></span>
+<span id="cb5-9">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">case</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span></span>
+<span id="cb5-10">            <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">-h</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">--help</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span></span>
+<span id="cb5-11">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: getgnode [OPTIONS]"</span></span>
+<span id="cb5-12">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Allocate and attach to an interactive SLURM GPU node."</span></span>
+<span id="cb5-13">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span></span>
+<span id="cb5-14">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Options:"</span></span>
+<span id="cb5-15">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"  -g, --gpus INT         Number of GPUs to request (default: 1)"</span></span>
+<span id="cb5-16">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"  -p, --partition NAME   SLURM partition (default: workq)"</span></span>
+<span id="cb5-17">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"  -t, --time HH:MM:SS    Time limit (default: 02:00:00)"</span></span>
+<span id="cb5-18">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"  -h, --help             Show this help"</span></span>
+<span id="cb5-19">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb5-20">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-21">            <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">-g</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">--gpus</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span>      <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">ngpus</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$2</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span>      <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">shift</span> 2 <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-22">            <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">-p</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">--partition</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">partition</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$2</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span>  <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">shift</span> 2 <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-23">            <span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">-t</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">--time</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span>      <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">time_limit</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$2</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">shift</span> 2 <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-24">            <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span></span>
+<span id="cb5-25">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Error: Unknown argument '</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'"</span></span>
+<span id="cb5-26">                <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Type 'getgnode --help' for usage."</span></span>
+<span id="cb5-27">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-28">                <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-29">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">esac</span></span>
+<span id="cb5-30">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">done</span></span>
+<span id="cb5-31"></span>
+<span id="cb5-32">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">salloc</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--partition</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${partition}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-33">           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--gres</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>gpu:<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${ngpus}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-34">           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--time</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${time_limit}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="dt" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">\</span></span>
+<span id="cb5-35">           srun <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--pty</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${NODE_SHELL</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:-</span>zsh<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-36"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-37"></span>
+<span id="cb5-38"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">fetchgnode()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-39">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"-h"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">||</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"--help"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">||</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb5-40">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: fetchgnode &lt;jobid&gt;"</span></span>
+<span id="cb5-41">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Attach a new shell to an existing SLURM job."</span></span>
+<span id="cb5-42">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span></span>
+<span id="cb5-43">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb5-44">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">srun</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--jobid</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--overlap</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--pty</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${NODE_SHELL</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:-</span>zsh<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-45"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-46"></span>
+<span id="cb5-47"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> sqm=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"squeue --me"</span></span></code></pre></div></div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="where-i-ended-up" class="level2">
+<h2 class="anchored" data-anchor-id="where-i-ended-up">Where I Ended Up</h2>
+<p>Looking back, the journey was not really about finding the right distribution. Every distribution I used taught me something — Debian gave me discipline, Arch gave me depth, CentOS gave me an appreciation for stability, Nobara reminded me why community matters. What I was actually searching for, without fully realising it, was a coherent philosophy: a system I could understand completely, trust in production, enjoy on the desktop, and extend without fighting it.</p>
+<p>Fedora, combined with KDE, DNF, Flatpak, and pixi, turned out to be that system. The distribution handles the OS. Flatpak handles GUI applications cleanly and keeps them up to date. DNF handles anything system-level that belongs there. And pixi handles everything else — Python environments, binary tools, cross-platform reproducibility — with a single unified interface that works identically on my workstation, my laptop, and a GH200 node on Isambard-AI.</p>
+<p>The packages problem that once felt like an unsolvable compromise turned out to have a clean answer. I just had to wait for the Rust ecosystem to mature enough to build it.</p>
+
+
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>linux</category>
+  <category>desktop</category>
+  <category>fedora</category>
+  <category>workstation</category>
+  <guid>https://nourollah.me/blog/posts/fedora-workstation/</guid>
+  <pubDate>Wed, 06 May 2026 23:00:00 GMT</pubDate>
+</item>
 </channel>
 </rss>

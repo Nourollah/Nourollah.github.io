@@ -2,7 +2,8 @@
   {
     "listing": "/blog/index.html",
     "items": [
-      "/blog/posts/chemical-foundation-models/index.html"
+      "/blog/posts/chemical-foundation-models/index.html",
+      "/blog/posts/fedora-workstation/index.html"
     ]
   }
 ]
