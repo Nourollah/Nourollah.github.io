@@ -6,11 +6,11 @@ toc-depth: 2
 
 ## Education
 
-| Degree | Institution | Period |
-|--------|-------------|--------|
-| PhD, Computer Science | Cardiff University | 2024 – present |
-| MSc, Artificial Intelligence & Robotics | Shahrood University of Technology | 2020 – 2023 |
-| BSc, Chemistry | IAUTNB | 2017 – 2020 |
+| Degree | Institution | Supervisor(s)/Advisor(s) | Period |
+|--------------------|--------------------------------|--------------------|--------------------|
+| PhD, Computer Science | Cardiff University | [Prof. Steven Schockaert](https://profiles.cardiff.ac.uk/staff/schockaerts1), [Prof. Stefano Leoni](https://profiles.cardiff.ac.uk/staff/leonis) | 2024 – present |
+| MSc, Artificial Intelligence & Robotics | Shahrood University of Technology | [Prof. Hamid Hassanpour](https://scholar.google.com/citations?user=RgIoUX0AAAAJ&hl=en), [Dr. Amin Zehtabian](https://scholar.google.com/citations?user=El7dQfQAAAAJ&hl=en) | 2020 – 2023 |
+| BSc, Chemistry | IAUTNB | [Prof. Saeed Abedini Khorrami](https://www.researchgate.net/profile/Saeed-Khorrami), [Prof. Mahmoudreza Sohrabi](https://scholar.google.com/citations?user=mVdGg4AAAAAJ&hl=en) | 2016 – 2020 |
 
 ## Research Groups
 
@@ -21,25 +21,30 @@ I am a part of the [Cardiff Natural Language Processing (NLP)](https://cardiffnl
 - Scientific machine learning (SciML)
 - Multimodal machine learning
 - Geometric deep learning and graph neural networks
-- Generalisation and distribution shift in machine learning  
-- Interpretability and explainability in ML models  
+- Generalisation and distribution shift in machine learning\
+- Interpretability and explainability in ML models\
 - Neural Rendering & Simulation
 
 ## Industry Experience
 
 Before starting my PhD, I worked as a **software engineer** and **machine learning engineer**, leading AI teams across different companies. My applied work has covered:
 
-- Computer vision  
-- Speech processing
-- Natural language processing 
-- Steganography and information hiding
-- AI infrastructure and MLOps
+- Computer Vision & Image/Video Processing
+- Speech/Signal Processing
+- Natural Language Processing
+- Steganography & Information Hiding
+- AI Infrastructure & DevOps
+- Cross-Platform Native Software Development
 
 ## Contact
 
-- **Email:** [am@nourollah.me](mailto:am@nourollah.me)  
-- **GitHub:** [github.com/Nourollah](https://github.com/Nourollah)  
-- **Google Scholar:** [scholar.google.com](https://scholar.google.com/citations?user=jnindL8AAAAJ)  
-- **ORCID:** [0000-0002-6083-6673](https://orcid.org/0000-0002-6083-6673)  
-- **LinkedIn:** [linkedin.com/in/amnrl](https://www.linkedin.com/in/amnrl)  
-- **Telegram:** [t.me/amirmasoudnrl](https://t.me/amirmasoudnrl)  
+::: contact-list
+- <i class="bi bi-envelope"></i> **Email:** [am\@nourollah.me](mailto:am@nourollah.me)
+- <i class="bi bi-envelope"></i> **Gmail:** [nourollah.am\@gmail.com](mailto:nourollah.am@gmail.com)
+- <i class="bi bi-github"></i> **GitHub:** [github.com/Nourollah](https://github.com/Nourollah)
+- <i class="bi bi-mortarboard"></i> **Google Scholar:** [Google Scholar](https://scholar.google.com/citations?user=jnindL8AAAAJ)
+- <i class="bi bi-orcid"></i> **ORCID:** [0000-0002-6083-6673](https://orcid.org/0000-0002-6083-6673)
+- <i class="bi bi-linkedin"></i> **LinkedIn:** [linkedin.com/in/amnrl](https://www.linkedin.com/in/amnrl)
+- <i class="bi bi-telegram"></i> **Telegram:** [t.me/amirmasoudnrl](https://t.me/amirmasoudnrl)
+- <i class="bi bi-building"></i> **University Profile:** [Cardiff University](https://profiles.cardiff.ac.uk/staff/nourollaha)
+:::

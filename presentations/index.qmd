@@ -5,7 +5,7 @@ toc: true
 toc-depth: 2
 ---
 
-Slides built with [Quarto Reveal.js](https://quarto.org/docs/presentations/revealjs/). Icons link to related resources.
+<!-- Slides built with [Quarto Reveal.js](https://quarto.org/docs/presentations/revealjs/). Icons link to related resources. -->
 
 ::: {.d-flex .justify-content-end .mb-2 style="font-size: 0.82rem; color: var(--text-muted);"}
 <span class="me-3"><span class="bi bi-easel2"></span> Slides</span>

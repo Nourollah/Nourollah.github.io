@@ -109,14 +109,14 @@
     "href": "about.html",
     "title": "About",
     "section": "",
-    "text": "Degree\nInstitution\nPeriod\n\n\n\n\nPhD, Computer Science\nCardiff University\n2024 – present\n\n\nMSc, Artificial Intelligence & Robotics\nShahrood University of Technology\n2020 – 2023\n\n\nBSc, Chemistry\nIAUTNB\n2017 – 2020"
+    "text": "Degree\nInstitution\nSupervisor(s)/Advisor(s)\nPeriod\n\n\n\n\nPhD, Computer Science\nCardiff University\nProf. Steven Schockaert, Prof. Stefano Leoni\n2024 – present\n\n\nMSc, Artificial Intelligence & Robotics\nShahrood University of Technology\nProf. Hamid Hassanpour, Dr. Amin Zehtabian\n2020 – 2023\n\n\nBSc, Chemistry\nIAUTNB\nProf. Saeed Abedini Khorrami, Prof. Mahmoudreza Sohrabi\n2016 – 2020"
   },
   {
     "objectID": "about.html#education",
     "href": "about.html#education",
     "title": "About",
     "section": "",
-    "text": "Degree\nInstitution\nPeriod\n\n\n\n\nPhD, Computer Science\nCardiff University\n2024 – present\n\n\nMSc, Artificial Intelligence & Robotics\nShahrood University of Technology\n2020 – 2023\n\n\nBSc, Chemistry\nIAUTNB\n2017 – 2020"
+    "text": "Degree\nInstitution\nSupervisor(s)/Advisor(s)\nPeriod\n\n\n\n\nPhD, Computer Science\nCardiff University\nProf. Steven Schockaert, Prof. Stefano Leoni\n2024 – present\n\n\nMSc, Artificial Intelligence & Robotics\nShahrood University of Technology\nProf. Hamid Hassanpour, Dr. Amin Zehtabian\n2020 – 2023\n\n\nBSc, Chemistry\nIAUTNB\nProf. Saeed Abedini Khorrami, Prof. Mahmoudreza Sohrabi\n2016 – 2020"
   },
   {
     "objectID": "about.html#research-groups",
@@ -137,14 +137,14 @@
     "href": "about.html#industry-experience",
     "title": "About",
     "section": "Industry Experience",
-    "text": "Industry Experience\nBefore starting my PhD, I worked as a software engineer and machine learning engineer, leading AI teams across different companies. My applied work has covered:\n\nComputer vision\n\nSpeech processing\nNatural language processing\nSteganography and information hiding\nAI infrastructure and MLOps"
+    "text": "Industry Experience\nBefore starting my PhD, I worked as a software engineer and machine learning engineer, leading AI teams across different companies. My applied work has covered:\n\nComputer Vision & Image/Video Processing\nSpeech/Signal Processing\nNatural Language Processing\nSteganography & Information Hiding\nAI Infrastructure & DevOps\nCross-Platform Native Software Development"
   },
   {
     "objectID": "about.html#contact",
     "href": "about.html#contact",
     "title": "About",
     "section": "Contact",
-    "text": "Contact\n\nEmail: am@nourollah.me\n\nGitHub: github.com/Nourollah\n\nGoogle Scholar: scholar.google.com\n\nORCID: 0000-0002-6083-6673\n\nLinkedIn: linkedin.com/in/amnrl\n\nTelegram: t.me/amirmasoudnrl"
+    "text": "Contact\n\n\n Email: am@nourollah.me\n Gmail: nourollah.am@gmail.com\n GitHub: github.com/Nourollah\n Google Scholar: Google Scholar\n ORCID: 0000-0002-6083-6673\n LinkedIn: linkedin.com/in/amnrl\n Telegram: t.me/amirmasoudnrl\n University Profile: Cardiff University"
   },
   {
     "objectID": "projects/mlip-benchmark/index.html",
@@ -207,7 +207,7 @@
     "href": "projects/index.html",
     "title": "Projects",
     "section": "",
-    "text": "A selection of projects I have worked on, with extended write-ups, animations, figures, and details beyond what appears in the official papers. Icons link to external resources where available."
+    "text": "Post  Paper  Code  Slides  Poster  Video  QR"
   },
   {
     "objectID": "projects/index.html#scientific-machine-learning",
@@ -235,35 +235,35 @@
     "href": "index.html",
     "title": "Amir Masoud Nourollah",
     "section": "",
-    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nMy academic background spans both chemistry and computer science. I studied Chemistry (2017–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain strongly interested in engineering practices, infrastructure, and open-source software."
+    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nHaving explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software."
   },
   {
     "objectID": "index.html#background",
     "href": "index.html#background",
     "title": "Amir Masoud Nourollah",
     "section": "",
-    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nMy academic background spans both chemistry and computer science. I studied Chemistry (2017–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain strongly interested in engineering practices, infrastructure, and open-source software."
+    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nHaving explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software."
   },
   {
     "objectID": "index.html#research",
     "href": "index.html#research",
     "title": "Amir Masoud Nourollah",
     "section": "Research",
-    "text": "Research\nBroadly, I am interested in scientific machine learning (SciML), particularly for chemistry and molecular systems.\nMy research focuses on generalisation, interpretability, and explainability in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular modelling and computational chemistry.\nMore generally, I am interested in robust and interpretable methods for scientific machine learning and chemistry-oriented AI systems."
+    "text": "Research\nBroadly, I am interested in scientific machine learning (SciML), particularly for chemistry and molecular systems.\nMy research focuses on generalisation, interpretability, and explainability in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular dynamics and computational chemistry.\nMore generally, I am interested in robust, interpretable methods for chemistry-oriented AI systems and Neural Rendering & Simulation."
   },
   {
     "objectID": "index.html#other-interests",
     "href": "index.html#other-interests",
     "title": "Amir Masoud Nourollah",
     "section": "Other Interests",
-    "text": "Other Interests\nOutside of research, I enjoy studying languages, reading history and philosophy, and exploring programming languages and Linux systems. I am currently studying French and German, and I maintain a strong interest in Persian and English literature. I also practise Muay Thai and Judo."
+    "text": "Other Interests\nOutside of research, I enjoy studying languages, reading history and philosophy, and exploring programming languages and Linux systems. I am currently learning French and German, alongside a long-standing interest in Persian and English literature. A practitioner of martial arts, I have a background in Muay Thai and Judo."
   },
   {
     "objectID": "presentations/index.html",
     "href": "presentations/index.html",
     "title": "Presentations",
     "section": "",
-    "text": "Slides built with Quarto Reveal.js. Icons link to related resources."
+    "text": "Slides  Code  Project page  Paper  Poster  Video  QR"
   },
   {
     "objectID": "presentations/index.html#conferences-talks",

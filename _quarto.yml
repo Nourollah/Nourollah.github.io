@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 website:
-  title: "Amir Masoud Nourollah"
+  title: "Home"
   site-url: "https://nourollah.me"
   description: "PhD Student · Scientific Machine Learning · Cardiff University"
 
@@ -12,23 +12,33 @@ website:
   navbar:
     background: "#8b1538"
     collapse: true
-    left:
+    right:
       - href: about.qmd
         text: About
+        icon: person
+        aria-label: About
       - href: projects/index.qmd
         text: Projects
+        icon: folder
+        aria-label: Projects
       - href: presentations/index.qmd
         text: Presentations
-    right:
+        icon: display
+        aria-label: Presentations
       - icon: mortarboard
+        text: Publications
         href: https://scholar.google.com/citations?user=jnindL8AAAAJ
         aria-label: Google Scholar
-      - icon: github
-        href: https://github.com/Nourollah
-        aria-label: GitHub
-      - icon: linkedin
-        href: https://www.linkedin.com/in/amnrl
-        aria-label: LinkedIn
+      - href: mailto:nourollah.am@gmail.com
+        text: Contact
+        icon: envelope
+        aria-label: Contact
+      # - icon: github
+      #   href: https://github.com/Nourollah
+      #   aria-label: GitHub
+      # - icon: linkedin
+      #   href: https://www.linkedin.com/in/amnrl
+      #   aria-label: LinkedIn
       # - icon: twitter-x
       #   href: https://twitter.com/amirmasoudnrl
       #   aria-label: X (Twitter)

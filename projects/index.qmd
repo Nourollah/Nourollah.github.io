@@ -4,7 +4,7 @@ page-layout: full
 toc: false
 ---
 
-A selection of projects I have worked on, with extended write-ups, animations, figures, and details beyond what appears in the official papers. Icons link to external resources where available.
+<!-- A selection of projects I have worked on, with extended write-ups, animations, figures, and details beyond what appears in the official papers. Icons link to external resources where available. -->
 
 ::: {.d-flex .justify-content-end .mb-2 style="font-size: 0.82rem; color: var(--text-muted);"}
 <span class="me-3"><span class="bi bi-journal-text"></span> Post</span>
