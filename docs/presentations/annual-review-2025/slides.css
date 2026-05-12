@@ -1,0 +1,159 @@
+:root {
+  --ufc-main: #8b1538;
+  --ufc-main-dark: #4f0c1f;
+  --ufc-main-mid: #6c102a;
+  --ufc-text: #4a4a4a;
+  --ufc-muted: #6f6f6f;
+  --ufc-bg: #ffffff;
+}
+
+.reveal {
+  font-family: "Carlito", "Calibri", "Arial", sans-serif;
+  color: var(--ufc-text);
+  font-size: 27px;
+}
+
+.reveal .slides section {
+  box-sizing: border-box;
+  padding: 0.85em 0.9em 0.95em 0.9em; /* extra bottom room for footline */
+  background: var(--ufc-bg);
+  overflow: visible;
+}
+
+.reveal h2 {
+  margin: -0.1em -0.15em 0.55em -0.15em;
+  padding: 0.35em 3.2em 0.35em 0.55em;
+  background: var(--ufc-main);
+  color: white;
+  font-size: 1.02em;
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.reveal .slide-logo {
+  position: fixed;   /* Changed from absolute to fixed */
+  top: 10px;         /* Distance from top of the screen */
+  right: 15px;       /* Distance from right of the screen */
+  height: 40px;      /* Fixed pixel height for consistency */
+  width: auto;
+  z-index: 9999 !important; /* Layers it above headers and fragments */
+  pointer-events: none;     /* Ensures it doesn't interfere with clicks */
+}
+
+.reveal .lead {
+  font-size: 0.72em;
+  margin: 0.1em 0 0.45em 0;
+}
+
+.reveal .columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.9rem;
+}
+
+.reveal .column {
+  font-size: 0.63em;
+  min-width: 0;
+}
+
+.reveal .panel {
+  line-height: 1.15;
+}
+
+.reveal .panel p,
+.reveal .panel ul {
+  margin-top: 0.18em;
+  margin-bottom: 0.18em;
+}
+
+.reveal .panel ul {
+  padding-left: 1.05em;
+}
+
+.reveal .panel li {
+  margin-bottom: 0.14em;
+}
+
+.reveal .subtle {
+  display: inline-block;
+  font-size: 0.9em;
+  color: var(--ufc-muted);
+  font-style: italic;
+  margin-top: 0.04em;
+  margin-bottom: 0.16em;
+}
+
+.reveal .bodytext {
+  display: inline-block;
+  font-size: 0.95em;
+  margin-top: 0.14em;
+  margin-bottom: 0.16em;
+}
+
+.reveal .accent {
+  color: var(--ufc-main);
+  font-weight: 700;
+}
+
+.reveal .gap-note {
+  margin-top: 0.4em;
+  text-align: center;
+  font-size: 0.64em;
+  line-height: 1.18;
+}
+
+/* --------- Global footer matching Beamer footline --------- */
+
+.ufc-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 28px;
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 1fr;
+  z-index: 1000;
+  font-family: "Carlito", "Calibri", "Arial", sans-serif;
+  font-size: 12px;
+  color: white;
+  pointer-events: none;
+}
+
+.ufc-footer__seg {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-right: 0.5px solid white;
+  box-sizing: border-box;
+}
+
+.ufc-footer__seg:nth-child(1),
+.ufc-footer__seg:nth-child(3) {
+  background: var(--ufc-main-mid);
+}
+
+.ufc-footer__seg:nth-child(2),
+.ufc-footer__seg:nth-child(4) {
+  background: var(--ufc-main-dark);
+}
+
+.ufc-footer__seg:last-child {
+  border-right: none;
+}
+
+/* --------- Clickable footer segments --------- */
+#ufc-footer-title,
+#ufc-footer-section {
+  cursor: pointer;
+  pointer-events: all;
+  transition: opacity 0.15s;
+}
+
+#ufc-footer-title:hover,
+#ufc-footer-section:hover {
+  opacity: 0.72;
+}
+

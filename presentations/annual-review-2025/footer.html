@@ -1,0 +1,110 @@
+<img src="logo_RGB.png" id="slide-logo-fixed" style="position:fixed;top:10px;right:15px;height:40px;width:auto;z-index:9999;pointer-events:none;" alt="Cardiff University Logo">
+
+<div class="ufc-footer" id="ufc-footer">
+  <div class="ufc-footer__seg" id="ufc-footer-author">Amir Masoud Nourollah</div>
+  <div class="ufc-footer__seg" id="ufc-footer-title" title="Go to overview">Annual Review 2025</div>
+  <div class="ufc-footer__seg" id="ufc-footer-section" title="Go to section start">Section</div>
+  <div class="ufc-footer__seg" id="ufc-footer-page">1 / 1</div>
+</div>
+
+<script>
+(function () {
+  var footerTitle   = document.getElementById("ufc-footer-title");
+  var footerSection = document.getElementById("ufc-footer-section");
+  var footerPage    = document.getElementById("ufc-footer-page");
+
+  // Map: section-name -> first slide index (flat, 0-based) with that data-section
+  var sectionFirstIndex = {};
+
+  function buildNavMap() {
+    sectionFirstIndex = {};
+    var slides = document.querySelectorAll(".reveal .slides section");
+    var idx = 0;
+    slides.forEach(function (slide) {
+      // Skip wrapper sections (ones that only contain other sections)
+      var hasChildSections = slide.querySelector(":scope > section");
+      if (hasChildSections) return;
+      var sec = slide.getAttribute("data-section");
+      if (sec && !(sec in sectionFirstIndex)) {
+        sectionFirstIndex[sec] = idx;
+      }
+      idx++;
+    });
+  }
+
+  function navigateToSection(name) {
+    if (!window.Reveal || !(name in sectionFirstIndex)) return;
+    var targetFlat = sectionFirstIndex[name];
+    // Convert flat index back to (h, v) in the 2D structure
+    var containers = document.querySelectorAll(".reveal .slides > section");
+    var flat = 0;
+    for (var h = 0; h < containers.length; h++) {
+      var inner = containers[h].querySelectorAll(":scope > section");
+      if (inner.length === 0) {
+        if (flat === targetFlat) { window.Reveal.slide(h, 0); return; }
+        flat++;
+      } else {
+        for (var v = 0; v < inner.length; v++) {
+          if (flat === targetFlat) { window.Reveal.slide(h, v); return; }
+          flat++;
+        }
+      }
+    }
+  }
+
+  footerTitle.style.cursor   = "pointer";
+  footerSection.style.cursor = "pointer";
+  footerTitle.style.pointerEvents   = "all";
+  footerSection.style.pointerEvents = "all";
+
+  footerTitle.addEventListener("click", function () {
+    navigateToSection("Overview");
+  });
+
+  footerSection.addEventListener("click", function () {
+    var sec = footerSection.getAttribute("data-current-section") || "";
+    if (sec) navigateToSection(sec);
+  });
+
+  function getFlatIndex() {
+    var indices    = window.Reveal.getIndices();
+    var containers = document.querySelectorAll(".reveal .slides > section");
+    var flat = 0;
+    var total = 0;
+    for (var h = 0; h < containers.length; h++) {
+      var inner = containers[h].querySelectorAll(":scope > section");
+      var count = inner.length > 0 ? inner.length : 1;
+      if (h < indices.h) flat += count;
+      else if (h === indices.h) flat += (indices.v || 0);
+      total += count;
+    }
+    return { current: flat + 1, total: total };
+  }
+
+  function updateFooter() {
+    var currentSlide = window.Reveal.getCurrentSlide();
+    var sec = currentSlide ? (currentSlide.getAttribute("data-section") || "") : "";
+    footerSection.textContent = sec;
+    footerSection.setAttribute("data-current-section", sec);
+
+    var pos = getFlatIndex();
+    footerPage.textContent = pos.current + " / " + pos.total;
+  }
+
+  function init() {
+    if (!window.Reveal) { setTimeout(init, 30); return; }
+    window.Reveal.on("ready", function () {
+      buildNavMap();
+      updateFooter();
+    });
+    window.Reveal.on("slidechanged", updateFooter);
+    // If Reveal already fired 'ready' before we got here
+    if (window.Reveal.isReady && window.Reveal.isReady()) {
+      buildNavMap();
+      updateFooter();
+    }
+  }
+
+  init();
+})();
+</script>

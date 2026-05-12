@@ -1,0 +1,63 @@
+---
+title: "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials"
+date: 2026-05-01
+author:
+  - name: Amir Masoud Nourollah
+  - name: Irtaza Khalid
+  - name: Stefano Leoni
+  - name: Steven Schockaert
+categories: [Scientific ML, Molecular Modelling, Generalisation]
+toc: true
+---
+
+::: {.callout-note appearance="minimal"}
+**Paper:** [arxiv.org/abs/2605.08988](https://arxiv.org/abs/2605.08988) &nbsp;|&nbsp;
+:::
+
+::: {.callout-important appearance="minimal"}
+This post will be updated soon.
+:::
+
+## Abstract
+
+*This section will be updated soon.*
+
+## Motivation
+
+*This section will be updated soon.*
+
+## Background
+
+### Machine Learning Interatomic Potentials
+
+*This section will be updated soon.*
+
+### Compositional Generalisation
+
+*This section will be updated soon.*
+
+## Method
+
+*This section will be updated soon.*
+
+## Results
+
+*This section will be updated soon.*
+
+## Key Takeaways
+
+*This section will be updated soon.*
+
+## BibTeX
+
+```bibtex
+@misc{nourollah2026benchmarkingcompositionalgeneralisationmachine,
+      title={Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials}, 
+      author={Amir Masoud Nourollah and Irtaza Khalid and Stefano Leoni and Steven Schockaert},
+      year={2026},
+      eprint={2605.08988},
+      archivePrefix={arXiv},
+      primaryClass={cs.LG},
+      url={https://arxiv.org/abs/2605.08988}, 
+}
+```

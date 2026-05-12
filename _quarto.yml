@@ -7,6 +7,8 @@ website:
   site-url: "https://nourollah.me"
   description: "PhD Student · Scientific Machine Learning · Cardiff University"
 
+  back-to-top-navigation: true
+
   navbar:
     background: "#8b1538"
     collapse: true
@@ -27,13 +29,15 @@ website:
       - icon: linkedin
         href: https://www.linkedin.com/in/amnrl
         aria-label: LinkedIn
-      - icon: twitter-x
-        href: https://twitter.com/amirmasoudnrl
-        aria-label: X (Twitter)
+      # - icon: twitter-x
+      #   href: https://twitter.com/amirmasoudnrl
+      #   aria-label: X (Twitter)
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmo
+      # dark: slate
     css: styles.css
     lang: en-GB
     toc: true

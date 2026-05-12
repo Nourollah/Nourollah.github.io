@@ -1,87 +1,108 @@
 [
   {
-    "objectID": "presentations/index.html",
-    "href": "presentations/index.html",
-    "title": "Presentations",
-    "section": "",
-    "text": "Slides built with Quarto Reveal.js. Icons link to related resources."
+    "objectID": "presentations/annual-review-2025/index.html#overview",
+    "href": "presentations/annual-review-2025/index.html#overview",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Overview",
+    "text": "Overview\n\n\n\n\n\n\nThe Current State of MLIPs\nNeural potentials, the black-box problem, and systemic extrapolation failure\nThe Data-Evaluation Paradox\nWhy standard benchmarks cannot measure generalisation\nGMD-26: A Framework for Systematic Evaluation\nOur benchmark, four tasks, and key results\nThe DeepSet-MoE\nProposed architecture for interpretable generalisation\nConclusion & Future Outlook\nKey findings and next steps"
   },
   {
-    "objectID": "presentations/index.html#phd-studies",
-    "href": "presentations/index.html#phd-studies",
-    "title": "Presentations",
-    "section": "PhD Studies",
-    "text": "PhD Studies\n\nAnnual Reviews\n\n\n\n\n\n\n\nFirst Year Review — Compositional Generalisation in Machine Learning Potentials\n\nCardiff University · 2025\n\n\n\n\n\n\n\nSchool & Departmental Workshops\n\n\n\n\n\n\n\nStarting the PhD — Kickoff Talk\n\nCardiff University · April 2024\n\n\n\n\nIntroduction to Machine Learning Potentials\n\nCardiff NLP Reading Group · 2024"
+    "objectID": "presentations/annual-review-2025/index.html#neural-network-architectures-in-chemistry",
+    "href": "presentations/annual-review-2025/index.html#neural-network-architectures-in-chemistry",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Neural Network Architectures in Chemistry",
+    "text": "Neural Network Architectures in Chemistry\nNeural networks in chemistry can be categorised by their resolution and computational cost:\n\nQuantum Chemistry Methods (e.g., PauliNet)\nSemi-Empirical Methods (e.g., NN-xTB)\nCoarse-Grained Methods (e.g., CGNet)\nForce Field Methods (e.g., SchNet)\n\n\n\n\n\n\nForce field methods, or Machine-Learned Interatomic Potentials (MLIPs), are currently the most widely adopted approach. They offer an optimal trade-off between computational complexity and predictive accuracy."
   },
   {
-    "objectID": "presentations/index.html#conferences-talks",
-    "href": "presentations/index.html#conferences-talks",
-    "title": "Presentations",
-    "section": "Conferences & Talks",
-    "text": "Conferences & Talks\n\n\n\n\n\n\n\nLarge Language and Reasoning Models are Shallow Disjunctive Reasoners\n\nACL 2025 · Vienna\n\n\n\n\nBenchmarking Compositional Generalisation for Inter-atomic Potentials\n\n2026"
+    "objectID": "presentations/annual-review-2025/index.html#impact-of-mlips-in-computational-chemistry",
+    "href": "presentations/annual-review-2025/index.html#impact-of-mlips-in-computational-chemistry",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Impact of MLIPs in Computational Chemistry",
+    "text": "Impact of MLIPs in Computational Chemistry\n\n\n\nBridging the Gap\n\nMLIPs maintain ab initio accuracy while matching the efficiency of classical force fields.\nScaling Advantage: DFT scales cubically (\\(O(N^3)\\)), whereas MLIPs scale linearly (\\(O(N)\\)), preventing cost explosion for large systems.\n\n\n\n\nComputational Breakthroughs\n\nDrastic Acceleration: Achieving speedups of \\(10^5\\times\\) compared to standard DFT.\nOvercoming Intractability: Simulations requiring decades of DFT compute time can be completed in days.\nResource Efficiency: High-fidelity MD is now feasible on consumer GPUs rather than massive HPC clusters."
   },
   {
-    "objectID": "presentations/index.html#tutorials-teaching",
-    "href": "presentations/index.html#tutorials-teaching",
-    "title": "Presentations",
-    "section": "Tutorials & Teaching",
-    "text": "Tutorials & Teaching\n\nMachine Learning\n\n\n\n\n\n\n\nIntroduction to Graph Neural Networks for Molecules\n\nTutorial · Coming soon\n\n\n\n\nScientific Machine Learning with PyTorch\n\nTutorial · Coming soon\n\n\n\n\n\n\n\nTools & Workflows\n\n\n\n\n\n\n\nReproducible Research with Quarto and Git\n\nWorkshop · Coming soon\n\n\n\n\n\n\n\nSlides are built with Quarto Reveal.js and hosted on this site. Source files are available on GitHub."
+    "objectID": "presentations/annual-review-2025/index.html#the-ambiguity-of-learned-representations",
+    "href": "presentations/annual-review-2025/index.html#the-ambiguity-of-learned-representations",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "The Ambiguity of Learned Representations",
+    "text": "The Ambiguity of Learned Representations\nThe shift from fixed descriptors to learnable representations has traded transparency for accuracy, creating a fundamental “Black Box” problem:\n\n\n\n1. The Latent Space “Black Box”\n\nUnlike descriptor-based models (using clear physical quantities), end-to-end architectures map atoms to abstract latent vectors.\nThese high-dimensional representations are opaque; it is effectively impossible to disentangle which physical features the model has learned.\n\n\n\n\n2. The Mapping Problem\n\nEven in large-scale Foundation Models, the mapping between data and representation remains hidden.\nIt is unclear if the model has constructed a continuous, valid Chemical Space, or merely memorised disjointed training manifolds."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Amir Masoud Nourollah",
-    "section": "",
-    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nMy academic background spans both chemistry and computer science. I studied Chemistry (2017–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain strongly interested in engineering practices, infrastructure, and open-source software."
+    "objectID": "presentations/annual-review-2025/index.html#the-consequence-systemic-extrapolation-failure",
+    "href": "presentations/annual-review-2025/index.html#the-consequence-systemic-extrapolation-failure",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "The Consequence: Systemic Extrapolation Failure",
+    "text": "The Consequence: Systemic Extrapolation Failure\nBecause the learned representation is opaque, we cannot define its validity domain. This leads to critical failures that standard metrics fail to detect:\n\n\n\n1. The Extrapolation Catastrophe\n\nUndefined Boundaries: Models cannot signal when they leave the training domain. They “hallucinate” interactions for unseen chemical species.\nPhysics Violation: The opaque latent space often maps valid geometric distortions to unphysical energy surfaces, leading to unstable dynamics in OOD settings.\n\n\n\n\n2. The Evaluation Blind Spot\n\nThe Interpolation Trap: Standard benchmarks (e.g., MD17, QM9) rely on ID splits. This rewards models for memorising the local manifold rather than learning transferable principles.\nFalse Security: High accuracy on these datasets masks the model’s inability to generalise compositionally to larger or more complex systems."
   },
   {
-    "objectID": "index.html#background",
-    "href": "index.html#background",
-    "title": "Amir Masoud Nourollah",
-    "section": "",
-    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nMy academic background spans both chemistry and computer science. I studied Chemistry (2017–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain strongly interested in engineering practices, infrastructure, and open-source software."
+    "objectID": "presentations/annual-review-2025/index.html#landscape-of-established-datasets",
+    "href": "presentations/annual-review-2025/index.html#landscape-of-established-datasets",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Landscape of Established Datasets",
+    "text": "Landscape of Established Datasets\nExisting benchmarks were designed for accuracy — not for probing compositional generalisation.\nThe field has evolved from small, specific datasets to massive, heterogeneous aggregates:\n\n\n\n\n1. Single-System MD\nMD17 · rMD17\n\nTrajectories of single small molecules (Ethanol, Aspirin).\n\nFocus: Learning the force field of a specific molecule.\nLimit: Models overfit to “that aspirin” and fail to transfer.\n\n\n\n\n\n2. Static Equilibrium\nQM9 · OE62\n\nProperties for thousands of stable organic molecules.\n\nFocus: Predicting properties of relaxed geometries.\nLimit: Lacks the distorted geometries needed for reaction dynamics.\n\n\n\n\n\n3. Massive Aggregates\nOMat24 · MPtrj\n\nHuge, heterogeneous collections mixing equilibrium and non-equilibrium data.\n\nFocus: Training general-purpose Foundation Models.\nLimit: Unstructured coverage; difficult to audit for systematic OOD gaps.\n\n\n\n\n\nGap: Despite the scale of Category 3, we still lack systematic benchmarks designed to specifically stress-test compositional extrapolation."
   },
   {
-    "objectID": "index.html#research",
-    "href": "index.html#research",
-    "title": "Amir Masoud Nourollah",
-    "section": "Research",
-    "text": "Research\nBroadly, I am interested in scientific machine learning (SciML), particularly for chemistry and molecular systems.\nMy research focuses on generalisation, interpretability, and explainability in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular modelling and computational chemistry.\nMore generally, I am interested in robust and interpretable methods for scientific machine learning and chemistry-oriented AI systems."
+    "objectID": "presentations/annual-review-2025/index.html#the-data-evaluation-paradox",
+    "href": "presentations/annual-review-2025/index.html#the-data-evaluation-paradox",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "The Data-Evaluation Paradox",
+    "text": "The Data-Evaluation Paradox\nWhile datasets have scaled massively to create “Universal” models, evaluation protocols remain fundamentally flawed:\n\n\n\n1. The Scale of Data\nModern efforts aim for universal coverage using massive, heterogeneous aggregates:\n\nOrganic: ANI-1x (20M+ conformations).\nMaterials: MPtrj (Inorganic trajectories).\nSurfaces: Open Catalyst (Millions of relaxations).\n\n\n\n\n→ Assumption: “More data automatically yields better physical understanding.”\n\n\n\n\n2. The Evaluation Deficit\nA. The In-Distribution Trap:\n\nRandom splits test memorisation of the local manifold, not physical learning.\n\nB. The “Ineffective” OOD Solution:\n\nExisting benchmarks use arbitrary splits rather than systematic variations.\nOpacity: They cannot quantify where in chemical space the model fails.\n\n\n\n\n\nThe Critical Gap: We lack a metric to measure how far a model can extrapolate. We define OOD loosely (“unseen”), rather than mathematically (“distance from training manifold”)."
   },
   {
-    "objectID": "index.html#other-interests",
-    "href": "index.html#other-interests",
-    "title": "Amir Masoud Nourollah",
-    "section": "Other Interests",
-    "text": "Other Interests\nOutside of research, I enjoy studying languages, reading history and philosophy, and exploring programming languages and Linux systems. I am currently studying French and German, and I maintain a strong interest in Persian and English literature. I also practise Muay Thai and Judo."
+    "objectID": "presentations/annual-review-2025/index.html#introducing-gmd-26-a-framework-for-generalisation",
+    "href": "presentations/annual-review-2025/index.html#introducing-gmd-26-a-framework-for-generalisation",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Introducing GMD-26: A Framework for Generalisation",
+    "text": "Introducing GMD-26: A Framework for Generalisation\nWe introduce GMD-26 not merely as a dataset, but as a flexible Benchmarking Framework designed to rigorously quantify generalisation.\n\n\n\n1. The Protocol (Domain-Agnostic)\nA systematic structure adaptable to diverse fields (e.g., Polymers, Proteins):\n\n4 Systematic Tasks: Defined by specific compositional shifts rather than random splits.\n2 Subtasks: Targeted probes for specific failure modes.\nPhilosophy: Testing physical principles (transferable) vs. memorisation.\n\n\n\n\n2. Reference Implementation\nValidation via Small Organic Molecules:\n\nTractable Systems: Small molecules provide interpretable, clear failure modes.\nMulti-Trajectory Challenge: Unlike MD17, we use multiple diverse trajectories. This forces models to learn the potential surface, not just a single path.\nFidelity Status: Currently generated at GFN2-xTB level; active upgrade to DFT is underway to support Foundation Models.\n\n\n\n\n\nGoal: To establish a universal standard for auditing model robustness across any chemical domain."
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
-    "section": "",
-    "text": "A selection of projects I have worked on, with extended write-ups, animations, figures, and details beyond what appears in the official papers. Icons link to external resources where available."
+    "objectID": "presentations/annual-review-2025/index.html#gmd-26-the-four-systematic-generalisation-tasks",
+    "href": "presentations/annual-review-2025/index.html#gmd-26-the-four-systematic-generalisation-tasks",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "GMD-26: The Four Systematic Generalisation Tasks",
+    "text": "GMD-26: The Four Systematic Generalisation Tasks\n\nVisual schematic of the four GMD-26 tasks."
   },
   {
-    "objectID": "projects/index.html#scientific-machine-learning",
-    "href": "projects/index.html#scientific-machine-learning",
-    "title": "Projects",
-    "section": "Scientific Machine Learning",
-    "text": "Scientific Machine Learning\n\n\n\n\n\n\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nNourollah, Khalid, Leoni, Schockaert · 2026\n\n\n\n\nExample SciML Project (Post Coming Soon)\n\nNourollah · 2025 · Cardiff University"
+    "objectID": "presentations/annual-review-2025/index.html#results-the-duplication-challenge",
+    "href": "presentations/annual-review-2025/index.html#results-the-duplication-challenge",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Results: The “Duplication” Challenge",
+    "text": "Results: The “Duplication” Challenge\nTask Definition: Training on molecules with a single fragment A (e.g., Mono-acid) and testing on molecules with two of the same fragment A (e.g., Di-acid).\n\n\n\n\nModel\nForces MAE\nCosine Sim.\nF Mag. MAE\nEnergy MAE (eV)\n\n\nID\nOOD\nID\nOOD\nID\nOOD\nID\nOOD\n\n\n\n\nSchNet\n0.0292\n0.1143\n0.9979\n0.9691\n0.0307\n0.1458\n0.0295\n29.32\n\n\nPaiNN\n0.0020\n0.0600\n0.9999\n0.9768\n0.0022\n0.0713\n0.0181\n30.72\n\n\nGemNet\n0.0009\n0.0224\n0.9999\n0.9978\n0.0010\n0.0223\n0.0129\n12.27\n\n\nEquiFormerV2\n0.0018\n0.0538\n0.9999\n0.9746\n0.0019\n0.0603\n0.0984\n133.77\n\n\nDimeNet++\n0.0018\n0.2484\n0.9999\n0.9406\n0.0019\n0.3863\n0.0128\n34.86\n\n\nMACE\n0.0028\n0.0171\n0.9999\n0.9978\n0.0030\n0.0201\n0.0018\n40.97\n\n\nNequIP\n0.0256\n0.0460\n0.9984\n0.9922\n0.0269\n0.0501\n0.0198\n34.59\n\n\n\nDetailed performance metrics on the Fragment Duplication task. Values in red indicate catastrophic OOD failure."
   },
   {
-    "objectID": "projects/index.html#natural-language-processing",
-    "href": "projects/index.html#natural-language-processing",
-    "title": "Projects",
-    "section": "Natural Language Processing",
-    "text": "Natural Language Processing\n\n\n\n\n\n\n\nLarge Language and Reasoning Models are Shallow Disjunctive Reasoners\n\nKhalid, Nourollah, Schockaert · ACL 2025"
+    "objectID": "presentations/annual-review-2025/index.html#results-the-chain-extension-challenge",
+    "href": "presentations/annual-review-2025/index.html#results-the-chain-extension-challenge",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Results: The “Chain Extension” Challenge",
+    "text": "Results: The “Chain Extension” Challenge\n\nDetailed comparison of predicted vs. actual values. Note the divergence in the OOD regions (right side) compared to the tight correlation in ID regions (left side)."
   },
   {
-    "objectID": "projects/index.html#computer-vision-signal-processing",
-    "href": "projects/index.html#computer-vision-signal-processing",
-    "title": "Projects",
-    "section": "Computer Vision & Signal Processing",
-    "text": "Computer Vision & Signal Processing\n\n\n\n\n\n\n\nQuantifying Morphologies of Developing Neuronal Cells Using Deep Learning with Imperfect Annotations\n\nNourollah, Hassanpour, Zehtabian · 2024\n\n\n\n\nWhisperNetV2: SlowFast Siamese Network for Lip-Based Biometrics\n\nZakeri, Hassanpour, Khosravi, Nourollah · arXiv 2024\n\n\n\n\n\n\n\nPosts are extended write-ups with additional figures, animations, and implementation details not included in the published paper."
+    "objectID": "presentations/annual-review-2025/index.html#proposed-architecture-the-deepset-moe",
+    "href": "presentations/annual-review-2025/index.html#proposed-architecture-the-deepset-moe",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Proposed Architecture: The DeepSet-MoE",
+    "text": "Proposed Architecture: The DeepSet-MoE\nWe implement the DeepSet framework (\\(E = \\rho(\\sum \\phi)\\)), modifying the pipeline to expose interpretability and challenge standard assumptions:\n\n\n\n\n1. Encoder (\\(\\phi\\))\n\nArchitecture: Mixture of Experts (MoE) replacing the monolithic network.\nRefined Routing Metrics:\n\nMetric A (Spatial): Experts activated by pairwise distances (replacing the previous dual-cutoff).\nMetric B (Identity): Experts assigned by central atom type. One expert processes all hierarchies.\n\n\n\n\n\n2. Aggregation (\\(\\sum\\))\n\nRole: Pooling atomic states into a global representation.\nCurrent State:\n\nStandard Summation.\n\nThe Aggregation Hypothesis:\n\nHypothesis: Rigid summation obscures distinct atomic contributions.\nExperiment: Removing the Aggregation Head entirely.\n\n\n\n\n\n3. Decoder (\\(\\rho\\))\n\nRole: Mapping latent state to Energy/Force.\nInference:\n\nCurrently Identity (Direct).\nGoal: Eliminate ambiguity by inferring directly from Encoder output."
+  },
+  {
+    "objectID": "presentations/annual-review-2025/index.html#summary-the-generalisation-crisis",
+    "href": "presentations/annual-review-2025/index.html#summary-the-generalisation-crisis",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Summary: The Generalisation Crisis",
+    "text": "Summary: The Generalisation Crisis\n\n\n\n\nThe Diagnosis\nWe challenged the generalisation capabilities of established SOTA architectures by introducing GMD-26, a benchmark designed to test physical robustness rather than memorisation.\n\n\n\n\n\n\nKey Findings:\n\n\n\nUniversal Failure: Every evaluated architecture — from simple invariant models (SchNet) to equivariant transformers (EquiFormerV2) and high-order bodies (MACE) — failed to generalise compositionally.\n\n\n\n\nThe Magnitude of Error: OOD errors were not merely higher; they were catastrophic (often orders of magnitude larger than ID errors), proving that excellent performance on standard benchmarks masks a critical lack of physical understanding."
+  },
+  {
+    "objectID": "presentations/annual-review-2025/index.html#future-outlook-toward-interpretable-generalisation",
+    "href": "presentations/annual-review-2025/index.html#future-outlook-toward-interpretable-generalisation",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Future Outlook: Toward Interpretable Generalisation",
+    "text": "Future Outlook: Toward Interpretable Generalisation\nTo bridge this gap, we are moving away from monolithic “Black Box” networks toward a modular, chemically aligned architecture:\n\n\n\n1. The DeepSet-MoE Implementation\n\nSpecialised Encoding: Replacing the single encoder with a Mixture of Experts routed by optimised physical metrics.\nGoal: To ensure distinct chemical environments are processed and learned by distinct, specialised parameters.\n\n\n\n\n2. The Aggregation Hypothesis\n\nCurrent Bottleneck: We suspect the rigid summation (\\(\\sum\\)) obscures the distinct share of atomic contributions.\nNext Step: We are currently investigating alternative aggregation paradigms to identify a strategy that preserves distinct atomic contributions within the global prediction.\n\n\n\n\n\n\nFinal Conclusion: We aim to establish DeepSet-MoE as an explainable architecture where OOD performance remains close to ID levels, prioritising this generalisation stability over chasing the absolute lowest ID errors seen in SOTA models."
+  },
+  {
+    "objectID": "presentations/annual-review-2025/index.html#thank-you",
+    "href": "presentations/annual-review-2025/index.html#thank-you",
+    "title": "Explainable Graph Neural Network for Computational Chemistry",
+    "section": "Thank You",
+    "text": "Thank You\n\n\n\n\n\n\nAmir Masoud Nourollah\nPhD Student · Cardiff NLP & Knowledge Representation and Reasoning Groups\n\nSupervisors: Prof. Stefano Leoni · Prof. Steven Schockaert\n\n📧 NourollahA@cardiff.ac.uk\n🌐 nourollah.me\n\nPreprint available at arxiv.org/abs/2605.08988"
   },
   {
     "objectID": "about.html",
@@ -124,5 +145,145 @@
     "title": "About",
     "section": "Contact",
     "text": "Contact\n\nEmail: am@nourollah.me\n\nGitHub: github.com/Nourollah\n\nGoogle Scholar: scholar.google.com\n\nORCID: 0000-0002-6083-6673\n\nLinkedIn: linkedin.com/in/amnrl\n\nTelegram: t.me/amirmasoudnrl"
+  },
+  {
+    "objectID": "projects/mlip-benchmark/index.html",
+    "href": "projects/mlip-benchmark/index.html",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "",
+    "text": "Paper: arxiv.org/abs/2605.08988  |"
+  },
+  {
+    "objectID": "projects/mlip-benchmark/index.html#abstract",
+    "href": "projects/mlip-benchmark/index.html#abstract",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Abstract",
+    "text": "Abstract\nThis section will be updated soon."
+  },
+  {
+    "objectID": "projects/mlip-benchmark/index.html#motivation",
+    "href": "projects/mlip-benchmark/index.html#motivation",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Motivation",
+    "text": "Motivation\nThis section will be updated soon."
+  },
+  {
+    "objectID": "projects/mlip-benchmark/index.html#background",
+    "href": "projects/mlip-benchmark/index.html#background",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Background",
+    "text": "Background\n\nMachine Learning Interatomic Potentials\nThis section will be updated soon.\n\n\nCompositional Generalisation\nThis section will be updated soon."
+  },
+  {
+    "objectID": "projects/mlip-benchmark/index.html#method",
+    "href": "projects/mlip-benchmark/index.html#method",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Method",
+    "text": "Method\nThis section will be updated soon."
+  },
+  {
+    "objectID": "projects/mlip-benchmark/index.html#results",
+    "href": "projects/mlip-benchmark/index.html#results",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Results",
+    "text": "Results\nThis section will be updated soon."
+  },
+  {
+    "objectID": "projects/mlip-benchmark/index.html#key-takeaways",
+    "href": "projects/mlip-benchmark/index.html#key-takeaways",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\nThis section will be updated soon."
+  },
+  {
+    "objectID": "projects/mlip-benchmark/index.html#bibtex",
+    "href": "projects/mlip-benchmark/index.html#bibtex",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "BibTeX",
+    "text": "BibTeX\n@misc{nourollah2026benchmarkingcompositionalgeneralisationmachine,\n      title={Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials}, \n      author={Amir Masoud Nourollah and Irtaza Khalid and Stefano Leoni and Steven Schockaert},\n      year={2026},\n      eprint={2605.08988},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2605.08988}, \n}"
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "A selection of projects I have worked on, with extended write-ups, animations, figures, and details beyond what appears in the official papers. Icons link to external resources where available."
+  },
+  {
+    "objectID": "projects/index.html#scientific-machine-learning",
+    "href": "projects/index.html#scientific-machine-learning",
+    "title": "Projects",
+    "section": "Scientific Machine Learning",
+    "text": "Scientific Machine Learning\n\n\n\n\n\n\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nNourollah, Khalid, Leoni, Schockaert · 2026"
+  },
+  {
+    "objectID": "projects/index.html#natural-language-processing",
+    "href": "projects/index.html#natural-language-processing",
+    "title": "Projects",
+    "section": "Natural Language Processing",
+    "text": "Natural Language Processing\n\n\n\n\n\n\n\nLarge Language and Reasoning Models are Shallow Disjunctive Reasoners \n\nKhalid, Nourollah, Schockaert · ACL 2025"
+  },
+  {
+    "objectID": "projects/index.html#computer-vision-signal-processing",
+    "href": "projects/index.html#computer-vision-signal-processing",
+    "title": "Projects",
+    "section": "Computer Vision & Signal Processing",
+    "text": "Computer Vision & Signal Processing\n\n\n\n\n\n\n\nQuantifying Morphologies of Developing Neuronal Cells Using Deep Learning with Imperfect Annotations \n\nNourollah, Hassanpour, Zehtabian · 2024\n\n \n\n\nWhisperNetV2: SlowFast Siamese Network for Lip-Based Biometrics \n\nZakeri, Hassanpour, Khosravi, Nourollah · arXiv 2024\n\n \n\n\n\n\n\nPosts are extended write-ups with additional figures, animations, and implementation details not included in the published paper."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Amir Masoud Nourollah",
+    "section": "",
+    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nMy academic background spans both chemistry and computer science. I studied Chemistry (2017–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain strongly interested in engineering practices, infrastructure, and open-source software."
+  },
+  {
+    "objectID": "index.html#background",
+    "href": "index.html#background",
+    "title": "Amir Masoud Nourollah",
+    "section": "",
+    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nMy academic background spans both chemistry and computer science. I studied Chemistry (2017–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain strongly interested in engineering practices, infrastructure, and open-source software."
+  },
+  {
+    "objectID": "index.html#research",
+    "href": "index.html#research",
+    "title": "Amir Masoud Nourollah",
+    "section": "Research",
+    "text": "Research\nBroadly, I am interested in scientific machine learning (SciML), particularly for chemistry and molecular systems.\nMy research focuses on generalisation, interpretability, and explainability in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular modelling and computational chemistry.\nMore generally, I am interested in robust and interpretable methods for scientific machine learning and chemistry-oriented AI systems."
+  },
+  {
+    "objectID": "index.html#other-interests",
+    "href": "index.html#other-interests",
+    "title": "Amir Masoud Nourollah",
+    "section": "Other Interests",
+    "text": "Other Interests\nOutside of research, I enjoy studying languages, reading history and philosophy, and exploring programming languages and Linux systems. I am currently studying French and German, and I maintain a strong interest in Persian and English literature. I also practise Muay Thai and Judo."
+  },
+  {
+    "objectID": "presentations/index.html",
+    "href": "presentations/index.html",
+    "title": "Presentations",
+    "section": "",
+    "text": "Slides built with Quarto Reveal.js. Icons link to related resources."
+  },
+  {
+    "objectID": "presentations/index.html#conferences-talks",
+    "href": "presentations/index.html#conferences-talks",
+    "title": "Presentations",
+    "section": "Conferences & Talks",
+    "text": "Conferences & Talks\n\n\n\n\n\n\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nComing soon\n\n\n2026"
+  },
+  {
+    "objectID": "presentations/index.html#phd-studies",
+    "href": "presentations/index.html#phd-studies",
+    "title": "Presentations",
+    "section": "PhD Studies",
+    "text": "PhD Studies\n\nAnnual Reviews\n\n\n\n\n\n\n\nFirst Year Review — Compositional Generalisation in Machine Learning Potentials\n\nCardiff University · 2025"
+  },
+  {
+    "objectID": "presentations/index.html#tutorials-teaching",
+    "href": "presentations/index.html#tutorials-teaching",
+    "title": "Presentations",
+    "section": "Tutorials & Teaching",
+    "text": "Tutorials & Teaching\n\nMachine Learning\n\n\n\n\n\n\n\nIntroduction to Graph Neural Networks for Molecules\n\nTutorial · Coming soon\n\n\n\n\nScientific Machine Learning with PyTorch\n\nTutorial · Coming soon\n\n\n\n\n\n\n\nTools & Workflows\n\n\n\n\n\n\n\nReproducible Research with Quarto and Git\n\nWorkshop · Coming soon\n\n\n\n\n\n\n\nSlides are built with Quarto Reveal.js and hosted on this site. Source files are available on GitHub."
   }
 ]

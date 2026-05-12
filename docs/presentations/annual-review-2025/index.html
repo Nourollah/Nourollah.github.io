@@ -1,0 +1,1108 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-html/tabby.min.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
+
+  <meta name="author" content="Amir Masoud Nourollah">
+  <title>Amir Masoud Nourollah – Explainable Graph Neural Network for Computational Chemistry</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/reveal.css">
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
+  <link rel="stylesheet" href="slides.css">
+  <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="../../site_libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+<section id="title-slide" data-section="Introduction" class="quarto-title-block center">
+  <h1 class="title">Explainable Graph Neural Network for Computational Chemistry</h1>
+  <p class="subtitle">Annual Review 2025 · Cardiff University</p>
+
+<div class="quarto-title-authors">
+<div class="quarto-title-author">
+<div class="quarto-title-author-name">
+Amir Masoud Nourollah 
+</div>
+</div>
+</div>
+
+  <p class="date">Invalid Date</p>
+</section>
+<section id="overview" class="slide level2" data-section="Overview">
+<h2>Overview</h2>
+<div class="columns">
+<div class="column" style="width:10%;">
+
+</div><div class="column" style="width:80%;">
+<p><br></p>
+<ol type="1">
+<li><p><strong>The Current State of MLIPs</strong><br>
+<span style="color:var(--ufc-muted);font-size:0.85em;">Neural potentials, the black-box problem, and systemic extrapolation failure</span></p></li>
+<li><p><strong>The Data-Evaluation Paradox</strong><br>
+<span style="color:var(--ufc-muted);font-size:0.85em;">Why standard benchmarks cannot measure generalisation</span></p></li>
+<li><p><strong>GMD-26: A Framework for Systematic Evaluation</strong><br>
+<span style="color:var(--ufc-muted);font-size:0.85em;">Our benchmark, four tasks, and key results</span></p></li>
+<li><p><strong>The DeepSet-MoE</strong><br>
+<span style="color:var(--ufc-muted);font-size:0.85em;">Proposed architecture for interpretable generalisation</span></p></li>
+<li><p><strong>Conclusion &amp; Future Outlook</strong><br>
+<span style="color:var(--ufc-muted);font-size:0.85em;">Key findings and next steps</span></p></li>
+</ol>
+</div></div>
+</section>
+<section id="neural-network-architectures-in-chemistry" class="slide level2" data-section="The Current State of MLIPs">
+<h2>Neural Network Architectures in Chemistry</h2>
+<p>Neural networks in chemistry can be categorised by their resolution and computational cost:</p>
+<ul>
+<li><strong>Quantum Chemistry Methods</strong> <em>(e.g., PauliNet)</em></li>
+<li><strong>Semi-Empirical Methods</strong> <em>(e.g., NN-xTB)</em></li>
+<li><strong>Coarse-Grained Methods</strong> <em>(e.g., CGNet)</em></li>
+<li><strong>Force Field Methods</strong> <em>(e.g., SchNet)</em></li>
+</ul>
+<p><br></p>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p>Force field methods, or <strong>Machine-Learned Interatomic Potentials (MLIPs)</strong>, are currently the most widely adopted approach. They offer an optimal trade-off between <strong>computational complexity</strong> and <strong>predictive accuracy</strong>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="impact-of-mlips-in-computational-chemistry" class="slide level2" data-section="The Current State of MLIPs">
+<h2>Impact of MLIPs in Computational Chemistry</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>Bridging the Gap</strong></p>
+<ul>
+<li>MLIPs maintain <em>ab initio</em> accuracy while matching the <strong>efficiency</strong> of classical force fields.</li>
+<li><strong>Scaling Advantage:</strong> DFT scales cubically (<span class="math inline">\(O(N^3)\)</span>), whereas MLIPs scale linearly (<span class="math inline">\(O(N)\)</span>), preventing cost explosion for large systems.</li>
+</ul>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong><span style="color:var(--ufc-main)">Computational Breakthroughs</span></strong></p>
+<ol type="1">
+<li><strong>Drastic Acceleration:</strong> Achieving speedups of <strong><span class="math inline">\(10^5\times\)</span></strong> compared to standard DFT.</li>
+<li><strong>Overcoming Intractability:</strong> Simulations requiring <strong>decades</strong> of DFT compute time can be completed in days.</li>
+<li><strong>Resource Efficiency:</strong> High-fidelity MD is now feasible on consumer GPUs rather than massive HPC clusters.</li>
+</ol>
+</div>
+</div></div>
+</section>
+<section id="the-ambiguity-of-learned-representations" class="slide level2" data-section="The Current State of MLIPs">
+<h2>The Ambiguity of Learned Representations</h2>
+<p><span class="bodytext">The shift from fixed descriptors to <strong>learnable representations</strong> has traded transparency for accuracy, creating a fundamental “Black Box” problem:</span></p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>1. The Latent Space “Black Box”</strong></p>
+<ul>
+<li>Unlike descriptor-based models (using clear physical quantities), end-to-end architectures map atoms to <strong>abstract latent vectors</strong>.</li>
+<li>These high-dimensional representations are opaque; it is effectively impossible to <strong>disentangle</strong> which physical features the model has learned.</li>
+</ul>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>2. The Mapping Problem</strong></p>
+<ul>
+<li>Even in large-scale <strong>Foundation Models</strong>, the mapping between data and representation remains hidden.</li>
+<li>It is unclear if the model has constructed a continuous, valid <strong>Chemical Space</strong>, or merely memorised disjointed training manifolds.</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="the-consequence-systemic-extrapolation-failure" class="slide level2" data-section="The Current State of MLIPs">
+<h2>The Consequence: Systemic Extrapolation Failure</h2>
+<p><span class="bodytext">Because the learned representation is opaque, we cannot define its validity domain. This leads to critical failures that standard metrics fail to detect:</span></p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>1. The Extrapolation Catastrophe</strong></p>
+<ul>
+<li><strong>Undefined Boundaries:</strong> Models cannot signal when they leave the training domain. They “hallucinate” interactions for unseen chemical species.</li>
+<li><strong>Physics Violation:</strong> The opaque latent space often maps valid geometric distortions to unphysical energy surfaces, leading to unstable dynamics in OOD settings.</li>
+</ul>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>2. The Evaluation Blind Spot</strong></p>
+<ul>
+<li><strong>The Interpolation Trap:</strong> Standard benchmarks (e.g., MD17, QM9) rely on ID splits. This rewards models for <strong>memorising</strong> the local manifold rather than learning transferable principles.</li>
+<li><strong>False Security:</strong> High accuracy on these datasets masks the model’s inability to generalise compositionally to larger or more complex systems.</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="landscape-of-established-datasets" class="slide level2" data-section="The Data-Evaluation Paradox">
+<h2>Landscape of Established Datasets</h2>
+<p><span class="bodytext">Existing benchmarks were designed for accuracy — not for probing <strong>compositional generalisation</strong>.</span></p>
+<p>The field has evolved from small, specific datasets to massive, heterogeneous aggregates:</p>
+<div class="columns">
+<div class="column" style="width:32%;">
+<div class="fragment">
+<div style="text-align:center;">
+<strong>1. Single-System MD</strong><br>
+<em>MD17 · rMD17</em>
+</div>
+<p>Trajectories of single small molecules (Ethanol, Aspirin).</p>
+<ul>
+<li><strong>Focus:</strong> Learning the force field of a <em>specific</em> molecule.</li>
+<li><strong>Limit:</strong> Models overfit to “that aspirin” and fail to transfer.</li>
+</ul>
+</div>
+</div><div class="column" style="width:32%;">
+<div class="fragment">
+<div style="text-align:center;">
+<strong>2. Static Equilibrium</strong><br>
+<em>QM9 · OE62</em>
+</div>
+<p>Properties for thousands of stable organic molecules.</p>
+<ul>
+<li><strong>Focus:</strong> Predicting properties of relaxed geometries.</li>
+<li><strong>Limit:</strong> Lacks the distorted geometries needed for reaction dynamics.</li>
+</ul>
+</div>
+</div><div class="column" style="width:34%;">
+<div class="fragment">
+<div style="text-align:center;">
+<span class="accent"><strong>3. Massive Aggregates</strong></span><br>
+<em>OMat24 · MPtrj</em>
+</div>
+<p>Huge, heterogeneous collections mixing equilibrium and non-equilibrium data.</p>
+<ul>
+<li><strong>Focus:</strong> Training general-purpose <strong>Foundation Models</strong>.</li>
+<li><strong>Limit:</strong> Unstructured coverage; difficult to audit for systematic OOD gaps.</li>
+</ul>
+</div>
+</div></div>
+<div class="fragment">
+<div class="gap-note">
+<p><strong>Gap:</strong> <em>Despite the scale of Category 3, we still lack systematic benchmarks designed to specifically stress-test <strong>compositional extrapolation</strong>.</em></p>
+</div>
+</div>
+</section>
+<section id="the-data-evaluation-paradox" class="slide level2" data-section="The Data-Evaluation Paradox">
+<h2>The Data-Evaluation Paradox</h2>
+<p>While datasets have scaled massively to create “Universal” models, evaluation protocols remain fundamentally flawed:</p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>1. The Scale of Data</strong></p>
+<p>Modern efforts aim for universal coverage using massive, heterogeneous aggregates:</p>
+<ul>
+<li><strong>Organic:</strong> ANI-1x (20M+ conformations).</li>
+<li><strong>Materials:</strong> MPtrj (Inorganic trajectories).</li>
+<li><strong>Surfaces:</strong> Open Catalyst (Millions of relaxations).</li>
+</ul>
+</div>
+<div class="fragment">
+<div style="text-align:center;margin:0.6em 0;font-size:0.95em;color:var(--ufc-main);font-weight:700;">
+→ Assumption: “More data automatically yields better physical understanding.”
+</div>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="fragment">
+<p><span class="accent"><strong>2. The Evaluation Deficit</strong></span></p>
+<p><strong>A. The In-Distribution Trap:</strong></p>
+<ul>
+<li>Random splits test <strong>memorisation</strong> of the local manifold, not physical learning.</li>
+</ul>
+<p><strong>B. The “Ineffective” OOD Solution:</strong></p>
+<ul>
+<li>Existing benchmarks use <strong>arbitrary</strong> splits rather than systematic variations.</li>
+<li><strong>Opacity:</strong> They cannot quantify <em>where</em> in chemical space the model fails.</li>
+</ul>
+</div>
+</div></div>
+<div class="fragment">
+<div class="gap-note">
+<p><strong>The Critical Gap:</strong> <em>We lack a metric to measure <strong>how far</strong> a model can extrapolate. We define OOD loosely (“unseen”), rather than mathematically (“distance from training manifold”).</em></p>
+</div>
+</div>
+</section>
+<section id="introducing-gmd-26-a-framework-for-generalisation" class="slide level2" data-section="GMD-26">
+<h2>Introducing GMD-26: A Framework for Generalisation</h2>
+<p><span class="bodytext">We introduce <strong>GMD-26</strong> not merely as a dataset, but as a flexible <strong>Benchmarking Framework</strong> designed to rigorously quantify generalisation.</span></p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>1. The Protocol (Domain-Agnostic)</strong></p>
+<p>A systematic structure adaptable to diverse fields (e.g., Polymers, Proteins):</p>
+<ul>
+<li><strong>4 Systematic Tasks:</strong> Defined by specific compositional shifts rather than random splits.</li>
+<li><strong>2 Subtasks:</strong> Targeted probes for specific failure modes.</li>
+<li><strong>Philosophy:</strong> Testing <em>physical principles</em> (transferable) vs.&nbsp;<em>memorisation</em>.</li>
+</ul>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>2. Reference Implementation</strong></p>
+<p>Validation via <strong>Small Organic Molecules</strong>:</p>
+<ul>
+<li><strong>Tractable Systems:</strong> Small molecules provide interpretable, clear failure modes.</li>
+<li><strong>Multi-Trajectory Challenge:</strong> Unlike MD17, we use <em>multiple diverse trajectories</em>. This forces models to learn the potential surface, not just a single path.</li>
+<li><strong>Fidelity Status:</strong> Currently generated at <strong>GFN2-xTB</strong> level; active upgrade to <strong>DFT</strong> is underway to support Foundation Models.</li>
+</ul>
+</div>
+</div></div>
+<div class="fragment">
+<div class="gap-note">
+<p><strong>Goal:</strong> <em>To establish a universal standard for auditing model robustness across any chemical domain.</em></p>
+</div>
+</div>
+</section>
+<section id="gmd-26-the-four-systematic-generalisation-tasks" class="slide level2" data-section="GMD-26">
+<h2>GMD-26: The Four Systematic Generalisation Tasks</h2>
+
+<img data-src="GMD26.png" style="width:93.0%" class="r-stretch quarto-figure-center"><p class="caption">Visual schematic of the four GMD-26 tasks.</p></section>
+<section id="results-the-duplication-challenge" class="slide level2" data-section="GMD-26">
+<h2>Results: The “Duplication” Challenge</h2>
+<p><strong>Task Definition:</strong> Training on molecules with a <strong>single fragment A</strong> (e.g., Mono-acid) and testing on molecules with <strong>two</strong> of the same <strong>fragment A</strong> (e.g., Di-acid).</p>
+<p><br></p>
+<table class="results-table caption-top" style="width:100%;font-size:0.72em;border-collapse:collapse;text-align:center;">
+<thead>
+<tr class="header">
+<th rowspan="2" data-quarto-table-cell-role="th" style="text-align: left; padding: 4px 6px; border-bottom: 2px solid #8b1538;">Model</th>
+<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid #ccc; padding: 4px 6px">Forces MAE</th>
+<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid #ccc; padding: 4px 6px">Cosine Sim.</th>
+<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid #ccc; padding: 4px 6px">F Mag. MAE</th>
+<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid #ccc; padding: 4px 6px">Energy MAE (eV)</th>
+</tr>
+<tr class="even">
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">ID</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">OOD</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">ID</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">OOD</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">ID</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">OOD</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">ID</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">OOD</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left; padding: 3px 6px;">SchNet</td>
+<td>0.0292</td>
+<td>0.1143</td>
+<td>0.9979</td>
+<td>0.9691</td>
+<td>0.0307</td>
+<td>0.1458</td>
+<td>0.0295</td>
+<td>29.32</td>
+</tr>
+<tr class="even" style="background:#f9f9f9;">
+<td style="text-align: left; padding: 3px 6px;">PaiNN</td>
+<td>0.0020</td>
+<td>0.0600</td>
+<td>0.9999</td>
+<td>0.9768</td>
+<td>0.0022</td>
+<td>0.0713</td>
+<td>0.0181</td>
+<td>30.72</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 3px 6px;">GemNet</td>
+<td>0.0009</td>
+<td>0.0224</td>
+<td>0.9999</td>
+<td>0.9978</td>
+<td>0.0010</td>
+<td>0.0223</td>
+<td>0.0129</td>
+<td>12.27</td>
+</tr>
+<tr class="even" style="background:#f9f9f9;">
+<td style="text-align: left; padding: 3px 6px;">EquiFormerV2</td>
+<td>0.0018</td>
+<td>0.0538</td>
+<td>0.9999</td>
+<td>0.9746</td>
+<td>0.0019</td>
+<td>0.0603</td>
+<td>0.0984</td>
+<td style="color: #8b1538; font-weight: 700">133.77</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 3px 6px;">DimeNet<sup>++</sup></td>
+<td>0.0018</td>
+<td>0.2484</td>
+<td>0.9999</td>
+<td>0.9406</td>
+<td>0.0019</td>
+<td>0.3863</td>
+<td>0.0128</td>
+<td>34.86</td>
+</tr>
+<tr class="even" style="background:#f9f9f9;">
+<td style="text-align: left; padding: 3px 6px;"><strong>MACE</strong></td>
+<td>0.0028</td>
+<td><strong>0.0171</strong></td>
+<td>0.9999</td>
+<td><strong>0.9978</strong></td>
+<td>0.0030</td>
+<td><strong>0.0201</strong></td>
+<td>0.0018</td>
+<td style="color: #8b1538; font-weight: 700"><strong>40.97</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; padding: 3px 6px;">NequIP</td>
+<td>0.0256</td>
+<td>0.0460</td>
+<td>0.9984</td>
+<td>0.9922</td>
+<td>0.0269</td>
+<td>0.0501</td>
+<td>0.0198</td>
+<td>34.59</td>
+</tr>
+</tbody><tfoot>
+<tr class="odd">
+<td colspan="9" style="text-align: left; font-size: 0.88em; color: #6f6f6f; padding-top: 6px; border-top: 1px solid #ccc;">Detailed performance metrics on the Fragment Duplication task. Values in <span style="color:#8b1538;font-weight:700;">red</span> indicate catastrophic OOD failure.</td>
+</tr>
+</tfoot>
+
+</table>
+</section>
+<section id="results-the-chain-extension-challenge" class="slide level2" data-section="GMD-26">
+<h2>Results: The “Chain Extension” Challenge</h2>
+
+<img data-src="length_generalisation_figure_main.png" style="width:93.0%" class="r-stretch quarto-figure-center"><p class="caption">Detailed comparison of predicted vs.&nbsp;actual values. Note the divergence in the OOD regions (right side) compared to the tight correlation in ID regions (left side).</p></section>
+<section id="proposed-architecture-the-deepset-moe" class="slide level2" data-section="The DeepSet-MoE">
+<h2>Proposed Architecture: The DeepSet-MoE</h2>
+<p><span class="bodytext">We implement the <strong>DeepSet</strong> framework (<span class="math inline">\(E = \rho(\sum \phi)\)</span>), modifying the pipeline to expose interpretability and challenge standard assumptions:</span></p>
+<div class="columns">
+<div class="column" style="width:36%;">
+<div class="fragment">
+<div style="text-align:center;">
+<strong style="font-size:1.1em;">1. Encoder (<span class="math inline">\(\phi\)</span>)</strong>
+</div>
+<p><strong>Architecture:</strong> Mixture of Experts (MoE) replacing the monolithic network.</p>
+<p><span class="accent">Refined Routing Metrics:</span></p>
+<ul>
+<li><strong>Metric A (Spatial):</strong> Experts activated by <em>pairwise distances</em> (replacing the previous dual-cutoff).</li>
+<li><strong>Metric B (Identity):</strong> Experts assigned by <em>central atom type</em>. One expert processes all hierarchies.</li>
+</ul>
+</div>
+</div><div class="column" style="width:32%;">
+<div class="fragment">
+<div style="text-align:center;">
+<strong style="font-size:1.1em;">2. Aggregation (<span class="math inline">\(\sum\)</span>)</strong>
+</div>
+<p><strong>Role:</strong> Pooling atomic states into a global representation.</p>
+<p><span class="accent">Current State:</span></p>
+<ul>
+<li>Standard Summation.</li>
+</ul>
+<p><span class="accent">The Aggregation Hypothesis:</span></p>
+<ul>
+<li><strong>Hypothesis:</strong> Rigid summation <strong>obscures</strong> distinct atomic contributions.</li>
+<li><strong>Experiment:</strong> Removing the Aggregation Head entirely.</li>
+</ul>
+</div>
+</div><div class="column" style="width:29%;">
+<div class="fragment">
+<div style="text-align:center;">
+<strong style="font-size:1.1em;">3. Decoder (<span class="math inline">\(\rho\)</span>)</strong>
+</div>
+<p><strong>Role:</strong> Mapping latent state to Energy/Force.</p>
+<p><span class="accent">Inference:</span></p>
+<ul>
+<li>Currently Identity (Direct).</li>
+<li><strong>Goal:</strong> Eliminate ambiguity by inferring directly from Encoder output.</li>
+</ul>
+</div>
+</div></div>
+</section>
+<section id="summary-the-generalisation-crisis" class="slide level2" data-section="Conclusion">
+<h2>Summary: The Generalisation Crisis</h2>
+<div class="fragment">
+<div class="callout callout-note no-icon callout-style-simple">
+<div class="callout-body">
+<div class="callout-content">
+<p><strong>The Diagnosis</strong></p>
+<p>We challenged the generalisation capabilities of established SOTA architectures by introducing <strong>GMD-26</strong>, a benchmark designed to test physical robustness rather than memorisation.</p>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="fragment">
+<p><strong>Key Findings:</strong></p>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>Universal Failure:</strong> Every evaluated architecture — from simple invariant models (SchNet) to equivariant transformers (EquiFormerV2) and high-order bodies (MACE) — failed to generalise compositionally.</li>
+</ul>
+</div>
+<div class="fragment">
+<ul>
+<li><strong>The Magnitude of Error:</strong> OOD errors were not merely higher; they were catastrophic (often <strong>orders of magnitude</strong> larger than ID errors), proving that excellent performance on standard benchmarks masks a critical lack of physical understanding.</li>
+</ul>
+</div>
+</section>
+<section id="future-outlook-toward-interpretable-generalisation" class="slide level2" data-section="Conclusion">
+<h2>Future Outlook: Toward Interpretable Generalisation</h2>
+<p><span class="bodytext">To bridge this gap, we are moving away from monolithic “Black Box” networks toward a modular, chemically aligned architecture:</span></p>
+<div class="columns">
+<div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>1. The DeepSet-MoE Implementation</strong></p>
+<ul>
+<li><strong>Specialised Encoding:</strong> Replacing the single encoder with a <strong>Mixture of Experts</strong> routed by optimised physical metrics.</li>
+<li><strong>Goal:</strong> To ensure distinct chemical environments are processed and learned by distinct, specialised parameters.</li>
+</ul>
+</div>
+</div><div class="column" style="width:48%;">
+<div class="fragment">
+<p><strong>2. The Aggregation Hypothesis</strong></p>
+<ul>
+<li><strong>Current Bottleneck:</strong> We suspect the rigid summation (<span class="math inline">\(\sum\)</span>) obscures the distinct share of atomic contributions.</li>
+<li><strong>Next Step:</strong> We are currently investigating alternative aggregation paradigms to identify a strategy that preserves distinct atomic contributions within the global prediction.</li>
+</ul>
+</div>
+</div></div>
+<p><br></p>
+<div class="fragment">
+<div class="gap-note">
+<p><strong>Final Conclusion:</strong> <em>We aim to establish DeepSet-MoE as an explainable architecture where OOD performance remains close to ID levels, prioritising this <strong>generalisation stability</strong> over chasing the absolute lowest ID errors seen in SOTA models.</em></p>
+</div>
+</div>
+</section>
+<section id="thank-you" class="slide level2" data-section="Thank You">
+<h2>Thank You</h2>
+<div class="columns">
+<div class="column" style="width:10%;">
+
+</div><div class="column" style="width:80%;">
+<p><br><br></p>
+<div style="text-align:center;">
+<p><strong>Amir Masoud Nourollah</strong></p>
+<p><span style="color:var(--ufc-muted);">PhD Student · Cardiff NLP &amp; Knowledge Representation and Reasoning Groups</span></p>
+<p><br></p>
+<p><em>Supervisors:</em> Prof.&nbsp;Stefano Leoni · Prof.&nbsp;Steven Schockaert</p>
+<p><br></p>
+<p>📧 <a href="mailto:NourollahA@cardiff.ac.uk">NourollahA@cardiff.ac.uk</a><br>
+🌐 <a href="https://nourollah.me">nourollah.me</a></p>
+<p><br><br></p>
+<p><span style="font-size:0.8em;color:var(--ufc-muted);">Preprint available at <a href="https://arxiv.org/abs/2605.08988">arxiv.org/abs/2605.08988</a></span></p>
+</div>
+</div></div>
+
+
+</section>
+    </div>
+  <div class="quarto-auto-generated-content" style="display: none;">
+<div class="footer footer-default">
+
+</div>
+</div></div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="../../site_libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="../../site_libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="../../site_libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="../../site_libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="../../site_libs/revealjs/plugin/search/search.js"></script>
+  <script src="../../site_libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="../../site_libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': false,
+'previewLinksAuto': false,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'jumpToSlide': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: true,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: false,
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1280,
+
+        height: 720,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 3.0e-2,
+
+        math: {
+          mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <img src="logo_RGB.png" id="slide-logo-fixed" style="position:fixed;top:10px;right:15px;height:40px;width:auto;z-index:9999;pointer-events:none;" alt="Cardiff University Logo">
+
+    <div class="ufc-footer" id="ufc-footer">
+      <div class="ufc-footer__seg" id="ufc-footer-author">Amir Masoud Nourollah</div>
+      <div class="ufc-footer__seg" id="ufc-footer-title" title="Go to overview">Annual Review 2025</div>
+      <div class="ufc-footer__seg" id="ufc-footer-section" title="Go to section start">Section</div>
+      <div class="ufc-footer__seg" id="ufc-footer-page">1 / 1</div>
+    </div>
+
+    <script>
+    (function () {
+      var footerTitle   = document.getElementById("ufc-footer-title");
+      var footerSection = document.getElementById("ufc-footer-section");
+      var footerPage    = document.getElementById("ufc-footer-page");
+
+      // Map: section-name -> first slide index (flat, 0-based) with that data-section
+      var sectionFirstIndex = {};
+
+      function buildNavMap() {
+        sectionFirstIndex = {};
+        var slides = document.querySelectorAll(".reveal .slides section");
+        var idx = 0;
+        slides.forEach(function (slide) {
+          // Skip wrapper sections (ones that only contain other sections)
+          var hasChildSections = slide.querySelector(":scope > section");
+          if (hasChildSections) return;
+          var sec = slide.getAttribute("data-section");
+          if (sec && !(sec in sectionFirstIndex)) {
+            sectionFirstIndex[sec] = idx;
+          }
+          idx++;
+        });
+      }
+
+      function navigateToSection(name) {
+        if (!window.Reveal || !(name in sectionFirstIndex)) return;
+        var targetFlat = sectionFirstIndex[name];
+        // Convert flat index back to (h, v) in the 2D structure
+        var containers = document.querySelectorAll(".reveal .slides > section");
+        var flat = 0;
+        for (var h = 0; h < containers.length; h++) {
+          var inner = containers[h].querySelectorAll(":scope > section");
+          if (inner.length === 0) {
+            if (flat === targetFlat) { window.Reveal.slide(h, 0); return; }
+            flat++;
+          } else {
+            for (var v = 0; v < inner.length; v++) {
+              if (flat === targetFlat) { window.Reveal.slide(h, v); return; }
+              flat++;
+            }
+          }
+        }
+      }
+
+      footerTitle.style.cursor   = "pointer";
+      footerSection.style.cursor = "pointer";
+      footerTitle.style.pointerEvents   = "all";
+      footerSection.style.pointerEvents = "all";
+
+      footerTitle.addEventListener("click", function () {
+        navigateToSection("Overview");
+      });
+
+      footerSection.addEventListener("click", function () {
+        var sec = footerSection.getAttribute("data-current-section") || "";
+        if (sec) navigateToSection(sec);
+      });
+
+      function getFlatIndex() {
+        var indices    = window.Reveal.getIndices();
+        var containers = document.querySelectorAll(".reveal .slides > section");
+        var flat = 0;
+        var total = 0;
+        for (var h = 0; h < containers.length; h++) {
+          var inner = containers[h].querySelectorAll(":scope > section");
+          var count = inner.length > 0 ? inner.length : 1;
+          if (h < indices.h) flat += count;
+          else if (h === indices.h) flat += (indices.v || 0);
+          total += count;
+        }
+        return { current: flat + 1, total: total };
+      }
+
+      function updateFooter() {
+        var currentSlide = window.Reveal.getCurrentSlide();
+        var sec = currentSlide ? (currentSlide.getAttribute("data-section") || "") : "";
+        footerSection.textContent = sec;
+        footerSection.setAttribute("data-current-section", sec);
+
+        var pos = getFlatIndex();
+        footerPage.textContent = pos.current + " / " + pos.total;
+      }
+
+      function init() {
+        if (!window.Reveal) { setTimeout(init, 30); return; }
+        window.Reveal.on("ready", function () {
+          buildNavMap();
+          updateFooter();
+        });
+        window.Reveal.on("slidechanged", updateFooter);
+        // If Reveal already fired 'ready' before we got here
+        if (window.Reveal.isReady && window.Reveal.isReady()) {
+          buildNavMap();
+          updateFooter();
+        }
+      }
+
+      init();
+    })();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+      window.document.addEventListener("DOMContentLoaded", function (event) {
+        const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+        tabsets.forEach(function(tabset) {
+          const tabby = new Tabby('#' + tabset.id);
+        });
+        const isCodeAnnotation = (el) => {
+          for (const clz of el.classList) {
+            if (clz.startsWith('code-annotation-')) {                     
+              return true;
+            }
+          }
+          return false;
+        }
+        const onCopySuccess = function(e) {
+          // button target
+          const button = e.trigger;
+          // don't keep focus
+          button.blur();
+          // flash "checked"
+          button.classList.add('code-copy-button-checked');
+          var currentTitle = button.getAttribute("title");
+          button.setAttribute("title", "Copied!");
+          let tooltip;
+          if (window.bootstrap) {
+            button.setAttribute("data-bs-toggle", "tooltip");
+            button.setAttribute("data-bs-placement", "left");
+            button.setAttribute("data-bs-title", "Copied!");
+            tooltip = new bootstrap.Tooltip(button, 
+              { trigger: "manual", 
+                customClass: "code-copy-button-tooltip",
+                offset: [0, -8]});
+            tooltip.show();    
+          }
+          setTimeout(function() {
+            if (tooltip) {
+              tooltip.hide();
+              button.removeAttribute("data-bs-title");
+              button.removeAttribute("data-bs-toggle");
+              button.removeAttribute("data-bs-placement");
+            }
+            button.setAttribute("title", currentTitle);
+            button.classList.remove('code-copy-button-checked');
+          }, 1000);
+          // clear code selection
+          e.clearSelection();
+        }
+        const getTextToCopy = function(trigger) {
+          const outerScaffold = trigger.parentElement.cloneNode(true);
+          const codeEl = outerScaffold.querySelector('code');
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+        }
+        const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+          text: getTextToCopy
+        });
+        clipboard.on('success', onCopySuccess);
+        if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+          const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+            text: getTextToCopy,
+            container: window.document.getElementById('quarto-embedded-source-code-modal')
+          });
+          clipboardModal.on('success', onCopySuccess);
+        }
+          var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+          var mailtoRegex = new RegExp(/^mailto:/);
+            var filterRegex = new RegExp("https:\/\/nourollah\.me");
+          var isInternal = (href) => {
+              return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+          }
+          // Inspect non-navigation links and adorn them if external
+         var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+          for (var i=0; i<links.length; i++) {
+            const link = links[i];
+            if (!isInternal(link.href)) {
+              // undo the damage that might have been done by quarto-nav.js in the case of
+              // links that we want to consider external
+              if (link.dataset.originalHref !== undefined) {
+                link.href = link.dataset.originalHref;
+              }
+            }
+          }
+        function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+          const config = {
+            allowHTML: true,
+            maxWidth: 500,
+            delay: 100,
+            arrow: false,
+            appendTo: function(el) {
+                return el.closest('section.slide') || el.parentElement;
+            },
+            interactive: true,
+            interactiveBorder: 10,
+            theme: 'light-border',
+            placement: 'bottom-start',
+          };
+          if (contentFn) {
+            config.content = contentFn;
+          }
+          if (onTriggerFn) {
+            config.onTrigger = onTriggerFn;
+          }
+          if (onUntriggerFn) {
+            config.onUntrigger = onUntriggerFn;
+          }
+            config['offset'] = [0,0];
+            config['maxWidth'] = 700;
+          window.tippy(el, config); 
+        }
+        const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+        for (var i=0; i<noterefs.length; i++) {
+          const ref = noterefs[i];
+          tippyHover(ref, function() {
+            // use id or data attribute instead here
+            let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+            try { href = new URL(href).hash; } catch {}
+            const id = href.replace(/^#\/?/, "");
+            const note = window.document.getElementById(id);
+            if (note) {
+              return note.innerHTML;
+            } else {
+              return "";
+            }
+          });
+        }
+        const findCites = (el) => {
+          const parentEl = el.parentElement;
+          if (parentEl) {
+            const cites = parentEl.dataset.cites;
+            if (cites) {
+              return {
+                el,
+                cites: cites.split(' ')
+              };
+            } else {
+              return findCites(el.parentElement)
+            }
+          } else {
+            return undefined;
+          }
+        };
+        var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+        for (var i=0; i<bibliorefs.length; i++) {
+          const ref = bibliorefs[i];
+          const citeInfo = findCites(ref);
+          if (citeInfo) {
+            tippyHover(citeInfo.el, function() {
+              var popup = window.document.createElement('div');
+              citeInfo.cites.forEach(function(cite) {
+                var citeDiv = window.document.createElement('div');
+                citeDiv.classList.add('hanging-indent');
+                citeDiv.classList.add('csl-entry');
+                var biblioDiv = window.document.getElementById('ref-' + cite);
+                if (biblioDiv) {
+                  citeDiv.innerHTML = biblioDiv.innerHTML;
+                }
+                popup.appendChild(citeDiv);
+              });
+              return popup.innerHTML;
+            });
+          }
+        }
+      });
+      </script>
+    
+
+</body></html>
