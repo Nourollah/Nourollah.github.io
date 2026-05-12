@@ -7,27 +7,44 @@ toc-depth: 2
 ## Education
 
 | Degree | Institution | Supervisor(s)/Advisor(s) | Period |
-|--------------------|--------------------------------|--------------------|--------------------|
-| PhD, Computer Science | Cardiff University | [Prof. Steven Schockaert](https://profiles.cardiff.ac.uk/staff/schockaerts1), [Prof. Stefano Leoni](https://profiles.cardiff.ac.uk/staff/leonis) | 2024 – present |
-| MSc, Artificial Intelligence & Robotics | Shahrood University of Technology | [Prof. Hamid Hassanpour](https://scholar.google.com/citations?user=RgIoUX0AAAAJ&hl=en), [Dr. Amin Zehtabian](https://scholar.google.com/citations?user=El7dQfQAAAAJ&hl=en) | 2020 – 2023 |
-| BSc, Chemistry | IAUTNB | [Prof. Saeed Abedini Khorrami](https://www.researchgate.net/profile/Saeed-Khorrami), [Prof. Mahmoudreza Sohrabi](https://scholar.google.com/citations?user=mVdGg4AAAAAJ&hl=en) | 2016 – 2020 |
+|---|---|---|---|
+| PhD, Computer Science | Cardiff University | [Prof. Steven Schockaert](https://profiles.cardiff.ac.uk/staff/schockaerts1) <br> [Prof. Stefano Leoni](https://profiles.cardiff.ac.uk/staff/leonis) | 2024 – present |
+| MSc, Artificial Intelligence & Robotics | Shahrood University of Technology | [Prof. Hamid Hassanpour](https://scholar.google.com/citations?user=RgIoUX0AAAAJ&hl=en) <br> [Dr. Amin Zehtabian](https://scholar.google.com/citations?user=El7dQfQAAAAJ&hl=en) | 2020 – 2023 |
+| BSc, Chemistry | IAUTNB | [Prof. Saeed Abedini Khorrami](https://www.researchgate.net/profile/Saeed-Khorrami) <br> [Prof. Mahmoudreza Sohrabi](https://scholar.google.com/citations?user=mVdGg4AAAAAJ&hl=en) | 2016 – 2020 |
+
+## Teaching
+
+| Role | Organisation | Modules | Period |
+|---|---|---|---|
+| Graduate Demonstrator | Cardiff University | CH5110 <br> CH5210 <br> CH5230 <br> CH5231 <br> CH5350 | 2024 – present |
+| Teaching Assistant | Shahrood University of Technology | Digital Image Processing, <br> Neural Networks and Deep Learning, <br> Big Data and Scalable Machine Learning, <br> Advanced Machine Learning | 2021 – 2023 |
 
 ## Research Groups
 
-I am a part of the [Cardiff Natural Language Processing (NLP)](https://cardiffnlp.github.io/) group and the [Knowledge Representation and Reasoning (KRR)](https://krr.cs.cf.ac.uk/) group at Cardiff University.
+I am a member of the [Cardiff Natural Language Processing (NLP)](https://cardiffnlp.github.io/) group and the [Knowledge Representation and Reasoning (KRR)](https://krr.cs.cf.ac.uk/) group at Cardiff University. The Cardiff NLP group works on representation learning, reasoning, and language understanding, while KRR focuses on formal and neural approaches to knowledge representation and reasoning.
+
+During my master's studies, I was a member of the Image Processing and Data Mining group at Shahrood University of Technology, where my work centred on computer vision and applied machine learning.
 
 ## Research Interests
 
 - Scientific machine learning (SciML)
 - Multimodal machine learning
 - Geometric deep learning and graph neural networks
-- Generalisation and distribution shift in machine learning\
-- Interpretability and explainability in ML models\
-- Neural Rendering & Simulation
+- Generalisation and distribution shift in machine learning
+- Interpretability and explainability in ML models
+- Neural rendering & simulation
 
 ## Industry Experience
 
-Before starting my PhD, I worked as a **software engineer** and **machine learning engineer**, leading AI teams across different companies. My applied work has covered:
+Prior to my PhD, I worked as a software engineer and machine learning researcher across several companies.
+
+| Role | Organisation | Period |
+|---|---|---|
+| Machine Learning Researcher | Novin Barnameh Kara, Tehran | 2023 – 2024 |
+| Machine Learning Researcher | NOVE, Tehran | 2021 – 2022 |
+| Software Engineer | Faradid Payesh System | 2017 – 2021 |
+
+Technical areas covered:
 
 - Computer Vision & Image/Video Processing
 - Speech/Signal Processing
@@ -44,6 +61,7 @@ Before starting my PhD, I worked as a **software engineer** and **machine learni
 - <i class="bi bi-github"></i> **GitHub:** [github.com/Nourollah](https://github.com/Nourollah)
 - <i class="bi bi-mortarboard"></i> **Google Scholar:** [Google Scholar](https://scholar.google.com/citations?user=jnindL8AAAAJ)
 - <i class="bi bi-orcid"></i> **ORCID:** [0000-0002-6083-6673](https://orcid.org/0000-0002-6083-6673)
+- <i class="bi bi-researchgate"></i> **ResearchGate:** [ResearchGate](https://www.researchgate.net/profile/Amir-Masoud-Nourollah)
 - <i class="bi bi-linkedin"></i> **LinkedIn:** [linkedin.com/in/amnrl](https://www.linkedin.com/in/amnrl)
 - <i class="bi bi-telegram"></i> **Telegram:** [t.me/amirmasoudnrl](https://t.me/amirmasoudnrl)
 - <i class="bi bi-building"></i> **University Profile:** [Cardiff University](https://profiles.cardiff.ac.uk/staff/nourollaha)

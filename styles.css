@@ -31,6 +31,29 @@ i.bi.bi-orcid::before {
   content: none !important;
 }
 
+/* ===== ResearchGate icon (not in Bootstrap Icons — SVG luminance-mask workaround) ===== */
+i.bi.bi-researchgate {
+  display: inline-block;
+  -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23fff' d='M0 32C0 14.3 14.3 0 32 0h384c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V32z'/%3E%3Cpath fill='%23000' d='M288.8 148c-5.3 0-10.3 1.4-14.7 4.1-20.4 12.5-21.1 54-21.1 54s21.9-3.3 35.2-14.3c12.1-10 14.5-24.8 14.5-32.5 0-6.7-5.4-11.3-13.9-11.3zM224 32C100.3 32 0 132.3 0 256s100.3 224 224 224 224-100.3 224-224S347.7 32 224 32zm-48 272h-32V176h70.7c43.7 0 64.6 22 64.6 55.2 0 26.4-13.3 44.4-35.5 51.4L288 416h-35.2l-36.7-125.4H176V304zm32-152h-32v83.4h29.5c23.6 0 38.2-11.5 38.2-33.5 0-20.5-11.7-49.9-35.7-49.9z'/%3E%3C/svg%3E");
+  mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 448 512'%3E%3Cpath fill='%23fff' d='M0 32C0 14.3 14.3 0 32 0h384c17.7 0 32 14.3 32 32V480c0 17.7-14.3 32-32 32H32c-17.7 0-32-14.3-32-32V32z'/%3E%3Cpath fill='%23000' d='M288.8 148c-5.3 0-10.3 1.4-14.7 4.1-20.4 12.5-21.1 54-21.1 54s21.9-3.3 35.2-14.3c12.1-10 14.5-24.8 14.5-32.5 0-6.7-5.4-11.3-13.9-11.3zM224 32C100.3 32 0 132.3 0 256s100.3 224 224 224 224-100.3 224-224S347.7 32 224 32zm-48 272h-32V176h70.7c43.7 0 64.6 22 64.6 55.2 0 26.4-13.3 44.4-35.5 51.4L288 416h-35.2l-36.7-125.4H176V304zm32-152h-32v83.4h29.5c23.6 0 38.2-11.5 38.2-33.5 0-20.5-11.7-49.9-35.7-49.9z'/%3E%3C/svg%3E");
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 1em;
+  mask-size: 1em;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-mode: luminance;
+  mask-mode: luminance;
+  background-color: currentColor;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+}
+
+i.bi.bi-researchgate::before {
+  content: none !important;
+}
+
 /* ===== Navbar ===== */
 .navbar-brand {
   font-weight: 600;

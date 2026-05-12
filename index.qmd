@@ -16,6 +16,15 @@ about:
     - icon: github
       text: GitHub
       href: https://github.com/Nourollah
+    - icon: orcid
+      text: ORCID
+      href: https://orcid.org/0000-0002-6083-6673
+    - icon: person-badge
+      text: University Profile
+      href: https://profiles.cardiff.ac.uk/staff/nourollaha
+    - icon: researchgate
+      text: ResearchGate
+      href: https://www.researchgate.net/profile/Amir-Masoud-Nourollah
     - icon: linkedin
       text: LinkedIn
       href: https://www.linkedin.com/in/amnrl
@@ -25,12 +34,6 @@ about:
     - icon: telegram
       text: Telegram
       href: https://t.me/amirmasoudnrl
-    - icon: orcid
-      text: ORCID
-      href: https://orcid.org/0000-0002-6083-6673
-    - icon: person-badge
-      text: University Profile
-      href: https://profiles.cardiff.ac.uk/staff/nourollaha
 
 toc: false
 ---
@@ -41,7 +44,7 @@ I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Sci
 
 Having explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master's degree focused on artificial intelligence and robotics (2020–2023).
 
-Before starting my PhD, I worked in industry as a software engineer and machine learning engineer, leading AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software.
+Before starting my PhD, I worked in industry as a software engineer and machine learning researcher, contributing to AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software.
 
 ------------------------------------------------------------------------
 
