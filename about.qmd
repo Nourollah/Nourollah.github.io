@@ -9,8 +9,8 @@ toc-depth: 2
 | Degree | Institution | Supervisor(s)/Advisor(s) | Period |
 |---|---|---|---|
 | PhD, Computer Science | Cardiff University | [Prof. Steven Schockaert](https://profiles.cardiff.ac.uk/staff/schockaerts1) <br> [Prof. Stefano Leoni](https://profiles.cardiff.ac.uk/staff/leonis) | 2024 – present |
-| MSc, Artificial Intelligence & Robotics | Shahrood University of Technology | [Prof. Hamid Hassanpour](https://scholar.google.com/citations?user=RgIoUX0AAAAJ&hl=en) <br> [Dr. Amin Zehtabian](https://scholar.google.com/citations?user=El7dQfQAAAAJ&hl=en) | 2020 – 2023 |
-| BSc, Chemistry | IAUTNB | [Prof. Saeed Abedini Khorrami](https://www.researchgate.net/profile/Saeed-Khorrami) <br> [Prof. Mahmoudreza Sohrabi](https://scholar.google.com/citations?user=mVdGg4AAAAAJ&hl=en) | 2016 – 2020 |
+| MSc, Computer Engineering with Specialisation in AI & Robotics | Shahrood University of Technology | [Prof. Hamid Hassanpour](https://scholar.google.com/citations?user=RgIoUX0AAAAJ&hl=en) <br> [Dr. Amin Zehtabian](https://scholar.google.com/citations?user=El7dQfQAAAAJ&hl=en) | 2020 – 2023 |
+| BSc, Chemistry with Specialisation in Information Technology | IAUTNB | [Prof. Saeed Abedini Khorrami](https://www.researchgate.net/profile/Saeed-Khorrami) <br> [Prof. Mahmoudreza Sohrabi](https://scholar.google.com/citations?user=mVdGg4AAAAAJ&hl=en) | 2016 – 2020 |
 
 ## Teaching
 
