@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>About – Amir Masoud Nourollah</title>
+<title>Blog – Amir Masoud Nourollah</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -26,23 +26,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cdd13912a56c529c216a958367180166.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-listing/list.min.js"></script>
+<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-cdd13912a56c529c216a958367180166.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,11 +72,69 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<link rel="stylesheet" href="styles.css">
-</head>
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../styles.css">
+<link rel="alternate" type="application/rss+xml" title="Amir Masoud Nourollah" href="index.xml" data-external="1"></head>
 
 <body class="nav-fixed quarto-light">
 
@@ -83,7 +143,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Amir Masoud Nourollah</span>
     </a>
   </div>
@@ -94,22 +154,22 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> <i class="bi bi-house" role="img" aria-label="Home">
+    <a class="nav-link" href="../index.html"> <i class="bi bi-house" role="img" aria-label="Home">
 </i> 
 <span class="menu-text">Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./about.html" aria-current="page"> <i class="bi bi-person" role="img" aria-label="About">
+    <a class="nav-link" href="../about.html"> <i class="bi bi-person" role="img" aria-label="About">
 </i> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> <i class="bi bi-folder" role="img" aria-label="Projects">
+    <a class="nav-link" href="../projects/index.html"> <i class="bi bi-folder" role="img" aria-label="Projects">
 </i> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentations/index.html"> <i class="bi bi-display" role="img" aria-label="Presentations">
+    <a class="nav-link" href="../presentations/index.html"> <i class="bi bi-display" role="img" aria-label="Presentations">
 </i> 
 <span class="menu-text">Presentations</span></a>
   </li>  
@@ -119,7 +179,7 @@ ul.task-list li input[type="checkbox"] {
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> <i class="bi bi-pencil-square" role="img" aria-label="Blog">
+    <a class="nav-link active" href="../blog/index.html" aria-current="page"> <i class="bi bi-pencil-square" role="img" aria-label="Blog">
 </i> 
 <span class="menu-text">Blog</span></a>
   </li>  
@@ -136,34 +196,22 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#education" id="toc-education" class="nav-link active" data-scroll-target="#education">Education</a></li>
-  <li><a href="#teaching" id="toc-teaching" class="nav-link" data-scroll-target="#teaching">Teaching</a></li>
-  <li><a href="#research-groups" id="toc-research-groups" class="nav-link" data-scroll-target="#research-groups">Research Groups</a></li>
-  <li><a href="#research-interests" id="toc-research-interests" class="nav-link" data-scroll-target="#research-interests">Research Interests</a></li>
-  <li><a href="#industry-experience" id="toc-industry-experience" class="nav-link" data-scroll-target="#industry-experience">Industry Experience</a></li>
-  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
-  </ul>
-</nav>
-    </div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hlbWlzdHJ5">chemistry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZSUyMGxlYXJuaW5n">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzZWFyY2g=">research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NpZW50aWZpYyUyMG1s">scientific ml <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">About</h1>
+<h1 class="title">Blog</h1>
 </div>
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page-left">
 
     
   
@@ -175,152 +223,51 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="education" class="level2">
-<h2 class="anchored" data-anchor-id="education">Education</h2>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th>Degree</th>
-<th>Institution</th>
-<th>Supervisor(s)/Advisor(s)</th>
-<th>Period</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>PhD, Computer Science</td>
-<td>Cardiff University</td>
-<td><a href="https://profiles.cardiff.ac.uk/staff/schockaerts1">Prof.&nbsp;Steven Schockaert</a> <br> <a href="https://profiles.cardiff.ac.uk/staff/leonis">Prof.&nbsp;Stefano Leoni</a></td>
-<td>2024 – present</td>
-</tr>
-<tr class="even">
-<td>MSc, Computer Engineering with Specialisation in AI &amp; Robotics</td>
-<td>Shahrood University of Technology</td>
-<td><a href="https://scholar.google.com/citations?user=RgIoUX0AAAAJ&amp;hl=en">Prof.&nbsp;Hamid Hassanpour</a> <br> <a href="https://scholar.google.com/citations?user=El7dQfQAAAAJ&amp;hl=en">Dr.&nbsp;Amin Zehtabian</a></td>
-<td>2020 – 2023</td>
-</tr>
-<tr class="odd">
-<td>BSc, Chemistry with Specialisation in Information Technology</td>
-<td>IAUTNB</td>
-<td><a href="https://www.researchgate.net/profile/Saeed-Khorrami">Prof.&nbsp;Saeed Abedini Khorrami</a> <br> <a href="https://scholar.google.com/citations?user=mVdGg4AAAAAJ&amp;hl=en">Prof.&nbsp;Mahmoudreza Sohrabi</a></td>
-<td>2016 – 2020</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="teaching" class="level2">
-<h2 class="anchored" data-anchor-id="teaching">Teaching</h2>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-<col style="width: 25%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Role</th>
-<th>Organisation</th>
-<th>Modules</th>
-<th>Period</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Graduate Demonstrator</td>
-<td>Cardiff University</td>
-<td>CH5110 <br> CH5210 <br> CH5230 <br> CH5231 <br> CH5350</td>
-<td>2024 – present</td>
-</tr>
-<tr class="even">
-<td>Teaching Assistant</td>
-<td>Shahrood University of Technology</td>
-<td>Digital Image Processing, <br> Neural Networks and Deep Learning, <br> Big Data and Scalable Machine Learning, <br> Advanced Machine Learning</td>
-<td>2021 – 2023</td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="research-groups" class="level2">
-<h2 class="anchored" data-anchor-id="research-groups">Research Groups</h2>
-<p>I am a member of the <a href="https://cardiffnlp.github.io/">Cardiff Natural Language Processing (NLP)</a> group and the <a href="https://krr.cs.cf.ac.uk/">Knowledge Representation and Reasoning (KRR)</a> group at Cardiff University. The Cardiff NLP group works on representation learning, reasoning, and language understanding, while KRR focuses on formal and neural approaches to knowledge representation and reasoning.</p>
-<p>During my master’s studies, I was a member of the Image Processing and Data Mining group at Shahrood University of Technology, where my work centred on computer vision and applied machine learning.</p>
-</section>
-<section id="research-interests" class="level2">
-<h2 class="anchored" data-anchor-id="research-interests">Research Interests</h2>
-<ul>
-<li>Scientific machine learning (SciML)</li>
-<li>Multimodal machine learning</li>
-<li>Geometric deep learning and graph neural networks</li>
-<li>Generalisation and distribution shift in machine learning</li>
-<li>Interpretability and explainability in ML models</li>
-<li>Neural rendering &amp; simulation</li>
-</ul>
-</section>
-<section id="industry-experience" class="level2">
-<h2 class="anchored" data-anchor-id="industry-experience">Industry Experience</h2>
-<p>Prior to my PhD, I worked as a software engineer and machine learning researcher across several companies.</p>
-<table class="caption-top table">
-<colgroup>
-<col style="width: 33%">
-<col style="width: 33%">
-<col style="width: 33%">
-</colgroup>
-<thead>
-<tr class="header">
-<th>Role</th>
-<th>Organisation</th>
-<th>Period</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Machine Learning Researcher</td>
-<td>Novin Barnameh Kara, Tehran</td>
-<td>2023 – 2024</td>
-</tr>
-<tr class="even">
-<td>Machine Learning Researcher</td>
-<td>NOVE, Tehran</td>
-<td>2021 – 2022</td>
-</tr>
-<tr class="odd">
-<td>Software Engineer</td>
-<td>Faradid Payesh System</td>
-<td>2017 – 2021</td>
-</tr>
-</tbody>
-</table>
-<p>Technical areas covered:</p>
-<ul>
-<li>Computer Vision &amp; Image/Video Processing</li>
-<li>Speech/Signal Processing</li>
-<li>Natural Language Processing</li>
-<li>Steganography &amp; Information Hiding</li>
-<li>AI Infrastructure &amp; DevOps</li>
-<li>Cross-Platform Native Software Development</li>
-</ul>
-</section>
-<section id="contact" class="level2">
-<h2 class="anchored" data-anchor-id="contact">Contact</h2>
-<div class="contact-list">
-<ul>
-<li><i class="bi bi-envelope"></i> <strong>Email:</strong> <a href="mailto:am@nourollah.me">am@nourollah.me</a></li>
-<li><i class="bi bi-envelope"></i> <strong>Gmail:</strong> <a href="mailto:nourollah.am@gmail.com">nourollah.am@gmail.com</a></li>
-<li><i class="bi bi-github"></i> <strong>GitHub:</strong> <a href="https://github.com/Nourollah">github.com/Nourollah</a></li>
-<li><i class="bi bi-mortarboard"></i> <strong>Google Scholar:</strong> <a href="https://scholar.google.com/citations?user=jnindL8AAAAJ">Google Scholar</a></li>
-<li><i class="bi bi-orcid"></i> <strong>ORCID:</strong> <a href="https://orcid.org/0000-0002-6083-6673">0000-0002-6083-6673</a></li>
-<li><i class="bi bi-researchgate"></i> <strong>ResearchGate:</strong> <a href="https://www.researchgate.net/profile/Amir-Masoud-Nourollah">ResearchGate</a></li>
-<li><i class="bi bi-linkedin"></i> <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/amnrl">linkedin.com/in/amnrl</a></li>
-<li><i class="bi bi-telegram"></i> <strong>Telegram:</strong> <a href="https://t.me/amirmasoudnrl">t.me/amirmasoudnrl</a></li>
-<li><i class="bi bi-building"></i> <strong>University Profile:</strong> <a href="https://profiles.cardiff.ac.uk/staff/nourollaha">Cardiff University</a></li>
-</ul>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="cmVzZWFyY2glMkNtYWNoaW5lJTIwbGVhcm5pbmclMkNjaGVtaXN0cnklMkNzY2llbnRpZmljJTIwbWw=" data-listing-date-sort="1778540400000" data-listing-file-modified-sort="1778595453300" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1414">
+<div class="thumbnail"><a href="../blog/posts/chemical-foundation-models/index.html" class="no-external">
+
+<div class="listing-item-img-placeholder card-img-top" >&nbsp;</div>
+
+</a></div>
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="../blog/posts/chemical-foundation-models/index.html" class="no-external">The Universal Promise: Do We Actually Need Chemical Foundation Models?</a>
+</h3>
+<div class="listing-categories">
+
+<div class="listing-category" onclick="window.quartoListingCategory('cmVzZWFyY2g='); return false;">research</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('bWFjaGluZSUyMGxlYXJuaW5n'); return false;">machine learning</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('Y2hlbWlzdHJ5'); return false;">chemistry</div>
+
+<div class="listing-category" onclick="window.quartoListingCategory('c2NpZW50aWZpYyUyMG1s'); return false;">scientific ml</div>
+
 </div>
-
-
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+<div class="delink listing-description"><a href="../blog/posts/chemical-foundation-models/index.html" class="no-external">
+<p>From billion-parameter transformers to universal interatomic potentials, chemistry AI is scaling fast. But scale alone does not equal scientific discovery — and the evidence reveals exactly where these models shine and where they break down.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="../blog/posts/chemical-foundation-models/index.html" class="no-external">
+<div class="listing-date">
+12 May 2026
+</div>
+<div class="listing-author">
+Amir Masoud Nourollah
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
@@ -731,5 +678,5 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

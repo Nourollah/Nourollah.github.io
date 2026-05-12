@@ -11,6 +11,11 @@ Personal academic website of [Amir Masoud Nourollah](https://nourollah.me), Buil
 ├── about.qmd            # About page (education, experience, contact)
 ├── styles.css           # Custom CSS (colours, layout tweaks, icon fixes)
 ├── assets/              # Static assets (profile image, etc.)
+├── blog/
+│   ├── index.qmd        # Blog listing page (auto-populated)
+│   └── posts/
+│       └── hello/
+│           └── index.qmd  # Example post
 ├── presentations/
 │   ├── index.qmd        # Presentations listing
 │   └── annual-review-2025/
@@ -72,3 +77,47 @@ git add docs/
 git commit -m "rebuild site"
 git push
 ```
+
+> **Note:** If GitHub creates a commit on the remote (e.g. when you update the custom domain in Pages settings), pull before pushing to avoid diverged histories:
+> ```bash
+> git pull --rebase
+> git push
+> ```
+
+## Writing a Blog Post
+
+Each post lives in its own folder under `blog/posts/`. The folder name becomes the URL slug.
+
+**1. Create the post folder and file:**
+
+```bash
+mkdir -p blog/posts/my-post-title
+```
+
+**2. Create `blog/posts/my-post-title/index.qmd` with this front matter:**
+
+```yaml
+---
+title: "Your Post Title"
+description: "A one-sentence summary shown in the listing."
+author: "Amir Masoud Nourollah"
+date: "2026-05-12"
+categories: [research, tools]   # optional — any labels you like
+draft: false                     # set to true to hide from listing
+---
+
+Your post content here, written in Markdown.
+```
+
+**3. Preview, render, and deploy:**
+
+```bash
+quarto preview            # live preview at localhost:4848
+quarto render             # build the full site
+git add blog/ docs/
+git commit -m "add post: my-post-title"
+git push
+```
+
+The post will appear automatically in the Blog listing — no manual index update needed.
+

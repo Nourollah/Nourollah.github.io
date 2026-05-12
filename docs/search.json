@@ -154,6 +154,62 @@
     "text": "Contact\n\n\n Email: am@nourollah.me\n Gmail: nourollah.am@gmail.com\n GitHub: github.com/Nourollah\n Google Scholar: Google Scholar\n ORCID: 0000-0002-6083-6673\n ResearchGate: ResearchGate\n LinkedIn: linkedin.com/in/amnrl\n Telegram: t.me/amirmasoudnrl\n University Profile: Cardiff University"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Amir Masoud Nourollah",
+    "section": "",
+    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nHaving explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning researcher, contributing to AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software."
+  },
+  {
+    "objectID": "index.html#background",
+    "href": "index.html#background",
+    "title": "Amir Masoud Nourollah",
+    "section": "",
+    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nHaving explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning researcher, contributing to AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software."
+  },
+  {
+    "objectID": "index.html#research",
+    "href": "index.html#research",
+    "title": "Amir Masoud Nourollah",
+    "section": "Research",
+    "text": "Research\nBroadly, I am interested in scientific machine learning (SciML), particularly for chemistry and molecular systems.\nMy research focuses on generalisation, interpretability, and explainability in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular dynamics and computational chemistry.\nMore generally, I am interested in robust, interpretable methods for chemistry-oriented AI systems and Neural Rendering & Simulation."
+  },
+  {
+    "objectID": "index.html#other-interests",
+    "href": "index.html#other-interests",
+    "title": "Amir Masoud Nourollah",
+    "section": "Other Interests",
+    "text": "Other Interests\nOutside of research, I enjoy studying languages, reading history and philosophy, and exploring programming languages and Linux systems. I am currently learning French and German, alongside a long-standing interest in Persian and English literature. A practitioner of martial arts, I have a background in Muay Thai and Judo."
+  },
+  {
+    "objectID": "projects/index.html",
+    "href": "projects/index.html",
+    "title": "Projects",
+    "section": "",
+    "text": "Post  Paper  Code  Slides  Poster  Video  QR"
+  },
+  {
+    "objectID": "projects/index.html#scientific-machine-learning",
+    "href": "projects/index.html#scientific-machine-learning",
+    "title": "Projects",
+    "section": "Scientific Machine Learning",
+    "text": "Scientific Machine Learning\n\n\n\n\n\n\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nNourollah, Khalid, Leoni, Schockaert · 2026"
+  },
+  {
+    "objectID": "projects/index.html#natural-language-processing",
+    "href": "projects/index.html#natural-language-processing",
+    "title": "Projects",
+    "section": "Natural Language Processing",
+    "text": "Natural Language Processing\n\n\n\n\n\n\n\nLarge Language and Reasoning Models are Shallow Disjunctive Reasoners \n\nKhalid, Nourollah, Schockaert · ACL 2025"
+  },
+  {
+    "objectID": "projects/index.html#computer-vision-signal-processing",
+    "href": "projects/index.html#computer-vision-signal-processing",
+    "title": "Projects",
+    "section": "Computer Vision & Signal Processing",
+    "text": "Computer Vision & Signal Processing\n\n\n\n\n\n\n\nQuantifying Morphologies of Developing Neuronal Cells Using Deep Learning with Imperfect Annotations \n\nNourollah, Hassanpour, Zehtabian · 2024\n\n \n\n\nWhisperNetV2: SlowFast Siamese Network for Lip-Based Biometrics \n\nZakeri, Hassanpour, Khosravi, Nourollah · arXiv 2024\n\n \n\n\n\n\n\nPosts are extended write-ups with additional figures, animations, and implementation details not included in the published paper."
+  },
+  {
     "objectID": "projects/mlip-benchmark/index.html",
     "href": "projects/mlip-benchmark/index.html",
     "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
@@ -210,60 +266,46 @@
     "text": "BibTeX\n@misc{nourollah2026benchmarkingcompositionalgeneralisationmachine,\n      title={Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials}, \n      author={Amir Masoud Nourollah and Irtaza Khalid and Stefano Leoni and Steven Schockaert},\n      year={2026},\n      eprint={2605.08988},\n      archivePrefix={arXiv},\n      primaryClass={cs.LG},\n      url={https://arxiv.org/abs/2605.08988}, \n}"
   },
   {
-    "objectID": "projects/index.html",
-    "href": "projects/index.html",
-    "title": "Projects",
+    "objectID": "blog/posts/chemical-foundation-models/index.html",
+    "href": "blog/posts/chemical-foundation-models/index.html",
+    "title": "The Universal Promise: Do We Actually Need Chemical Foundation Models?",
     "section": "",
-    "text": "Post  Paper  Code  Slides  Poster  Video  QR"
+    "text": "The artificial intelligence world is obsessed with scale, and chemistry has joined the race. We have moved from highly specialised algorithms to massive foundation models: sequence-based transformers trained on over a billion molecules, and “universal” 3D models trained on hundreds of millions of atomic structures. The promise is alluring — a single, out-of-the-box computational solver capable of predicting properties across the entire periodic table without retraining for specific tasks.\nBut a critical question remains: do we actually need these massive foundation models in chemistry? Chemistry is not just a language with flexible grammar; it is bound by strict, unforgiving physical and quantum mechanical laws. As we pour millions of GPU hours into training billion-parameter models — and the energy bills that come with them — we have to ask whether raw scale can truly replace highly curated, specialised models engineered with domain knowledge. The implicit bargain behind foundation models is that a large upfront investment in training pays for itself over time, because the resulting model is general enough that it never needs to be trained again. That bargain deserves scrutiny.\nThe answer is complicated — and the evidence points to a set of fundamental tensions that the field has not yet resolved."
   },
   {
-    "objectID": "projects/index.html#scientific-machine-learning",
-    "href": "projects/index.html#scientific-machine-learning",
-    "title": "Projects",
-    "section": "Scientific Machine Learning",
-    "text": "Scientific Machine Learning\n\n\n\n\n\n\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nNourollah, Khalid, Leoni, Schockaert · 2026"
+    "objectID": "blog/posts/chemical-foundation-models/index.html#the-bitter-lesson-does-not-apply-here",
+    "href": "blog/posts/chemical-foundation-models/index.html#the-bitter-lesson-does-not-apply-here",
+    "title": "The Universal Promise: Do We Actually Need Chemical Foundation Models?",
+    "section": "The Bitter Lesson Does Not Apply Here",
+    "text": "The Bitter Lesson Does Not Apply Here\nIn natural language processing, the prevailing philosophy is the bitter lesson: simply scaling up unconstrained architectures and feeding them vast data will eventually beat any hand-engineered model. In chemistry, this rule seems to fundamentally break down.\nThe reason is structural: physical laws are not patterns to be learned from data; they are constraints. A molecule does not change its behaviour depending on what language you use to describe it, or how many other molecules your model has seen. The geometry of space, the symmetries of rotation and translation, the rules of quantum mechanics — these are fixed. Models that are explicitly built to respect these constraints, rather than hoping to infer them from data, consistently outperform those that do not when it comes to complex, unfamiliar chemical scenarios.\nThis matters beyond scientific accuracy. The energy cost of training a large chemistry model is substantial — comparable to the footprint of transcontinental flights, depending on the hardware and duration. The justification for that cost rests on the assumption that a sufficiently general model will not need to be retrained as new chemical domains come into scope. If that assumption is wrong, the cost is not paid once. It is paid repeatedly.\nScale can help a model interpolate better within the chemistry it has already seen. It cannot, on its own, teach a model to reason about chemistry it has never encountered."
   },
   {
-    "objectID": "projects/index.html#natural-language-processing",
-    "href": "projects/index.html#natural-language-processing",
-    "title": "Projects",
-    "section": "Natural Language Processing",
-    "text": "Natural Language Processing\n\n\n\n\n\n\n\nLarge Language and Reasoning Models are Shallow Disjunctive Reasoners \n\nKhalid, Nourollah, Schockaert · ACL 2025"
+    "objectID": "blog/posts/chemical-foundation-models/index.html#the-extrapolation-wall",
+    "href": "blog/posts/chemical-foundation-models/index.html#the-extrapolation-wall",
+    "title": "The Universal Promise: Do We Actually Need Chemical Foundation Models?",
+    "section": "The Extrapolation Wall",
+    "text": "The Extrapolation Wall\nIf an AI model cannot discover something truly new, what is its value in science? The ultimate goal of chemistry AI is genuine scientific discovery — novel therapeutics, advanced materials, structures that push beyond what currently exists. By definition, this requires out-of-distribution (OOD) generalisation: the model must accurately extrapolate into chemical spaces it has never encountered during training.\nThis is where current foundation models quietly struggle. When evaluated not on held-out versions of familiar molecules, but on genuinely new chemical compositions assembled from known building blocks, the performance of even the most capable models degrades substantially — often by an order of magnitude or more compared to their in-distribution accuracy. More troublingly, the models that perform best on familiar chemistry are not always the ones that generalise best to new chemistry. Standard benchmarks, which test models on data drawn from the same distribution they were trained on, can paint a misleadingly optimistic picture.\nThe practical consequence of this generalisation failure is rarely discussed openly. When a model cannot extrapolate to a new chemical domain, practitioners retrain it or fine-tune it on domain-specific data. Each time the scope of the problem shifts — a new class of materials, a new reaction type, an updated reference dataset — the energy cost is paid again. The promise of universality was precisely that this would not be necessary. A model that genuinely generalises across chemical space would need far less of this repeated adaptation, and the cumulative environmental cost of deploying chemistry AI at scale would be meaningfully lower. Closing the OOD gap would not eliminate that cost, but it would reduce it in a way that compounds over time and across the research community.\nThis gap between in-distribution accuracy and out-of-distribution performance is the central unanswered question in the field. It is also the question our recent work at Cardiff University, Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials, is designed to probe systematically — not to offer a solution, but to establish clearly where current models succeed, where they fail, and how large the gap actually is."
   },
   {
-    "objectID": "projects/index.html#computer-vision-signal-processing",
-    "href": "projects/index.html#computer-vision-signal-processing",
-    "title": "Projects",
-    "section": "Computer Vision & Signal Processing",
-    "text": "Computer Vision & Signal Processing\n\n\n\n\n\n\n\nQuantifying Morphologies of Developing Neuronal Cells Using Deep Learning with Imperfect Annotations \n\nNourollah, Hassanpour, Zehtabian · 2024\n\n \n\n\nWhisperNetV2: SlowFast Siamese Network for Lip-Based Biometrics \n\nZakeri, Hassanpour, Khosravi, Nourollah · arXiv 2024\n\n \n\n\n\n\n\nPosts are extended write-ups with additional figures, animations, and implementation details not included in the published paper."
+    "objectID": "blog/posts/chemical-foundation-models/index.html#the-physics-trap-systematic-softening",
+    "href": "blog/posts/chemical-foundation-models/index.html#the-physics-trap-systematic-softening",
+    "title": "The Universal Promise: Do We Actually Need Chemical Foundation Models?",
+    "section": "The Physics Trap: Systematic Softening",
+    "text": "The Physics Trap: Systematic Softening\nUniversal machine-learned interatomic potentials — models trained to act as fast surrogates for expensive quantum mechanical calculations across a wide range of materials — represent some of the most impressive engineering in scientific AI. But a specific physical flaw haunts them: systematic softening.\nThese models are predominantly trained on atomic configurations close to their equilibrium states, where forces are small and well-behaved. When they encounter high-energy environments — distorted structures, defect sites, transition states — they systematically underpredict the forces and the curvature of the energy landscape. The result is an artificially smooth picture of molecular behaviour: the model describes a world that is slightly less tense, slightly less reactive, slightly less physically real than the one it is meant to simulate.\nThis is not a bug that more data trivially fixes. The distributions of configurations that matter most for reactive chemistry, materials failure, and catalysis are precisely the configurations that are hardest and most expensive to generate, and therefore most underrepresented in training sets. The models are physically flawed at exactly the regimes where accurate physics is most needed.\nThe response in practice is, again, fine-tuning: taking a universal model and adapting it to a specific high-energy regime with targeted data. This works, to a degree — but it reintroduces the per-domain training cost that universality was meant to eliminate. Each specialised application becomes its own compute and energy expenditure on top of the original training investment. The physics trap is not just a scientific problem; it is a resource problem that compounds with every new deployment context."
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Amir Masoud Nourollah",
+    "objectID": "blog/posts/chemical-foundation-models/index.html#so-do-we-actually-need-them",
+    "href": "blog/posts/chemical-foundation-models/index.html#so-do-we-actually-need-them",
+    "title": "The Universal Promise: Do We Actually Need Chemical Foundation Models?",
+    "section": "So, Do We Actually Need Them?",
+    "text": "So, Do We Actually Need Them?\nGiven these limitations — poor out-of-distribution generalisation, systematic physical errors, and the failure of naive scaling — one might conclude that chemical foundation models are overhyped. That would be the wrong conclusion.\nWe need them. We just need to be honest about what they currently are and what they are not.\nThey are not zero-shot oracles. They are powerful starting points. Fine-tuning on even a small number of task-specific configurations can substantially correct for systematic errors. Better benchmarking — designed to test genuine extrapolation rather than interpolation — can guide the field toward architectures and training strategies that close the OOD gap. Better uncertainty quantification can tell practitioners when to trust a model and when to reach for the quantum chemistry code.\nAnd when integrated thoughtfully into a human-led discovery pipeline, these systems yield real results. There are already drug candidates in clinical trials that would not exist without generative AI tools for chemistry. The technology works — within its limits.\nThe energy picture deserves an honest summary too. Improving OOD generalisation would reduce the cumulative cost of deploying chemistry AI: fewer retraining cycles, less per-domain fine-tuning, longer useful lifetimes for a given model. That is a meaningful gain, and it is one the field tends to undervalue when discussing the case for better benchmarks and more rigorous evaluation. But it would not eliminate the energy cost of achieving high accuracy in the first place. Training a model that is both physically accurate and genuinely generalisable across chemical space remains an unsolved problem, and any solution to it will itself require substantial compute. The goal of better generalisation is to stop paying the same cost repeatedly — not to make the cost disappear.\nThe right framing is this: chemical foundation models are engines that drastically accelerate the exploration phase of scientific discovery. They reduce the cost of hypothesis generation, broaden the searchable chemical space, and surface candidates for expert validation. What they are not — and may never be, given the nature of physical law — is a replacement for domain understanding, careful data curation, and rigorous validation.\nScale matters. But in chemistry, physics matters more. And until our models can genuinely compose what they have learned about molecular fragments into predictions about new ones, the universal promise remains exactly that — a promise."
+  },
+  {
+    "objectID": "blog/index.html",
+    "href": "blog/index.html",
+    "title": "Blog",
     "section": "",
-    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nHaving explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning researcher, contributing to AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software."
-  },
-  {
-    "objectID": "index.html#background",
-    "href": "index.html#background",
-    "title": "Amir Masoud Nourollah",
-    "section": "",
-    "text": "I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at Cardiff University, where I am part of the Cardiff NLP and Knowledge Representation and Reasoning groups. I started my PhD in 2024.\nHaving explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).\nBefore starting my PhD, I worked in industry as a software engineer and machine learning researcher, contributing to AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software."
-  },
-  {
-    "objectID": "index.html#research",
-    "href": "index.html#research",
-    "title": "Amir Masoud Nourollah",
-    "section": "Research",
-    "text": "Research\nBroadly, I am interested in scientific machine learning (SciML), particularly for chemistry and molecular systems.\nMy research focuses on generalisation, interpretability, and explainability in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular dynamics and computational chemistry.\nMore generally, I am interested in robust, interpretable methods for chemistry-oriented AI systems and Neural Rendering & Simulation."
-  },
-  {
-    "objectID": "index.html#other-interests",
-    "href": "index.html#other-interests",
-    "title": "Amir Masoud Nourollah",
-    "section": "Other Interests",
-    "text": "Other Interests\nOutside of research, I enjoy studying languages, reading history and philosophy, and exploring programming languages and Linux systems. I am currently learning French and German, alongside a long-standing interest in Persian and English literature. A practitioner of martial arts, I have a background in Muay Thai and Judo."
+    "text": "The Universal Promise: Do We Actually Need Chemical Foundation Models?\n\n\n\nresearch\n\nmachine learning\n\nchemistry\n\nscientific ml\n\n\n\nFrom billion-parameter transformers to universal interatomic potentials, chemistry AI is scaling fast. But scale alone does not equal scientific discovery — and the evidence reveals exactly where these models shine and where they break down.\n\n\n\n\n\n12 May 2026\n\n\nAmir Masoud Nourollah\n\n\n\n\n\nNo matching items\n Back to top"
   },
   {
     "objectID": "presentations/index.html",
