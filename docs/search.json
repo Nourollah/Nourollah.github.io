@@ -123,7 +123,7 @@
     "href": "about.html#research-groups",
     "title": "About",
     "section": "Research Groups",
-    "text": "Research Groups\nI am a member of the Cardiff NLP group and the Knowledge Representation and Reasoning (KRR) group at Cardiff University."
+    "text": "Research Groups\nI am a part of the Cardiff Natural Language Processing (NLP) group and the Knowledge Representation and Reasoning (KRR) group at Cardiff University."
   },
   {
     "objectID": "about.html#research-interests",
@@ -137,7 +137,7 @@
     "href": "about.html#industry-experience",
     "title": "About",
     "section": "Industry Experience",
-    "text": "Industry Experience\nBefore starting my PhD, I worked as a software engineer and machine learning engineer, leading AI teams across different companies. My applied work has covered:\n\nComputer vision\n\nSpeech processing and lip-based biometrics\n\nNatural language processing\n\nML infrastructure and open-source software"
+    "text": "Industry Experience\nBefore starting my PhD, I worked as a software engineer and machine learning engineer, leading AI teams across different companies. My applied work has covered:\n\nComputer vision\n\nSpeech processing\nNatural language processing\nSteganography and information hiding\nAI infrastructure and MLOps"
   },
   {
     "objectID": "about.html#contact",
