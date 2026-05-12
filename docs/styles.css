@@ -112,6 +112,41 @@ i.bi.bi-researchgate::before {
 }
 
 /* ===== Project & Presentation resource tables ===== */
+
+/* ===== Blog listing — image below author on the left ===== */
+#quarto-content .quarto-listing .list .quarto-post.image-right {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  grid-template-rows: auto auto;
+  grid-template-areas:
+    "meta body"
+    "thumb body";
+  gap: 0 1.25rem;
+  align-items: start;
+}
+
+#quarto-content .quarto-listing .list .quarto-post.image-right .metadata {
+  grid-area: meta;
+}
+
+#quarto-content .quarto-listing .list .quarto-post.image-right .body {
+  grid-area: body;
+}
+
+#quarto-content .quarto-listing .list .quarto-post.image-right .thumbnail {
+  grid-area: thumb;
+  padding-top: 0.5rem;
+}
+
+#quarto-content .quarto-listing .list .quarto-post.image-right .thumbnail img {
+  border-radius: 50%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  width: 72px;
+  height: 72px;
+  display: block;
+}
+
 .resource-table {
   width: 100%;
   border-collapse: collapse;

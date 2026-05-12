@@ -3,6 +3,7 @@ title: "The Universal Promise: Do We Actually Need Chemical Foundation Models?"
 description: "From billion-parameter transformers to universal interatomic potentials, chemistry AI is scaling fast. But scale alone does not equal scientific discovery — and the evidence reveals exactly where these models shine and where they break down."
 author: "Amir Masoud Nourollah"
 date: "2026-05-12"
+image: "molecule.png"
 categories: [research, machine learning, chemistry, scientific ml]
 draft: false
 ---

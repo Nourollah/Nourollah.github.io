@@ -64,6 +64,7 @@
   <category>scientific ml</category>
   <guid>https://nourollah.me/blog/posts/chemical-foundation-models/</guid>
   <pubDate>Mon, 11 May 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://nourollah.me/blog/posts/chemical-foundation-models/molecule.png" medium="image" type="image/png" height="133" width="144"/>
 </item>
 <item>
   <title>My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Never Looked Back</title>
@@ -760,6 +761,7 @@ font-style: inherit;">"squeue --me"</span></span></code></pre></div></div>
   <category>workstation</category>
   <guid>https://nourollah.me/blog/posts/fedora-workstation/</guid>
   <pubDate>Wed, 06 May 2026 23:00:00 GMT</pubDate>
+  <media:content url="https://nourollah.me/blog/posts/fedora-workstation/fedora.jpg" medium="image" type="image/jpeg"/>
 </item>
 </channel>
 </rss>

@@ -3,6 +3,7 @@ title: "My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Neve
 description: "A personal account of years spent distro-hopping across the Linux ecosystem — and how I finally settled on Fedora Workstation, fixed the packages problem with pixi, and built a setup I actually enjoy living in."
 author: "Amir Masoud Nourollah"
 date: "2026-05-07"
+image: "fedora.jpg"
 categories: [linux, desktop, fedora, workstation]
 draft: false
 ---
