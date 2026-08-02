@@ -8,9 +8,9 @@
 
 <meta name="author" content="Amir Masoud Nourollah">
 <meta name="dcterms.date" content="2026-05-07">
-<meta name="description" content="A personal account of years spent distro-hopping across the Linux ecosystem — and how I finally settled on Fedora Workstation, fixed the packages problem with pixi, and built a setup I actually enjoy living in.">
+<meta name="description" content="A personal account of years spent distro-hopping across the Linux ecosystem — and how I stopped looking for ‘The One’ distro, fixed the packages problem with pixi and Flatpak, and ended up with Fedora, AlmaLinux, and openSUSE Tumbleweed each earning their place.">
 
-<title>My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Never Looked Back – Amir Masoud Nourollah</title>
+<title>A Decade of Linux Setups — Why I Stopped Looking for ‘The One’ – Amir Masoud Nourollah</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -185,16 +185,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#how-i-landed-on-fedora-workstation" id="toc-how-i-landed-on-fedora-workstation" class="nav-link active" data-scroll-target="#how-i-landed-on-fedora-workstation">How I Landed on Fedora Workstation</a></li>
   <li><a href="#how-i-fixed-the-packages-problem" id="toc-how-i-fixed-the-packages-problem" class="nav-link" data-scroll-target="#how-i-fixed-the-packages-problem">How I Fixed the Packages Problem</a>
   <ul class="collapse">
-  <li><a href="#pixi-the-missing-piece-for-the-python-ecosystem" id="toc-pixi-the-missing-piece-for-the-python-ecosystem" class="nav-link" data-scroll-target="#pixi-the-missing-piece-for-the-python-ecosystem">Pixi: The Missing Piece for the Python Ecosystem</a></li>
+  <li><a href="#pixi-the-missing-piece-for-the-python-ecosystem-and-beyond" id="toc-pixi-the-missing-piece-for-the-python-ecosystem-and-beyond" class="nav-link" data-scroll-target="#pixi-the-missing-piece-for-the-python-ecosystem-and-beyond">Pixi: The Missing Piece for the Python Ecosystem and Beyond</a></li>
   <li><a href="#managing-packages-on-fedora" id="toc-managing-packages-on-fedora" class="nav-link" data-scroll-target="#managing-packages-on-fedora">Managing Packages on Fedora</a></li>
   </ul></li>
+  <li><a href="#different-distros-for-different-jobs" id="toc-different-distros-for-different-jobs" class="nav-link" data-scroll-target="#different-distros-for-different-jobs">Different Distros for Different Jobs</a></li>
   <li><a href="#the-setup" id="toc-the-setup" class="nav-link" data-scroll-target="#the-setup">The Setup</a>
   <ul class="collapse">
   <li><a href="#terminal-tools" id="toc-terminal-tools" class="nav-link" data-scroll-target="#terminal-tools">Terminal Tools</a></li>
+  <li><a href="#queuing-gpu-work-with-pueue" id="toc-queuing-gpu-work-with-pueue" class="nav-link" data-scroll-target="#queuing-gpu-work-with-pueue">Queuing GPU Work with pueue</a></li>
   <li><a href="#shell-aliases" id="toc-shell-aliases" class="nav-link" data-scroll-target="#shell-aliases">Shell Aliases</a></li>
   <li><a href="#slurm-helpers-for-supercomputers" id="toc-slurm-helpers-for-supercomputers" class="nav-link" data-scroll-target="#slurm-helpers-for-supercomputers">SLURM Helpers for Supercomputers</a></li>
   </ul></li>
-  <li><a href="#where-i-ended-up" id="toc-where-i-ended-up" class="nav-link" data-scroll-target="#where-i-ended-up">Where I Ended Up</a></li>
+  <li><a href="#what-actually-stuck" id="toc-what-actually-stuck" class="nav-link" data-scroll-target="#what-actually-stuck">What Actually Stuck</a></li>
   </ul>
 </nav>
     </div>
@@ -203,18 +205,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Never Looked Back</h1>
+<h1 class="title">A Decade of Linux Setups — Why I Stopped Looking for ‘The One’</h1>
   <div class="quarto-categories">
     <div class="quarto-category">linux</div>
     <div class="quarto-category">desktop</div>
+    <div class="quarto-category">server</div>
     <div class="quarto-category">fedora</div>
+    <div class="quarto-category">opensuse</div>
+    <div class="quarto-category">almalinux</div>
+    <div class="quarto-category">pixi</div>
     <div class="quarto-category">workstation</div>
   </div>
   </div>
 
 <div>
   <div class="description">
-    A personal account of years spent distro-hopping across the Linux ecosystem — and how I finally settled on Fedora Workstation, fixed the packages problem with pixi, and built a setup I actually enjoy living in.
+    A personal account of years spent distro-hopping across the Linux ecosystem — and how I stopped looking for ‘The One’ distro, fixed the packages problem with pixi and Flatpak, and ended up with Fedora, AlmaLinux, and openSUSE Tumbleweed each earning their place.
   </div>
 </div>
 
@@ -246,18 +252,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="how-i-landed-on-fedora-workstation" class="level2">
 <h2 class="anchored" data-anchor-id="how-i-landed-on-fedora-workstation">How I Landed on Fedora Workstation</h2>
 <p>For many years, I used a Debian-based distribution as my primary operating system. I started with <a href="https://www.debian.org/">Debian</a> itself, and later switched to <a href="https://ubuntu.com/">Ubuntu</a> for convenience. I had a good experience with both, but the more I learnt about the Linux ecosystem, the more I felt I did not need the extra layers Ubuntu puts on top of Debian. I started exploring a variety of popular and expert-level distributions. I wanted a more “pure” Linux experience — closer to the upstream projects and communities. Soon, I realised that the Debian package ecosystem is far wider than the Red Hat ecosystem, and switching to a Red Hat-based distribution such as <a href="https://fedoraproject.org/">Fedora</a> or <a href="https://www.centos.org/">CentOS</a> was difficult because some of the software I used daily was not published as <code>.rpm</code> packages.</p>
-<p>Considering simplicity, full control over my system, and the breadth of available packages, <a href="https://archlinux.org/">Arch Linux</a> eventually made its way onto my list. My first installation attempt was unpleasant, but feeling the installation process — the fingerprint of control over every individual part of the OS — made me warm to it quickly. I could find almost anything in the <a href="https://aur.archlinux.org/">AUR</a>, spanning from packages available in other distributions to wrapped legacy packages whose development had been discontinued and removed from mainstream repositories. I had a lot of fun, even though I nearly broke my system more than once. But the complexity of installation and personalisation, and the differences between my desktop and server environments, eventually made Arch difficult to sustain. Along the way I tried some Arch-based distributions — <a href="https://manjaro.org/">Manjaro</a>, <a href="https://endeavouros.com/">EndeavourOS</a>, and <a href="https://blackarch.org/">BlackArch</a> as an alternative to <a href="https://www.kali.org/">Kali</a>. All of them were pleasant experiences, but none of them addressed my real problem: a unified ecosystem for both production and personal use.</p>
-<p>I had always had a careful appreciation for Red Hat and was a fan of it for production servers. At the time, Red Hat was not free for personal use, so I went with CentOS to unify my environment. But as a developer who was not yet familiar with containerisation — tools like <a href="https://podman.io/">Podman</a> and <a href="https://www.docker.com/">Docker</a> — I needed bleeding-edge packages to practise with and keep up with the software I was building. CentOS was not the answer either.</p>
-<p>I had always known about Fedora — it has long been one of the pioneer distributions in the Linux ecosystem — but I had run into problems configuring my Nvidia GPU drivers and occasional glitches in video games due to missing or improperly configured components. Around that time, a new distribution was rising: <a href="https://nobaraproject.org/">Nobara</a>, a highly optimised Fedora-based distribution built for gaming. If a distribution is tuned for gaming, it tends to get along well with machine learning setups too, and Nobara became my daily driver for a while. But I eventually realised it is not a community-driven project — it is maintained by a single person. I needed to respect my commitment to the open-source and community-driven spirit, so I started looking for an alternative and stumbled upon the <a href="https://github.com/devangshekhawat/Fedora-44-Post-Install-Guide">Fedora Post Install Guide</a>.</p>
-<p>I thought: why not give Fedora one final, honest try? That try ended years of distro-hopping. Following the guide transformed Fedora — I have always been a <a href="https://kde.org/">KDE</a> user and have never warmed to GNOME — into an OS that was smooth, stable, and genuinely enjoyable to live in. Everything I had been looking for was there. One problem remained, though: some packages were unavailable in the default repositories, or required adding custom sources. Especially with the recent wave of <a href="https://www.rust-lang.org/">Rust</a>-based tools for Linux, I had adopted several in my daily workflow that simply were not in DNF.</p>
+<p>Considering simplicity, full control over my system, and the breadth of available packages, <a href="https://archlinux.org/">Arch Linux</a> eventually made its way onto my list. My first installation attempt was unpleasant, but going through the installation process — feeling that fingerprint of control over every part of the OS — made me warm to it quickly. I could find almost anything in the <a href="https://aur.archlinux.org/">AUR</a>, spanning from packages available in other distributions to wrapped legacy packages whose development had been discontinued and removed from mainstream repositories. I had a lot of fun, even though I nearly broke my system more than once. But the complexity of installation and personalisation, and the differences between my desktop and server environments, eventually made Arch difficult to sustain. Along the way I tried some Arch-based distributions — <a href="https://manjaro.org/">Manjaro</a>, <a href="https://endeavouros.com/">EndeavourOS</a>, and <a href="https://blackarch.org/">BlackArch</a> as an alternative to <a href="https://www.kali.org/">Kali</a>. All of them were pleasant experiences, but none of them addressed my real problem: a unified ecosystem for both production and personal use.</p>
+<p>I had always had a soft spot for Red Hat and was a fan of it for production servers. At the time, Red Hat was not free for personal use, so I went with CentOS to unify my environment. But as a developer who was not yet familiar with containerisation — tools like <a href="https://podman.io/">Podman</a> and <a href="https://www.docker.com/">Docker</a> — I needed bleeding-edge packages to practise with and keep up with the software I was building. CentOS was not the answer either.</p>
+<p>I had always known about Fedora — it has long been one of the pioneer distributions in the Linux ecosystem — but I had run into problems configuring my Nvidia GPU drivers and occasional glitches in video games due to missing or improperly configured components. Around that time, a new distribution was rising: <a href="https://nobaraproject.org/">Nobara</a>, a highly optimised Fedora-based distribution built for gaming. If a distribution is tuned for gaming — with up-to-date kernels, fresh GPU drivers, and low-level performance tweaks — it tends to get along well with machine learning setups too, and Nobara became my daily driver for a while. But I eventually realised it is not a community-driven project — it is maintained by a single person. I needed to respect my commitment to the open-source and community-driven spirit, so I started looking for an alternative and stumbled upon the <a href="https://github.com/devangshekhawat/Fedora-44-Post-Install-Guide">Fedora Post Install Guide</a>.</p>
+<p>I thought: why not give Fedora one final, honest try? That try ended years of distro-hopping on the desktop. Following the guide transformed Fedora — I have always been a <a href="https://kde.org/">KDE</a> user and have never warmed to GNOME — into an OS that was smooth, stable, and genuinely enjoyable to live in. Everything I had been looking for was there. One problem remained, though: some packages were unavailable in the default repositories, or required adding custom sources. Especially with the recent wave of <a href="https://www.rust-lang.org/">Rust</a>-based tools for Linux, I had adopted several in my daily workflow that simply were not in DNF.</p>
 <hr>
 </section>
 <section id="how-i-fixed-the-packages-problem" class="level2">
 <h2 class="anchored" data-anchor-id="how-i-fixed-the-packages-problem">How I Fixed the Packages Problem</h2>
 <p>That remaining problem — missing packages — was not unique to Fedora. It had been following me across every distribution I had ever used, in different forms. On Debian it was outdated versions. On Arch it was AUR maintenance risk. On CentOS it was the gap between stability and currency. Fedora brought me closer than anything else had, but it did not fully close it. The answer, when it finally arrived, did not come from the distribution at all.</p>
 <p>Before getting to that, I want to talk about my relationship with Python — because the solution to the packages problem and the solution to surviving the Python ecosystem turned out to be the same thing.</p>
-<section id="pixi-the-missing-piece-for-the-python-ecosystem" class="level3">
-<h3 class="anchored" data-anchor-id="pixi-the-missing-piece-for-the-python-ecosystem"><a href="https://pixi.prefix.dev/latest/">Pixi</a>: The Missing Piece for the Python Ecosystem</h3>
+<section id="pixi-the-missing-piece-for-the-python-ecosystem-and-beyond" class="level3">
+<h3 class="anchored" data-anchor-id="pixi-the-missing-piece-for-the-python-ecosystem-and-beyond"><a href="https://pixi.prefix.dev/latest/">Pixi</a>: The Missing Piece for the Python Ecosystem and Beyond</h3>
 <p>I started my programming journey with Java in 2010. It was one of the most elegant languages available at the time, and I vividly remember compiling Android apps before Android Studio with <a href="https://eclipseide.org">Eclipse</a>, installing them through a <a href="https://www.bluestacks.com/">BlueStacks</a> emulator. Later I switched to C/C++ to get closer to the underlying machine — learning the hard way about setting up projects, installing libraries system-wide, writing <code>Makefile</code>s, and eventually <code>CMakeLists.txt</code>. Cross-compiling for another architecture was painful, but it was structured and I understood every piece of it. I never touched package managers like <a href="https://conan.io/">Conan</a> or <a href="https://vcpkg.io/">vcpkg</a> until much later.</p>
 <p>Python was initially forced on me by an assignment. I just started writing it — some trial and error — and it worked. There was no AI to answer questions in 2020, so I learnt mostly by searching. Within a year Python had become my default language for assignments and eventually for shell scripting, replacing Bash in many places. Its package manager made the ecosystem feel welcoming, and the breadth of available libraries was remarkable.</p>
 <p>To avoid dependency conflicts I kept a set of virtual environments in <code>$HOME/.venv/</code> — one for computer vision, one for networking, one for scripting, one for signal processing — and activated whichever I needed. It worked, until I tried moving a project between systems. Binary packages were a particular nightmare. <a href="https://docs.conda.io/">Conda</a> was the standard answer for that, but it was too slow and too heavy for my taste. I kept trying to avoid it, compiling packages from source with my own compiler out of old C/C++ habits. Something was fundamentally wrong at the portability level — Python is interpreted, it should be portable, and yet reproducing an environment reliably across machines felt like a constant struggle. I tried <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/"><code>requirements.txt</code></a>, then <a href="https://python-poetry.org/">Poetry</a>, then <a href="https://github.com/astral-sh/uv">uv</a>. Both Poetry and uv were excellent tools, but neither handled binary packages independently — I still needed <code>mamba</code> alongside them for <code>torch</code>-based projects, and anything involving <a href="https://github.com/rusty1s/pytorch_scatter"><code>torch_scatter</code></a> could turn into a nightmare.</p>
@@ -270,14 +276,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Pixi turned out to solve this problem too. I had initially found its <code>pixi shell</code> activation requirement slightly annoying for tools I wanted available globally. Then I discovered:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> global install <span class="op">&lt;</span>package_name<span class="op">&gt;</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>This was a game changer. I could install tools outside any virtual environment — not as project dependencies, but as system-level utilities available anywhere. It became the first command I run on any new machine:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine xh sd helix neovim tmux zellij btop zsh xonsh</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine xh sd neovim tmux zellij btop zsh xonsh skim yazi</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>No custom repositories. No extra layers. No searching for obscure PPAs or Copr entries. Everything in one command.</p>
 <hr>
 </section>
 </section>
+<section id="different-distros-for-different-jobs" class="level2">
+<h2 class="anchored" data-anchor-id="different-distros-for-different-jobs">Different Distros for Different Jobs</h2>
+<p>While Fedora settled in as my desktop daily driver, the story does not end there — because Linux is not just my desktop. It is also every server I deploy to, every container image I build from, and every machine I do not personally sit in front of.</p>
+<p>Around the same time I was settling into Fedora, I tried <a href="https://www.opensuse.org/#Tumbleweed">openSUSE Tumbleweed</a>. I was sceptical at first — SUSE had always felt like the “other” enterprise ecosystem, the one I had less exposure to. But Tumbleweed surprised me. As a rolling release, it has no version numbers to worry about — no “Fedora 40 to 41” migration anxiety, no EOL countdown to plan around. And despite being rolling, it felt more stable day-to-day than Fedora ever had for me, thanks to openSUSE’s extensive automated testing (openQA) gating every update before it ships.</p>
+<p>The catch is that openSUSE is SUSE-based, not Red Hat-based. For a desktop, that distinction barely matters any more — Flatpak and pixi cover the gap regardless of what is underneath. But for servers, it matters a great deal: if I am deploying to infrastructure running <a href="https://www.suse.com/products/server/">SLES</a> rather than RHEL, openSUSE Tumbleweed (or <a href="https://get.opensuse.org/leap/">openSUSE Leap</a> for a non-rolling option) is the natural match, whereas a Fedora-family choice makes more sense alongside RHEL-compatible infrastructure.</p>
+<p>Which brings me to <a href="https://almalinux.org/">AlmaLinux</a>. Most of my Docker base images are AlmaLinux — it is a clean, community-driven RHEL rebuild, and that compatibility matters when the goal is reproducible builds across HPC systems, cloud instances, and local containers that all ultimately trace back to a RHEL lineage. For a long time, AlmaLinux on the desktop felt like a non-starter — too conservative, too server-oriented, missing too much. But with Flatpak filling in GUI applications and pixi filling in everything else, that gap has effectively closed. I now run AlmaLinux on some of my desktops too, and it feels far less like a compromise than it would have a few years ago.</p>
+<p>So the honest version of the story is less “I found The One Distro” and more “I stopped needing to find one.” Fedora remains my favourite for a general-purpose desktop — KDE, gaming, day-to-day tinkering. openSUSE Tumbleweed is my pick when SUSE or SLES is the target, or when I want the most stable rolling release I have used. AlmaLinux sits underneath almost everything I containerise, and increasingly on desktops too. What used to feel like indecision now feels like having the right tool for the job — and the credit, again, goes to Flatpak and pixi for making the switching cost low enough that it no longer feels like a trade-off.</p>
+<hr>
+</section>
 <section id="the-setup" class="level2">
 <h2 class="anchored" data-anchor-id="the-setup">The Setup</h2>
-<p>If you are curious about the tools and how I configure them, this section is for you.</p>
+<p>If you are curious about the tools and how I configure them, this section is for you. The nice thing about all of this is that it is entirely distro-agnostic — even my IDEs, <a href="https://zed.dev/">Zed</a> (the main one) and <a href="https://code.visualstudio.com/">VS Code</a> (the reserve), are available everywhere these days. Whether I am on Fedora, AlmaLinux, or openSUSE Tumbleweed, the setup below is identical, because Flatpak, <code>pixi global install</code>, and IDE installers all work the same way regardless of distro.</p>
 <section id="terminal-tools" class="level3">
 <h3 class="anchored" data-anchor-id="terminal-tools">Terminal Tools</h3>
 <table class="caption-top table">
@@ -333,8 +348,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;">Intuitive search-and-replace for the command line</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://helix-editor.com/"><code>helix</code></a> / <a href="https://neovim.io/"><code>neovim</code></a></td>
-<td style="text-align: left;">Modal text editors</td>
+<td style="text-align: left;"><a href="https://neovim.io/"><code>neovim</code></a></td>
+<td style="text-align: left;">Modal text editor</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><a href="https://zellij.dev/"><code>zellij</code></a> / <a href="https://github.com/tmux/tmux"><code>tmux</code></a></td>
@@ -344,30 +359,165 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: left;"><a href="https://github.com/aristocratos/btop"><code>btop</code></a></td>
 <td style="text-align: left;">Beautiful terminal resource monitor</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/skim-rs/skim"><code>skim</code></a></td>
+<td style="text-align: left;">Fuzzy finder (<code>sk</code>) for files, history, and more</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/sxyazi/yazi"><code>yazi</code></a></td>
+<td style="text-align: left;">Fast, terminal-based file manager</td>
+</tr>
 </tbody>
 </table>
+</section>
+<section id="queuing-gpu-work-with-pueue" class="level3">
+<h3 class="anchored" data-anchor-id="queuing-gpu-work-with-pueue">Queuing GPU Work with pueue</h3>
+<p>One more tool that has quietly become part of my daily workflow is <a href="https://github.com/Nukesor/pueue">pueue</a> — a lightweight command-line task manager and scheduler. You hand it shell commands, and it queues them up, running them one after another (or in parallel, if you configure multiple workers) regardless of whether you’re still logged in. I use it specifically to keep my GPU busy: I queue up several experiments before I step away from my desk or laptop, and pueue works through them in sequence, starting the next one the moment the previous one finishes — so the GPU keeps working even when I’m not.</p>
+<p>Installation is just as easy via pixi, and the daemon only needs enabling once:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install pueue (client + daemon) globally via pixi</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pixi</span> global install pueue</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Enable and start the daemon as a systemd user service</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> <span class="at">--user</span> enable pueued</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> <span class="at">--user</span> start pueued</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="ex">systemctl</span> <span class="at">--user</span> status pueued</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>From there, queuing experiments is as simple as:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="ex">pueue</span> add <span class="at">--</span> pixi run python train.py <span class="at">--config</span> exp1.yaml</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="ex">pueue</span> add <span class="at">--</span> pixi run python train.py <span class="at">--config</span> exp2.yaml</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="ex">pueue</span> status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="shell-aliases" class="level3">
 <h3 class="anchored" data-anchor-id="shell-aliases">Shell Aliases</h3>
 <p>I add the following to my <code>.zshrc</code> or <code>.bashrc</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Modern replacements</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> ls=<span class="st">"eza --icons --group-directories-first"</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> tree=<span class="st">"eza --icons --tree"</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> treed=<span class="st">"eza --icons --tree --level"</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> lsdu=<span class="st">'du -a -h --max-depth=1 | sort -hr'</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> du=<span class="st">'dust'</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> top=<span class="st">'btm'</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> cd=<span class="st">'z'</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> grep=<span class="st">'rg'</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> vim=<span class="st">'nvim'</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipe --help and -h output through bat for syntax highlighting</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> <span class="at">-g</span> <span class="at">--</span> <span class="at">-h</span><span class="op">=</span><span class="st">'-h 2&gt;&amp;1 | bat --language=help --style=plain'</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> <span class="at">-g</span> <span class="at">--</span> <span class="at">--help</span><span class="op">=</span><span class="st">'--help 2&gt;&amp;1 | bat --language=help --style=plain'</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># zoxide must be initialized before the `cd` alias below, otherwise the `z`</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="co"># function doesn't exist yet and `cd` fails until you manually re-source</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="co"># this file</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="bu">eval</span> <span class="st">"</span><span class="va">$(</span><span class="ex">zoxide</span> init zsh<span class="va">)</span><span class="st">"</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Modern replacements</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> ls=<span class="st">"eza --icons --group-directories-first"</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> tree=<span class="st">"eza --icons --tree"</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> treed=<span class="st">"eza --icons --tree --level"</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> lsdu=<span class="st">'du -a -h --max-depth=1 | sort -hr'</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> du=<span class="st">'dust'</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> top=<span class="st">'btm'</span></span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> cd=<span class="st">'z'</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> grep=<span class="st">'rg'</span></span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> vim=<span class="st">'nvim'</span></span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> search=<span class="st">'sk'</span></span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Pipe --help and -h output through bat for syntax highlighting</span></span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> <span class="at">-g</span> <span class="at">--</span> <span class="at">-h</span><span class="op">=</span><span class="st">'-h 2&gt;&amp;1 | bat --language=help --style=plain'</span></span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> <span class="at">-g</span> <span class="at">--</span> <span class="at">--help</span><span class="op">=</span><span class="st">'--help 2&gt;&amp;1 | bat --language=help --style=plain'</span></span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a><span class="co"># Set of general useful functions</span></span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a><span class="co"># Create directory and instantly cd into it</span></span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a><span class="fu">mkcd()</span> <span class="kw">{</span></span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mkdir</span> <span class="at">-p</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Easily move UP 'N' directories (e.g., 'up 3' moves up 3 levels)</span></span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a><span class="fu">up()</span> <span class="kw">{</span></span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">levels</span><span class="op">=</span><span class="st">"</span><span class="va">${1</span><span class="op">:-</span>1<span class="va">}</span><span class="st">"</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">path</span><span class="op">=</span><span class="st">""</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> <span class="kw">((</span><span class="va">i</span><span class="op">=</span><span class="dv">1</span><span class="kw">;</span> <span class="va">i</span><span class="op">&lt;=</span><span class="va">levels</span><span class="kw">;</span> <span class="va">i</span><span class="op">++</span><span class="kw">));</span> <span class="cf">do</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>        <span class="va">path</span><span class="op">=</span><span class="st">"../</span><span class="va">$path</span><span class="st">"</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a>    <span class="bu">cd</span> <span class="st">"</span><span class="va">$path</span><span class="st">"</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Check public and local IP addresses cleanly</span></span>
+<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a><span class="fu">myip()</span> <span class="kw">{</span></span>
+<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">local_ip</span><span class="op">=</span><span class="va">$(</span><span class="fu">hostname</span> <span class="at">-I</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">awk</span> <span class="st">'{print $1}'</span> <span class="kw">||</span> <span class="ex">ipconfig</span> getifaddr en0 <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">||</span> <span class="bu">echo</span> <span class="st">"Unknown"</span><span class="va">)</span></span>
+<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"Local IP:   </span><span class="va">$local_ip</span><span class="st">"</span></span>
+<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"Public IP:  </span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-s</span> https://ifconfig.me<span class="va">)</span><span class="st">"</span></span>
+<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"Location:   </span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-s</span> https://ipapi.co/city/<span class="va">)</span><span class="st">, </span><span class="va">$(</span><span class="ex">curl</span> <span class="at">-s</span> https://ipapi.co/country_name/<span class="va">)</span><span class="st">"</span></span>
+<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="co"># Runs a clean multi-record (A, AAAA, MX, NS, TXT) DNS check for a domain.</span></span>
+<span id="cb5-48"><a href="#cb5-48" aria-hidden="true" tabindex="-1"></a><span class="fu">dnslookup()</span> <span class="kw">{</span></span>
+<span id="cb5-49"><a href="#cb5-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb5-50"><a href="#cb5-50" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: dnslookup &lt;domain&gt;"</span></span>
+<span id="cb5-51"><a href="#cb5-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb5-52"><a href="#cb5-52" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb5-53"><a href="#cb5-53" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"=== A / AAAA Records ==="</span></span>
+<span id="cb5-54"><a href="#cb5-54" aria-hidden="true" tabindex="-1"></a>    <span class="ex">dig</span> +short <span class="st">"</span><span class="va">$1</span><span class="st">"</span> A <span class="st">"</span><span class="va">$1</span><span class="st">"</span> AAAA</span>
+<span id="cb5-55"><a href="#cb5-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"\n=== MX Records ==="</span></span>
+<span id="cb5-56"><a href="#cb5-56" aria-hidden="true" tabindex="-1"></a>    <span class="ex">dig</span> +short <span class="st">"</span><span class="va">$1</span><span class="st">"</span> MX</span>
+<span id="cb5-57"><a href="#cb5-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"\n=== NS Records ==="</span></span>
+<span id="cb5-58"><a href="#cb5-58" aria-hidden="true" tabindex="-1"></a>    <span class="ex">dig</span> +short <span class="st">"</span><span class="va">$1</span><span class="st">"</span> NS</span>
+<span id="cb5-59"><a href="#cb5-59" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"\n=== TXT Records ==="</span></span>
+<span id="cb5-60"><a href="#cb5-60" aria-hidden="true" tabindex="-1"></a>    <span class="ex">dig</span> +short <span class="st">"</span><span class="va">$1</span><span class="st">"</span> TXT</span>
+<span id="cb5-61"><a href="#cb5-61" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-62"><a href="#cb5-62" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-63"><a href="#cb5-63" aria-hidden="true" tabindex="-1"></a><span class="co"># Find which process is listening on a specific port (e.g., 'port 8080')</span></span>
+<span id="cb5-64"><a href="#cb5-64" aria-hidden="true" tabindex="-1"></a><span class="fu">port()</span> <span class="kw">{</span></span>
+<span id="cb5-65"><a href="#cb5-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb5-66"><a href="#cb5-66" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: port &lt;port_number&gt;"</span></span>
+<span id="cb5-67"><a href="#cb5-67" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb5-68"><a href="#cb5-68" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb5-69"><a href="#cb5-69" aria-hidden="true" tabindex="-1"></a>    <span class="ex">lsof</span> <span class="at">-i</span> :<span class="st">"</span><span class="va">$1</span><span class="st">"</span></span>
+<span id="cb5-70"><a href="#cb5-70" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-71"><a href="#cb5-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-72"><a href="#cb5-72" aria-hidden="true" tabindex="-1"></a><span class="co"># Locates and forcibly terminates (kill -9) whatever process is occupying a given port.</span></span>
+<span id="cb5-73"><a href="#cb5-73" aria-hidden="true" tabindex="-1"></a><span class="fu">killport()</span> <span class="kw">{</span></span>
+<span id="cb5-74"><a href="#cb5-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb5-75"><a href="#cb5-75" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: killport &lt;port_number&gt;"</span></span>
+<span id="cb5-76"><a href="#cb5-76" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb5-77"><a href="#cb5-77" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb5-78"><a href="#cb5-78" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">pid</span><span class="op">=</span><span class="va">$(</span><span class="ex">lsof</span> <span class="at">-t</span> <span class="at">-i:</span><span class="st">"</span><span class="va">$1</span><span class="st">"</span><span class="va">)</span></span>
+<span id="cb5-79"><a href="#cb5-79" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$pid</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb5-80"><a href="#cb5-80" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Killing process </span><span class="va">$pid</span><span class="st"> on port </span><span class="va">$1</span><span class="st">..."</span></span>
+<span id="cb5-81"><a href="#cb5-81" aria-hidden="true" tabindex="-1"></a>        <span class="bu">kill</span> <span class="at">-9</span> <span class="va">$pid</span></span>
+<span id="cb5-82"><a href="#cb5-82" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb5-83"><a href="#cb5-83" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"No process found on port </span><span class="va">$1</span><span class="st">."</span></span>
+<span id="cb5-84"><a href="#cb5-84" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb5-85"><a href="#cb5-85" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-86"><a href="#cb5-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-87"><a href="#cb5-87" aria-hidden="true" tabindex="-1"></a><span class="co"># Quick HTTP server in the current directory (Python 3)</span></span>
+<span id="cb5-88"><a href="#cb5-88" aria-hidden="true" tabindex="-1"></a><span class="fu">serve()</span> <span class="kw">{</span></span>
+<span id="cb5-89"><a href="#cb5-89" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">port</span><span class="op">=</span><span class="st">"</span><span class="va">${1</span><span class="op">:-</span>8000<span class="va">}</span><span class="st">"</span></span>
+<span id="cb5-90"><a href="#cb5-90" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"Serving current directory on http://localhost:</span><span class="va">${port}</span><span class="st">"</span></span>
+<span id="cb5-91"><a href="#cb5-91" aria-hidden="true" tabindex="-1"></a>    <span class="ex">python3</span> <span class="at">-m</span> http.server <span class="st">"</span><span class="va">$port</span><span class="st">"</span></span>
+<span id="cb5-92"><a href="#cb5-92" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-93"><a href="#cb5-93" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-94"><a href="#cb5-94" aria-hidden="true" tabindex="-1"></a><span class="co"># Pretty-prints each directory in your $PATH on a new line for easy inspection.</span></span>
+<span id="cb5-95"><a href="#cb5-95" aria-hidden="true" tabindex="-1"></a><span class="fu">path()</span> <span class="kw">{</span></span>
+<span id="cb5-96"><a href="#cb5-96" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"</span><span class="va">$PATH</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">tr</span> <span class="st">':'</span> <span class="st">'\n'</span></span>
+<span id="cb5-97"><a href="#cb5-97" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-98"><a href="#cb5-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-99"><a href="#cb5-99" aria-hidden="true" tabindex="-1"></a><span class="co"># Side-by-side file comparison using your default Neovim alias.</span></span>
+<span id="cb5-100"><a href="#cb5-100" aria-hidden="true" tabindex="-1"></a><span class="fu">vdiff()</span> <span class="kw">{</span></span>
+<span id="cb5-101"><a href="#cb5-101" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="va">$#</span> <span class="ot">-lt</span> 2 <span class="kw">]];</span> <span class="cf">then</span> <span class="bu">echo</span> <span class="st">"Usage: vdiff &lt;file1&gt; &lt;file2&gt;"</span><span class="kw">;</span> <span class="cf">return</span> <span class="dv">1</span><span class="kw">;</span> <span class="cf">fi</span></span>
+<span id="cb5-102"><a href="#cb5-102" aria-hidden="true" tabindex="-1"></a>    <span class="ex">nvim</span> <span class="at">-d</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="st">"</span><span class="va">$2</span><span class="st">"</span></span>
+<span id="cb5-103"><a href="#cb5-103" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-104"><a href="#cb5-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-105"><a href="#cb5-105" aria-hidden="true" tabindex="-1"></a><span class="co"># Previews the head of gzipped or zstd-compressed text/log files without extraction.</span></span>
+<span id="cb5-106"><a href="#cb5-106" aria-hidden="true" tabindex="-1"></a><span class="fu">vgz()</span> <span class="kw">{</span></span>
+<span id="cb5-107"><a href="#cb5-107" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span> <span class="bu">echo</span> <span class="st">"Usage: vgz &lt;file.gz|file.zst&gt; [lines]"</span><span class="kw">;</span> <span class="cf">return</span> <span class="dv">1</span><span class="kw">;</span> <span class="cf">fi</span></span>
+<span id="cb5-108"><a href="#cb5-108" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">lines</span><span class="op">=</span><span class="st">"</span><span class="va">${2</span><span class="op">:-</span>20<span class="va">}</span><span class="st">"</span></span>
+<span id="cb5-109"><a href="#cb5-109" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb5-110"><a href="#cb5-110" aria-hidden="true" tabindex="-1"></a>        <span class="pp">*</span><span class="ss">.gz</span><span class="kw">)</span>  <span class="fu">gzip</span> <span class="at">-dc</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> <span class="st">"</span><span class="va">$lines</span><span class="st">"</span> <span class="cf">;;</span></span>
+<span id="cb5-111"><a href="#cb5-111" aria-hidden="true" tabindex="-1"></a>        <span class="pp">*</span><span class="ss">.zst</span><span class="kw">)</span> <span class="ex">zstdcat</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> <span class="st">"</span><span class="va">$lines</span><span class="st">"</span> <span class="cf">;;</span></span>
+<span id="cb5-112"><a href="#cb5-112" aria-hidden="true" tabindex="-1"></a>        <span class="pp">*</span><span class="kw">)</span>     <span class="bu">echo</span> <span class="st">"Unsupported archive format."</span> <span class="cf">;;</span></span>
+<span id="cb5-113"><a href="#cb5-113" aria-hidden="true" tabindex="-1"></a>    <span class="cf">esac</span></span>
+<span id="cb5-114"><a href="#cb5-114" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb5-115"><a href="#cb5-115" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-116"><a href="#cb5-116" aria-hidden="true" tabindex="-1"></a><span class="co"># Lists files inside .zip, .tar, .tar.gz, or .whl archives without extracting.</span></span>
+<span id="cb5-117"><a href="#cb5-117" aria-hidden="true" tabindex="-1"></a><span class="fu">vzip()</span> <span class="kw">{</span></span>
+<span id="cb5-118"><a href="#cb5-118" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span> <span class="bu">echo</span> <span class="st">"Usage: vzip &lt;archive_file&gt;"</span><span class="kw">;</span> <span class="cf">return</span> <span class="dv">1</span><span class="kw">;</span> <span class="cf">fi</span></span>
+<span id="cb5-119"><a href="#cb5-119" aria-hidden="true" tabindex="-1"></a>    <span class="cf">case</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb5-120"><a href="#cb5-120" aria-hidden="true" tabindex="-1"></a>        <span class="pp">*</span><span class="ss">.zip</span><span class="kw">|</span><span class="pp">*</span><span class="ss">.whl</span><span class="kw">)</span> <span class="fu">unzip</span> <span class="at">-l</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="cf">;;</span></span>
+<span id="cb5-121"><a href="#cb5-121" aria-hidden="true" tabindex="-1"></a>        <span class="pp">*</span><span class="ss">.tar.gz</span><span class="kw">|</span><span class="pp">*</span><span class="ss">.tgz</span><span class="kw">)</span> <span class="fu">tar</span> <span class="at">-tzvf</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="cf">;;</span></span>
+<span id="cb5-122"><a href="#cb5-122" aria-hidden="true" tabindex="-1"></a>        <span class="pp">*</span><span class="ss">.tar</span><span class="kw">)</span> <span class="fu">tar</span> <span class="at">-tvf</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="cf">;;</span></span>
+<span id="cb5-123"><a href="#cb5-123" aria-hidden="true" tabindex="-1"></a>        <span class="pp">*</span><span class="kw">)</span> <span class="bu">echo</span> <span class="st">"Unsupported extension."</span> <span class="cf">;;</span></span>
+<span id="cb5-124"><a href="#cb5-124" aria-hidden="true" tabindex="-1"></a>    <span class="cf">esac</span></span>
+<span id="cb5-125"><a href="#cb5-125" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <p>For <a href="https://neovim.io/">Neovim</a>, I use <a href="https://astronvim.com/">AstroNvim</a> as my configuration framework:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--depth</span> 1 https://github.com/AstroNvim/template ~/.config/nvim <span class="dt">\</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="at">-rf</span> ~/.config/nvim/.git <span class="dt">\</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="ex">nvim</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> clone <span class="at">--depth</span> 1 https://github.com/AstroNvim/template ~/.config/nvim <span class="dt">\</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="fu">rm</span> <span class="at">-rf</span> ~/.config/nvim/.git <span class="dt">\</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&amp;&amp;</span> <span class="ex">nvim</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </section>
 <section id="slurm-helpers-for-supercomputers" class="level3">
 <h3 class="anchored" data-anchor-id="slurm-helpers-for-supercomputers">SLURM Helpers for Supercomputers</h3>
@@ -385,64 +535,137 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For HPC environments running <a href="https://slurm.schedmd.com/">SLURM</a>, I keep these functions in my shell configuration. They make interactive GPU sessions much less tedious to manage — particularly on <a href="https://isambard.ac.uk/">Isambard-AI</a>, where I spend a lot of time.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NODE_SHELL</span><span class="op">=</span><span class="st">"zsh"</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getgnode()</span> <span class="kw">{</span></span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">ngpus</span><span class="op">=</span>1</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">time_limit</span><span class="op">=</span><span class="st">"02:00:00"</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">partition</span><span class="op">=</span><span class="st">"workq"</span>  <span class="co"># Adjust for your cluster</span></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="kw">[[</span> <span class="va">$#</span> <span class="ot">-gt</span> 0 <span class="kw">]];</span> <span class="cf">do</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">in</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-h</span><span class="kw">|</span><span class="ss">--help</span><span class="kw">)</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Usage: getgnode [OPTIONS]"</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Allocate and attach to an interactive SLURM GPU node."</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">""</span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Options:"</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -g, --gpus INT         Number of GPUs to request (default: 1)"</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -p, --partition NAME   SLURM partition (default: workq)"</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -t, --time HH:MM:SS    Time limit (default: 02:00:00)"</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -h, --help             Show this help"</span></span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">;;</span></span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-g</span><span class="kw">|</span><span class="ss">--gpus</span><span class="kw">)</span>      <span class="va">ngpus</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span><span class="kw">;</span>      <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-p</span><span class="kw">|</span><span class="ss">--partition</span><span class="kw">)</span> <span class="va">partition</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span><span class="kw">;</span>  <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-t</span><span class="kw">|</span><span class="ss">--time</span><span class="kw">)</span>      <span class="va">time_limit</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span><span class="kw">;</span> <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>            <span class="pp">*</span><span class="kw">)</span></span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Error: Unknown argument '</span><span class="va">$1</span><span class="st">'"</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Type 'getgnode --help' for usage."</span></span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="dv">1</span></span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>                <span class="cf">;;</span></span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">esac</span></span>
-<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
-<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">salloc</span> <span class="at">--partition</span><span class="op">=</span><span class="st">"</span><span class="va">${partition}</span><span class="st">"</span> <span class="dt">\</span></span>
-<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a>           <span class="at">--gres</span><span class="op">=</span>gpu:<span class="st">"</span><span class="va">${ngpus}</span><span class="st">"</span> <span class="dt">\</span></span>
-<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">--time</span><span class="op">=</span><span class="st">"</span><span class="va">${time_limit}</span><span class="st">"</span> <span class="dt">\</span></span>
-<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a>           srun <span class="at">--pty</span> <span class="st">"</span><span class="va">${NODE_SHELL</span><span class="op">:-</span>zsh<span class="va">}</span><span class="st">"</span></span>
-<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="fu">fetchgnode()</span> <span class="kw">{</span></span>
-<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"-h"</span> <span class="kw">||</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"--help"</span> <span class="kw">||</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
-<span id="cb5-40"><a href="#cb5-40" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: fetchgnode &lt;jobid&gt;"</span></span>
-<span id="cb5-41"><a href="#cb5-41" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Attach a new shell to an existing SLURM job."</span></span>
-<span id="cb5-42"><a href="#cb5-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
-<span id="cb5-43"><a href="#cb5-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
-<span id="cb5-44"><a href="#cb5-44" aria-hidden="true" tabindex="-1"></a>    <span class="ex">srun</span> <span class="at">--jobid</span><span class="op">=</span><span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="at">--overlap</span> <span class="at">--pty</span> <span class="st">"</span><span class="va">${NODE_SHELL</span><span class="op">:-</span>zsh<span class="va">}</span><span class="st">"</span></span>
-<span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
-<span id="cb5-46"><a href="#cb5-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-47"><a href="#cb5-47" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> sqm=<span class="st">"squeue --me"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="bu">export</span> <span class="va">NODE_SHELL</span><span class="op">=</span><span class="st">"zsh"</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">getgnode()</span> <span class="kw">{</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">ngpus</span><span class="op">=</span>1</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">time_limit</span><span class="op">=</span><span class="st">"02:00:00"</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">partition</span><span class="op">=</span><span class="st">"workq"</span>  <span class="co"># Adjust for your cluster</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">while</span> <span class="kw">[[</span> <span class="va">$#</span> <span class="ot">-gt</span> 0 <span class="kw">]];</span> <span class="cf">do</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">case</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">in</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-h</span><span class="kw">|</span><span class="ss">--help</span><span class="kw">)</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Usage: getgnode [OPTIONS]"</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Allocate and attach to an interactive SLURM GPU node."</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">""</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Options:"</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -g, --gpus INT         Number of GPUs to request (default: 1)"</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -p, --partition NAME   SLURM partition (default: workq)"</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -t, --time HH:MM:SS    Time limit (default: 02:00:00)"</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"  -h, --help             Show this help"</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>                <span class="cf">;;</span></span>
+<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-g</span><span class="kw">|</span><span class="ss">--gpus</span><span class="kw">)</span>      <span class="va">ngpus</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span><span class="kw">;</span>      <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
+<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-p</span><span class="kw">|</span><span class="ss">--partition</span><span class="kw">)</span> <span class="va">partition</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span><span class="kw">;</span>  <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
+<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a>            <span class="ss">-t</span><span class="kw">|</span><span class="ss">--time</span><span class="kw">)</span>      <span class="va">time_limit</span><span class="op">=</span><span class="st">"</span><span class="va">$2</span><span class="st">"</span><span class="kw">;</span> <span class="bu">shift</span> 2 <span class="cf">;;</span></span>
+<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>            <span class="pp">*</span><span class="kw">)</span></span>
+<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Error: Unknown argument '</span><span class="va">$1</span><span class="st">'"</span></span>
+<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>                <span class="bu">echo</span> <span class="st">"Type 'getgnode --help' for usage."</span></span>
+<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>                <span class="cf">;;</span></span>
+<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">esac</span></span>
+<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">done</span></span>
+<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>    <span class="ex">salloc</span> <span class="at">--partition</span><span class="op">=</span><span class="st">"</span><span class="va">${partition}</span><span class="st">"</span> <span class="dt">\</span></span>
+<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a>           <span class="at">--gres</span><span class="op">=</span>gpu:<span class="st">"</span><span class="va">${ngpus}</span><span class="st">"</span> <span class="dt">\</span></span>
+<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a>           <span class="at">--time</span><span class="op">=</span><span class="st">"</span><span class="va">${time_limit}</span><span class="st">"</span> <span class="dt">\</span></span>
+<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a>           srun <span class="at">--pty</span> <span class="st">"</span><span class="va">${NODE_SHELL</span><span class="op">:-</span>zsh<span class="va">}</span><span class="st">"</span></span>
+<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a><span class="fu">fetchgnode()</span> <span class="kw">{</span></span>
+<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"-h"</span> <span class="kw">||</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"--help"</span> <span class="kw">||</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: fetchgnode &lt;jobid&gt;"</span></span>
+<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Attach a new shell to an existing SLURM job."</span></span>
+<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">0</span></span>
+<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>    <span class="ex">srun</span> <span class="at">--jobid</span><span class="op">=</span><span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="at">--overlap</span> <span class="at">--pty</span> <span class="st">"</span><span class="va">${NODE_SHELL</span><span class="op">:-</span>zsh<span class="va">}</span><span class="st">"</span></span>
+<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="fu">slog()</span> <span class="kw">{</span></span>
+<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: slog &lt;job_id&gt; [lines]"</span></span>
+<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Tails the stdout log file for a given Slurm job."</span></span>
+<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-55"><a href="#cb7-55" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">lines</span><span class="op">=</span><span class="st">"</span><span class="va">${2</span><span class="op">:-</span>50<span class="va">}</span><span class="st">"</span></span>
+<span id="cb7-56"><a href="#cb7-56" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Search current dir for slurm-&lt;jobid&gt;.out or &lt;name&gt;-&lt;jobid&gt;.out</span></span>
+<span id="cb7-57"><a href="#cb7-57" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">logfile</span><span class="op">=</span><span class="va">$(</span><span class="fu">ls</span> <span class="at">-t</span> <span class="pp">*</span><span class="st">"</span><span class="va">$1</span><span class="st">"</span><span class="pp">*</span>.out <span class="dv">2</span><span class="op">&gt;</span>/dev/null <span class="kw">|</span> <span class="fu">head</span> <span class="at">-n</span> 1<span class="va">)</span></span>
+<span id="cb7-58"><a href="#cb7-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-59"><a href="#cb7-59" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-n</span> <span class="st">"</span><span class="va">$logfile</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb7-60"><a href="#cb7-60" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Tailing log: </span><span class="va">$logfile</span><span class="st">"</span></span>
+<span id="cb7-61"><a href="#cb7-61" aria-hidden="true" tabindex="-1"></a>        <span class="fu">tail</span> <span class="at">-n</span> <span class="st">"</span><span class="va">$lines</span><span class="st">"</span> <span class="at">-f</span> <span class="st">"</span><span class="va">$logfile</span><span class="st">"</span></span>
+<span id="cb7-62"><a href="#cb7-62" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb7-63"><a href="#cb7-63" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Error: No log file matching *'</span><span class="va">$1</span><span class="st">'*.out found in current directory."</span></span>
+<span id="cb7-64"><a href="#cb7-64" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb7-65"><a href="#cb7-65" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb7-66"><a href="#cb7-66" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb7-67"><a href="#cb7-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-68"><a href="#cb7-68" aria-hidden="true" tabindex="-1"></a><span class="fu">sfree()</span> <span class="kw">{</span></span>
+<span id="cb7-69"><a href="#cb7-69" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"=== Available Cluster Resources ==="</span></span>
+<span id="cb7-70"><a href="#cb7-70" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sinfo</span> <span class="at">-N</span> <span class="at">-h</span> <span class="at">-o</span> <span class="st">"%15P %10t %10G %N"</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-E</span> <span class="st">"idle|mix"</span> <span class="kw">|</span> <span class="fu">grep</span> <span class="at">-v</span> <span class="st">"drain"</span> <span class="kw">|</span> <span class="ex">column</span> <span class="at">-t</span></span>
+<span id="cb7-71"><a href="#cb7-71" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb7-72"><a href="#cb7-72" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-73"><a href="#cb7-73" aria-hidden="true" tabindex="-1"></a><span class="fu">snode()</span> <span class="kw">{</span></span>
+<span id="cb7-74"><a href="#cb7-74" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb7-75"><a href="#cb7-75" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: snode &lt;job_id&gt;"</span></span>
+<span id="cb7-76"><a href="#cb7-76" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Lookup the host node of a running job and attach to it."</span></span>
+<span id="cb7-77"><a href="#cb7-77" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb7-78"><a href="#cb7-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb7-79"><a href="#cb7-79" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-80"><a href="#cb7-80" aria-hidden="true" tabindex="-1"></a>    <span class="bu">local</span> <span class="va">node</span><span class="op">=</span><span class="va">$(</span><span class="ex">squeue</span> <span class="at">-j</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="at">-h</span> <span class="at">-o</span> <span class="st">"%N"</span> <span class="dv">2</span><span class="op">&gt;</span>/dev/null<span class="va">)</span></span>
+<span id="cb7-81"><a href="#cb7-81" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$node</span><span class="st">"</span> <span class="kw">||</span> <span class="st">"</span><span class="va">$node</span><span class="st">"</span> <span class="ot">==</span> <span class="st">"N/A"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb7-82"><a href="#cb7-82" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Error: Job </span><span class="va">$1</span><span class="st"> is not actively running."</span></span>
+<span id="cb7-83"><a href="#cb7-83" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb7-84"><a href="#cb7-84" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb7-85"><a href="#cb7-85" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-86"><a href="#cb7-86" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"Connecting to job </span><span class="va">$1</span><span class="st"> on node [</span><span class="va">$node</span><span class="st">]..."</span></span>
+<span id="cb7-87"><a href="#cb7-87" aria-hidden="true" tabindex="-1"></a>    <span class="ex">srun</span> <span class="at">--jobid</span><span class="op">=</span><span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="at">--overlap</span> <span class="at">--pty</span> <span class="st">"</span><span class="va">${NODE_SHELL</span><span class="op">:-</span>zsh<span class="va">}</span><span class="st">"</span></span>
+<span id="cb7-88"><a href="#cb7-88" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb7-89"><a href="#cb7-89" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-90"><a href="#cb7-90" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-91"><a href="#cb7-91" aria-hidden="true" tabindex="-1"></a><span class="fu">seffme()</span> <span class="kw">{</span></span>
+<span id="cb7-92"><a href="#cb7-92" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="ot">-z</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb7-93"><a href="#cb7-93" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: seffme &lt;job_id&gt;"</span></span>
+<span id="cb7-94"><a href="#cb7-94" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Check peak memory, CPU efficiency, and exit codes for a job."</span></span>
+<span id="cb7-95"><a href="#cb7-95" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb7-96"><a href="#cb7-96" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb7-97"><a href="#cb7-97" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-98"><a href="#cb7-98" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="bu">command</span> <span class="at">-v</span> seff <span class="op">&amp;&gt;</span>/dev/null<span class="kw">;</span> <span class="cf">then</span></span>
+<span id="cb7-99"><a href="#cb7-99" aria-hidden="true" tabindex="-1"></a>        <span class="ex">seff</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span>
+<span id="cb7-100"><a href="#cb7-100" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span></span>
+<span id="cb7-101"><a href="#cb7-101" aria-hidden="true" tabindex="-1"></a>        <span class="ex">sacct</span> <span class="at">-j</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span> <span class="at">--format</span><span class="op">=</span>JobID,JobName%20,State,ExitCode,MaxRSS,ReqMem,AllocCPUS,Elapsed <span class="at">-X</span></span>
+<span id="cb7-102"><a href="#cb7-102" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb7-103"><a href="#cb7-103" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb7-104"><a href="#cb7-104" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-105"><a href="#cb7-105" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-106"><a href="#cb7-106" aria-hidden="true" tabindex="-1"></a><span class="fu">rebatch()</span> <span class="kw">{</span></span>
+<span id="cb7-107"><a href="#cb7-107" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">[[</span> <span class="va">$#</span> <span class="ot">-lt</span> 2 <span class="kw">]];</span> <span class="cf">then</span></span>
+<span id="cb7-108"><a href="#cb7-108" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Usage: rebatch &lt;job_id&gt; &lt;script.sh&gt;"</span></span>
+<span id="cb7-109"><a href="#cb7-109" aria-hidden="true" tabindex="-1"></a>        <span class="bu">echo</span> <span class="st">"Cancels &lt;job_id&gt; and submits &lt;script.sh&gt;."</span></span>
+<span id="cb7-110"><a href="#cb7-110" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">1</span></span>
+<span id="cb7-111"><a href="#cb7-111" aria-hidden="true" tabindex="-1"></a>    <span class="cf">fi</span></span>
+<span id="cb7-112"><a href="#cb7-112" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-113"><a href="#cb7-113" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"Canceling job </span><span class="va">$1</span><span class="st">..."</span></span>
+<span id="cb7-114"><a href="#cb7-114" aria-hidden="true" tabindex="-1"></a>    <span class="ex">scancel</span> <span class="st">"</span><span class="va">$1</span><span class="st">"</span></span>
+<span id="cb7-115"><a href="#cb7-115" aria-hidden="true" tabindex="-1"></a>    <span class="bu">echo</span> <span class="st">"Submitting </span><span class="va">$2</span><span class="st">..."</span></span>
+<span id="cb7-116"><a href="#cb7-116" aria-hidden="true" tabindex="-1"></a>    <span class="ex">sbatch</span> <span class="st">"</span><span class="va">$2</span><span class="st">"</span></span>
+<span id="cb7-117"><a href="#cb7-117" aria-hidden="true" tabindex="-1"></a><span class="kw">}</span></span>
+<span id="cb7-118"><a href="#cb7-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-119"><a href="#cb7-119" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-120"><a href="#cb7-120" aria-hidden="true" tabindex="-1"></a><span class="bu">alias</span> sqm=<span class="st">"squeue --me"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </div>
 </div>
 <hr>
 </section>
 </section>
-<section id="where-i-ended-up" class="level2">
-<h2 class="anchored" data-anchor-id="where-i-ended-up">Where I Ended Up</h2>
-<p>Looking back, the journey was not really about finding the right distribution. Every distribution I used taught me something — Debian gave me discipline, Arch gave me depth, CentOS gave me an appreciation for stability, Nobara reminded me why community matters. What I was actually searching for, without fully realising it, was a coherent philosophy: a system I could understand completely, trust in production, enjoy on the desktop, and extend without fighting it.</p>
-<p>Fedora, combined with KDE, DNF, Flatpak, and pixi, turned out to be that system. The distribution handles the OS. Flatpak handles GUI applications cleanly and keeps them up to date. DNF handles anything system-level that belongs there. And pixi handles everything else — Python environments, binary tools, cross-platform reproducibility — with a single unified interface that works identically on my workstation, my laptop, and a GH200 node on Isambard-AI.</p>
-<p>The packages problem that once felt like an unsolvable compromise turned out to have a clean answer. I just had to wait for the Rust ecosystem to mature enough to build it.</p>
+<section id="what-actually-stuck" class="level2">
+<h2 class="anchored" data-anchor-id="what-actually-stuck">What Actually Stuck</h2>
+<p>Looking back, the journey was never really about finding the right distribution — though it took me a long time to admit that. Every distribution I used taught me something: Debian gave me discipline, Arch gave me depth, CentOS gave me an appreciation for stability, Nobara reminded me why community matters, and openSUSE Tumbleweed showed me that rolling release and reliability are not opposites.</p>
+<p>What I was actually searching for was a coherent philosophy: a system I could understand completely, trust in production, enjoy on the desktop, and extend without fighting it. The distribution itself turned out to be the least important variable. Fedora with KDE is where I am happiest on the desktop. AlmaLinux is where most of my containers and HPC environments live, and it has earned a place on some of my desktops too. openSUSE Tumbleweed is on standby for whenever SUSE-based infrastructure is the target, or when I want the smoothest rolling release I have used. And across every single one of them, Flatpak handles GUI applications and pixi handles everything else — Python environments, binary tools, cross-platform reproducibility — with a single unified interface that works identically whether I am on my workstation, my laptop, or a GH200 node on Isambard-AI.</p>
+<p>The packages problem that once felt like an unsolvable compromise turned out to have a clean answer. I just had to wait for the Rust ecosystem to mature enough to build it — and stop insisting that the answer had to come bundled with a single distribution.</p>
 
 
 </section>

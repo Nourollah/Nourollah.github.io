@@ -1,10 +1,10 @@
 ---
-title: "My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Never Looked Back"
-description: "A personal account of years spent distro-hopping across the Linux ecosystem — and how I finally settled on Fedora Workstation, fixed the packages problem with pixi, and built a setup I actually enjoy living in."
+title: "A Decade of Linux Setups — Why I Stopped Looking for 'The One'"
+description: "A personal account of years spent distro-hopping across the Linux ecosystem — and how I stopped looking for 'The One' distro, fixed the packages problem with pixi and Flatpak, and ended up with Fedora, AlmaLinux, and openSUSE Tumbleweed each earning their place."
 author: "Amir Masoud Nourollah"
 date: "2026-05-07"
 image: "fedora.jpg"
-categories: [linux, desktop, fedora, workstation]
+categories: [linux, desktop, server, fedora, opensuse, almalinux, pixi, workstation]
 draft: false
 ---
 
@@ -12,13 +12,13 @@ draft: false
 
 For many years, I used a Debian-based distribution as my primary operating system. I started with [Debian](https://www.debian.org/) itself, and later switched to [Ubuntu](https://ubuntu.com/) for convenience. I had a good experience with both, but the more I learnt about the Linux ecosystem, the more I felt I did not need the extra layers Ubuntu puts on top of Debian. I started exploring a variety of popular and expert-level distributions. I wanted a more "pure" Linux experience — closer to the upstream projects and communities. Soon, I realised that the Debian package ecosystem is far wider than the Red Hat ecosystem, and switching to a Red Hat-based distribution such as [Fedora](https://fedoraproject.org/) or [CentOS](https://www.centos.org/) was difficult because some of the software I used daily was not published as `.rpm` packages.
 
-Considering simplicity, full control over my system, and the breadth of available packages, [Arch Linux](https://archlinux.org/) eventually made its way onto my list. My first installation attempt was unpleasant, but feeling the installation process — the fingerprint of control over every individual part of the OS — made me warm to it quickly. I could find almost anything in the [AUR](https://aur.archlinux.org/), spanning from packages available in other distributions to wrapped legacy packages whose development had been discontinued and removed from mainstream repositories. I had a lot of fun, even though I nearly broke my system more than once. But the complexity of installation and personalisation, and the differences between my desktop and server environments, eventually made Arch difficult to sustain. Along the way I tried some Arch-based distributions — [Manjaro](https://manjaro.org/), [EndeavourOS](https://endeavouros.com/), and [BlackArch](https://blackarch.org/) as an alternative to [Kali](https://www.kali.org/). All of them were pleasant experiences, but none of them addressed my real problem: a unified ecosystem for both production and personal use.
+Considering simplicity, full control over my system, and the breadth of available packages, [Arch Linux](https://archlinux.org/) eventually made its way onto my list. My first installation attempt was unpleasant, but going through the installation process — feeling that fingerprint of control over every part of the OS — made me warm to it quickly. I could find almost anything in the [AUR](https://aur.archlinux.org/), spanning from packages available in other distributions to wrapped legacy packages whose development had been discontinued and removed from mainstream repositories. I had a lot of fun, even though I nearly broke my system more than once. But the complexity of installation and personalisation, and the differences between my desktop and server environments, eventually made Arch difficult to sustain. Along the way I tried some Arch-based distributions — [Manjaro](https://manjaro.org/), [EndeavourOS](https://endeavouros.com/), and [BlackArch](https://blackarch.org/) as an alternative to [Kali](https://www.kali.org/). All of them were pleasant experiences, but none of them addressed my real problem: a unified ecosystem for both production and personal use.
 
-I had always had a careful appreciation for Red Hat and was a fan of it for production servers. At the time, Red Hat was not free for personal use, so I went with CentOS to unify my environment. But as a developer who was not yet familiar with containerisation — tools like [Podman](https://podman.io/) and [Docker](https://www.docker.com/) — I needed bleeding-edge packages to practise with and keep up with the software I was building. CentOS was not the answer either.
+I had always had a soft spot for Red Hat and was a fan of it for production servers. At the time, Red Hat was not free for personal use, so I went with CentOS to unify my environment. But as a developer who was not yet familiar with containerisation — tools like [Podman](https://podman.io/) and [Docker](https://www.docker.com/) — I needed bleeding-edge packages to practise with and keep up with the software I was building. CentOS was not the answer either.
 
-I had always known about Fedora — it has long been one of the pioneer distributions in the Linux ecosystem — but I had run into problems configuring my Nvidia GPU drivers and occasional glitches in video games due to missing or improperly configured components. Around that time, a new distribution was rising: [Nobara](https://nobaraproject.org/), a highly optimised Fedora-based distribution built for gaming. If a distribution is tuned for gaming, it tends to get along well with machine learning setups too, and Nobara became my daily driver for a while. But I eventually realised it is not a community-driven project — it is maintained by a single person. I needed to respect my commitment to the open-source and community-driven spirit, so I started looking for an alternative and stumbled upon the [Fedora Post Install Guide](https://github.com/devangshekhawat/Fedora-44-Post-Install-Guide).
+I had always known about Fedora — it has long been one of the pioneer distributions in the Linux ecosystem — but I had run into problems configuring my Nvidia GPU drivers and occasional glitches in video games due to missing or improperly configured components. Around that time, a new distribution was rising: [Nobara](https://nobaraproject.org/), a highly optimised Fedora-based distribution built for gaming. If a distribution is tuned for gaming — with up-to-date kernels, fresh GPU drivers, and low-level performance tweaks — it tends to get along well with machine learning setups too, and Nobara became my daily driver for a while. But I eventually realised it is not a community-driven project — it is maintained by a single person. I needed to respect my commitment to the open-source and community-driven spirit, so I started looking for an alternative and stumbled upon the [Fedora Post Install Guide](https://github.com/devangshekhawat/Fedora-44-Post-Install-Guide).
 
-I thought: why not give Fedora one final, honest try? That try ended years of distro-hopping. Following the guide transformed Fedora — I have always been a [KDE](https://kde.org/) user and have never warmed to GNOME — into an OS that was smooth, stable, and genuinely enjoyable to live in. Everything I had been looking for was there. One problem remained, though: some packages were unavailable in the default repositories, or required adding custom sources. Especially with the recent wave of [Rust](https://www.rust-lang.org/)-based tools for Linux, I had adopted several in my daily workflow that simply were not in DNF.
+I thought: why not give Fedora one final, honest try? That try ended years of distro-hopping on the desktop. Following the guide transformed Fedora — I have always been a [KDE](https://kde.org/) user and have never warmed to GNOME — into an OS that was smooth, stable, and genuinely enjoyable to live in. Everything I had been looking for was there. One problem remained, though: some packages were unavailable in the default repositories, or required adding custom sources. Especially with the recent wave of [Rust](https://www.rust-lang.org/)-based tools for Linux, I had adopted several in my daily workflow that simply were not in DNF.
 
 ------------------------------------------------------------------------
 
@@ -28,7 +28,7 @@ That remaining problem — missing packages — was not unique to Fedora. It had
 
 Before getting to that, I want to talk about my relationship with Python — because the solution to the packages problem and the solution to surviving the Python ecosystem turned out to be the same thing.
 
-### [Pixi](https://pixi.prefix.dev/latest/): The Missing Piece for the Python Ecosystem
+### [Pixi](https://pixi.prefix.dev/latest/): The Missing Piece for the Python Ecosystem and Beyond
 
 I started my programming journey with Java in 2010. It was one of the most elegant languages available at the time, and I vividly remember compiling Android apps before Android Studio with [Eclipse](https://eclipseide.org), installing them through a [BlueStacks](https://www.bluestacks.com/) emulator. Later I switched to C/C++ to get closer to the underlying machine — learning the hard way about setting up projects, installing libraries system-wide, writing `Makefile`s, and eventually `CMakeLists.txt`. Cross-compiling for another architecture was painful, but it was structured and I understood every piece of it. I never touched package managers like [Conan](https://conan.io/) or [vcpkg](https://vcpkg.io/) until much later.
 
@@ -53,16 +53,30 @@ pixi global install <package_name>
 This was a game changer. I could install tools outside any virtual environment — not as project dependencies, but as system-level utilities available anywhere. It became the first command I run on any new machine:
 
 ``` bash
-pixi global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine xh sd helix neovim tmux zellij btop zsh xonsh
+pixi global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine xh sd neovim tmux zellij btop zsh xonsh skim yazi
 ```
 
 No custom repositories. No extra layers. No searching for obscure PPAs or Copr entries. Everything in one command.
 
 ------------------------------------------------------------------------
 
+## Different Distros for Different Jobs
+
+While Fedora settled in as my desktop daily driver, the story does not end there — because Linux is not just my desktop. It is also every server I deploy to, every container image I build from, and every machine I do not personally sit in front of.
+
+Around the same time I was settling into Fedora, I tried [openSUSE Tumbleweed](https://www.opensuse.org/#Tumbleweed). I was sceptical at first — SUSE had always felt like the "other" enterprise ecosystem, the one I had less exposure to. But Tumbleweed surprised me. As a rolling release, it has no version numbers to worry about — no "Fedora 40 to 41" migration anxiety, no EOL countdown to plan around. And despite being rolling, it felt more stable day-to-day than Fedora ever had for me, thanks to openSUSE's extensive automated testing (openQA) gating every update before it ships.
+
+The catch is that openSUSE is SUSE-based, not Red Hat-based. For a desktop, that distinction barely matters any more — Flatpak and pixi cover the gap regardless of what is underneath. But for servers, it matters a great deal: if I am deploying to infrastructure running [SLES](https://www.suse.com/products/server/) rather than RHEL, openSUSE Tumbleweed (or [openSUSE Leap](https://get.opensuse.org/leap/) for a non-rolling option) is the natural match, whereas a Fedora-family choice makes more sense alongside RHEL-compatible infrastructure.
+
+Which brings me to [AlmaLinux](https://almalinux.org/). Most of my Docker base images are AlmaLinux — it is a clean, community-driven RHEL rebuild, and that compatibility matters when the goal is reproducible builds across HPC systems, cloud instances, and local containers that all ultimately trace back to a RHEL lineage. For a long time, AlmaLinux on the desktop felt like a non-starter — too conservative, too server-oriented, missing too much. But with Flatpak filling in GUI applications and pixi filling in everything else, that gap has effectively closed. I now run AlmaLinux on some of my desktops too, and it feels far less like a compromise than it would have a few years ago.
+
+So the honest version of the story is less "I found The One Distro" and more "I stopped needing to find one." Fedora remains my favourite for a general-purpose desktop — KDE, gaming, day-to-day tinkering. openSUSE Tumbleweed is my pick when SUSE or SLES is the target, or when I want the most stable rolling release I have used. AlmaLinux sits underneath almost everything I containerise, and increasingly on desktops too. What used to feel like indecision now feels like having the right tool for the job — and the credit, again, goes to Flatpak and pixi for making the switching cost low enough that it no longer feels like a trade-off.
+
+------------------------------------------------------------------------
+
 ## The Setup
 
-If you are curious about the tools and how I configure them, this section is for you.
+If you are curious about the tools and how I configure them, this section is for you. The nice thing about all of this is that it is entirely distro-agnostic — even my IDEs, [Zed](https://zed.dev/) (the main one) and [VS Code](https://code.visualstudio.com/) (the reserve), are available everywhere these days. Whether I am on Fedora, AlmaLinux, or openSUSE Tumbleweed, the setup below is identical, because Flatpak, `pixi global install`, and IDE installers all work the same way regardless of distro.
 
 ### Terminal Tools
 
@@ -79,15 +93,46 @@ If you are curious about the tools and how I configure them, this section is for
 | [`hyperfine`](https://github.com/sharkdp/hyperfine) | CLI benchmarking tool |
 | [`xh`](https://github.com/ducaale/xh) | Friendly, fast HTTP client |
 | [`sd`](https://github.com/chmln/sd) | Intuitive search-and-replace for the command line |
-| [`helix`](https://helix-editor.com/) / [`neovim`](https://neovim.io/) | Modal text editors |
+| [`neovim`](https://neovim.io/) | Modal text editor |
 | [`zellij`](https://zellij.dev/) / [`tmux`](https://github.com/tmux/tmux) | Terminal workspace and session managers |
 | [`btop`](https://github.com/aristocratos/btop) | Beautiful terminal resource monitor |
+| [`skim`](https://github.com/skim-rs/skim) | Fuzzy finder (`sk`) for files, history, and more |
+| [`yazi`](https://github.com/sxyazi/yazi) | Fast, terminal-based file manager |
+
+### Queuing GPU Work with pueue
+
+One more tool that has quietly become part of my daily workflow is [pueue](https://github.com/Nukesor/pueue) — a lightweight command-line task manager and scheduler. You hand it shell commands, and it queues them up, running them one after another (or in parallel, if you configure multiple workers) regardless of whether you're still logged in. I use it specifically to keep my GPU busy: I queue up several experiments before I step away from my desk or laptop, and pueue works through them in sequence, starting the next one the moment the previous one finishes — so the GPU keeps working even when I'm not.
+
+Installation is just as easy via pixi, and the daemon only needs enabling once:
+
+``` bash
+# Install pueue (client + daemon) globally via pixi
+pixi global install pueue
+
+# Enable and start the daemon as a systemd user service
+systemctl --user enable pueued
+systemctl --user start pueued
+systemctl --user status pueued
+```
+
+From there, queuing experiments is as simple as:
+
+``` bash
+pueue add -- pixi run python train.py --config exp1.yaml
+pueue add -- pixi run python train.py --config exp2.yaml
+pueue status
+```
 
 ### Shell Aliases
 
 I add the following to my `.zshrc` or `.bashrc`:
 
 ``` bash
+# zoxide must be initialized before the `cd` alias below, otherwise the `z`
+# function doesn't exist yet and `cd` fails until you manually re-source
+# this file
+eval "$(zoxide init zsh)"
+
 # Modern replacements
 alias ls="eza --icons --group-directories-first"
 alias tree="eza --icons --tree"
@@ -98,10 +143,117 @@ alias top='btm'
 alias cd='z'
 alias grep='rg'
 alias vim='nvim'
+alias search='sk'
 
 # Pipe --help and -h output through bat for syntax highlighting
 alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
 alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
+# Set of general useful functions
+
+# Create directory and instantly cd into it
+mkcd() {
+    mkdir -p "$1" && cd "$1"
+}
+
+# Easily move UP 'N' directories (e.g., 'up 3' moves up 3 levels)
+up() {
+    local levels="${1:-1}"
+    local path=""
+    for ((i=1; i<=levels; i++)); do
+        path="../$path"
+    done
+    cd "$path"
+}
+
+# Check public and local IP addresses cleanly
+myip() {
+    local local_ip=$(hostname -I 2>/dev/null | awk '{print $1}' || ipconfig getifaddr en0 2>/dev/null || echo "Unknown")
+    echo "Local IP:   $local_ip"
+    echo "Public IP:  $(curl -s https://ifconfig.me)"
+    echo "Location:   $(curl -s https://ipapi.co/city/), $(curl -s https://ipapi.co/country_name/)"
+}
+
+# Runs a clean multi-record (A, AAAA, MX, NS, TXT) DNS check for a domain.
+dnslookup() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: dnslookup <domain>"
+        return 1
+    fi
+    echo "=== A / AAAA Records ==="
+    dig +short "$1" A "$1" AAAA
+    echo "\n=== MX Records ==="
+    dig +short "$1" MX
+    echo "\n=== NS Records ==="
+    dig +short "$1" NS
+    echo "\n=== TXT Records ==="
+    dig +short "$1" TXT
+}
+
+# Find which process is listening on a specific port (e.g., 'port 8080')
+port() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: port <port_number>"
+        return 1
+    fi
+    lsof -i :"$1"
+}
+
+# Locates and forcibly terminates (kill -9) whatever process is occupying a given port.
+killport() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: killport <port_number>"
+        return 1
+    fi
+    local pid=$(lsof -t -i:"$1")
+    if [[ -n "$pid" ]]; then
+        echo "Killing process $pid on port $1..."
+        kill -9 $pid
+    else
+        echo "No process found on port $1."
+    fi
+}
+
+# Quick HTTP server in the current directory (Python 3)
+serve() {
+    local port="${1:-8000}"
+    echo "Serving current directory on http://localhost:${port}"
+    python3 -m http.server "$port"
+}
+
+# Pretty-prints each directory in your $PATH on a new line for easy inspection.
+path() {
+    echo "$PATH" | tr ':' '\n'
+}
+
+# Side-by-side file comparison using your default Neovim alias.
+vdiff() {
+    if [[ $# -lt 2 ]]; then echo "Usage: vdiff <file1> <file2>"; return 1; fi
+    nvim -d "$1" "$2"
+}
+
+# Previews the head of gzipped or zstd-compressed text/log files without extraction.
+vgz() {
+    if [[ -z "$1" ]]; then echo "Usage: vgz <file.gz|file.zst> [lines]"; return 1; fi
+    local lines="${2:-20}"
+    case "$1" in
+        *.gz)  gzip -dc "$1" | head -n "$lines" ;;
+        *.zst) zstdcat "$1" | head -n "$lines" ;;
+        *)     echo "Unsupported archive format." ;;
+    esac
+}
+
+# Lists files inside .zip, .tar, .tar.gz, or .whl archives without extracting.
+vzip() {
+    if [[ -z "$1" ]]; then echo "Usage: vzip <archive_file>"; return 1; fi
+    case "$1" in
+        *.zip|*.whl) unzip -l "$1" ;;
+        *.tar.gz|*.tgz) tar -tzvf "$1" ;;
+        *.tar) tar -tvf "$1" ;;
+        *) echo "Unsupported extension." ;;
+    esac
+}
+
 ```
 
 For [Neovim](https://neovim.io/), I use [AstroNvim](https://astronvim.com/) as my configuration framework:
@@ -168,16 +320,89 @@ fetchgnode() {
     srun --jobid="$1" --overlap --pty "${NODE_SHELL:-zsh}"
 }
 
+
+slog() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: slog <job_id> [lines]"
+        echo "Tails the stdout log file for a given Slurm job."
+        return 1
+    fi
+
+    local lines="${2:-50}"
+    # Search current dir for slurm-<jobid>.out or <name>-<jobid>.out
+    local logfile=$(ls -t *"$1"*.out 2>/dev/null | head -n 1)
+
+    if [[ -n "$logfile" ]]; then
+        echo "Tailing log: $logfile"
+        tail -n "$lines" -f "$logfile"
+    else
+        echo "Error: No log file matching *'$1'*.out found in current directory."
+        return 1
+    fi
+}
+
+sfree() {
+    echo "=== Available Cluster Resources ==="
+    sinfo -N -h -o "%15P %10t %10G %N" | grep -E "idle|mix" | grep -v "drain" | column -t
+}
+
+snode() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: snode <job_id>"
+        echo "Lookup the host node of a running job and attach to it."
+        return 1
+    fi
+
+    local node=$(squeue -j "$1" -h -o "%N" 2>/dev/null)
+    if [[ -z "$node" || "$node" == "N/A" ]]; then
+        echo "Error: Job $1 is not actively running."
+        return 1
+    fi
+
+    echo "Connecting to job $1 on node [$node]..."
+    srun --jobid="$1" --overlap --pty "${NODE_SHELL:-zsh}"
+}
+
+
+seffme() {
+    if [[ -z "$1" ]]; then
+        echo "Usage: seffme <job_id>"
+        echo "Check peak memory, CPU efficiency, and exit codes for a job."
+        return 1
+    fi
+
+    if command -v seff &>/dev/null; then
+        seff "$1"
+    else
+        sacct -j "$1" --format=JobID,JobName%20,State,ExitCode,MaxRSS,ReqMem,AllocCPUS,Elapsed -X
+    fi
+}
+
+
+rebatch() {
+    if [[ $# -lt 2 ]]; then
+        echo "Usage: rebatch <job_id> <script.sh>"
+        echo "Cancels <job_id> and submits <script.sh>."
+        return 1
+    fi
+
+    echo "Canceling job $1..."
+    scancel "$1"
+    echo "Submitting $2..."
+    sbatch "$2"
+}
+
+
 alias sqm="squeue --me"
 ```
 :::
 
 ------------------------------------------------------------------------
 
-## Where I Ended Up
+## What Actually Stuck
 
-Looking back, the journey was not really about finding the right distribution. Every distribution I used taught me something — Debian gave me discipline, Arch gave me depth, CentOS gave me an appreciation for stability, Nobara reminded me why community matters. What I was actually searching for, without fully realising it, was a coherent philosophy: a system I could understand completely, trust in production, enjoy on the desktop, and extend without fighting it.
+Looking back, the journey was never really about finding the right distribution — though it took me a long time to admit that. Every distribution I used taught me something: Debian gave me discipline, Arch gave me depth, CentOS gave me an appreciation for stability, Nobara reminded me why community matters, and openSUSE Tumbleweed showed me that rolling release and reliability are not opposites.
 
-Fedora, combined with KDE, DNF, Flatpak, and pixi, turned out to be that system. The distribution handles the OS. Flatpak handles GUI applications cleanly and keeps them up to date. DNF handles anything system-level that belongs there. And pixi handles everything else — Python environments, binary tools, cross-platform reproducibility — with a single unified interface that works identically on my workstation, my laptop, and a GH200 node on Isambard-AI.
+What I was actually searching for was a coherent philosophy: a system I could understand completely, trust in production, enjoy on the desktop, and extend without fighting it. The distribution itself turned out to be the least important variable. Fedora with KDE is where I am happiest on the desktop. AlmaLinux is where most of my containers and HPC environments live, and it has earned a place on some of my desktops too. openSUSE Tumbleweed is on standby for whenever SUSE-based infrastructure is the target, or when I want the smoothest rolling release I have used. And across every single one of them, Flatpak handles GUI applications and pixi handles everything else — Python environments, binary tools, cross-platform reproducibility — with a single unified interface that works identically whether I am on my workstation, my laptop, or a GH200 node on Isambard-AI.
 
-The packages problem that once felt like an unsolvable compromise turned out to have a clean answer. I just had to wait for the Rust ecosystem to mature enough to build it.
+The packages problem that once felt like an unsolvable compromise turned out to have a clean answer. I just had to wait for the Rust ecosystem to mature enough to build it — and stop insisting that the answer had to come bundled with a single distribution.

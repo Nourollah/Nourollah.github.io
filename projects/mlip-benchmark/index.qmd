@@ -11,53 +11,89 @@ toc: true
 ---
 
 ::: {.callout-note appearance="minimal"}
-**Paper:** [arxiv.org/abs/2605.08988](https://arxiv.org/abs/2605.08988) &nbsp;|&nbsp;
-:::
-
-::: {.callout-important appearance="minimal"}
-This post will be updated soon.
+**Paper:** [arxiv.org/abs/2605.08988](https://arxiv.org/abs/2605.08988)
 :::
 
 ## Abstract
 
-*This section will be updated soon.*
+Machine learning models that predict how atoms in a molecule push and pull on each other - so-called Machine Learning Interatomic Potentials, or MLIPs - have become a popular, much cheaper stand-in for expensive quantum-chemistry calculations. They are used to simulate molecules in motion, which underpins everything from drug design to the discovery of new materials. But there's a nagging question that doesn't get asked often enough: when one of these models is shown a molecule it has never seen before, does it actually understand the underlying chemistry, or is it just pattern-matching to whatever it happened to be trained on?
+
+In this paper we introduce **GMD** (Generalisation for Molecular Dynamics), a benchmark built specifically to answer that question. GMD consists of six related tests, each of which trains a model on one set of molecules and then evaluates it on a carefully chosen set of *new* molecules - new in a very specific, controlled way. We ran a wide range of today's most popular model architectures through these tests, including large "foundation models" pre-trained on millions of molecules. The headline result: on most of these tests, even the best models are off by one to three orders of magnitude compared to their performance on familiar molecules. Pre-training on huge datasets doesn't fix this. And, perhaps most importantly for practitioners, a model's performance on "normal" test data tells you almost nothing about how it will behave on genuinely new molecules.
 
 ## Motivation
 
-*This section will be updated soon.*
+If you want to know how a molecule will behave - how it vibrates, how it reacts, how it folds - the gold-standard approach is to solve the equations of quantum mechanics for it directly. This is accurate, but punishingly slow: a single snapshot of a modestly sized molecule can take a powerful computer a long time to process, and a useful simulation needs thousands or millions of such snapshots.
+
+This is the gap that MLIPs are meant to close. Instead of solving the quantum mechanical equations every time, a neural network is trained to *predict* the result - the energy of the molecule and the forces acting on each atom - directly from its 3D structure. Once trained, the network can do in milliseconds what the original calculation took hours to do. This speed-up is what makes large-scale molecular dynamics simulations practical at all.
+
+The catch is that any practical use of these models - say, screening thousands of candidate drug molecules, or exploring new battery materials - inevitably involves molecules the model has never encountered during training. The space of possible molecules is, for all practical purposes, infinite. So the question of whether these models can reliably extrapolate beyond their training data isn't a side issue; it's central to whether they're trustworthy tools at all. Recently, "foundation models" trained on millions of molecules have been put forward as a solution to this problem - the idea being that with enough scale and chemical diversity, a model will simply have "seen everything". GMD was designed to test that assumption directly.
 
 ## Background
 
 ### Machine Learning Interatomic Potentials
 
-*This section will be updated soon.*
+Every atom in a molecule experiences forces from its neighbours, and the molecule as a whole has a total energy associated with its current shape. These two quantities - energy and per-atom forces - are what you need to simulate how a molecule moves over time. Calculating them precisely requires quantum chemistry methods such as Density Functional Theory (DFT), which are accurate but computationally expensive.
+
+An MLIP is a neural network trained to take a molecule's 3D structure as input and output its energy and forces, having learned to mimic the much slower quantum chemistry calculation. Modern MLIPs are built with "physics-aware" architectures - they're designed so that, for example, rotating or translating a molecule in space doesn't change the predicted energy, which mirrors a real physical symmetry. The hope is that baking in this kind of structure helps the model learn genuine chemical principles rather than superficial statistical patterns. Whether that hope is justified is exactly what this paper investigates.
 
 ### Compositional Generalisation
 
-*This section will be updated soon.*
+Here's a simple way to think about the problem. Imagine a model trained to recognise the handwritten digits 0 through 8. Now show it a 9. It has never seen this shape before, so at best it can only flag the input as "something unfamiliar" - it has no real basis for saying "this is nine". Now imagine showing it "10". A human immediately reads this as *ten* - a digit it already knows (1) combined with another digit it already knows (0), arranged in a new way. Recognising "10" as "ten" rather than as two unrelated symbols requires *composing* what was learned about individual digits into something new. This ability - to take familiar pieces and recombine them in ways never seen before - is called **compositional generalisation**, and it's a long-standing open question in machine learning generally, well beyond chemistry.
+
+Molecules give us a particularly clean way to study this. Take pentanoic acid: a five-carbon chain with one carboxyl group (–COOH) attached at one end. A model trained on molecules like this has learned about "carbon chains" and about "carboxyl groups" - separately. Now consider pentanedioic acid: the same five-carbon chain, but with a carboxyl group at *both* ends. Nothing about this molecule is individually new - the chain is familiar, and the carboxyl group is familiar - but the *combination*, two of the same group on one backbone, has never been seen. If a model has genuinely learned what a carboxyl group "is" and how it behaves, it should handle this combination without difficulty. If, instead, it has only learned to recognise the *whole* molecules it was shown during training, it may fail badly. GMD is built around exactly this kind of test, applied systematically across many different molecules and types of recombination.
 
 ## Method
 
-*This section will be updated soon.*
+GMD is built from simple "Lego brick" molecules: straight chains of carbon atoms (think of these as the base structure) with one or more chemical "attachments" - functional groups such as –OH (an alcohol), –CHO (an aldehyde), –COOH (a carboxylic acid), or –NH₂ (an amine) - bolted on. By controlling exactly which combinations of chain lengths and functional groups appear during training versus testing, we can design tests that isolate one specific type of "new combination" at a time.
+
+Each of the six tasks below probes a different kind of compositional shift. The first four are the core tasks of the benchmark; the last two come from additional experiments, and are just as important for understanding the full picture - they tell us not just *whether* models fail, but *why*, and what (if anything) would fix it.
+
+1. **Fragment Chain Extension.** Models are trained on small alkanes - straight chains from ethane (2 carbons) up to hexane (6 carbons) - and then tested on much longer chains, from heptane (7 carbons) up to tridecane (13 carbons). The question here is simple: having learned how a short chain behaves, can the model extrapolate to a longer one of the same basic type?
+
+2. **Fragment Fusion.** Models are trained on alcohols and aldehydes (plus some more complex molecules containing both kinds of group), and then tested on carboxylic acids. Chemically, a carboxylic acid group can be thought of as a fusion of an alcohol-like piece and an aldehyde-like piece into one composite group. The model is never shown a carboxylic acid during training - can it infer what this new composite group should look like, having separately learned about its two "ingredients"?
+
+3. **Fragment Duplication.** Models are trained on molecules containing *one* carboxylic acid group (monocarboxylic acids), and tested on the corresponding molecules with *two* such groups, one at each end of the same chain (dicarboxylic acids - like the pentanoic acid / pentanedioic acid example above). This tests whether a model can cope with a familiar motif simply appearing more than once.
+
+4. **Fragment Combination.** Models are trained on two families of *symmetric* molecules: ones with two amine groups (diamines), and ones with two carboxylic acid groups (dicarboxylic acids). They're then tested on *asymmetric* molecules of the same chain length that have one amine group and one carboxylic acid group (essentially, amino acids). The model has seen both types of group before, just never mixed together on the same backbone - can it learn that these are distinct, swappable "parts" rather than glued-together wholes?
+
+5. **Fragment Fission.** This is the mirror image of Fragment Fusion. Here, we take the models from the Fragment Duplication task - trained only on carboxylic acids - and, without any further training, ask them to predict energies and forces for the corresponding plain alcohols and aldehydes (the "ingredients" that, in principle, combine to form a carboxylic acid). If a model has truly learned the carboxyl group as a *combination* of an alcohol-like piece and a carbonyl-like piece, it should be able to reason in this direction too. If it treats the carboxyl group as one indivisible unit, it will fail here just as it fails at Fusion - and, as we'll see, that's exactly what happens.
+
+6. **The "extra hints" experiments.**. For two of the tasks - Chain Extension and Fusion - we ran a follow-up experiment where the training set was deliberately enriched to remove one possible excuse for failure. For Chain Extension, models were given training molecules that cover *all* the chain lengths used in testing, just attached to a different functional group than the one being tested. For Fusion, models were additionally trained on amides - a functional group that is itself a "fusion" of two simpler groups, giving the model a worked example of how such a combination can be built. The point of these experiments is to separate two very different explanations for failure: is it simply that the model never saw examples covering that range (a coverage problem, fixable with more data), or is it that the model never learned the underlying *rule* for combining pieces (a much deeper problem)?
+
+To build the dataset itself, each molecule was first given a starting 3D shape, then simulated in motion for a long stretch of (simulated) time to generate a wide range of realistic configurations - not just the molecule sitting still at its lowest-energy shape, but wobbling and stretching as real molecules do. Roughly 2,000 snapshots were taken per molecule, and each one was then run through a DFT calculation to get its "correct" energy and forces - the answer key the ML models are trained and tested against. In total, GMD contains 118 molecules and around 296,000 labelled snapshots, and the whole dataset and the toolkit used to generate it have been released openly.
 
 ## Results
 
-*This section will be updated soon.*
+We tested a broad range of model architectures spanning roughly a decade of MLIP development - from older, simpler designs through to today's most advanced "equivariant" models such as MACE and EquiFormerV2 - alongside two prominent **foundation models**, MACE-MP-0 and UMA, which were pre-trained on enormous, chemically diverse datasets before being fine-tuned specifically for each GMD task.
+
+The clearest result is also the simplest to state: **Fragment Chain Extension is comparatively easy, and the other three core tasks are not.** On Chain Extension, most models extrapolate to longer chains reasonably well, particularly for predicting forces. But on Fragment Fusion, Fragment Duplication, and (to a lesser extent) Fragment Combination, errors on the new molecules are often one to three orders of magnitude larger than on familiar ones. For energy predictions on Fragment Duplication, for instance, some models are roughly a thousand times worse on the new (dicarboxylic acid) molecules than on the ones they were trained on. Fragment Combination shows the smallest gap of the three "hard" tasks - and notably, the UMA foundation model performs almost identically on new and familiar molecules here, even though it doesn't on the others.
+
+**Pre-training on millions of molecules doesn't fix this.** We fine-tuned the foundation models (MACE-MP-0 at three different sizes, and UMA) as thoroughly as was practical, and compared them against a much smaller MACE model trained from scratch on each task alone. The from-scratch model was consistently among the best performers, and often *better* than the heavily pre-trained foundation models on the tasks that most directly probe compositional generalisation. Pre-training seems to broaden the range of molecules a model can comfortably interpolate between, but it doesn't appear to teach the model the underlying *rules* for how chemical pieces combine.
+
+**Looking more closely at where the errors come from is revealing.** A force prediction can be wrong in two ways: it can point in the wrong direction, or it can have the wrong strength. Across the board, the *direction* of predicted forces tends to stay fairly accurate even on new molecules - it's the *strength* that goes badly wrong. Moreover, these errors aren't spread evenly across the molecule. They concentrate specifically on the atoms involved in whatever is new about the test molecule - for example, the oxygen atoms in a newly-formed carboxyl group. Atoms whose local surroundings look like something the model has seen before continue to be predicted well, even within an otherwise "unseen" molecule.
+
+**The Fragment Fission results complete the picture, and they're not encouraging.** If a model had genuinely learned the carboxyl group as "an alcohol-like piece plus a carbonyl-like piece", it should be able to run that logic in reverse - given a model trained only on carboxylic acids, it should still make reasonable predictions for plain alcohols and aldehydes. Instead, Fission fails just as badly as Fusion, and for the same reasons. The carboxyl group appears to be stored by these models as one indivisible chemical "token", not as a combination of recognisable, reusable parts - and that holds true whether you're asking the model to build the composite group from its parts, or to take it apart again.
+
+**Finally, the "extra hints" experiments help separate two very different kinds of failure.** For Chain Extension, simply giving models training examples that cover the full range of chain lengths - even on a different functional group entirely - was enough to almost completely close the original gap (one older architecture being the sole exception). This tells us that the original Chain Extension failures, where they occurred, were mostly a *coverage* problem: the model just hadn't seen chains that long before, regardless of what was attached to them. For Fragment Fusion, however, even giving models an explicit worked example of how two simple groups combine into a more complex one (training on amides, themselves a fusion of an amine and a carbonyl group) did essentially nothing to help the model handle the analogous carboxylic-acid case. This is a much harder problem: it's not that the model lacks examples, it's that it doesn't seem to extract a reusable, abstract "combination rule" from the examples it does see - and more data of the same kind doesn't fix that.
 
 ## Key Takeaways
 
-*This section will be updated soon.*
+- **Today's MLIPs - including the most advanced architectures and the largest foundation models - do not reliably learn the compositional structure of chemistry.** They can fail by one to three orders of magnitude on molecules that simply recombine pieces they've individually seen before.
+- **Bigger pre-training data doesn't automatically mean better generalisation.** Foundation models pre-trained on millions of molecules were not consistently better than a small model trained from scratch on the specific task - sometimes the opposite.
+- **A model's accuracy on familiar, "in-distribution" molecules is not a reliable guide to how it will perform on genuinely new ones.** The model that looks best on your usual validation set may not be the one that generalises - which has real implications for how these models are chosen and deployed in practice.
+- **Not all failures are the same.** Some generalisation gaps come down to simply not having seen enough examples (and can be fixed with the right kind of additional data), while others reflect a deeper failure to learn an abstract, reusable rule - and throwing more data at the problem doesn't help with the latter.
+- **GMD provides a controlled, extensible testbed** for studying this gap directly, along with an open-source toolkit for generating new tasks in the same style, in the hope of encouraging the development of models that generalise for the right reasons.
 
 ## BibTeX
 
 ```bibtex
 @misc{nourollah2026benchmarkingcompositionalgeneralisationmachine,
-      title={Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials}, 
+      title={Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials},
       author={Amir Masoud Nourollah and Irtaza Khalid and Stefano Leoni and Steven Schockaert},
       year={2026},
       eprint={2605.08988},
       archivePrefix={arXiv},
       primaryClass={cs.LG},
-      url={https://arxiv.org/abs/2605.08988}, 
+      url={https://arxiv.org/abs/2605.08988},
 }
 ```

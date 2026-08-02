@@ -44,13 +44,13 @@ I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Sci
 
 Having explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master's degree focused on artificial intelligence and robotics (2020–2023).
 
-Before starting my PhD, I worked in industry as a software engineer and machine learning researcher, contributing to AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software.
+Since my undergraduate studies, I have worked in industry as a software engineer and machine learning researcher, contributing to software and AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software.
 
 ------------------------------------------------------------------------
 
 ## Research
 
-Broadly, I am interested in **scientific machine learning (SciML)**, particularly for chemistry and molecular systems.
+Broadly, I am interested in **scientific machine learning (SciML)**, particularly for chemistry and molecular systems across organic, inorganic, and biomolecular domains.
 
 My research focuses on **generalisation, interpretability, and explainability** in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular dynamics and computational chemistry.
 
@@ -60,4 +60,4 @@ More generally, I am interested in robust, interpretable methods for **chemistry
 
 ## Other Interests
 
-Outside of research, I enjoy studying languages, reading history and philosophy, and exploring programming languages and Linux systems. I am currently learning French and German, alongside a long-standing interest in Persian and English literature. A practitioner of martial arts, I have a background in Muay Thai and Judo.
+Outside of research, I enjoy reading literature, philosophy, and science, particularly classic works, as well as Persian poetry. I am also learning French, with Spanish as a future goal. I have a background in martial arts, having trained in Muay Thai and Judo, and retain a broad interest in the discipline more generally.

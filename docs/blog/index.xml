@@ -67,7 +67,7 @@
   <media:content url="https://nourollah.me/blog/posts/chemical-foundation-models/molecule.png" medium="image" type="image/png" height="133" width="144"/>
 </item>
 <item>
-  <title>My Favourite OS and Setup: Why I Migrated to Fedora Workstation and Never Looked Back</title>
+  <title>A Decade of Linux Setups — Why I Stopped Looking for ‘The One’</title>
   <dc:creator>Amir Masoud Nourollah</dc:creator>
   <link>https://nourollah.me/blog/posts/fedora-workstation/</link>
   <description><![CDATA[ 
@@ -78,18 +78,18 @@
 <section id="how-i-landed-on-fedora-workstation" class="level2">
 <h2 class="anchored" data-anchor-id="how-i-landed-on-fedora-workstation">How I Landed on Fedora Workstation</h2>
 <p>For many years, I used a Debian-based distribution as my primary operating system. I started with <a href="https://www.debian.org/">Debian</a> itself, and later switched to <a href="https://ubuntu.com/">Ubuntu</a> for convenience. I had a good experience with both, but the more I learnt about the Linux ecosystem, the more I felt I did not need the extra layers Ubuntu puts on top of Debian. I started exploring a variety of popular and expert-level distributions. I wanted a more “pure” Linux experience — closer to the upstream projects and communities. Soon, I realised that the Debian package ecosystem is far wider than the Red Hat ecosystem, and switching to a Red Hat-based distribution such as <a href="https://fedoraproject.org/">Fedora</a> or <a href="https://www.centos.org/">CentOS</a> was difficult because some of the software I used daily was not published as <code>.rpm</code> packages.</p>
-<p>Considering simplicity, full control over my system, and the breadth of available packages, <a href="https://archlinux.org/">Arch Linux</a> eventually made its way onto my list. My first installation attempt was unpleasant, but feeling the installation process — the fingerprint of control over every individual part of the OS — made me warm to it quickly. I could find almost anything in the <a href="https://aur.archlinux.org/">AUR</a>, spanning from packages available in other distributions to wrapped legacy packages whose development had been discontinued and removed from mainstream repositories. I had a lot of fun, even though I nearly broke my system more than once. But the complexity of installation and personalisation, and the differences between my desktop and server environments, eventually made Arch difficult to sustain. Along the way I tried some Arch-based distributions — <a href="https://manjaro.org/">Manjaro</a>, <a href="https://endeavouros.com/">EndeavourOS</a>, and <a href="https://blackarch.org/">BlackArch</a> as an alternative to <a href="https://www.kali.org/">Kali</a>. All of them were pleasant experiences, but none of them addressed my real problem: a unified ecosystem for both production and personal use.</p>
-<p>I had always had a careful appreciation for Red Hat and was a fan of it for production servers. At the time, Red Hat was not free for personal use, so I went with CentOS to unify my environment. But as a developer who was not yet familiar with containerisation — tools like <a href="https://podman.io/">Podman</a> and <a href="https://www.docker.com/">Docker</a> — I needed bleeding-edge packages to practise with and keep up with the software I was building. CentOS was not the answer either.</p>
-<p>I had always known about Fedora — it has long been one of the pioneer distributions in the Linux ecosystem — but I had run into problems configuring my Nvidia GPU drivers and occasional glitches in video games due to missing or improperly configured components. Around that time, a new distribution was rising: <a href="https://nobaraproject.org/">Nobara</a>, a highly optimised Fedora-based distribution built for gaming. If a distribution is tuned for gaming, it tends to get along well with machine learning setups too, and Nobara became my daily driver for a while. But I eventually realised it is not a community-driven project — it is maintained by a single person. I needed to respect my commitment to the open-source and community-driven spirit, so I started looking for an alternative and stumbled upon the <a href="https://github.com/devangshekhawat/Fedora-44-Post-Install-Guide">Fedora Post Install Guide</a>.</p>
-<p>I thought: why not give Fedora one final, honest try? That try ended years of distro-hopping. Following the guide transformed Fedora — I have always been a <a href="https://kde.org/">KDE</a> user and have never warmed to GNOME — into an OS that was smooth, stable, and genuinely enjoyable to live in. Everything I had been looking for was there. One problem remained, though: some packages were unavailable in the default repositories, or required adding custom sources. Especially with the recent wave of <a href="https://www.rust-lang.org/">Rust</a>-based tools for Linux, I had adopted several in my daily workflow that simply were not in DNF.</p>
+<p>Considering simplicity, full control over my system, and the breadth of available packages, <a href="https://archlinux.org/">Arch Linux</a> eventually made its way onto my list. My first installation attempt was unpleasant, but going through the installation process — feeling that fingerprint of control over every part of the OS — made me warm to it quickly. I could find almost anything in the <a href="https://aur.archlinux.org/">AUR</a>, spanning from packages available in other distributions to wrapped legacy packages whose development had been discontinued and removed from mainstream repositories. I had a lot of fun, even though I nearly broke my system more than once. But the complexity of installation and personalisation, and the differences between my desktop and server environments, eventually made Arch difficult to sustain. Along the way I tried some Arch-based distributions — <a href="https://manjaro.org/">Manjaro</a>, <a href="https://endeavouros.com/">EndeavourOS</a>, and <a href="https://blackarch.org/">BlackArch</a> as an alternative to <a href="https://www.kali.org/">Kali</a>. All of them were pleasant experiences, but none of them addressed my real problem: a unified ecosystem for both production and personal use.</p>
+<p>I had always had a soft spot for Red Hat and was a fan of it for production servers. At the time, Red Hat was not free for personal use, so I went with CentOS to unify my environment. But as a developer who was not yet familiar with containerisation — tools like <a href="https://podman.io/">Podman</a> and <a href="https://www.docker.com/">Docker</a> — I needed bleeding-edge packages to practise with and keep up with the software I was building. CentOS was not the answer either.</p>
+<p>I had always known about Fedora — it has long been one of the pioneer distributions in the Linux ecosystem — but I had run into problems configuring my Nvidia GPU drivers and occasional glitches in video games due to missing or improperly configured components. Around that time, a new distribution was rising: <a href="https://nobaraproject.org/">Nobara</a>, a highly optimised Fedora-based distribution built for gaming. If a distribution is tuned for gaming — with up-to-date kernels, fresh GPU drivers, and low-level performance tweaks — it tends to get along well with machine learning setups too, and Nobara became my daily driver for a while. But I eventually realised it is not a community-driven project — it is maintained by a single person. I needed to respect my commitment to the open-source and community-driven spirit, so I started looking for an alternative and stumbled upon the <a href="https://github.com/devangshekhawat/Fedora-44-Post-Install-Guide">Fedora Post Install Guide</a>.</p>
+<p>I thought: why not give Fedora one final, honest try? That try ended years of distro-hopping on the desktop. Following the guide transformed Fedora — I have always been a <a href="https://kde.org/">KDE</a> user and have never warmed to GNOME — into an OS that was smooth, stable, and genuinely enjoyable to live in. Everything I had been looking for was there. One problem remained, though: some packages were unavailable in the default repositories, or required adding custom sources. Especially with the recent wave of <a href="https://www.rust-lang.org/">Rust</a>-based tools for Linux, I had adopted several in my daily workflow that simply were not in DNF.</p>
 <hr>
 </section>
 <section id="how-i-fixed-the-packages-problem" class="level2">
 <h2 class="anchored" data-anchor-id="how-i-fixed-the-packages-problem">How I Fixed the Packages Problem</h2>
 <p>That remaining problem — missing packages — was not unique to Fedora. It had been following me across every distribution I had ever used, in different forms. On Debian it was outdated versions. On Arch it was AUR maintenance risk. On CentOS it was the gap between stability and currency. Fedora brought me closer than anything else had, but it did not fully close it. The answer, when it finally arrived, did not come from the distribution at all.</p>
 <p>Before getting to that, I want to talk about my relationship with Python — because the solution to the packages problem and the solution to surviving the Python ecosystem turned out to be the same thing.</p>
-<section id="pixi-the-missing-piece-for-the-python-ecosystem" class="level3">
-<h3 class="anchored" data-anchor-id="pixi-the-missing-piece-for-the-python-ecosystem"><a href="https://pixi.prefix.dev/latest/">Pixi</a>: The Missing Piece for the Python Ecosystem</h3>
+<section id="pixi-the-missing-piece-for-the-python-ecosystem-and-beyond" class="level3">
+<h3 class="anchored" data-anchor-id="pixi-the-missing-piece-for-the-python-ecosystem-and-beyond"><a href="https://pixi.prefix.dev/latest/">Pixi</a>: The Missing Piece for the Python Ecosystem and Beyond</h3>
 <p>I started my programming journey with Java in 2010. It was one of the most elegant languages available at the time, and I vividly remember compiling Android apps before Android Studio with <a href="https://eclipseide.org">Eclipse</a>, installing them through a <a href="https://www.bluestacks.com/">BlueStacks</a> emulator. Later I switched to C/C++ to get closer to the underlying machine — learning the hard way about setting up projects, installing libraries system-wide, writing <code>Makefile</code>s, and eventually <code>CMakeLists.txt</code>. Cross-compiling for another architecture was painful, but it was structured and I understood every piece of it. I never touched package managers like <a href="https://conan.io/">Conan</a> or <a href="https://vcpkg.io/">vcpkg</a> until much later.</p>
 <p>Python was initially forced on me by an assignment. I just started writing it — some trial and error — and it worked. There was no AI to answer questions in 2020, so I learnt mostly by searching. Within a year Python had become my default language for assignments and eventually for shell scripting, replacing Bash in many places. Its package manager made the ecosystem feel welcoming, and the breadth of available libraries was remarkable.</p>
 <p>To avoid dependency conflicts I kept a set of virtual environments in <code>$HOME/.venv/</code> — one for computer vision, one for networking, one for scripting, one for signal processing — and activated whichever I needed. It worked, until I tried moving a project between systems. Binary packages were a particular nightmare. <a href="https://docs.conda.io/">Conda</a> was the standard answer for that, but it was too slow and too heavy for my taste. I kept trying to avoid it, compiling packages from source with my own compiler out of old C/C++ habits. Something was fundamentally wrong at the portability level — Python is interpreted, it should be portable, and yet reproducing an environment reliably across machines felt like a constant struggle. I tried <a href="https://pip.pypa.io/en/stable/reference/requirements-file-format/"><code>requirements.txt</code></a>, then <a href="https://python-poetry.org/">Poetry</a>, then <a href="https://github.com/astral-sh/uv">uv</a>. Both Poetry and uv were excellent tools, but neither handled binary packages independently — I still needed <code>mamba</code> alongside them for <code>torch</code>-based projects, and anything involving <a href="https://github.com/rusty1s/pytorch_scatter"><code>torch_scatter</code></a> could turn into a nightmare.</p>
@@ -110,14 +110,23 @@ font-style: inherit;">&gt;</span></span></code></pre></div></div>
 <p>This was a game changer. I could install tools outside any virtual environment — not as project dependencies, but as system-level utilities available anywhere. It became the first command I run on any new machine:</p>
 <div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="ex" style="color: null;
 background-color: null;
-font-style: inherit;">pixi</span> global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine xh sd helix neovim tmux zellij btop zsh xonsh</span></code></pre></div></div>
+font-style: inherit;">pixi</span> global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine xh sd neovim tmux zellij btop zsh xonsh skim yazi</span></code></pre></div></div>
 <p>No custom repositories. No extra layers. No searching for obscure PPAs or Copr entries. Everything in one command.</p>
 <hr>
 </section>
 </section>
+<section id="different-distros-for-different-jobs" class="level2">
+<h2 class="anchored" data-anchor-id="different-distros-for-different-jobs">Different Distros for Different Jobs</h2>
+<p>While Fedora settled in as my desktop daily driver, the story does not end there — because Linux is not just my desktop. It is also every server I deploy to, every container image I build from, and every machine I do not personally sit in front of.</p>
+<p>Around the same time I was settling into Fedora, I tried <a href="https://www.opensuse.org/#Tumbleweed">openSUSE Tumbleweed</a>. I was sceptical at first — SUSE had always felt like the “other” enterprise ecosystem, the one I had less exposure to. But Tumbleweed surprised me. As a rolling release, it has no version numbers to worry about — no “Fedora 40 to 41” migration anxiety, no EOL countdown to plan around. And despite being rolling, it felt more stable day-to-day than Fedora ever had for me, thanks to openSUSE’s extensive automated testing (openQA) gating every update before it ships.</p>
+<p>The catch is that openSUSE is SUSE-based, not Red Hat-based. For a desktop, that distinction barely matters any more — Flatpak and pixi cover the gap regardless of what is underneath. But for servers, it matters a great deal: if I am deploying to infrastructure running <a href="https://www.suse.com/products/server/">SLES</a> rather than RHEL, openSUSE Tumbleweed (or <a href="https://get.opensuse.org/leap/">openSUSE Leap</a> for a non-rolling option) is the natural match, whereas a Fedora-family choice makes more sense alongside RHEL-compatible infrastructure.</p>
+<p>Which brings me to <a href="https://almalinux.org/">AlmaLinux</a>. Most of my Docker base images are AlmaLinux — it is a clean, community-driven RHEL rebuild, and that compatibility matters when the goal is reproducible builds across HPC systems, cloud instances, and local containers that all ultimately trace back to a RHEL lineage. For a long time, AlmaLinux on the desktop felt like a non-starter — too conservative, too server-oriented, missing too much. But with Flatpak filling in GUI applications and pixi filling in everything else, that gap has effectively closed. I now run AlmaLinux on some of my desktops too, and it feels far less like a compromise than it would have a few years ago.</p>
+<p>So the honest version of the story is less “I found The One Distro” and more “I stopped needing to find one.” Fedora remains my favourite for a general-purpose desktop — KDE, gaming, day-to-day tinkering. openSUSE Tumbleweed is my pick when SUSE or SLES is the target, or when I want the most stable rolling release I have used. AlmaLinux sits underneath almost everything I containerise, and increasingly on desktops too. What used to feel like indecision now feels like having the right tool for the job — and the credit, again, goes to Flatpak and pixi for making the switching cost low enough that it no longer feels like a trade-off.</p>
+<hr>
+</section>
 <section id="the-setup" class="level2">
 <h2 class="anchored" data-anchor-id="the-setup">The Setup</h2>
-<p>If you are curious about the tools and how I configure them, this section is for you.</p>
+<p>If you are curious about the tools and how I configure them, this section is for you. The nice thing about all of this is that it is entirely distro-agnostic — even my IDEs, <a href="https://zed.dev/">Zed</a> (the main one) and <a href="https://code.visualstudio.com/">VS Code</a> (the reserve), are available everywhere these days. Whether I am on Fedora, AlmaLinux, or openSUSE Tumbleweed, the setup below is identical, because Flatpak, <code>pixi global install</code>, and IDE installers all work the same way regardless of distro.</p>
 <section id="terminal-tools" class="level3">
 <h3 class="anchored" data-anchor-id="terminal-tools">Terminal Tools</h3>
 <table class="caption-top table">
@@ -173,8 +182,8 @@ font-style: inherit;">pixi</span> global install zoxide ripgrep fd-find bat eza 
 <td style="text-align: left;">Intuitive search-and-replace for the command line</td>
 </tr>
 <tr class="even">
-<td style="text-align: left;"><a href="https://helix-editor.com/"><code>helix</code></a> / <a href="https://neovim.io/"><code>neovim</code></a></td>
-<td style="text-align: left;">Modal text editors</td>
+<td style="text-align: left;"><a href="https://neovim.io/"><code>neovim</code></a></td>
+<td style="text-align: left;">Modal text editor</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;"><a href="https://zellij.dev/"><code>zellij</code></a> / <a href="https://github.com/tmux/tmux"><code>tmux</code></a></td>
@@ -184,65 +193,149 @@ font-style: inherit;">pixi</span> global install zoxide ripgrep fd-find bat eza 
 <td style="text-align: left;"><a href="https://github.com/aristocratos/btop"><code>btop</code></a></td>
 <td style="text-align: left;">Beautiful terminal resource monitor</td>
 </tr>
+<tr class="odd">
+<td style="text-align: left;"><a href="https://github.com/skim-rs/skim"><code>skim</code></a></td>
+<td style="text-align: left;">Fuzzy finder (<code>sk</code>) for files, history, and more</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><a href="https://github.com/sxyazi/yazi"><code>yazi</code></a></td>
+<td style="text-align: left;">Fast, terminal-based file manager</td>
+</tr>
 </tbody>
 </table>
+</section>
+<section id="queuing-gpu-work-with-pueue" class="level3">
+<h3 class="anchored" data-anchor-id="queuing-gpu-work-with-pueue">Queuing GPU Work with pueue</h3>
+<p>One more tool that has quietly become part of my daily workflow is <a href="https://github.com/Nukesor/pueue">pueue</a> — a lightweight command-line task manager and scheduler. You hand it shell commands, and it queues them up, running them one after another (or in parallel, if you configure multiple workers) regardless of whether you’re still logged in. I use it specifically to keep my GPU busy: I queue up several experiments before I step away from my desk or laptop, and pueue works through them in sequence, starting the next one the moment the previous one finishes — so the GPU keeps working even when I’m not.</p>
+<p>Installation is just as easy via pixi, and the daemon only needs enabling once:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Install pueue (client + daemon) globally via pixi</span></span>
+<span id="cb3-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pixi</span> global install pueue</span>
+<span id="cb3-3"></span>
+<span id="cb3-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Enable and start the daemon as a systemd user service</span></span>
+<span id="cb3-5"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">systemctl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--user</span> enable pueued</span>
+<span id="cb3-6"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">systemctl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--user</span> start pueued</span>
+<span id="cb3-7"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">systemctl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--user</span> status pueued</span></code></pre></div></div>
+<p>From there, queuing experiments is as simple as:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pueue</span> add <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--</span> pixi run python train.py <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--config</span> exp1.yaml</span>
+<span id="cb4-2"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pueue</span> add <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--</span> pixi run python train.py <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--config</span> exp2.yaml</span>
+<span id="cb4-3"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">pueue</span> status</span></code></pre></div></div>
 </section>
 <section id="shell-aliases" class="level3">
 <h3 class="anchored" data-anchor-id="shell-aliases">Shell Aliases</h3>
 <p>I add the following to my <code>.zshrc</code> or <code>.bashrc</code>:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb3-1"><span class="co" style="color: #5E5E5E;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># zoxide must be initialized before the `cd` alias below, otherwise the `z`</span></span>
+<span id="cb5-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># function doesn't exist yet and `cd` fails until you manually re-source</span></span>
+<span id="cb5-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># this file</span></span>
+<span id="cb5-4"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">eval</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">zoxide</span> init zsh<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-5"></span>
+<span id="cb5-6"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Modern replacements</span></span>
-<span id="cb3-2"><span class="bu" style="color: null;
+<span id="cb5-7"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> ls=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"eza --icons --group-directories-first"</span></span>
-<span id="cb3-3"><span class="bu" style="color: null;
+<span id="cb5-8"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> tree=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"eza --icons --tree"</span></span>
-<span id="cb3-4"><span class="bu" style="color: null;
+<span id="cb5-9"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> treed=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"eza --icons --tree --level"</span></span>
-<span id="cb3-5"><span class="bu" style="color: null;
+<span id="cb5-10"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> lsdu=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'du -a -h --max-depth=1 | sort -hr'</span></span>
-<span id="cb3-6"><span class="bu" style="color: null;
+<span id="cb5-11"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> du=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'dust'</span></span>
-<span id="cb3-7"><span class="bu" style="color: null;
+<span id="cb5-12"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> top=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'btm'</span></span>
-<span id="cb3-8"><span class="bu" style="color: null;
+<span id="cb5-13"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> cd=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'z'</span></span>
-<span id="cb3-9"><span class="bu" style="color: null;
+<span id="cb5-14"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> grep=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'rg'</span></span>
-<span id="cb3-10"><span class="bu" style="color: null;
+<span id="cb5-15"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> vim=<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'nvim'</span></span>
-<span id="cb3-11"></span>
-<span id="cb3-12"><span class="co" style="color: #5E5E5E;
+<span id="cb5-16"><span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">alias</span> search=<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'sk'</span></span>
+<span id="cb5-17"></span>
+<span id="cb5-18"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Pipe --help and -h output through bat for syntax highlighting</span></span>
-<span id="cb3-13"><span class="bu" style="color: null;
+<span id="cb5-19"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -255,7 +348,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'-h 2&gt;&amp;1 | bat --language=help --style=plain'</span></span>
-<span id="cb3-14"><span class="bu" style="color: null;
+<span id="cb5-20"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -267,16 +360,1039 @@ font-style: inherit;">--help</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">'--help 2&gt;&amp;1 | bat --language=help --style=plain'</span></span></code></pre></div></div>
+font-style: inherit;">'--help 2&gt;&amp;1 | bat --language=help --style=plain'</span></span>
+<span id="cb5-21"></span>
+<span id="cb5-22"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Set of general useful functions</span></span>
+<span id="cb5-23"></span>
+<span id="cb5-24"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Create directory and instantly cd into it</span></span>
+<span id="cb5-25"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mkcd()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-26">    <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mkdir</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-p</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">&amp;&amp;</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-27"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-28"></span>
+<span id="cb5-29"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Easily move UP 'N' directories (e.g., 'up 3' moves up 3 levels)</span></span>
+<span id="cb5-30"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">up()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-31">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">levels</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:-</span>1<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-32">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">path</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">""</span></span>
+<span id="cb5-33">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">for</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">((</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">i</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">i</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">levels</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">i</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">++</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">));</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">do</span></span>
+<span id="cb5-34">        <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">path</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"../</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$path</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-35">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">done</span></span>
+<span id="cb5-36">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">cd</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$path</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-37"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-38"></span>
+<span id="cb5-39"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Check public and local IP addresses cleanly</span></span>
+<span id="cb5-40"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">myip()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-41">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">local_ip</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">hostname</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-I</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>/dev/null <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">awk</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'{print $1}'</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">||</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ipconfig</span> getifaddr en0 <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>/dev/null <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">||</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Unknown"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb5-42">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Local IP:   </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$local_ip</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-43">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Public IP:  </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">curl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-s</span> https://ifconfig.me<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-44">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Location:   </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">curl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-s</span> https://ipapi.co/city/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">, </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">curl</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-s</span> https://ipapi.co/country_name/<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-45"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-46"></span>
+<span id="cb5-47"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Runs a clean multi-record (A, AAAA, MX, NS, TXT) DNS check for a domain.</span></span>
+<span id="cb5-48"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">dnslookup()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-49">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb5-50">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: dnslookup &lt;domain&gt;"</span></span>
+<span id="cb5-51">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-52">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb5-53">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"=== A / AAAA Records ==="</span></span>
+<span id="cb5-54">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">dig</span> +short <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> A <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> AAAA</span>
+<span id="cb5-55">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\n=== MX Records ==="</span></span>
+<span id="cb5-56">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">dig</span> +short <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> MX</span>
+<span id="cb5-57">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\n=== NS Records ==="</span></span>
+<span id="cb5-58">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">dig</span> +short <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> NS</span>
+<span id="cb5-59">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"\n=== TXT Records ==="</span></span>
+<span id="cb5-60">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">dig</span> +short <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> TXT</span>
+<span id="cb5-61"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-62"></span>
+<span id="cb5-63"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Find which process is listening on a specific port (e.g., 'port 8080')</span></span>
+<span id="cb5-64"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">port()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-65">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb5-66">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: port &lt;port_number&gt;"</span></span>
+<span id="cb5-67">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-68">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb5-69">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">lsof</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> :<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-70"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-71"></span>
+<span id="cb5-72"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Locates and forcibly terminates (kill -9) whatever process is occupying a given port.</span></span>
+<span id="cb5-73"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">killport()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-74">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb5-75">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: killport &lt;port_number&gt;"</span></span>
+<span id="cb5-76">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb5-77">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb5-78">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">pid</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">lsof</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-t</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i:</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb5-79">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-n</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$pid</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb5-80">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Killing process </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$pid</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> on port </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">..."</span></span>
+<span id="cb5-81">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">kill</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-9</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$pid</span></span>
+<span id="cb5-82">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span></span>
+<span id="cb5-83">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"No process found on port </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">."</span></span>
+<span id="cb5-84">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb5-85"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-86"></span>
+<span id="cb5-87"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Quick HTTP server in the current directory (Python 3)</span></span>
+<span id="cb5-88"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">serve()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-89">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">port</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${1</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:-</span>8000<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-90">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Serving current directory on http://localhost:</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${port}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-91">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">python3</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-m</span> http.server <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$port</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-92"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-93"></span>
+<span id="cb5-94"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Pretty-prints each directory in your $PATH on a new line for easy inspection.</span></span>
+<span id="cb5-95"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">path()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-96">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$PATH</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tr</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">':'</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'\n'</span></span>
+<span id="cb5-97"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-98"></span>
+<span id="cb5-99"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Side-by-side file comparison using your default Neovim alias.</span></span>
+<span id="cb5-100"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vdiff()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-101">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$#</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-lt</span> 2 <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: vdiff &lt;file1&gt; &lt;file2&gt;"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb5-102">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">nvim</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-d</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$2</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-103"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-104"></span>
+<span id="cb5-105"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Previews the head of gzipped or zstd-compressed text/log files without extraction.</span></span>
+<span id="cb5-106"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vgz()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-107">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: vgz &lt;file.gz|file.zst&gt; [lines]"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb5-108">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">lines</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:-</span>20<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb5-109">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">case</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span></span>
+<span id="cb5-110">        <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.gz</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span>  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">gzip</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-dc</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$lines</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-111">        <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.zst</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">zstdcat</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$lines</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-112">        <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span>     <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Unsupported archive format."</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-113">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">esac</span></span>
+<span id="cb5-114"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb5-115"></span>
+<span id="cb5-116"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Lists files inside .zip, .tar, .tar.gz, or .whl archives without extracting.</span></span>
+<span id="cb5-117"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">vzip()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb5-118">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: vzip &lt;archive_file&gt;"</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb5-119">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">case</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">in</span></span>
+<span id="cb5-120">        <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.zip</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.whl</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">unzip</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-l</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-121">        <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.tar.gz</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.tgz</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tar</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-tzvf</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-122">        <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="ss" style="color: #20794D;
+background-color: null;
+font-style: inherit;">.tar</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tar</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-tvf</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-123">        <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">)</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Unsupported extension."</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;;</span></span>
+<span id="cb5-124">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">esac</span></span>
+<span id="cb5-125"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span></code></pre></div></div>
 <p>For <a href="https://neovim.io/">Neovim</a>, I use <a href="https://astronvim.com/">AstroNvim</a> as my configuration framework:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb4-1"><span class="fu" style="color: #4758AB;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb6-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> clone <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">--depth</span> 1 https://github.com/AstroNvim/template ~/.config/nvim <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">\</span></span>
-<span id="cb4-2">  <span class="kw" style="color: #003B4F;
+<span id="cb6-2">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">&amp;&amp;</span> <span class="fu" style="color: #4758AB;
@@ -286,7 +1402,7 @@ background-color: null;
 font-style: inherit;">-rf</span> ~/.config/nvim/.git <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">\</span></span>
-<span id="cb4-3">  <span class="kw" style="color: #003B4F;
+<span id="cb6-3">  <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">&amp;&amp;</span> <span class="ex" style="color: null;
@@ -309,7 +1425,7 @@ font-style: inherit;">nvim</span></span></code></pre></div></div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>For HPC environments running <a href="https://slurm.schedmd.com/">SLURM</a>, I keep these functions in my shell configuration. They make interactive GPU sessions much less tedious to manage — particularly on <a href="https://isambard.ac.uk/">Isambard-AI</a>, where I spend a lot of time.</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb5-1"><span class="bu" style="color: null;
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb7-1"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">export</span> <span class="va" style="color: #111111;
 background-color: null;
@@ -318,21 +1434,21 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"zsh"</span></span>
-<span id="cb5-2"></span>
-<span id="cb5-3"><span class="fu" style="color: #4758AB;
+<span id="cb7-2"></span>
+<span id="cb7-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">getgnode()</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">{</span></span>
-<span id="cb5-4">    <span class="bu" style="color: null;
+<span id="cb7-4">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">local</span> <span class="va" style="color: #111111;
 background-color: null;
 font-style: inherit;">ngpus</span><span class="op" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">=</span>1</span>
-<span id="cb5-5">    <span class="bu" style="color: null;
+<span id="cb7-5">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">local</span> <span class="va" style="color: #111111;
 background-color: null;
@@ -341,7 +1457,7 @@ background-color: null;
 font-style: inherit;">=</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"02:00:00"</span></span>
-<span id="cb5-6">    <span class="bu" style="color: null;
+<span id="cb7-6">    <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">local</span> <span class="va" style="color: #111111;
 background-color: null;
@@ -352,8 +1468,8 @@ background-color: null;
 font-style: inherit;">"workq"</span>  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># Adjust for your cluster</span></span>
-<span id="cb5-7"></span>
-<span id="cb5-8">    <span class="cf" style="color: #003B4F;
+<span id="cb7-7"></span>
+<span id="cb7-8">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">while</span> <span class="kw" style="color: #003B4F;
@@ -370,7 +1486,7 @@ font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">do</span></span>
-<span id="cb5-9">        <span class="cf" style="color: #003B4F;
+<span id="cb7-9">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">case</span> <span class="st" style="color: #20794D;
@@ -383,7 +1499,7 @@ font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">in</span></span>
-<span id="cb5-10">            <span class="ss" style="color: #20794D;
+<span id="cb7-10">            <span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">-h</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -394,57 +1510,57 @@ font-style: inherit;">--help</span><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">)</span></span>
-<span id="cb5-11">                <span class="bu" style="color: null;
+<span id="cb7-11">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Usage: getgnode [OPTIONS]"</span></span>
-<span id="cb5-12">                <span class="bu" style="color: null;
+<span id="cb7-12">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Allocate and attach to an interactive SLURM GPU node."</span></span>
-<span id="cb5-13">                <span class="bu" style="color: null;
+<span id="cb7-13">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">""</span></span>
-<span id="cb5-14">                <span class="bu" style="color: null;
+<span id="cb7-14">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Options:"</span></span>
-<span id="cb5-15">                <span class="bu" style="color: null;
+<span id="cb7-15">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"  -g, --gpus INT         Number of GPUs to request (default: 1)"</span></span>
-<span id="cb5-16">                <span class="bu" style="color: null;
+<span id="cb7-16">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"  -p, --partition NAME   SLURM partition (default: workq)"</span></span>
-<span id="cb5-17">                <span class="bu" style="color: null;
+<span id="cb7-17">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"  -t, --time HH:MM:SS    Time limit (default: 02:00:00)"</span></span>
-<span id="cb5-18">                <span class="bu" style="color: null;
+<span id="cb7-18">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"  -h, --help             Show this help"</span></span>
-<span id="cb5-19">                <span class="cf" style="color: #003B4F;
+<span id="cb7-19">                <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span></span>
-<span id="cb5-20">                <span class="cf" style="color: #003B4F;
+<span id="cb7-20">                <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">;;</span></span>
-<span id="cb5-21">            <span class="ss" style="color: #20794D;
+<span id="cb7-21">            <span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">-g</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -473,7 +1589,7 @@ font-style: inherit;">shift</span> 2 <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">;;</span></span>
-<span id="cb5-22">            <span class="ss" style="color: #20794D;
+<span id="cb7-22">            <span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">-p</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -502,7 +1618,7 @@ font-style: inherit;">shift</span> 2 <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">;;</span></span>
-<span id="cb5-23">            <span class="ss" style="color: #20794D;
+<span id="cb7-23">            <span class="ss" style="color: #20794D;
 background-color: null;
 font-style: inherit;">-t</span><span class="kw" style="color: #003B4F;
 background-color: null;
@@ -531,13 +1647,13 @@ font-style: inherit;">shift</span> 2 <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">;;</span></span>
-<span id="cb5-24">            <span class="pp" style="color: #AD0000;
+<span id="cb7-24">            <span class="pp" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">*</span><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">)</span></span>
-<span id="cb5-25">                <span class="bu" style="color: null;
+<span id="cb7-25">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -546,31 +1662,31 @@ background-color: null;
 font-style: inherit;">$1</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">'"</span></span>
-<span id="cb5-26">                <span class="bu" style="color: null;
+<span id="cb7-26">                <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Type 'getgnode --help' for usage."</span></span>
-<span id="cb5-27">                <span class="cf" style="color: #003B4F;
+<span id="cb7-27">                <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span></span>
-<span id="cb5-28">                <span class="cf" style="color: #003B4F;
+<span id="cb7-28">                <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">;;</span></span>
-<span id="cb5-29">        <span class="cf" style="color: #003B4F;
+<span id="cb7-29">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">esac</span></span>
-<span id="cb5-30">    <span class="cf" style="color: #003B4F;
+<span id="cb7-30">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">done</span></span>
-<span id="cb5-31"></span>
-<span id="cb5-32">    <span class="ex" style="color: null;
+<span id="cb7-31"></span>
+<span id="cb7-32">    <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">salloc</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -585,7 +1701,7 @@ background-color: null;
 font-style: inherit;">"</span> <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">\</span></span>
-<span id="cb5-33">           <span class="at" style="color: #657422;
+<span id="cb7-33">           <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">--gres</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -598,7 +1714,7 @@ background-color: null;
 font-style: inherit;">"</span> <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">\</span></span>
-<span id="cb5-34">           <span class="at" style="color: #657422;
+<span id="cb7-34">           <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">--time</span><span class="op" style="color: #5E5E5E;
 background-color: null;
@@ -611,7 +1727,7 @@ background-color: null;
 font-style: inherit;">"</span> <span class="dt" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">\</span></span>
-<span id="cb5-35">           srun <span class="at" style="color: #657422;
+<span id="cb7-35">           srun <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">--pty</span> <span class="st" style="color: #20794D;
 background-color: null;
@@ -624,18 +1740,18 @@ background-color: null;
 font-style: inherit;">}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb5-36"><span class="kw" style="color: #003B4F;
+<span id="cb7-36"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">}</span></span>
-<span id="cb5-37"></span>
-<span id="cb5-38"><span class="fu" style="color: #4758AB;
+<span id="cb7-37"></span>
+<span id="cb7-38"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">fetchgnode()</span> <span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">{</span></span>
-<span id="cb5-39">    <span class="cf" style="color: #003B4F;
+<span id="cb7-39">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
@@ -682,27 +1798,27 @@ font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">then</span></span>
-<span id="cb5-40">        <span class="bu" style="color: null;
+<span id="cb7-40">        <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Usage: fetchgnode &lt;jobid&gt;"</span></span>
-<span id="cb5-41">        <span class="bu" style="color: null;
+<span id="cb7-41">        <span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Attach a new shell to an existing SLURM job."</span></span>
-<span id="cb5-42">        <span class="cf" style="color: #003B4F;
+<span id="cb7-42">        <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0</span></span>
-<span id="cb5-43">    <span class="cf" style="color: #003B4F;
+<span id="cb7-43">    <span class="cf" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">fi</span></span>
-<span id="cb5-44">    <span class="ex" style="color: null;
+<span id="cb7-44">    <span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">srun</span> <span class="at" style="color: #657422;
 background-color: null;
@@ -729,12 +1845,616 @@ background-color: null;
 font-style: inherit;">}</span><span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"</span></span>
-<span id="cb5-45"><span class="kw" style="color: #003B4F;
+<span id="cb7-45"><span class="kw" style="color: #003B4F;
 background-color: null;
 font-weight: bold;
 font-style: inherit;">}</span></span>
-<span id="cb5-46"></span>
-<span id="cb5-47"><span class="bu" style="color: null;
+<span id="cb7-46"></span>
+<span id="cb7-47"></span>
+<span id="cb7-48"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">slog()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb7-49">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb7-50">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: slog &lt;job_id&gt; [lines]"</span></span>
+<span id="cb7-51">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Tails the stdout log file for a given Slurm job."</span></span>
+<span id="cb7-52">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb7-53">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb7-54"></span>
+<span id="cb7-55">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">lines</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:-</span>50<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-56">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Search current dir for slurm-&lt;jobid&gt;.out or &lt;name&gt;-&lt;jobid&gt;.out</span></span>
+<span id="cb7-57">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">logfile</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ls</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-t</span> <span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="pp" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">*</span>.out <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>/dev/null <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> 1<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb7-58"></span>
+<span id="cb7-59">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-n</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$logfile</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb7-60">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Tailing log: </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$logfile</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-61">        <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">tail</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-n</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$lines</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-f</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$logfile</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-62">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span></span>
+<span id="cb7-63">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Error: No log file matching *'</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">'*.out found in current directory."</span></span>
+<span id="cb7-64">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb7-65">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb7-66"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb7-67"></span>
+<span id="cb7-68"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sfree()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb7-69">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"=== Available Cluster Resources ==="</span></span>
+<span id="cb7-70">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">sinfo</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-N</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-h</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-o</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%15P %10t %10G %N"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grep</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-E</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"idle|mix"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">grep</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-v</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"drain"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">|</span> <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">column</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-t</span></span>
+<span id="cb7-71"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb7-72"></span>
+<span id="cb7-73"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">snode()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb7-74">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb7-75">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: snode &lt;job_id&gt;"</span></span>
+<span id="cb7-76">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Lookup the host node of a running job and attach to it."</span></span>
+<span id="cb7-77">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb7-78">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb7-79"></span>
+<span id="cb7-80">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">local</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">node</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$(</span><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">squeue</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-j</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-h</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-o</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"%N"</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>/dev/null<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">)</span></span>
+<span id="cb7-81">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$node</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">||</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$node</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">==</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"N/A"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb7-82">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Error: Job </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> is not actively running."</span></span>
+<span id="cb7-83">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb7-84">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb7-85"></span>
+<span id="cb7-86">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Connecting to job </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;"> on node [</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$node</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">]..."</span></span>
+<span id="cb7-87">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">srun</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--jobid</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--overlap</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--pty</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">${NODE_SHELL</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">:-</span>zsh<span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">}</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-88"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb7-89"></span>
+<span id="cb7-90"></span>
+<span id="cb7-91"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seffme()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb7-92">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-z</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb7-93">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: seffme &lt;job_id&gt;"</span></span>
+<span id="cb7-94">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Check peak memory, CPU efficiency, and exit codes for a job."</span></span>
+<span id="cb7-95">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb7-96">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb7-97"></span>
+<span id="cb7-98">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">command</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-v</span> seff <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;&gt;</span>/dev/null<span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">;</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb7-99">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">seff</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-100">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">else</span></span>
+<span id="cb7-101">        <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">sacct</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-j</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--format</span><span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">=</span>JobID,JobName%20,State,ExitCode,MaxRSS,ReqMem,AllocCPUS,Elapsed <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-X</span></span>
+<span id="cb7-102">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb7-103"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb7-104"></span>
+<span id="cb7-105"></span>
+<span id="cb7-106"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rebatch()</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">{</span></span>
+<span id="cb7-107">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">if</span> <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">[[</span> <span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$#</span> <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">-lt</span> 2 <span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">]];</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">then</span></span>
+<span id="cb7-108">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Usage: rebatch &lt;job_id&gt; &lt;script.sh&gt;"</span></span>
+<span id="cb7-109">        <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Cancels &lt;job_id&gt; and submits &lt;script.sh&gt;."</span></span>
+<span id="cb7-110">        <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">return</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span></span>
+<span id="cb7-111">    <span class="cf" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">fi</span></span>
+<span id="cb7-112"></span>
+<span id="cb7-113">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Canceling job </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">..."</span></span>
+<span id="cb7-114">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">scancel</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$1</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-115">    <span class="bu" style="color: null;
+background-color: null;
+font-style: inherit;">echo</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Submitting </span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$2</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">..."</span></span>
+<span id="cb7-116">    <span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">sbatch</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span><span class="va" style="color: #111111;
+background-color: null;
+font-style: inherit;">$2</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"</span></span>
+<span id="cb7-117"><span class="kw" style="color: #003B4F;
+background-color: null;
+font-weight: bold;
+font-style: inherit;">}</span></span>
+<span id="cb7-118"></span>
+<span id="cb7-119"></span>
+<span id="cb7-120"><span class="bu" style="color: null;
 background-color: null;
 font-style: inherit;">alias</span> sqm=<span class="st" style="color: #20794D;
 background-color: null;
@@ -745,11 +2465,11 @@ font-style: inherit;">"squeue --me"</span></span></code></pre></div></div>
 <hr>
 </section>
 </section>
-<section id="where-i-ended-up" class="level2">
-<h2 class="anchored" data-anchor-id="where-i-ended-up">Where I Ended Up</h2>
-<p>Looking back, the journey was not really about finding the right distribution. Every distribution I used taught me something — Debian gave me discipline, Arch gave me depth, CentOS gave me an appreciation for stability, Nobara reminded me why community matters. What I was actually searching for, without fully realising it, was a coherent philosophy: a system I could understand completely, trust in production, enjoy on the desktop, and extend without fighting it.</p>
-<p>Fedora, combined with KDE, DNF, Flatpak, and pixi, turned out to be that system. The distribution handles the OS. Flatpak handles GUI applications cleanly and keeps them up to date. DNF handles anything system-level that belongs there. And pixi handles everything else — Python environments, binary tools, cross-platform reproducibility — with a single unified interface that works identically on my workstation, my laptop, and a GH200 node on Isambard-AI.</p>
-<p>The packages problem that once felt like an unsolvable compromise turned out to have a clean answer. I just had to wait for the Rust ecosystem to mature enough to build it.</p>
+<section id="what-actually-stuck" class="level2">
+<h2 class="anchored" data-anchor-id="what-actually-stuck">What Actually Stuck</h2>
+<p>Looking back, the journey was never really about finding the right distribution — though it took me a long time to admit that. Every distribution I used taught me something: Debian gave me discipline, Arch gave me depth, CentOS gave me an appreciation for stability, Nobara reminded me why community matters, and openSUSE Tumbleweed showed me that rolling release and reliability are not opposites.</p>
+<p>What I was actually searching for was a coherent philosophy: a system I could understand completely, trust in production, enjoy on the desktop, and extend without fighting it. The distribution itself turned out to be the least important variable. Fedora with KDE is where I am happiest on the desktop. AlmaLinux is where most of my containers and HPC environments live, and it has earned a place on some of my desktops too. openSUSE Tumbleweed is on standby for whenever SUSE-based infrastructure is the target, or when I want the smoothest rolling release I have used. And across every single one of them, Flatpak handles GUI applications and pixi handles everything else — Python environments, binary tools, cross-platform reproducibility — with a single unified interface that works identically whether I am on my workstation, my laptop, or a GH200 node on Isambard-AI.</p>
+<p>The packages problem that once felt like an unsolvable compromise turned out to have a clean answer. I just had to wait for the Rust ecosystem to mature enough to build it — and stop insisting that the answer had to come bundled with a single distribution.</p>
 
 
 </section>
@@ -757,7 +2477,11 @@ font-style: inherit;">"squeue --me"</span></span></code></pre></div></div>
 <a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
   <category>linux</category>
   <category>desktop</category>
+  <category>server</category>
   <category>fedora</category>
+  <category>opensuse</category>
+  <category>almalinux</category>
+  <category>pixi</category>
   <category>workstation</category>
   <guid>https://nourollah.me/blog/posts/fedora-workstation/</guid>
   <pubDate>Wed, 06 May 2026 23:00:00 GMT</pubDate>
