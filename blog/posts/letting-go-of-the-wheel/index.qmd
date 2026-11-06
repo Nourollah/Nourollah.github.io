@@ -1,0 +1,121 @@
+---
+title: "Letting Go of the Wheel: Why I Am on AI's Side"
+description: "Every great innovation took a routine skill off our hands, and every time, we resisted before we embraced it. From the wheel to the calculator to AI agents, a case for letting machines handle the low-level work while we become better decision-makers."
+author: "Amir Masoud Nourollah"
+date: "2026-11-06"
+image: "wheel.jpg"
+categories: [ai, philosophy, agents, reinforcement learning, opinion]
+draft: false
+---
+
+For as long as humans have existed, innovations and discoveries have changed the way we live. We learnt to shelter in caves, discovered fire, learnt to make it ourselves, and used it to forge tools and shape the things we needed to survive. Each of these steps altered what it meant to be human.
+
+Before going further, I want to point out something hidden beneath all of this. The moment we learn how to do something properly, it becomes autonomous. Our body takes over, and the brain only steps in at critical moments. Think about walking. As children, we have to learn it step by step, but once we master it, we never notice how we walk again. The brain simply decides where we need to go, and the body follows.
+
+Try this: can you explain exactly how you stand up from a chair? Probably not, at least not until you actually do it, slowly, and watch yourself. That is the point. **Once something becomes routine, it runs on its own, without needing our conscious attention.**
+
+## From the Wheel to the Horse
+
+Keep that idea in mind, because it repeats throughout history: every major innovation either takes over a routine skill, or turns a new skill into one we no longer think about.
+
+The wheel is one of the earliest examples. It appeared in Mesopotamia around 3500 BCE, first as the potter's wheel and soon after on carts. Before it, moving anything heavy meant carrying it, dragging it, or rolling it on logs, and each of those took constant, deliberate effort. The wheel did not make people stronger. It made strength matter less, and the attention it freed went into other things.
+
+Riding animals followed the same pattern, but inside the human body. Learning to ride a horse is hard. You have to balance, read the animal, and coordinate your legs, hands, and weight all at once. Yet once a rider masters it, riding becomes like walking: the rider decides *where* to go, and the body handles *how*. A skilled rider can scan the horizon, talk, or plan the day while the riding happens underneath. One skill became autonomous, and in doing so it extended how far a person could go.
+
+## Driving Into a Bigger World
+
+Then came engines and the car, and the same story played out on a much larger scale.
+
+For most of history, a person's world was the region they could walk or ride across. A journey between countries took weeks or months, and travelling around the world was something almost no one would do in a lifetime. Engines changed that. Cars, trains, ships, and later aeroplanes shrank the planet. Today you can cross a continent in an afternoon, circle the globe in a couple of days, and people have even left the planet entirely and travelled to space.
+
+Driving itself followed the walking pattern. Every new driver remembers how overwhelming the first lesson was: mirrors, pedals, gears, signals, and the road all at once. A few months later, most drivers arrive home with little memory of the journey. The driving became autonomous, and the conscious mind returned to the only thing that really needed it: deciding where to go, and reacting when something unexpected happens.
+
+### We always resist first
+
+What I find most striking is not the technology itself but how people reacted to it. **Almost every one of these innovations was resisted at first, and later embraced so completely that we cannot imagine living without it.**
+
+When the first self-propelled road vehicles appeared in Britain, the [Locomotive Act of 1865](https://en.wikipedia.org/wiki/Locomotive_Acts), better known as the "Red Flag Act", required a person to walk in front of them, carrying a red flag to warn others. A machine capable of going faster than walking pace was legally slowed down to the speed of a pedestrian. The rule was not fully lifted until 1896.
+
+Many people simply refused to give up their horses. Early motorists were often mocked with the shout "Get a horse!", and for years horses and cars shared the same streets. Yet within a few decades the horse had all but disappeared from everyday transport. People did not switch because someone convinced them in an argument. They switched because the car was better, and the world reorganised itself around it.
+
+We are watching the same story play out again today with **electric cars**. Just as petrol cars were once the future of transport, electric cars are the future now, and just as people once insisted on keeping their horses, many today insist on keeping their petrol cars. There is a nice irony here: around 1900, electric cars were a serious contender on the roads before petrol engines won the first round. They are now coming back, and I believe they will eventually dominate the market as completely as the car replaced the horse.
+
+The pattern is much older than cars. In Plato's *Phaedrus*, Socrates argues that writing would weaken people's memory, because they would rely on marks on a page instead of remembering things themselves. In the early nineteenth century, the Luddites smashed the textile machines they feared would destroy their livelihoods. Every time, the fear was not entirely wrong: something real was lost. But every time, what was gained turned out to be far larger, and the next generation could not see what the fuss had been about.
+
+So what finally breaks the resistance? Usually, the new technology simply proves itself over time, as the car did. But sometimes, all it needs is a shock. For decades, x86 processors ruled personal computers and servers, and anything else was treated as a joke outside phones and embedded devices. Then, in 2020, Apple put its Arm-based M1 chip into serious machines like the MacBook Air and the Mac mini, and it shocked the industry. It was faster, cooler, and far more efficient than the x86 chips it replaced. Within a few years, Arm was everywhere that had once belonged to x86: laptops, cloud servers, and even supercomputers. And Apple's unified memory, where the CPU and GPU share a single fast pool of memory, went from an unusual design choice to a feature that every competitor now rushes to copy to stay relevant. Arm had been capable for years. It took one company willing to take the risk and show the world that it was equal, or even superior. Maybe RISC-V is next, waiting for its own M1 moment. But I am drifting off topic now.
+
+## The Calculator and the Human "Computers"
+
+The example closest to AI, in my opinion, is the calculator.
+
+Before electronic machines, "computer" was a job title. Rooms full of people, many of them women, and many highly trained in mathematics, performed calculations by hand for astronomy, engineering, ballistics, and aeronautics. Entire industries depended on human arithmetic.
+
+Calculating machines took that job away. And the early ones were not even fully reliable. Mechanical calculators going back to Pascal and Leibniz in the seventeenth century had trouble with carrying digits correctly, and some of the early pocket electronic calculators of the 1970s gave noticeably inaccurate results for functions like logarithms and trigonometry. It took years of engineering before people could simply trust whatever number appeared on the screen. Today nobody double-checks a calculator, we assume it is right, and we are almost always correct to.
+
+That history is worth remembering whenever someone dismisses AI because it still makes mistakes. Reliability is something technologies *earn* over time. It is rarely there on day one.
+
+So what happened to the human computers? Many of those jobs disappeared, but they were replaced by something better. At NACA (later NASA), [Dorothy Vaughan](https://en.wikipedia.org/wiki/Dorothy_Vaughan), who led a unit of human computers, saw that electronic computers were coming for her team's work. Instead of fighting it, she taught herself and her colleagues the programming language FORTRAN, and they became some of the agency's early programmers. The boring arithmetic went to the machine, and the people moved up to more important work.
+
+Mathematics as a whole followed the same path. Freed from grinding through calculations by hand, mathematicians and engineers could tackle problems that would have been impossible before: numerical simulation, statistics on huge datasets, and eventually the very machine learning that powers today's AI. The calculator did not shrink the need for mathematics. It made the demand for it grow.
+
+### The pattern keeps repeating
+
+Once you see this pattern, you find it everywhere:
+
+- **GPS** took over the work of reading maps and memorising routes. We now go to unfamiliar cities without a second thought and spend our attention on *why* we are going, not on how to get there.
+- **Search engines** changed what it means to know something. We no longer need to memorise every fact; we need to know what to ask and how to judge the answer.
+- **Spell checkers and autocomplete** handle the mechanics of writing, so the writer can focus on the argument.
+- **Compilers** freed programmers from writing machine code by hand, and an entire software industry was built on the time that saved.
+
+In each case, a low-level skill was handed over to a machine, and the people involved moved up a level.
+
+## How Something Becomes Autonomous
+
+So how does a skill become autonomous in the first place? I think it happens in four stages:
+
+1. **We learn.** Everything is deliberate, slow, and exhausting. Each step needs our full attention.
+2. **We master it.** The skill becomes smooth, and the steps blend into a single fluid action.
+3. **We become observers.** With the doing handled, our attention shifts outwards, to the environment and what is changing in it.
+4. **We decide.** The world is not deterministic. When the environment looks familiar, we act automatically, exactly as before. When something changes, for example a child steps into the road, the ground is icy, or the horse is nervous, our observation pulls the brain back in, and we make a new decision.
+
+Neuroscience describes something very similar. Researchers distinguish between *habitual* control, which is fast, cheap, and automatic, and *goal-directed* control, which is slow, deliberate, and flexible. The brain switches between them depending on how certain it is about the situation ([Daw, Niv & Dayan, 2005](https://www.nature.com/articles/nn1560)). Routine situations run on habit, and surprises bring back deliberate thought.
+
+## We Are Agents, Too
+
+If this sounds familiar to anyone working in AI, it should: it is a description of an **agent**.
+
+In reinforcement learning, an agent observes the state of its environment, takes actions according to a policy, and receives rewards, while trying to maximise its reward over time. Today's agentic AI systems work in the same way. They observe, plan, act, and adjust when the world does not behave as expected.
+
+Humans are agents in exactly this sense. We observe the world, act on it, and are rewarded or punished by the results. And our long history of handing skills over to tools is what a good agent does: it delegates routine work to cheap, reliable subroutines, so that its limited attention goes into the decisions that actually affect its reward.
+
+Seen this way, AI is not a rival agent competing for our place. It is the next layer of autonomy in our own stack, after the body that walks, the horse that carries, the engine that drives, and the calculator that computes. AI takes on the routine *cognitive* work, such as drafting, searching, summarising, and writing boilerplate code, and leaves us the higher-level role: setting goals, noticing when something has changed, and making the decisions that matter.
+
+### Fighting the tide does not maximise reward
+
+There is also a game-theory argument here. Imagine two people, two companies, or two countries, where one adopts a powerful new technology and the other refuses it. The refusing side does not stop the technology from existing. It just falls behind whoever adopts it. Whatever the other side chooses, refusing leaves you worse off. In game-theory terms, refusing is a *dominated strategy*.
+
+Reinforcement learning makes the same point from another angle. An agent in a *non-stationary* environment, one whose rules change over time, cannot keep following the policy that worked yesterday. If it does, its reward steadily falls. Our environment is exactly this kind: every major innovation rewrites the rules. The rider who refused to learn to drive, or the computer who refused to learn FORTRAN, was following an outdated policy in a changed world.
+
+## AI Is the Hand, We Are the Brain
+
+Which brings us to AI.
+
+Everything above has been building up to this point. The wheel took over carrying, the horse and then the engine took over travelling, and the calculator took over arithmetic. AI is next in line, and it is the broadest step yet. **Any job that can be automated, or done autonomously, AI is going to take over.** That includes writing routine code, filling in forms, summarising documents, sorting data, answering standard questions, and running the same analysis for the hundredth time. These are the cognitive equivalent of walking: tasks we once had to learn deliberately, and which no longer need our full attention once mastered.
+
+This is not something to fear. It is the same division of labour our own bodies already use. When you walk, your legs do the walking and your brain decides where to go. It only steps in when something changes: a curb, a crowd, a slippery floor. AI gives us that same arrangement for our work. **AI will be the hand, and humans will be the brain.** AI does the doing; we observe and decide. We set the goals, watch the environment, notice when something is not right, and make the calls that require judgement, responsibility, and an understanding of what actually matters.
+
+That is exactly the four-stage path from earlier, applied to a whole civilisation. We are moving past the *learning* and *mastering* stages for a huge range of tasks and into the stages that were always the most valuable: *observing* and *deciding*.
+
+### Walking against progress
+
+Not everyone will accept this, just as not everyone accepted the car or the calculator. Some will insist on doing by hand what a machine can now do better and faster, and they will treat that as a virtue. But history is clear about how this ends. The person waving the red flag in front of the car did not stop the car. The human computer who refused to learn programming did not stop the computer. They only made sure that progress went on without them.
+
+Anyone who fights against AI handling the low-level work is **walking against progress**, and, like the agent following an outdated policy, they will watch their reward fall while the world moves on.
+
+## Finding the Next Skill
+
+So where does that leave us?
+
+Not in a world without work, but in one where the work keeps moving up. Each innovation makes some skills obsolete and creates demand for new ones. Few people need to shoe a horse, do long division by hand, or read a paper map today, and almost nobody misses those jobs. In their place came skills nobody could have imagined before: driving, programming, data analysis, and now, directing and supervising AI systems.
+
+The lesson I take from history is simple. **Instead of holding on to skills that innovation has made obsolete, we should be looking for the new ones that it has created.** We need to learn them, master them, let them become automatic, and then move up again. Let AI be the hand. Our job is to become a better brain: to observe more carefully, decide more wisely, and keep moving up. That is how we have always adapted, and I believe it is how we will build a better life alongside AI.
