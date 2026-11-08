@@ -23,3 +23,4 @@ contributes:
       background-transition: none
       title-slide-attributes:
         data-section: "Introduction"
+        data-background-color: "#0B1F3A"

@@ -149,7 +149,7 @@
       started = true;
       // Phones show the same slides as desktops (scaled to fit; swipe to move).
       // reveal.js would otherwise switch narrow screens to its scroll view.
-      R.configure({ scrollActivationWidth: null });
+      R.configure({ scrollActivationWidth: 0 });   // a number (not null), so reveal re-checks and leaves scroll view
       build();
     }
     R.on("ready", start);

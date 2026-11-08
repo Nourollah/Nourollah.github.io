@@ -36,7 +36,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-95eb19438d9fb05243c6d5d616b4bfa9.css">
+  <link rel="stylesheet" href="../../../site_libs/revealjs/dist/theme/quarto-9a6eaeb264ba240db31ae3140398d6a4.css">
   <link href="../../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -142,7 +142,7 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" data-section="Introduction" class="quarto-title-block center">
+<section id="title-slide" data-background-color="#0B1F3A" data-section="Introduction" class="quarto-title-block center">
   <h1 class="title">Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</h1>
   <p class="subtitle">Conference Talk</p>
 
@@ -560,7 +560,7 @@ Steven Schockaert
           started = true;
           // Phones show the same slides as desktops (scaled to fit; swipe to move).
           // reveal.js would otherwise switch narrow screens to its scroll view.
-          R.configure({ scrollActivationWidth: null });
+          R.configure({ scrollActivationWidth: 0 });   // a number (not null), so reveal re-checks and leaves scroll view
           build();
         }
         R.on("ready", start);

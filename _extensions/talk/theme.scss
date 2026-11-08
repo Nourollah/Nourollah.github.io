@@ -405,6 +405,14 @@ $code-block-bg: #F5F7F9;
 
 /* ---------- Title slide: full navy ---------- */
 
+/* Paint navy on the slide itself too, not only via reveal's background layer.
+   Phones (reveal's scroll view) and print don't always draw that layer, which
+   left white title text on a white page. */
+.reveal #title-slide,
+.reveal section.divider { background-color: var(--navy); }
+.reveal-scroll .reveal #title-slide,
+.reveal-scroll .reveal section.divider { min-height: 100%; }
+
 .reveal #title-slide {
   padding: 0 var(--side);
   color: #fff;
