@@ -104,6 +104,11 @@
       '<span class="gf-num" title="Show all slides"></span>';
     document.querySelector(".reveal .slides").appendChild(footer);
 
+    // Put the logo inside the slide too, so it scales and moves with the slide
+    // (otherwise it stays full-size and pinned to the screen corner on phones).
+    var logo = document.querySelector(".reveal .slide-logo");
+    if (logo) document.querySelector(".reveal .slides").appendChild(logo);
+
     elProgress = footer.querySelector(".gf-progress");
     elTitle    = footer.querySelector(".gf-title");
     elRef      = footer.querySelector(".gf-ref");
