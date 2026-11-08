@@ -1,0 +1,161 @@
+<!--
+  Shared slide chrome for every deck that uses presentations/theme.
+
+  It builds itself from the deck:
+    - section label : "02 — MOTIVATION" above each slide title, from data-section
+                      (a slide without data-section stays in the previous section;
+                      "Overview" and a section used only by the title slide are not numbered)
+    - footer        : the deck's `footer:` front-matter value (falls back to the subtitle,
+                      then the title), the slide's .slide-ref reference in the middle,
+                      the page number, and a progress line
+
+  Clicks:  section label -> first slide of that section
+           footer title  -> "Overview" slide
+           page number   -> thumbnail overview of all slides
+
+  Also: navy background on the title slide and on section dividers (.divider),
+  logo only on the title and closing slides, divider numbering (01, 02, …),
+  and a scrolling layout on phones.
+-->
+<script>
+(function () {
+  var NAVY = "#0B1F3A";
+  var footer, elProgress, elTitle, elRef, elNum;
+  var slides = [], sectionOf = [], firstOf = {}, numberOf = {};
+
+  function text(selector) {
+    var el = document.querySelector(selector);
+    return el ? el.textContent.trim() : "";
+  }
+
+  function goTo(slide) {
+    if (!slide) return;
+    var idx = window.Reveal.getIndices(slide);
+    window.Reveal.slide(idx.h, idx.v);
+  }
+
+  function build() {
+    var R = window.Reveal;
+    slides = R.getSlides();
+
+    // --- sections (carry forward) and their numbers ---
+    var current = "", order = [], dividers = 0;
+    slides.forEach(function (slide) {
+      var sec = slide.getAttribute("data-section");
+      if (sec) current = sec;
+      sectionOf.push(current);
+      if (current && !(current in firstOf)) { firstOf[current] = slide; order.push(current); }
+    });
+
+    var count = function (name) { return sectionOf.filter(function (s) { return s === name; }).length; };
+    var n = 0;
+    order.forEach(function (name) {
+      if (name === "Overview" || (firstOf[name] === slides[0] && count(name) === 1)) return;
+      numberOf[name] = ++n;
+    });
+
+    // A section that starts on the title slide really starts on its next slide
+    for (var j = 1; j < slides.length; j++) {
+      var nm = sectionOf[j];
+      if (firstOf[nm] === slides[0]) firstOf[nm] = slides[j];
+    }
+
+    var needsSync = false;
+    slides.forEach(function (slide, i) {
+      var isTitle = slide.id === "title-slide";
+      var isDivider = slide.classList.contains("divider");
+
+      if ((isTitle || isDivider) && !slide.hasAttribute("data-background-color")) {
+        slide.setAttribute("data-background-color", NAVY);
+        needsSync = true;
+      }
+
+      if (isDivider) {
+        dividers++;
+        var dh = slide.querySelector("h2");
+        if (dh) dh.setAttribute("data-num", (dividers < 10 ? "0" : "") + dividers);
+        return;
+      }
+
+      // Section label above the slide title
+      var h = slide.querySelector(":scope > h2");
+      var name = sectionOf[i];
+      if (isTitle || !h || !name || slide.classList.contains("closing") || h.textContent.trim() === "") return;
+      var k = document.createElement("div");
+      k.className = "kicker";
+      var num = numberOf[name] ? (numberOf[name] < 10 ? "0" : "") + numberOf[name] : "";
+      k.innerHTML = (num ? '<span class="k-num">' + num + '</span><span class="k-rule"></span>' : "") +
+                    '<span class="k-name"></span>';
+      k.querySelector(".k-name").textContent = name;
+      k.title = "Go to section start";
+      k.addEventListener("click", function () { goTo(firstOf[name]); });
+      h.parentNode.insertBefore(k, h);
+    });
+
+    if (needsSync) R.sync();
+
+    // --- footer ---
+    footer = document.createElement("div");
+    footer.className = "gmd-footer";
+    footer.innerHTML =
+      '<div class="gf-progress"></div>' +
+      '<span class="gf-title" title="Go to overview"></span>' +
+      '<span class="gf-ref"></span>' +
+      '<span class="gf-num" title="Show all slides"></span>';
+    document.querySelector(".reveal .slides").appendChild(footer);
+
+    elProgress = footer.querySelector(".gf-progress");
+    elTitle    = footer.querySelector(".gf-title");
+    elRef      = footer.querySelector(".gf-ref");
+    elNum      = footer.querySelector(".gf-num");
+    document.querySelector(".reveal").classList.add("refs-in-footer");
+
+    elTitle.textContent = text(".reveal .footer") ||
+                          text("#title-slide .subtitle") ||
+                          text("#title-slide .title");
+
+    elTitle.addEventListener("click", function () { goTo(firstOf["Overview"] || slides[0]); });
+    elNum.addEventListener("click", function () { R.toggleOverview(); });
+
+    update();
+  }
+
+  function update() {
+    var R = window.Reveal;
+    var slide = R.getCurrentSlide();
+    var i = slides.indexOf(slide);
+
+    elNum.innerHTML = (i + 1) + '<span class="gf-total"> / ' + slides.length + "</span>";
+    elProgress.style.width = (slides.length > 1 ? (i / (slides.length - 1)) * 100 : 0) + "%";
+
+    // This slide's reference goes in the middle of the footer
+    var ref = slide && slide.querySelector(".slide-ref");
+    elRef.innerHTML = ref ? ref.innerHTML : "";
+    elRef.title = ref ? ref.textContent.trim().replace(/\s+/g, " ") : "";
+
+    var isTitle   = !!slide && slide.id === "title-slide";
+    var isDivider = !!slide && slide.classList.contains("divider");
+    var isClosing = !!slide && slide.classList.contains("closing");
+    footer.classList.toggle("is-hidden", isTitle || isDivider);
+    document.querySelector(".reveal").classList.toggle("show-logo", isTitle || isClosing);
+  }
+
+  function init() {
+    var R = window.Reveal;
+    if (!R || !R.on) { setTimeout(init, 30); return; }
+    var started = false;
+    function start() {
+      if (started) return;
+      started = true;
+      // Phones: scroll through the slides instead of tapping through them
+      R.configure({ scrollActivationWidth: 600, scrollLayout: "compact" });
+      build();
+    }
+    R.on("ready", start);
+    R.on("slidechanged", function () { if (started) update(); });
+    if (R.isReady && R.isReady()) start();
+  }
+
+  init();
+})();
+</script>

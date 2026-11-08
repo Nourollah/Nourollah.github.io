@@ -146,14 +146,16 @@
 
 /* --------- Clickable footer segments --------- */
 #ufc-footer-title,
-#ufc-footer-section {
+#ufc-footer-section,
+#ufc-footer-page {
   cursor: pointer;
   pointer-events: all;
   transition: opacity 0.15s;
 }
 
 #ufc-footer-title:hover,
-#ufc-footer-section:hover {
+#ufc-footer-section:hover,
+#ufc-footer-page:hover {
   opacity: 0.72;
 }
 

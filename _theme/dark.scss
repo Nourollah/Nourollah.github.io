@@ -1,0 +1,58 @@
+/*-- scss:defaults --*/
+// Dark mode: deep navy paper, light teal links.
+// Same palette and fonts as the slide template (_extensions/talk/theme.scss):
+// navy = structure, teal = primary accent.
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+$paper:   #0b1622;
+$surface: #122133;
+$ink:     #e2e8ef;
+$heading: #f2f5f9;
+$muted:   #9aa7b8;
+$rule:    #223349;
+$accent:  #7fc4be;
+$accent-strong: #a9dcd7;
+$mark:    #7fc4be;
+$tint:    #12283a;
+
+$body-bg: $paper;
+$body-color: $ink;
+$primary: $accent;
+$secondary: $muted;
+$link-color: $accent;
+$link-hover-color: $accent-strong;
+$link-decoration: none;
+$border-color: $rule;
+$text-muted: $muted;
+$headings-color: $heading;
+
+$font-family-sans-serif: "Source Sans 3", "Source Sans Pro", "Segoe UI", Helvetica, Arial, sans-serif;
+$headings-font-family: "Source Serif 4", "Source Serif Pro", Georgia, serif;
+$headings-font-weight: 600;
+$font-size-root: 18px;
+$line-height-base: 1.6;
+
+$navbar-bg: $paper;
+$navbar-fg: $ink;
+$navbar-hl: $accent;
+$footer-bg: $paper;
+$footer-fg: $muted;
+$toc-color: $accent;
+$code-color: $accent-strong;
+$code-block-bg: $surface;
+$callout-color-note: $accent;
+$callout-color-tip: $accent;
+
+/*-- scss:rules --*/
+:root {
+  --c-paper: #{$paper};
+  --c-surface: #{$surface};
+  --c-ink: #{$ink};
+  --c-heading: #{$heading};
+  --c-muted: #{$muted};
+  --c-rule: #{$rule};
+  --c-accent: #{$accent};
+  --c-accent-strong: #{$accent-strong};
+  --c-mark: #{$mark};
+  --c-tint: #{$tint};
+}

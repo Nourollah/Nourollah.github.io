@@ -1,0 +1,614 @@
+/*-- scss:defaults --*/
+
+// Source Serif 4 for titles, Source Sans 3 for text, JetBrains Mono for code.
+// Without internet, Georgia / the system sans-serif are used instead.
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;600&display=swap");
+
+$t-navy: #0B1F3A;
+$t-teal: #0E6B6B;
+
+$font-family-sans-serif: "Source Sans 3", "Source Sans Pro", "Segoe UI", Helvetica, Arial, sans-serif;
+$font-family-monospace:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+$body-bg:    #ffffff;
+$body-color: #1B2433;
+$link-color: $t-teal;
+
+$presentation-font-size-root:         27px;
+$presentation-line-height:            1.4;
+$presentation-heading-font:           "Source Serif 4", "Source Serif Pro", Georgia, serif;
+$presentation-heading-color:          $t-navy;
+$presentation-heading-font-weight:    600;
+$presentation-heading-line-height:    1.12;
+$presentation-heading-letter-spacing: -0.015em;
+$presentation-heading-text-transform: none;
+$presentation-title-slide-text-align: left;
+$presentation-slide-text-align:       left;
+$presentation-list-bullet-color:      $t-teal;
+
+$code-block-bg: #F5F7F9;
+
+
+/*-- scss:rules --*/
+
+/* ==========================================================
+   Research-talk theme
+
+   Look:     white slides, generous margins, serif titles with a
+             numbered section label above them, quiet footer.
+             Title slide and section dividers are full navy.
+   Colour:   navy = structure · teal = "known", primary accent ·
+             amber = "new", surprising or failing.
+   Geometry: 1280 x 720 · side margins 64px · label at 40px ·
+             references 44px above the bottom · footer 30px.
+   ========================================================== */
+
+:root {
+  --navy:       #0B1F3A;
+  --navy-2:     #132C4F;
+  --ink:        #1B2433;
+  --ink-soft:   #4A5568;
+  --muted:      #7A8494;
+  --teal:       #0E6B6B;
+  --teal-light: #7FC4BE;
+  --teal-soft:  #EEF6F5;
+  --amber:      #B26B12;
+  --amber-soft: #FCF4E8;
+  --line:       #DDE3E8;
+  --paper:      #F6F8FA;
+  --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --sans:  "Source Sans 3", "Source Sans Pro", "Segoe UI", Helvetica, Arial, sans-serif;
+  --mono:  "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --side:   64px;
+  --foot-h: 40px;
+}
+
+/* ---------- Base ---------- */
+
+.reveal { font-family: var(--sans); color: var(--ink); }
+.reveal .slides { text-align: left; }
+
+.reveal .slides > section,
+.reveal .slides > section > section {
+  box-sizing: border-box;
+  height: 720px;
+  padding: 40px var(--side) 0 var(--side);
+}
+
+.reveal p, .reveal li { line-height: 1.4; color: var(--ink); }
+.reveal p { margin: 0 0 0.55em 0; }
+.reveal strong { color: var(--navy); font-weight: 700; }
+.reveal em { color: inherit; }
+.reveal sup, .reveal sub { font-size: 0.68em; }
+
+.reveal a {
+  color: var(--teal);
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+/* Bullets: small teal squares, hanging */
+.reveal ul { list-style: none; margin: 0; padding: 0; }
+.reveal ul > li { position: relative; margin: 0 0 0.4em 0; padding-left: 1.05em; list-style: none; }
+.reveal ul > li::marker { content: none; }
+
+.reveal ul > li::before {
+  content: "";
+  position: absolute;
+  left: 0.1em;
+  top: 0.62em;
+  width: 7px;
+  height: 7px;
+  background: var(--teal);
+}
+
+.reveal li > ul { margin-top: 0.35em; font-size: 0.88em; }
+.reveal li > ul > li::before { width: 6px; height: 2px; top: 0.7em; background: var(--muted); }
+
+/* Numbered lists: large serif numerals, separated rows (agenda style) */
+.reveal ol { list-style: none; margin: 0; padding: 0; counter-reset: item; }
+.reveal ol > li { list-style: none; }
+.reveal ol > li::marker { content: none; }
+
+.reveal ol > li {
+  counter-increment: item;
+  position: relative;
+  margin: 0;
+  padding: 0.42em 0 0.42em 2.3em;
+  border-bottom: 1px solid var(--line);
+}
+
+.reveal ol > li:first-child { border-top: 1px solid var(--line); }
+
+.reveal ol > li::before {
+  content: counter(item, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.42em;
+  font-family: var(--serif);
+  font-weight: 600;
+  color: var(--teal);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Code ---------- */
+
+.reveal code {
+  font-family: var(--mono);
+  font-size: 0.8em;
+  color: var(--navy-2);
+  background: var(--paper);
+  border: 1px solid var(--line);
+  padding: 0.02em 0.3em;
+  border-radius: 4px;
+}
+
+.reveal pre { border-radius: 6px; font-size: 0.66em; box-shadow: none; border: 1px solid var(--line); }
+.reveal pre code { background: none; border: 0; padding: 0; color: inherit; }
+
+/* ---------- Section label + slide title ---------- */
+
+/* "02 — MOTIVATION": added above each title by footer.html */
+.reveal .kicker {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  height: 22px;
+  margin: 0 0 10px 0;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--teal);
+  cursor: pointer;
+}
+
+.reveal .kicker .k-num { font-variant-numeric: tabular-nums; color: var(--muted); letter-spacing: 0.08em; }
+.reveal .kicker .k-rule { flex: 0 0 28px; height: 1px; background: var(--teal); align-self: center; }
+
+.reveal h2 {
+  margin: 0 0 26px 0;
+  padding: 0;
+  border: 0;
+  font-family: var(--serif);
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  line-height: 1.12;
+  color: var(--navy);
+  text-transform: none;
+}
+
+/* "## {data-section=...}" gives a slide without a visible title */
+.reveal h2:empty { display: none; }
+
+.reveal h3 {
+  margin: 0 0 12px 0;
+  font-family: var(--sans);
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+/* ---------- Columns ---------- */
+
+.reveal .columns { display: flex; gap: 52px; align-items: flex-start; }
+.reveal .columns > .column { min-width: 0; }
+.reveal .columns.middle { align-items: center; }
+.reveal .column > *:first-child { margin-top: 0; }
+
+/* Text-heavy slides:  :::: {.columns .dense}  (smaller type, tighter rhythm) */
+.reveal .columns.dense > .column { font-size: 0.72em; }
+.reveal .columns.dense p,
+.reveal .columns.dense li { line-height: 1.32; }
+.reveal .columns.dense ul > li { margin-bottom: 0.28em; }
+
+/* ---------- Figures ---------- */
+
+.reveal img { max-width: 100%; }
+
+.reveal .column img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 470px;
+  margin: 0 auto;
+}
+
+.reveal figcaption,
+.reveal p.caption,
+.reveal .figure p.caption {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+  color: var(--muted);
+  text-align: left;
+}
+
+/* Image placeholder:  ::: {.img-slot} … :::   (replace with ![](file.png)) */
+.reveal .img-slot {
+  position: relative;
+  box-sizing: border-box;
+  height: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 36px 44px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  background: var(--paper);
+  text-align: left;
+}
+
+.reveal .img-slot.short { height: 320px; }
+.reveal .img-slot p { margin: 4px 0; font-size: 19px; line-height: 1.45; color: var(--ink-soft); }
+
+.reveal .img-slot p:first-child {
+  margin-bottom: 10px;
+  font-family: var(--sans);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.reveal .img-slot code { margin-top: 10px; display: inline-block; background: #fff; color: var(--muted); font-size: 14px; }
+
+/* ---------- Message boxes ---------- */
+
+/* Key point: serif sentence with a teal rule */
+.reveal .key,
+.reveal .takeaway {
+  margin-top: 22px;
+  padding: 4px 0 4px 22px;
+  border-left: 3px solid var(--teal);
+  font-family: var(--serif);
+  font-size: 23px;
+  line-height: 1.38;
+}
+
+.reveal .key p,
+.reveal .takeaway p { margin: 0; color: var(--navy); }
+
+/* Warning / open question: amber, on a faint tint */
+.reveal .warn {
+  margin-top: 22px;
+  padding: 14px 20px 14px 22px;
+  border-left: 3px solid var(--amber);
+  background: var(--amber-soft);
+  font-family: var(--serif);
+  font-size: 23px;
+  line-height: 1.38;
+}
+
+.reveal .warn p { margin: 0; color: #5A3606; }
+
+/* ---------- Numbers ---------- */
+
+.reveal .stat {
+  margin: 10px 0 4px 0;
+  font-family: var(--serif);
+  font-size: 76px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--amber);
+}
+
+.reveal .stat p { margin: 0; color: var(--amber); font-family: var(--serif); }
+.reveal .stat-label { font-size: 18px; color: var(--ink-soft); }
+.reveal .stat-label p { margin: 0 0 8px 0; color: var(--ink-soft); }
+
+/* Full-slide number:  ::: {.big-number} [1000×]{.number} [label]{.label} ::: */
+.reveal .big-number { margin-top: 120px; }
+
+.reveal .big-number .number {
+  display: block;
+  font-family: var(--serif);
+  font-size: 180px;
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: var(--amber);
+}
+
+.reveal .big-number .label {
+  display: block;
+  max-width: 760px;
+  margin-top: 22px;
+  font-family: var(--serif);
+  font-size: 32px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* ---------- Cards ---------- */
+
+.reveal .card { padding: 18px 22px; border: 1px solid var(--line); border-radius: 4px; background: #fff; }
+.reveal .card > *:first-child { margin-top: 0; }
+.reveal .card > *:last-child  { margin-bottom: 0; }
+
+/* A bold first line acts as the card title:  **Seen in training** */
+.reveal .card > p:first-child > strong:only-child {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.reveal .card.teal-card  { border-top: 3px solid var(--teal);  background: var(--teal-soft); }
+.reveal .card.amber-card { border-top: 3px solid var(--amber); background: var(--amber-soft); }
+.reveal .card.amber-card > p:first-child > strong:only-child { color: var(--amber); }
+
+/* ---------- Text helpers ---------- */
+
+.reveal .lead  { font-family: var(--serif); font-size: 1.2em; line-height: 1.35; max-width: 88%; color: var(--navy); }
+.reveal .muted { color: var(--ink-soft); }
+.reveal .amber { color: var(--amber); font-weight: 700; }
+.reveal .teal  { color: var(--teal);  font-weight: 700; }
+.reveal .small { font-size: 21px; }
+
+/* ---------- Tables ---------- */
+
+.reveal table {
+  margin: 10px 0;
+  border-collapse: collapse;
+  border-top: 2px solid var(--navy);
+  border-bottom: 2px solid var(--navy);
+  font-size: 21px;
+  font-variant-numeric: tabular-nums;
+}
+
+.reveal table th {
+  padding: 10px 18px;
+  border-bottom: 1px solid var(--navy);
+  background: none;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--navy);
+  text-align: left;
+}
+
+.reveal table td { padding: 8px 18px; border-bottom: 1px solid var(--line); }
+.reveal table tbody tr:last-child td { border-bottom: none; }
+.reveal table td strong { color: var(--amber); }
+
+/* ---------- Per-slide references ---------- */
+
+.reveal .slide-ref {
+  position: absolute;
+  left: var(--side);
+  right: var(--side);
+  bottom: calc(var(--foot-h) + 14px);
+  font-size: 14px;
+  line-height: 1.35;
+  color: var(--muted);
+}
+
+.reveal .slide-ref p { margin: 0; color: var(--muted); }
+.reveal .slide-ref em { color: var(--muted); }
+
+/* When the footer is active, references live in its middle instead (see footer.html).
+   They come back in the phone scroll view and in print, where the footer is hidden. */
+.reveal.refs-in-footer .slides section .slide-ref { display: none; }
+.reveal-scroll .reveal.refs-in-footer .slides section .slide-ref { display: block; position: static; margin-top: 18px; }
+
+/* ---------- Title slide: full navy ---------- */
+
+.reveal #title-slide {
+  padding: 0 var(--side);
+  color: #fff;
+}
+
+.reveal #title-slide::before {                 /* teal rule above the title */
+  content: "";
+  position: absolute;
+  left: var(--side);
+  top: 178px;
+  width: 64px;
+  height: 3px;
+  background: var(--teal-light);
+}
+
+.reveal #title-slide .title {
+  margin-top: 206px;
+  max-width: 1020px;
+  font-family: var(--serif);
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.015em;
+  color: #fff;
+  text-align: left;
+  text-transform: none;
+}
+
+.reveal #title-slide .subtitle {
+  margin-top: 18px;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-style: italic;
+  font-weight: 400;
+  color: var(--teal-light);
+  text-align: left;
+}
+
+.reveal #title-slide .quarto-title-authors {
+  position: absolute;
+  left: var(--side);
+  right: var(--side);
+  bottom: 56px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start !important;
+  gap: 0 28px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.reveal #title-slide .quarto-title-author { flex: 0 0 auto; padding: 0 !important; text-align: left; }
+.reveal #title-slide .quarto-title-author-name { font-size: 21px; color: #B9C4D4; }
+.reveal #title-slide .quarto-title-affiliation { font-size: 17px; color: #8C9BB0; }
+
+/* presenter first, on their own line */
+.reveal #title-slide .quarto-title-author:first-child { flex-basis: 100%; margin-bottom: 6px; }
+
+.reveal #title-slide .quarto-title-author:first-child .quarto-title-author-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.reveal #title-slide .date { margin-top: 8px; font-size: 20px; color: #B9C4D4; text-align: left; }
+
+/* ---------- Section divider: full navy  ## Results {.divider} ---------- */
+
+.reveal section.divider { color: #fff; }
+
+.reveal section.divider h2 {
+  margin-top: 250px;
+  font-size: 76px;
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+
+.reveal section.divider h2::before {          /* "01", "02", … set by footer.html */
+  content: attr(data-num);
+  display: block;
+  margin-bottom: 14px;
+  font-family: var(--serif);
+  font-size: 30px;
+  font-style: italic;
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--teal-light);
+}
+
+.reveal section.divider p { color: #B9C4D4; }
+
+/* ---------- Closing slide:  ## Thank you {.closing} ---------- */
+
+.reveal section.closing h2 { margin-top: 30px; font-size: 64px; padding-right: 160px; }
+
+/* ---------- Logo: title and closing slides only (toggled by footer.html) ---------- */
+
+.reveal .slide-logo {
+  display: none !important;
+  top: 48px !important;
+  right: 64px !important;
+  bottom: auto !important;
+  left: auto !important;
+  height: 72px !important;
+  max-height: 72px !important;
+  width: auto !important;
+}
+
+.reveal.show-logo .slide-logo { display: block !important; }
+
+/* Quarto's own footer text is read by footer.html and shown in the custom footer */
+.reveal .footer { display: none !important; }
+
+/* ---------- Footer: short title · page number · progress line ---------- */
+
+.gmd-footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 30;
+  box-sizing: border-box;
+  height: var(--foot-h);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;   /* title · reference · page number */
+  align-items: center;
+  column-gap: 32px;
+  padding: 0 var(--side) 5px var(--side);
+  font-family: var(--sans);
+  font-size: 13px;
+  letter-spacing: 0.02em;
+  color: var(--muted);
+  transition: opacity 0.2s ease;
+}
+
+.gmd-footer .gf-progress {                     /* thin teal line along the very bottom */
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 3px;
+  width: 0;
+  background: var(--teal);
+  transition: width 0.3s ease;
+}
+
+.gmd-footer .gf-title { overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 260px; cursor: pointer; }
+
+/* The current slide's .slide-ref, moved here by footer.html (two lines at most; full text on hover) */
+.gmd-footer .gf-ref {
+  justify-self: center;
+  text-align: center;
+  font-size: 11.5px;
+  line-height: 1.3;
+  letter-spacing: 0;
+  color: var(--muted);
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+.gmd-footer .gf-ref p { display: inline; margin: 0; color: inherit; font-size: inherit; }
+.gmd-footer .gf-ref p + p::before { content: " "; }
+.gmd-footer .gf-ref a { color: inherit; text-decoration: underline; text-decoration-color: var(--line); }
+
+.gmd-footer .gf-num {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.gmd-footer .gf-num .gf-total { font-weight: 400; color: var(--muted); }
+.gmd-footer .gf-title:hover, .gmd-footer .gf-num:hover { color: var(--navy); }
+
+.gmd-footer.is-hidden,
+.reveal.overview .gmd-footer,
+.reveal-scroll .gmd-footer { opacity: 0; pointer-events: none; }
+
+/* ---------- Reveal controls and Quarto menu ---------- */
+
+.reveal .controls { color: var(--teal); }
+.reveal .controls .navigate-left,
+.reveal .controls .navigate-right { opacity: 0.4; }
+.reveal.has-dark-background .controls { color: #fff; }
+
+.reveal .slide-menu-button {
+  left: 18px !important;
+  bottom: 6px !important;
+  opacity: 0.35;
+  transform: scale(0.7);
+  transform-origin: bottom left;
+}
+
+.reveal .slide-menu-button:hover { opacity: 1; }
+
+/* ---------- Phones: scroll view (switched on by footer.html below 600px) ---------- */
+
+.reveal-scroll .reveal .slides section { padding: 40px var(--side) 0 var(--side) !important; }
+.reveal-scroll .reveal #title-slide { padding: 0 var(--side) !important; }
+.reveal-scroll .reveal .slide-logo { display: none !important; }
+
+/* ---------- Printing / PDF export ---------- */
+
+@media print {
+  .gmd-footer { display: none; }
+  .reveal.refs-in-footer .slides section .slide-ref { display: block; }
+}

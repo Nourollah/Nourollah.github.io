@@ -4,7 +4,7 @@
   <div class="ufc-footer__seg" id="ufc-footer-author">Amir Masoud Nourollah</div>
   <div class="ufc-footer__seg" id="ufc-footer-title" title="Go to overview">Annual Review 2025</div>
   <div class="ufc-footer__seg" id="ufc-footer-section" title="Go to section start">Section</div>
-  <div class="ufc-footer__seg" id="ufc-footer-page">1 / 1</div>
+  <div class="ufc-footer__seg" id="ufc-footer-page" title="Show all slides">1 / 1</div>
 </div>
 
 <script>
@@ -64,6 +64,14 @@
   footerSection.addEventListener("click", function () {
     var sec = footerSection.getAttribute("data-current-section") || "";
     if (sec) navigateToSection(sec);
+  });
+
+  // Click the page number to open the slide overview (thumbnail grid)
+  footerPage.style.cursor = "pointer";
+  footerPage.style.pointerEvents = "all";
+  footerPage.title = "Show all slides";
+  footerPage.addEventListener("click", function () {
+    if (window.Reveal) window.Reveal.toggleOverview();
   });
 
   function getFlatIndex() {

@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Slides from conference talks, seminars and reviews. Every deck is a web page; open it in any browser.">
 
-<title>Presentations – Amir Masoud Nourollah</title>
+<title>Talks – Amir Masoud Nourollah</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,16 +34,21 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cad2a2f8a56dfe71ee895a68e79c9b9a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-70be5ccd51f03de5ce195d75fadf0882.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cad2a2f8a56dfe71ee895a68e79c9b9a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cdd13912a56c529c216a958367180166.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-309b62c255de2f4944c2d6ae2d3b5544.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c9df0fee04f31e5129f0b9c5cf3b9861.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-309b62c255de2f4944c2d6ae2d3b5544.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,9 +80,189 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../styles.css">
+<meta property="og:title" content="Talks – Amir Masoud Nourollah">
+<meta property="og:description" content="Slides from conference talks, seminars and reviews. Every deck is a web page; open it in any browser.">
+<meta property="og:image" content="https://nourollah.me/presentations/assets/profile.jpg">
+<meta property="og:site_name" content="Amir Masoud Nourollah">
+<meta name="twitter:title" content="Talks – Amir Masoud Nourollah">
+<meta name="twitter:description" content="Slides from conference talks, seminars and reviews. Every deck is a web page; open it in any browser.">
+<meta name="twitter:image" content="https://nourollah.me/presentations/assets/profile.jpg">
+<meta name="twitter:creator" content="@amirmasoudnrl">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -92,75 +278,59 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> <i class="bi bi-house" role="img" aria-label="Home">
-</i> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../projects/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> <i class="bi bi-person" role="img" aria-label="About">
-</i> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../projects/index.html"> <i class="bi bi-folder" role="img" aria-label="Projects">
-</i> 
-<span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../presentations/index.html" aria-current="page"> <i class="bi bi-display" role="img" aria-label="Presentations">
-</i> 
-<span class="menu-text">Presentations</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ"> <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
-</i> 
+    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../blog/index.html"> <i class="bi bi-pencil-square" role="img" aria-label="Blog">
-</i> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link active" href="../presentations/index.html" aria-current="page"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="mailto:nourollah.am@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Contact">
-</i> 
-<span class="menu-text">Contact</span></a>
+    <a class="nav-link" href="../blog/index.html"> 
+<span class="menu-text">Writing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul class="collapse">
-  <li><a href="#conferences-talks" id="toc-conferences-talks" class="nav-link active" data-scroll-target="#conferences-talks">Conferences &amp; Talks</a></li>
-  <li><a href="#phd-studies" id="toc-phd-studies" class="nav-link" data-scroll-target="#phd-studies">PhD Studies</a></li>
-  <li><a href="#tutorials-teaching" id="toc-tutorials-teaching" class="nav-link" data-scroll-target="#tutorials-teaching">Tutorials &amp; Teaching</a></li>
-  </ul>
-</nav>
-    </div>
+    
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Presentations</h1>
+<h1 class="title">Talks</h1>
+</div>
+
+<div>
+  <div class="description">
+    Slides from conference talks, seminars and reviews. Every deck is a web page; open it in any browser.
+  </div>
 </div>
 
 
-
-<div class="quarto-title-meta column-page-left">
+<div class="quarto-title-meta">
 
     
   
@@ -172,133 +342,111 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<!-- Slides built with [Quarto Reveal.js](https://quarto.org/docs/presentations/revealjs/). Icons link to related resources. -->
-<div class="d-flex justify-content-end mb-2" style="font-size: 0.82rem; color: var(--text-muted);">
-<p><span class="me-3"><span class="bi bi-easel2"></span> Slides</span> <span class="me-3"><span class="bi bi-github"></span> Code</span> <span class="me-3"><span class="bi bi-box-arrow-up-right"></span> Project page</span> <span class="me-3"><span class="bi bi-file-earmark-text"></span> Paper</span> <span class="me-3"><span class="bi bi-card-image"></span> Poster</span> <span class="me-3"><span class="bi bi-youtube"></span> Video</span> <span><span class="bi bi-qr-code"></span> QR</span></p>
+<section id="research-talks" class="level2">
+<h2 class="anchored" data-anchor-id="research-talks">Research Talks</h2>
+<div class="entry">
+<p><a href="../projects/mlip-benchmark/index.html" class="entry-title">Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</a></p>
+<p><span class="venue">NeurIPS 2026</span></p>
+<div class="pills">
+<p><a href="https://arxiv.org/abs/2605.08988" class="pill"><i class="bi bi-file-earmark-text"></i>Paper</a> <a href="../projects/mlip-benchmark/index.html" class="pill"><i class="bi bi-journal-text"></i>Project page</a></p>
 </div>
-<section id="conferences-talks" class="level2 pres-section">
-<h2 class="pres-section anchored" data-anchor-id="conferences-talks">Conferences &amp; Talks</h2>
-<table class="resource-table caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td class="rt-title"><span class="title-text">Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</span>
-<div class="rt-meta">
-Coming soon
+<details class="versions">
+<summary>
+Slides: 3 versions for different audiences
+</summary>
+<div class="version">
+<p><a href="../presentations/mlip-benchmark/conference/index.html" class="version-title">Conference talk</a></p>
+<div class="pills">
+<p><a href="../presentations/mlip-benchmark/conference/index.html" class="pill"><i class="bi bi-easel2"></i>Slides</a> <button type="button" class="pill" data-qr="/assets/qr/talk-mlip-conference.svg" data-qr-url="https://nourollah.me/presentations/mlip-benchmark/conference/"><i class="bi bi-qr-code"></i>QR</button></p>
 </div>
-<div class="rt-meta">
-2026
-</div></td>
-<td class="rt-links"><a href="https://arxiv.org/abs/2605.08988" target="_blank" rel="noopener noreferrer" title="Paper"><span class="bi bi-file-earmark-text"></span></a> <a href="#" class="qr-trigger" data-qr-url="https://nourollah.me/projects/mlip-benchmark/" onclick="return false;" title="QR Code"><span class="bi bi-qr-code"></span></a></td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-<section id="phd-studies" class="level2 pres-section">
-<h2 class="pres-section anchored" data-anchor-id="phd-studies">PhD Studies</h2>
-<section id="annual-reviews" class="level3">
-<h3 class="anchored" data-anchor-id="annual-reviews">Annual Reviews</h3>
-<table class="resource-table caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td class="rt-title"><a href="../presentations/annual-review-2025/" class="title-text has-post">First Year Review — Compositional Generalisation in Machine Learning Potentials</a>
-<div class="rt-meta">
-Cardiff University · 2025
-</div></td>
-<td class="rt-links"><a href="../presentations/annual-review-2025/" target="_blank" rel="noopener noreferrer" title="Slides"><span class="bi bi-easel2"></span></a> <a href="https://arxiv.org/abs/2605.08988" target="_blank" rel="noopener noreferrer" title="Paper"><span class="bi bi-file-earmark-text"></span></a> <a href="#" class="qr-trigger" data-qr-url="https://nourollah.me/presentations/annual-review-2025/" onclick="return false;" title="QR Code"><span class="bi bi-qr-code"></span></a></td>
-</tr>
-</tbody>
-</table>
-<hr>
-</section>
-</section>
-<section id="tutorials-teaching" class="level2 pres-section">
-<h2 class="pres-section anchored" data-anchor-id="tutorials-teaching">Tutorials &amp; Teaching</h2>
-<section id="machine-learning" class="level3">
-<h3 class="anchored" data-anchor-id="machine-learning">Machine Learning</h3>
-<table class="resource-table caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td class="rt-title"><span class="title-text">Introduction to Graph Neural Networks for Molecules</span>
-<div class="rt-meta">
-Tutorial · Coming soon
-</div></td>
-<td class="rt-links"></td>
-</tr>
-<tr class="even">
-<td class="rt-title"><span class="title-text">Scientific Machine Learning with PyTorch</span>
-<div class="rt-meta">
-Tutorial · Coming soon
-</div></td>
-<td class="rt-links"></td>
-</tr>
-</tbody>
-</table>
-</section>
-<section id="tools-workflows" class="level3">
-<h3 class="anchored" data-anchor-id="tools-workflows">Tools &amp; Workflows</h3>
-<table class="resource-table caption-top table">
-<colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
-</colgroup>
-<tbody>
-<tr class="odd">
-<td class="rt-title"><span class="title-text">Reproducible Research with Quarto and Git</span>
-<div class="rt-meta">
-Workshop · Coming soon
-</div></td>
-<td class="rt-links"></td>
-</tr>
-</tbody>
-</table>
-<hr>
-<div style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;">
-<p>Slides are built with Quarto Reveal.js and hosted on this site. Source files are available on <a href="https://github.com/Nourollah">GitHub</a>.</p>
 </div>
+<div class="version">
+<p><a href="../presentations/mlip-benchmark/chemists/index.html" class="version-title">For chemists: <em>Knowing the parts, missing the whole</em></a></p>
+<div class="version-meta">
+<p>Seminar version. Leads with the chemistry (functional groups, molecular dynamics, DFT) and keeps machine learning jargon light.</p>
+</div>
+<div class="pills">
+<p><a href="../presentations/mlip-benchmark/chemists/index.html" class="pill"><i class="bi bi-easel2"></i>Slides</a> <button type="button" class="pill" data-qr="/assets/qr/talk-mlip-chemists.svg" data-qr-url="https://nourollah.me/presentations/mlip-benchmark/chemists/"><i class="bi bi-qr-code"></i>QR</button></p>
+</div>
+</div>
+<div class="version">
+<p><a href="../presentations/mlip-benchmark/computer-scientists/index.html" class="version-title">For computer scientists</a></p>
+<div class="version-meta">
+<p>Seminar version. Leads with compositional generalisation and out-of-distribution evaluation, and explains the chemistry from scratch.</p>
+</div>
+<div class="pills">
+<p><a href="../presentations/mlip-benchmark/computer-scientists/index.html" class="pill"><i class="bi bi-easel2"></i>Slides</a> <button type="button" class="pill" data-qr="/assets/qr/talk-mlip-cs.svg" data-qr-url="https://nourollah.me/presentations/mlip-benchmark/computer-scientists/"><i class="bi bi-qr-code"></i>QR</button></p>
+</div>
+</div>
+</details>
+</div>
+</section>
+<section id="reviews" class="level2">
+<h2 class="anchored" data-anchor-id="reviews">Reviews</h2>
+<div class="entry">
+<p><a href="../presentations/annual-review-2025/index.html" class="entry-title">Explainable Graph Neural Network for Computational Chemistry</a></p>
+<p><span class="venue">First-year review · Cardiff University · 2025</span></p>
+<div class="pills">
+<p><a href="../presentations/annual-review-2025/index.html" class="pill"><i class="bi bi-easel2"></i>Slides</a> <button type="button" class="pill" data-qr="/assets/qr/talk-annual-review-2025.svg" data-qr-url="https://nourollah.me/presentations/annual-review-2025/"><i class="bi bi-qr-code"></i>QR</button></p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
 <script>
+// Shared popovers for research/talk entries.
+//   <button class="pill" data-qr="/assets/qr/x.svg" data-qr-url="https://...">QR</button>
+//   <button class="pill" data-versions='[{"label":"...","href":"..."}]'>Slides</button>
 document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.qr-trigger').forEach(function (el) {
-    var url = el.dataset.qrUrl;
-    var encoded = encodeURIComponent(url);
-    new bootstrap.Popover(el, {
-      trigger: 'click',
-      html: true,
-      placement: 'left',
-      title: 'Scan to open',
-      content: '<div style="text-align:center;padding:4px"><img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=' + encoded + '" alt="QR Code" style="border:6px solid white;display:block;margin:0 auto"><small style="color:#6b7280;font-size:0.75rem;word-break:break-all">' + url + '</small></div>'
-    });
+  if (typeof bootstrap === 'undefined') return;
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+  var triggers = [];
+
+  document.querySelectorAll('[data-qr]').forEach(function (el) {
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Scan to open',
+      content: '<div class="qr-pop"><img src="' + esc(el.dataset.qr) + '" width="168" height="168" alt="QR code for ' + esc(el.dataset.qrUrl) + '"><small>' + esc(el.dataset.qrUrl) + '</small></div>'
+    }));
+  });
+
+  document.querySelectorAll('[data-versions]').forEach(function (el) {
+    var items = JSON.parse(el.dataset.versions).map(function (v) {
+      return '<li><a href="' + esc(v.href) + '">' + esc(v.label) + '</a></li>';
+    }).join('');
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Choose a version',
+      content: '<ul class="versions-pop">' + items + '</ul>'
+    }));
+  });
+
+  // Close any open popover on outside click or Escape.
+  var closeAll = function (except) { triggers.forEach(function (p) { if (p !== except) p.hide(); }); };
+  triggers.forEach(function (p) {
+    p._element.addEventListener('show.bs.popover', function () { closeAll(p); });
   });
   document.addEventListener('click', function (e) {
-    if (!e.target.closest('.qr-trigger') && !e.target.closest('.popover')) {
-      document.querySelectorAll('.qr-trigger').forEach(function (el) {
-        var pop = bootstrap.Popover.getInstance(el);
-        if (pop) pop.hide();
-      });
-    }
+    if (!e.target.closest('[data-qr], [data-versions], .popover')) closeAll();
   });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
 });
 </script>
-
-
-</section>
-</section>
-
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -703,6 +851,50 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Amir Masoud Nourollah · Cardiff University</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:am@nourollah.me">
+      <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Nourollah">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ">
+      <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/amnrl">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../blog/index.xml">
+      <i class="bi bi-rss" role="img" aria-label="RSS feed">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

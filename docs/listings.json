@@ -1,5 +1,13 @@
 [
   {
+    "listing": "/index.html",
+    "items": [
+      "/blog/posts/letting-go-of-the-wheel/index.html",
+      "/blog/posts/chemical-foundation-models/index.html",
+      "/blog/posts/decade-of-linux-setups/index.html"
+    ]
+  },
+  {
     "listing": "/blog/index.html",
     "items": [
       "/blog/posts/letting-go-of-the-wheel/index.html",

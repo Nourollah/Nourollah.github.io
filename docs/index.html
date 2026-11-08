@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="PhD student at Cardiff University working on generalisation and interpretability of machine learning models for chemistry and molecular systems.">
 
-<title>Amir Masoud Nourollah</title>
+<title>Amir Masoud Nourollah · Scientific Machine Learning, Cardiff University – Amir Masoud Nourollah</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,15 +34,23 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./assets/favicon.svg" rel="icon" type="image/svg+xml">
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-cad2a2f8a56dfe71ee895a68e79c9b9a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-70be5ccd51f03de5ce195d75fadf0882.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-cad2a2f8a56dfe71ee895a68e79c9b9a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-cdd13912a56c529c216a958367180166.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-309b62c255de2f4944c2d6ae2d3b5544.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-dark-c9df0fee04f31e5129f0b9c5cf3b9861.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="site_libs/bootstrap/bootstrap-309b62c255de2f4944c2d6ae2d3b5544.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,13 +78,251 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-recent-writing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-date','listing-title','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-recent-writing'] = new List('listing-recent-writing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script defer="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
+<meta property="og:title" content="Amir Masoud Nourollah · Scientific Machine Learning, Cardiff University">
+<meta property="og:description" content="PhD student at Cardiff University working on generalisation and interpretability of machine learning models for chemistry and molecular systems.">
+<meta property="og:image" content="https://nourollah.me/assets/profile.jpg">
+<meta property="og:site_name" content="Amir Masoud Nourollah">
+<meta name="twitter:title" content="Amir Masoud Nourollah · Scientific Machine Learning, Cardiff University">
+<meta name="twitter:description" content="PhD student at Cardiff University working on generalisation and interpretability of machine learning models for chemistry and molecular systems.">
+<meta name="twitter:image" content="https://nourollah.me/assets/profile.jpg">
+<meta name="twitter:creator" content="@amirmasoudnrl">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light">
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -91,45 +338,33 @@ ul.task-list li input[type="checkbox"] {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="./index.html" aria-current="page"> <i class="bi bi-house" role="img" aria-label="Home">
-</i> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="./projects/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./about.html"> <i class="bi bi-person" role="img" aria-label="About">
-</i> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./projects/index.html"> <i class="bi bi-folder" role="img" aria-label="Projects">
-</i> 
-<span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./presentations/index.html"> <i class="bi bi-display" role="img" aria-label="Presentations">
-</i> 
-<span class="menu-text">Presentations</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ"> <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
-</i> 
+    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./blog/index.html"> <i class="bi bi-pencil-square" role="img" aria-label="Blog">
-</i> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="./presentations/index.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="mailto:nourollah.am@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Contact">
-</i> 
-<span class="menu-text">Contact</span></a>
+    <a class="nav-link" href="./blog/index.html"> 
+<span class="menu-text">Writing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -140,82 +375,191 @@ ul.task-list li input[type="checkbox"] {
 <!-- margin-sidebar -->
     
 <!-- main -->
-<div class="quarto-about-trestles">
-  <div class="about-entity">
-    <img src="assets/profile.png" class="about-image
-  round " style="height: 14em; width: 14em;">
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Amir Masoud Nourollah</h1>
-</div>
-<div class="quarto-title-meta">
-  </div>
-</header>
-    <div class="about-links">
-  <a href="mailto:am@nourollah.me" class="about-link" rel="" target="">
-    <i class="bi bi-envelope"></i>
-     <span class="about-link-text">Email</span>
-  </a>
-  <a href="https://scholar.google.com/citations?user=jnindL8AAAAJ" class="about-link" rel="" target="">
-    <i class="bi bi-mortarboard"></i>
-     <span class="about-link-text">Google Scholar</span>
-  </a>
-  <a href="https://github.com/Nourollah" class="about-link" rel="" target="">
-    <i class="bi bi-github"></i>
-     <span class="about-link-text">GitHub</span>
-  </a>
-  <a href="https://orcid.org/0000-0002-6083-6673" class="about-link" rel="" target="">
-    <i class="bi bi-orcid"></i>
-     <span class="about-link-text">ORCID</span>
-  </a>
-  <a href="https://profiles.cardiff.ac.uk/staff/nourollaha" class="about-link" rel="" target="">
-    <i class="bi bi-person-badge"></i>
-     <span class="about-link-text">University Profile</span>
-  </a>
-  <a href="https://www.researchgate.net/profile/Amir-Masoud-Nourollah" class="about-link" rel="" target="">
-    <i class="bi bi-researchgate"></i>
-     <span class="about-link-text">ResearchGate</span>
-  </a>
-  <a href="https://www.linkedin.com/in/amnrl" class="about-link" rel="" target="">
-    <i class="bi bi-linkedin"></i>
-     <span class="about-link-text">LinkedIn</span>
-  </a>
-  <a href="https://twitter.com/amirmasoudnrl" class="about-link" rel="" target="">
-    <i class="bi bi-twitter-x"></i>
-     <span class="about-link-text">X</span>
-  </a>
-  <a href="https://t.me/amirmasoudnrl" class="about-link" rel="" target="">
-    <i class="bi bi-telegram"></i>
-     <span class="about-link-text">Telegram</span>
-  </a>
-</div>
-  </div>
-  <div class="about-contents"><main class="content" id="quarto-document-content">
-<section id="background" class="level2">
-<h2 data-anchor-id="background">Background</h2>
-<p>I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at <a href="https://www.cardiff.ac.uk/">Cardiff University</a>, where I am part of the <a href="https://cardiffnlp.github.io/">Cardiff NLP</a> and <a href="https://krr-cu.github.io">Knowledge Representation and Reasoning</a> groups. I started my PhD in 2024.</p>
-<p>Having explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master’s degree focused on artificial intelligence and robotics (2020–2023).</p>
-<p>Since my undergraduate studies, I have worked in industry as a software engineer and machine learning researcher, contributing to software and AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software.</p>
-<hr>
-</section>
-<section id="research" class="level2">
-<h2 data-anchor-id="research">Research</h2>
-<p>Broadly, I am interested in <strong>scientific machine learning (SciML)</strong>, particularly for chemistry and molecular systems across organic, inorganic, and biomolecular domains.</p>
-<p>My research focuses on <strong>generalisation, interpretability, and explainability</strong> in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular dynamics and computational chemistry.</p>
-<p>More generally, I am interested in robust, interpretable methods for <strong>chemistry-oriented AI systems</strong> and <strong>Neural Rendering &amp; Simulation</strong>.</p>
-<hr>
-</section>
-<section id="other-interests" class="level2">
-<h2 data-anchor-id="other-interests">Other Interests</h2>
-<p>Outside of research, I enjoy reading literature, philosophy, and science, particularly classic works, as well as Persian poetry. I am also learning French, with Spanish as a future goal. I have a background in martial arts, having trained in Muay Thai and Judo, and retain a broad interest in the discipline more generally.</p>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
 
 
-</section>
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main></div>
+
+
+
+<div class="hero">
+<p><img src="assets/profile.jpg" class="portrait img-fluid" alt="Portrait of Amir Masoud Nourollah"></p>
+<section id="amir-masoud-nourollah" class="level1 hero-text">
+<h1>Amir Masoud Nourollah</h1>
+<div class="role">
+<p>PhD student, Department of Computer Science, <a href="https://www.cardiff.ac.uk/">Cardiff University</a></p>
 </div>
- <!-- /main -->
+<div class="link-row">
+<p><a href="mailto:am@nourollah.me"><i class="bi bi-envelope"></i>Email</a> <a href="https://scholar.google.com/citations?user=jnindL8AAAAJ"><i class="bi bi-mortarboard"></i>Google Scholar</a> <a href="https://github.com/Nourollah"><i class="bi bi-github"></i>GitHub</a> <a href="https://orcid.org/0000-0002-6083-6673"><i class="bi bi-orcid"></i>ORCID</a> <a href="https://www.linkedin.com/in/amnrl"><i class="bi bi-linkedin"></i>LinkedIn</a></p>
+</div>
+</section>
+</div>
+<div class="lede">
+<p>I work on <strong>scientific machine learning</strong> for chemistry and molecular systems. My research asks when machine learning models can be trusted outside the data they were trained on: how they <strong>generalise</strong> under distribution shift, and how we can <strong>interpret and explain</strong> what they have learnt. Currently I study compositional generalisation in machine learning interatomic potentials for molecular dynamics.</p>
+</div>
+<p>I am a member of the <a href="https://cardiffnlp.github.io/">Cardiff NLP</a> and <a href="https://krr-cu.github.io">Knowledge Representation and Reasoning</a> groups, supervised by <a href="https://profiles.cardiff.ac.uk/staff/schockaerts1">Prof.&nbsp;Steven Schockaert</a> and <a href="https://profiles.cardiff.ac.uk/staff/leonis">Prof.&nbsp;Stefano Leoni</a>. Before my PhD I studied chemistry and then computer science, and worked for several years as a software engineer and machine learning researcher. <a href="./about.html">More about me →</a></p>
+<section id="news" class="level2">
+<h2 class="anchored" data-anchor-id="news">News</h2>
+<div class="news">
+<ul>
+<li><span class="date">2026</span> <a href="./projects/mlip-benchmark/index.html"><em>Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</em></a> published at <strong>NeurIPS 2026</strong>.</li>
+<li><span class="date">Jul 2025</span> <a href="https://aclanthology.org/2025.acl-long.433/"><em>Large Language and Reasoning Models are Shallow Disjunctive Reasoners</em></a> published at <strong>ACL 2025</strong>.</li>
+<li><span class="date">2025</span> Presented my <a href="./presentations/annual-review-2025/index.html">first-year review</a> at Cardiff University.</li>
+<li><span class="date">2024</span> Started my PhD at Cardiff University.</li>
+</ul>
+</div>
+</section>
+<section id="selected-research" class="level2">
+<h2 class="anchored" data-anchor-id="selected-research">Selected Research</h2>
+<div class="entry">
+<p><a href="./projects/mlip-benchmark/index.html" class="entry-title">Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</a></p>
+<div class="authors">
+<p><span class="me">Amir Masoud Nourollah</span>, Irtaza Khalid, Stefano Leoni, Steven Schockaert</p>
+</div>
+<p><span class="venue">NeurIPS 2026</span></p>
+<div class="pills">
+<p><a href="./projects/mlip-benchmark/index.html" class="pill"><i class="bi bi-journal-text"></i>Project page</a> <a href="https://arxiv.org/abs/2605.08988" class="pill"><i class="bi bi-file-earmark-text"></i>Paper</a> <a href="./presentations/index.html" class="pill"><i class="bi bi-easel2"></i>Talks</a></p>
+</div>
+</div>
+<div class="entry">
+<p><a href="https://aclanthology.org/2025.acl-long.433/" class="entry-title">Large Language and Reasoning Models are Shallow Disjunctive Reasoners</a></p>
+<div class="authors">
+<p>Irtaza Khalid, <span class="me">Amir Masoud Nourollah</span>, Steven Schockaert</p>
+</div>
+<p><span class="venue">ACL 2025</span></p>
+<div class="pills">
+<p><a href="https://aclanthology.org/2025.acl-long.433/" class="pill"><i class="bi bi-file-earmark-text"></i>Paper</a></p>
+</div>
+</div>
+<div class="more">
+<p><a href="./projects/index.html">All research →</a> · <a href="https://scholar.google.com/citations?user=jnindL8AAAAJ">Full list on Google Scholar →</a></p>
+</div>
+</section>
+<section id="recent-writing" class="level2">
+<h2 class="anchored" data-anchor-id="recent-writing">Recent Writing</h2>
+<div id="listing-recent-writing" class="quarto-listing quarto-listing-container-default">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-categories="YWklMkNvcGluaW9u" data-listing-date-sort="1793923200000" data-listing-file-modified-sort="1794163206184" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2567">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/posts/letting-go-of-the-wheel/index.html" class="no-external">Letting Go of the Wheel: Why I Am on AI’s Side</a>
+</h3>
+<div class="delink listing-description"><a href="./blog/posts/letting-go-of-the-wheel/index.html" class="no-external">
+<p>Every great innovation took a routine skill off our hands, and every time, we resisted before we embraced it. From the wheel to the calculator to AI agents, a case for letting machines handle the low-level work while we become better decision-makers.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./blog/posts/letting-go-of-the-wheel/index.html" class="no-external">
+<div class="listing-date">
+6 Nov 2026
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-categories="cmVzZWFyY2glMkNtYWNoaW5lJTIwbGVhcm5pbmclMkNjaGVtaXN0cnk=" data-listing-date-sort="1778540400000" data-listing-file-modified-sort="1794163206187" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1414">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/posts/chemical-foundation-models/index.html" class="no-external">The Universal Promise: Do We Actually Need Chemical Foundation Models?</a>
+</h3>
+<div class="delink listing-description"><a href="./blog/posts/chemical-foundation-models/index.html" class="no-external">
+<p>From billion-parameter transformers to universal interatomic potentials, chemistry AI is scaling fast. But scale alone does not equal scientific discovery — and the evidence reveals exactly where these models shine and where they break down.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./blog/posts/chemical-foundation-models/index.html" class="no-external">
+<div class="listing-date">
+12 May 2026
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-categories="bGludXglMkN0b29scw==" data-listing-date-sort="1778108400000" data-listing-file-modified-sort="1794163206189" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="43" data-listing-word-count-sort="8490">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./blog/posts/decade-of-linux-setups/index.html" class="no-external">A Decade of Linux Setups — Why I Stopped Looking for ‘The One’</a>
+</h3>
+<div class="delink listing-description"><a href="./blog/posts/decade-of-linux-setups/index.html" class="no-external">
+<p>A personal account of years spent distro-hopping across the Linux ecosystem — from Debian and Arch to Fedora and back to openSUSE Tumbleweed — and how I stopped looking for ‘The One’ distro, fixed the packages problem with pixi and Flatpak, and let each distro earn its place.</p>
+</a></div>
+</div>
+<div class="metadata">
+<a href="./blog/posts/decade-of-linux-setups/index.html" class="no-external">
+<div class="listing-date">
+7 May 2026
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">No matching items</div>
+</div>
+<div class="more">
+<p><a href="./blog/index.html">All posts →</a></p>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
+<script>
+// Shared popovers for research/talk entries.
+//   <button class="pill" data-qr="/assets/qr/x.svg" data-qr-url="https://...">QR</button>
+//   <button class="pill" data-versions='[{"label":"...","href":"..."}]'>Slides</button>
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof bootstrap === 'undefined') return;
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+  var triggers = [];
+
+  document.querySelectorAll('[data-qr]').forEach(function (el) {
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Scan to open',
+      content: '<div class="qr-pop"><img src="' + esc(el.dataset.qr) + '" width="168" height="168" alt="QR code for ' + esc(el.dataset.qrUrl) + '"><small>' + esc(el.dataset.qrUrl) + '</small></div>'
+    }));
+  });
+
+  document.querySelectorAll('[data-versions]').forEach(function (el) {
+    var items = JSON.parse(el.dataset.versions).map(function (v) {
+      return '<li><a href="' + esc(v.href) + '">' + esc(v.label) + '</a></li>';
+    }).join('');
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Choose a version',
+      content: '<ul class="versions-pop">' + items + '</ul>'
+    }));
+  });
+
+  // Close any open popover on outside click or Escape.
+  var closeAll = function (except) { triggers.forEach(function (p) { if (p !== except) p.hide(); }); };
+  triggers.forEach(function (p) {
+    p._element.addEventListener('show.bs.popover', function () { closeAll(p); });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('[data-qr], [data-versions], .popover')) closeAll();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
     const isCodeAnnotation = (el) => {
       for (const clz of el.classList) {
         if (clz.startsWith('code-annotation-')) {                     
@@ -613,6 +957,50 @@ ul.task-list li input[type="checkbox"] {
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Amir Masoud Nourollah · Cardiff University</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:am@nourollah.me">
+      <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Nourollah">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ">
+      <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/amnrl">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="./blog/index.xml">
+      <i class="bi bi-rss" role="img" aria-label="RSS feed">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

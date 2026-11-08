@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en"><head>
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-html/tabby.min.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -32,8 +33,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-2740581606dc327e82f18f789b69d8a0.css">
-  <link rel="stylesheet" href="slides.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-95eb19438d9fb05243c6d5d616b4bfa9.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -125,6 +125,15 @@
       margin-right: 0; 
     }
   </style>
+<meta property="og:title" content="Explainable Graph Neural Network for Computational Chemistry – Amir Masoud Nourollah">
+<meta property="og:description" content="Annual Review 2025 · Cardiff University">
+<meta property="og:image" content="https://nourollah.me/presentations/annual-review-2025/assets/profile.jpg">
+<meta property="og:site_name" content="Amir Masoud Nourollah">
+<meta name="twitter:title" content="Explainable Graph Neural Network for Computational Chemistry – Amir Masoud Nourollah">
+<meta name="twitter:description" content="Annual Review 2025 · Cardiff University">
+<meta name="twitter:image" content="https://nourollah.me/presentations/annual-review-2025/assets/profile.jpg">
+<meta name="twitter:creator" content="@amirmasoudnrl">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -139,31 +148,22 @@
 <div class="quarto-title-author-name">
 Amir Masoud Nourollah 
 </div>
-</div>
+        <p class="quarto-title-affiliation">
+            Supervisors: Prof.&nbsp;Stefano Leoni · Prof.&nbsp;Steven Schockaert
+          </p>
+    </div>
 </div>
 
-  <p class="date">Invalid Date</p>
 </section>
 <section id="overview" class="slide level2" data-section="Overview">
 <h2>Overview</h2>
-<div class="columns">
-<div class="column" style="width:10%;">
-
-</div><div class="column" style="width:80%;">
-<p><br></p>
 <ol type="1">
-<li><p><strong>The Current State of MLIPs</strong><br>
-<span style="color:var(--ufc-muted);font-size:0.85em;">Neural potentials, the black-box problem, and systemic extrapolation failure</span></p></li>
-<li><p><strong>The Data-Evaluation Paradox</strong><br>
-<span style="color:var(--ufc-muted);font-size:0.85em;">Why standard benchmarks cannot measure generalisation</span></p></li>
-<li><p><strong>GMD-26: A Framework for Systematic Evaluation</strong><br>
-<span style="color:var(--ufc-muted);font-size:0.85em;">Our benchmark, four tasks, and key results</span></p></li>
-<li><p><strong>The DeepSet-MoE</strong><br>
-<span style="color:var(--ufc-muted);font-size:0.85em;">Proposed architecture for interpretable generalisation</span></p></li>
-<li><p><strong>Conclusion &amp; Future Outlook</strong><br>
-<span style="color:var(--ufc-muted);font-size:0.85em;">Key findings and next steps</span></p></li>
+<li><strong>The Current State of MLIPs</strong> <span class="muted small">Neural potentials, the black-box problem, and systemic extrapolation failure</span></li>
+<li><strong>The Data-Evaluation Paradox</strong> <span class="muted small">Why standard benchmarks cannot measure generalisation</span></li>
+<li><strong>GMD-26: A Framework for Systematic Evaluation</strong> <span class="muted small">Our benchmark, four tasks, and key results</span></li>
+<li><strong>The DeepSet-MoE</strong> <span class="muted small">Proposed architecture for interpretable generalisation</span></li>
+<li><strong>Conclusion &amp; Future Outlook</strong> <span class="muted small">Key findings and next steps</span></li>
 </ol>
-</div></div>
 </section>
 <section id="neural-network-architectures-in-chemistry" class="slide level2" data-section="The Current State of MLIPs">
 <h2>Neural Network Architectures in Chemistry</h2>
@@ -174,20 +174,15 @@ Amir Masoud Nourollah
 <li><strong>Coarse-Grained Methods</strong> <em>(e.g., CGNet)</em></li>
 <li><strong>Force Field Methods</strong> <em>(e.g., SchNet)</em></li>
 </ul>
-<p><br></p>
 <div class="fragment">
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
+<div class="key">
 <p>Force field methods, or <strong>Machine-Learned Interatomic Potentials (MLIPs)</strong>, are currently the most widely adopted approach. They offer an optimal trade-off between <strong>computational complexity</strong> and <strong>predictive accuracy</strong>.</p>
-</div>
-</div>
 </div>
 </div>
 </section>
 <section id="impact-of-mlips-in-computational-chemistry" class="slide level2" data-section="The Current State of MLIPs">
 <h2>Impact of MLIPs in Computational Chemistry</h2>
-<div class="columns">
+<div class="columns dense">
 <div class="column" style="width:48%;">
 <div class="fragment">
 <p><strong>Bridging the Gap</strong></p>
@@ -198,7 +193,7 @@ Amir Masoud Nourollah
 </div>
 </div><div class="column" style="width:48%;">
 <div class="fragment">
-<p><strong><span style="color:var(--ufc-main)">Computational Breakthroughs</span></strong></p>
+<p><strong><span style="color:var(--teal)">Computational Breakthroughs</span></strong></p>
 <ol type="1">
 <li><strong>Drastic Acceleration:</strong> Achieving speedups of <strong><span class="math inline">\(10^5\times\)</span></strong> compared to standard DFT.</li>
 <li><strong>Overcoming Intractability:</strong> Simulations requiring <strong>decades</strong> of DFT compute time can be completed in days.</li>
@@ -209,8 +204,8 @@ Amir Masoud Nourollah
 </section>
 <section id="the-ambiguity-of-learned-representations" class="slide level2" data-section="The Current State of MLIPs">
 <h2>The Ambiguity of Learned Representations</h2>
-<p><span class="bodytext">The shift from fixed descriptors to <strong>learnable representations</strong> has traded transparency for accuracy, creating a fundamental “Black Box” problem:</span></p>
-<div class="columns">
+<p>The shift from fixed descriptors to <strong>learnable representations</strong> has traded transparency for accuracy, creating a fundamental “Black Box” problem:</p>
+<div class="columns dense">
 <div class="column" style="width:48%;">
 <div class="fragment">
 <p><strong>1. The Latent Space “Black Box”</strong></p>
@@ -231,8 +226,8 @@ Amir Masoud Nourollah
 </section>
 <section id="the-consequence-systemic-extrapolation-failure" class="slide level2" data-section="The Current State of MLIPs">
 <h2>The Consequence: Systemic Extrapolation Failure</h2>
-<p><span class="bodytext">Because the learned representation is opaque, we cannot define its validity domain. This leads to critical failures that standard metrics fail to detect:</span></p>
-<div class="columns">
+<p>Because the learned representation is opaque, we cannot define its validity domain. This leads to critical failures that standard metrics fail to detect:</p>
+<div class="columns dense">
 <div class="column" style="width:48%;">
 <div class="fragment">
 <p><strong>1. The Extrapolation Catastrophe</strong></p>
@@ -253,9 +248,9 @@ Amir Masoud Nourollah
 </section>
 <section id="landscape-of-established-datasets" class="slide level2" data-section="The Data-Evaluation Paradox">
 <h2>Landscape of Established Datasets</h2>
-<p><span class="bodytext">Existing benchmarks were designed for accuracy — not for probing <strong>compositional generalisation</strong>.</span></p>
+<p>Existing benchmarks were designed for accuracy — not for probing <strong>compositional generalisation</strong>.</p>
 <p>The field has evolved from small, specific datasets to massive, heterogeneous aggregates:</p>
-<div class="columns">
+<div class="columns dense">
 <div class="column" style="width:32%;">
 <div class="fragment">
 <div style="text-align:center;">
@@ -283,7 +278,7 @@ Amir Masoud Nourollah
 </div><div class="column" style="width:34%;">
 <div class="fragment">
 <div style="text-align:center;">
-<span class="accent"><strong>3. Massive Aggregates</strong></span><br>
+<span class="teal"><strong>3. Massive Aggregates</strong></span><br>
 <em>OMat24 · MPtrj</em>
 </div>
 <p>Huge, heterogeneous collections mixing equilibrium and non-equilibrium data.</p>
@@ -294,7 +289,7 @@ Amir Masoud Nourollah
 </div>
 </div></div>
 <div class="fragment">
-<div class="gap-note">
+<div class="key">
 <p><strong>Gap:</strong> <em>Despite the scale of Category 3, we still lack systematic benchmarks designed to specifically stress-test <strong>compositional extrapolation</strong>.</em></p>
 </div>
 </div>
@@ -302,7 +297,7 @@ Amir Masoud Nourollah
 <section id="the-data-evaluation-paradox" class="slide level2" data-section="The Data-Evaluation Paradox">
 <h2>The Data-Evaluation Paradox</h2>
 <p>While datasets have scaled massively to create “Universal” models, evaluation protocols remain fundamentally flawed:</p>
-<div class="columns">
+<div class="columns dense">
 <div class="column" style="width:48%;">
 <div class="fragment">
 <p><strong>1. The Scale of Data</strong></p>
@@ -314,13 +309,13 @@ Amir Masoud Nourollah
 </ul>
 </div>
 <div class="fragment">
-<div style="text-align:center;margin:0.6em 0;font-size:0.95em;color:var(--ufc-main);font-weight:700;">
+<div style="text-align:center;margin:0.6em 0;font-size:0.95em;color:var(--teal);font-weight:700;">
 → Assumption: “More data automatically yields better physical understanding.”
 </div>
 </div>
 </div><div class="column" style="width:48%;">
 <div class="fragment">
-<p><span class="accent"><strong>2. The Evaluation Deficit</strong></span></p>
+<p><span class="teal"><strong>2. The Evaluation Deficit</strong></span></p>
 <p><strong>A. The In-Distribution Trap:</strong></p>
 <ul>
 <li>Random splits test <strong>memorisation</strong> of the local manifold, not physical learning.</li>
@@ -333,15 +328,15 @@ Amir Masoud Nourollah
 </div>
 </div></div>
 <div class="fragment">
-<div class="gap-note">
+<div class="key">
 <p><strong>The Critical Gap:</strong> <em>We lack a metric to measure <strong>how far</strong> a model can extrapolate. We define OOD loosely (“unseen”), rather than mathematically (“distance from training manifold”).</em></p>
 </div>
 </div>
 </section>
 <section id="introducing-gmd-26-a-framework-for-generalisation" class="slide level2" data-section="GMD-26">
 <h2>Introducing GMD-26: A Framework for Generalisation</h2>
-<p><span class="bodytext">We introduce <strong>GMD-26</strong> not merely as a dataset, but as a flexible <strong>Benchmarking Framework</strong> designed to rigorously quantify generalisation.</span></p>
-<div class="columns">
+<p>We introduce <strong>GMD-26</strong> not merely as a dataset, but as a flexible <strong>Benchmarking Framework</strong> designed to rigorously quantify generalisation.</p>
+<div class="columns dense">
 <div class="column" style="width:48%;">
 <div class="fragment">
 <p><strong>1. The Protocol (Domain-Agnostic)</strong></p>
@@ -364,7 +359,7 @@ Amir Masoud Nourollah
 </div>
 </div></div>
 <div class="fragment">
-<div class="gap-note">
+<div class="key">
 <p><strong>Goal:</strong> <em>To establish a universal standard for auditing model robustness across any chemical domain.</em></p>
 </div>
 </div>
@@ -376,25 +371,24 @@ Amir Masoud Nourollah
 <section id="results-the-duplication-challenge" class="slide level2" data-section="GMD-26">
 <h2>Results: The “Duplication” Challenge</h2>
 <p><strong>Task Definition:</strong> Training on molecules with a <strong>single fragment A</strong> (e.g., Mono-acid) and testing on molecules with <strong>two</strong> of the same <strong>fragment A</strong> (e.g., Di-acid).</p>
-<p><br></p>
 <table class="results-table caption-top" style="width:100%;font-size:0.72em;border-collapse:collapse;text-align:center;">
 <thead>
 <tr class="header">
-<th rowspan="2" data-quarto-table-cell-role="th" style="text-align: left; padding: 4px 6px; border-bottom: 2px solid #8b1538;">Model</th>
-<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid #ccc; padding: 4px 6px">Forces MAE</th>
-<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid #ccc; padding: 4px 6px">Cosine Sim.</th>
-<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid #ccc; padding: 4px 6px">F Mag. MAE</th>
-<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid #ccc; padding: 4px 6px">Energy MAE (eV)</th>
+<th rowspan="2" data-quarto-table-cell-role="th" style="text-align: left; padding: 4px 6px; border-bottom: 1px solid var(--navy);">Model</th>
+<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid var(--line); padding: 4px 6px">Forces MAE</th>
+<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid var(--line); padding: 4px 6px">Cosine Sim.</th>
+<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid var(--line); padding: 4px 6px">F Mag. MAE</th>
+<th colspan="2" data-quarto-table-cell-role="th" style="border-bottom: 1px solid var(--line); padding: 4px 6px">Energy MAE (eV)</th>
 </tr>
 <tr class="even">
-<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">ID</th>
-<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">OOD</th>
-<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">ID</th>
-<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">OOD</th>
-<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">ID</th>
-<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">OOD</th>
-<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">ID</th>
-<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 2px solid #8b1538">OOD</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 1px solid var(--navy)">ID</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 1px solid var(--navy)">OOD</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 1px solid var(--navy)">ID</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 1px solid var(--navy)">OOD</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 1px solid var(--navy)">ID</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 1px solid var(--navy)">OOD</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 1px solid var(--navy)">ID</th>
+<th data-quarto-table-cell-role="th" style="padding: 3px 6px; border-bottom: 1px solid var(--navy)">OOD</th>
 </tr>
 </thead>
 <tbody>
@@ -409,7 +403,7 @@ Amir Masoud Nourollah
 <td>0.0295</td>
 <td>29.32</td>
 </tr>
-<tr class="even" style="background:#f9f9f9;">
+<tr class="even">
 <td style="text-align: left; padding: 3px 6px;">PaiNN</td>
 <td>0.0020</td>
 <td>0.0600</td>
@@ -431,7 +425,7 @@ Amir Masoud Nourollah
 <td>0.0129</td>
 <td>12.27</td>
 </tr>
-<tr class="even" style="background:#f9f9f9;">
+<tr class="even">
 <td style="text-align: left; padding: 3px 6px;">EquiFormerV2</td>
 <td>0.0018</td>
 <td>0.0538</td>
@@ -440,7 +434,7 @@ Amir Masoud Nourollah
 <td>0.0019</td>
 <td>0.0603</td>
 <td>0.0984</td>
-<td style="color: #8b1538; font-weight: 700">133.77</td>
+<td style="color: var(--amber); font-weight: 700">133.77</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; padding: 3px 6px;">DimeNet<sup>++</sup></td>
@@ -453,16 +447,16 @@ Amir Masoud Nourollah
 <td>0.0128</td>
 <td>34.86</td>
 </tr>
-<tr class="even" style="background:#f9f9f9;">
-<td style="text-align: left; padding: 3px 6px;"><strong>MACE</strong></td>
+<tr class="even">
+<td class="teal" style="text-align: left; padding: 3px 6px;">MACE</td>
 <td>0.0028</td>
-<td><strong>0.0171</strong></td>
+<td class="teal">0.0171</td>
 <td>0.9999</td>
-<td><strong>0.9978</strong></td>
+<td class="teal">0.9978</td>
 <td>0.0030</td>
-<td><strong>0.0201</strong></td>
+<td class="teal">0.0201</td>
 <td>0.0018</td>
-<td style="color: #8b1538; font-weight: 700"><strong>40.97</strong></td>
+<td style="color: var(--amber); font-weight: 700">40.97</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left; padding: 3px 6px;">NequIP</td>
@@ -477,7 +471,7 @@ Amir Masoud Nourollah
 </tr>
 </tbody><tfoot>
 <tr class="odd">
-<td colspan="9" style="text-align: left; font-size: 0.88em; color: #6f6f6f; padding-top: 6px; border-top: 1px solid #ccc;">Detailed performance metrics on the Fragment Duplication task. Values in <span style="color:#8b1538;font-weight:700;">red</span> indicate catastrophic OOD failure.</td>
+<td colspan="9" style="text-align: left; font-size: 0.88em; color: var(--muted); padding-top: 6px; border-top: 1px solid var(--line);">Detailed performance metrics on the Fragment Duplication task. Values in <span style="color:var(--amber);font-weight:700;">amber</span> indicate catastrophic OOD failure; <span class="teal">teal</span> marks MACE, the strongest OOD model.</td>
 </tr>
 </tfoot>
 
@@ -489,15 +483,15 @@ Amir Masoud Nourollah
 <img data-src="length_generalisation_figure_main.png" style="width:93.0%" class="r-stretch quarto-figure-center"><p class="caption">Detailed comparison of predicted vs.&nbsp;actual values. Note the divergence in the OOD regions (right side) compared to the tight correlation in ID regions (left side).</p></section>
 <section id="proposed-architecture-the-deepset-moe" class="slide level2" data-section="The DeepSet-MoE">
 <h2>Proposed Architecture: The DeepSet-MoE</h2>
-<p><span class="bodytext">We implement the <strong>DeepSet</strong> framework (<span class="math inline">\(E = \rho(\sum \phi)\)</span>), modifying the pipeline to expose interpretability and challenge standard assumptions:</span></p>
-<div class="columns">
+<p>We implement the <strong>DeepSet</strong> framework (<span class="math inline">\(E = \rho(\sum \phi)\)</span>), modifying the pipeline to expose interpretability and challenge standard assumptions:</p>
+<div class="columns dense">
 <div class="column" style="width:36%;">
 <div class="fragment">
 <div style="text-align:center;">
 <strong style="font-size:1.1em;">1. Encoder (<span class="math inline">\(\phi\)</span>)</strong>
 </div>
 <p><strong>Architecture:</strong> Mixture of Experts (MoE) replacing the monolithic network.</p>
-<p><span class="accent">Refined Routing Metrics:</span></p>
+<p><span class="teal">Refined Routing Metrics:</span></p>
 <ul>
 <li><strong>Metric A (Spatial):</strong> Experts activated by <em>pairwise distances</em> (replacing the previous dual-cutoff).</li>
 <li><strong>Metric B (Identity):</strong> Experts assigned by <em>central atom type</em>. One expert processes all hierarchies.</li>
@@ -509,11 +503,11 @@ Amir Masoud Nourollah
 <strong style="font-size:1.1em;">2. Aggregation (<span class="math inline">\(\sum\)</span>)</strong>
 </div>
 <p><strong>Role:</strong> Pooling atomic states into a global representation.</p>
-<p><span class="accent">Current State:</span></p>
+<p><span class="teal">Current State:</span></p>
 <ul>
 <li>Standard Summation.</li>
 </ul>
-<p><span class="accent">The Aggregation Hypothesis:</span></p>
+<p><span class="teal">The Aggregation Hypothesis:</span></p>
 <ul>
 <li><strong>Hypothesis:</strong> Rigid summation <strong>obscures</strong> distinct atomic contributions.</li>
 <li><strong>Experiment:</strong> Removing the Aggregation Head entirely.</li>
@@ -525,7 +519,7 @@ Amir Masoud Nourollah
 <strong style="font-size:1.1em;">3. Decoder (<span class="math inline">\(\rho\)</span>)</strong>
 </div>
 <p><strong>Role:</strong> Mapping latent state to Energy/Force.</p>
-<p><span class="accent">Inference:</span></p>
+<p><span class="teal">Inference:</span></p>
 <ul>
 <li>Currently Identity (Direct).</li>
 <li><strong>Goal:</strong> Eliminate ambiguity by inferring directly from Encoder output.</li>
@@ -536,16 +530,11 @@ Amir Masoud Nourollah
 <section id="summary-the-generalisation-crisis" class="slide level2" data-section="Conclusion">
 <h2>Summary: The Generalisation Crisis</h2>
 <div class="fragment">
-<div class="callout callout-note no-icon callout-style-simple">
-<div class="callout-body">
-<div class="callout-content">
+<div class="key">
 <p><strong>The Diagnosis</strong></p>
 <p>We challenged the generalisation capabilities of established SOTA architectures by introducing <strong>GMD-26</strong>, a benchmark designed to test physical robustness rather than memorisation.</p>
 </div>
 </div>
-</div>
-</div>
-<p><br></p>
 <div class="fragment">
 <p><strong>Key Findings:</strong></p>
 </div>
@@ -562,8 +551,8 @@ Amir Masoud Nourollah
 </section>
 <section id="future-outlook-toward-interpretable-generalisation" class="slide level2" data-section="Conclusion">
 <h2>Future Outlook: Toward Interpretable Generalisation</h2>
-<p><span class="bodytext">To bridge this gap, we are moving away from monolithic “Black Box” networks toward a modular, chemically aligned architecture:</span></p>
-<div class="columns">
+<p>To bridge this gap, we are moving away from monolithic “Black Box” networks toward a modular, chemically aligned architecture:</p>
+<div class="columns dense">
 <div class="column" style="width:48%;">
 <div class="fragment">
 <p><strong>1. The DeepSet-MoE Implementation</strong></p>
@@ -581,39 +570,27 @@ Amir Masoud Nourollah
 </ul>
 </div>
 </div></div>
-<p><br></p>
 <div class="fragment">
-<div class="gap-note">
+<div class="key">
 <p><strong>Final Conclusion:</strong> <em>We aim to establish DeepSet-MoE as an explainable architecture where OOD performance remains close to ID levels, prioritising this <strong>generalisation stability</strong> over chasing the absolute lowest ID errors seen in SOTA models.</em></p>
 </div>
 </div>
 </section>
-<section id="thank-you" class="slide level2" data-section="Thank You">
-<h2>Thank You</h2>
-<div class="columns">
-<div class="column" style="width:10%;">
-
-</div><div class="column" style="width:80%;">
-<p><br><br></p>
-<div style="text-align:center;">
+<section id="thank-you" class="slide level2 closing" data-section="Close">
+<h2>Thank you</h2>
 <p><strong>Amir Masoud Nourollah</strong></p>
-<p><span style="color:var(--ufc-muted);">PhD Student · Cardiff NLP &amp; Knowledge Representation and Reasoning Groups</span></p>
-<p><br></p>
-<p><em>Supervisors:</em> Prof.&nbsp;Stefano Leoni · Prof.&nbsp;Steven Schockaert</p>
-<p><br></p>
-<p>📧 <a href="mailto:NourollahA@cardiff.ac.uk">NourollahA@cardiff.ac.uk</a><br>
-🌐 <a href="https://nourollah.me">nourollah.me</a></p>
-<p><br><br></p>
-<p><span style="font-size:0.8em;color:var(--ufc-muted);">Preprint available at <a href="https://arxiv.org/abs/2605.08988">arxiv.org/abs/2605.08988</a></span></p>
-</div>
-</div></div>
+<p><span class="muted">PhD student · Cardiff NLP and Knowledge Representation and Reasoning groups</span></p>
+<p>Supervisors: Prof.&nbsp;Stefano Leoni · Prof.&nbsp;Steven Schockaert</p>
+<p><a href="mailto:NourollahA@cardiff.ac.uk">NourollahA@cardiff.ac.uk</a> · <a href="https://nourollah.me">nourollah.me</a></p>
+<p><span class="muted small">Preprint: <a href="https://arxiv.org/abs/2605.08988">arxiv.org/abs/2605.08988</a></span></p>
 
 
 </section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
+<p><img src="../../site_libs/quarto-contrib/quarto-project/talk/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-
+<p>Annual Review 2025</p>
 </div>
 </div></div>
 
@@ -663,7 +640,7 @@ Amir Masoud Nourollah
         controlsBackArrows: 'faded',
 
         // Display a presentation progress bar
-        progress: true,
+        progress: false,
 
         // Display the page number of the current slide
         slideNumber: false,
@@ -796,7 +773,7 @@ Amir Masoud Nourollah
         height: 720,
 
         // Factor of the display size that should remain empty around the content
-        margin: 3.0e-2,
+        margin: 0,
 
         math: {
           mathjax: 'https://cdn.jsdelivr.net/npm/mathjax@2.7.9/MathJax.js',
@@ -825,111 +802,162 @@ Amir Masoud Nourollah
         ]
       });
     </script>
-    <img src="logo_RGB.png" id="slide-logo-fixed" style="position:fixed;top:10px;right:15px;height:40px;width:auto;z-index:9999;pointer-events:none;" alt="Cardiff University Logo">
+    <!--
+      Shared slide chrome for every deck that uses presentations/theme.
 
-    <div class="ufc-footer" id="ufc-footer">
-      <div class="ufc-footer__seg" id="ufc-footer-author">Amir Masoud Nourollah</div>
-      <div class="ufc-footer__seg" id="ufc-footer-title" title="Go to overview">Annual Review 2025</div>
-      <div class="ufc-footer__seg" id="ufc-footer-section" title="Go to section start">Section</div>
-      <div class="ufc-footer__seg" id="ufc-footer-page">1 / 1</div>
-    </div>
+      It builds itself from the deck:
+        - section label : "02 — MOTIVATION" above each slide title, from data-section
+                          (a slide without data-section stays in the previous section;
+                          "Overview" and a section used only by the title slide are not numbered)
+        - footer        : the deck's `footer:` front-matter value (falls back to the subtitle,
+                          then the title), the slide's .slide-ref reference in the middle,
+                          the page number, and a progress line
 
+      Clicks:  section label -> first slide of that section
+               footer title  -> "Overview" slide
+               page number   -> thumbnail overview of all slides
+
+      Also: navy background on the title slide and on section dividers (.divider),
+      logo only on the title and closing slides, divider numbering (01, 02, …),
+      and a scrolling layout on phones.
+    -->
     <script>
     (function () {
-      var footerTitle   = document.getElementById("ufc-footer-title");
-      var footerSection = document.getElementById("ufc-footer-section");
-      var footerPage    = document.getElementById("ufc-footer-page");
+      var NAVY = "#0B1F3A";
+      var footer, elProgress, elTitle, elRef, elNum;
+      var slides = [], sectionOf = [], firstOf = {}, numberOf = {};
 
-      // Map: section-name -> first slide index (flat, 0-based) with that data-section
-      var sectionFirstIndex = {};
+      function text(selector) {
+        var el = document.querySelector(selector);
+        return el ? el.textContent.trim() : "";
+      }
 
-      function buildNavMap() {
-        sectionFirstIndex = {};
-        var slides = document.querySelectorAll(".reveal .slides section");
-        var idx = 0;
+      function goTo(slide) {
+        if (!slide) return;
+        var idx = window.Reveal.getIndices(slide);
+        window.Reveal.slide(idx.h, idx.v);
+      }
+
+      function build() {
+        var R = window.Reveal;
+        slides = R.getSlides();
+
+        // --- sections (carry forward) and their numbers ---
+        var current = "", order = [], dividers = 0;
         slides.forEach(function (slide) {
-          // Skip wrapper sections (ones that only contain other sections)
-          var hasChildSections = slide.querySelector(":scope > section");
-          if (hasChildSections) return;
           var sec = slide.getAttribute("data-section");
-          if (sec && !(sec in sectionFirstIndex)) {
-            sectionFirstIndex[sec] = idx;
-          }
-          idx++;
+          if (sec) current = sec;
+          sectionOf.push(current);
+          if (current && !(current in firstOf)) { firstOf[current] = slide; order.push(current); }
         });
-      }
 
-      function navigateToSection(name) {
-        if (!window.Reveal || !(name in sectionFirstIndex)) return;
-        var targetFlat = sectionFirstIndex[name];
-        // Convert flat index back to (h, v) in the 2D structure
-        var containers = document.querySelectorAll(".reveal .slides > section");
-        var flat = 0;
-        for (var h = 0; h < containers.length; h++) {
-          var inner = containers[h].querySelectorAll(":scope > section");
-          if (inner.length === 0) {
-            if (flat === targetFlat) { window.Reveal.slide(h, 0); return; }
-            flat++;
-          } else {
-            for (var v = 0; v < inner.length; v++) {
-              if (flat === targetFlat) { window.Reveal.slide(h, v); return; }
-              flat++;
-            }
+        var count = function (name) { return sectionOf.filter(function (s) { return s === name; }).length; };
+        var n = 0;
+        order.forEach(function (name) {
+          if (name === "Overview" || (firstOf[name] === slides[0] && count(name) === 1)) return;
+          numberOf[name] = ++n;
+        });
+
+        // A section that starts on the title slide really starts on its next slide
+        for (var j = 1; j < slides.length; j++) {
+          var nm = sectionOf[j];
+          if (firstOf[nm] === slides[0]) firstOf[nm] = slides[j];
+        }
+
+        var needsSync = false;
+        slides.forEach(function (slide, i) {
+          var isTitle = slide.id === "title-slide";
+          var isDivider = slide.classList.contains("divider");
+
+          if ((isTitle || isDivider) && !slide.hasAttribute("data-background-color")) {
+            slide.setAttribute("data-background-color", NAVY);
+            needsSync = true;
           }
-        }
+
+          if (isDivider) {
+            dividers++;
+            var dh = slide.querySelector("h2");
+            if (dh) dh.setAttribute("data-num", (dividers < 10 ? "0" : "") + dividers);
+            return;
+          }
+
+          // Section label above the slide title
+          var h = slide.querySelector(":scope > h2");
+          var name = sectionOf[i];
+          if (isTitle || !h || !name || slide.classList.contains("closing") || h.textContent.trim() === "") return;
+          var k = document.createElement("div");
+          k.className = "kicker";
+          var num = numberOf[name] ? (numberOf[name] < 10 ? "0" : "") + numberOf[name] : "";
+          k.innerHTML = (num ? '<span class="k-num">' + num + '</span><span class="k-rule"></span>' : "") +
+                        '<span class="k-name"></span>';
+          k.querySelector(".k-name").textContent = name;
+          k.title = "Go to section start";
+          k.addEventListener("click", function () { goTo(firstOf[name]); });
+          h.parentNode.insertBefore(k, h);
+        });
+
+        if (needsSync) R.sync();
+
+        // --- footer ---
+        footer = document.createElement("div");
+        footer.className = "gmd-footer";
+        footer.innerHTML =
+          '<div class="gf-progress"></div>' +
+          '<span class="gf-title" title="Go to overview"></span>' +
+          '<span class="gf-ref"></span>' +
+          '<span class="gf-num" title="Show all slides"></span>';
+        document.querySelector(".reveal .slides").appendChild(footer);
+
+        elProgress = footer.querySelector(".gf-progress");
+        elTitle    = footer.querySelector(".gf-title");
+        elRef      = footer.querySelector(".gf-ref");
+        elNum      = footer.querySelector(".gf-num");
+        document.querySelector(".reveal").classList.add("refs-in-footer");
+
+        elTitle.textContent = text(".reveal .footer") ||
+                              text("#title-slide .subtitle") ||
+                              text("#title-slide .title");
+
+        elTitle.addEventListener("click", function () { goTo(firstOf["Overview"] || slides[0]); });
+        elNum.addEventListener("click", function () { R.toggleOverview(); });
+
+        update();
       }
 
-      footerTitle.style.cursor   = "pointer";
-      footerSection.style.cursor = "pointer";
-      footerTitle.style.pointerEvents   = "all";
-      footerSection.style.pointerEvents = "all";
+      function update() {
+        var R = window.Reveal;
+        var slide = R.getCurrentSlide();
+        var i = slides.indexOf(slide);
 
-      footerTitle.addEventListener("click", function () {
-        navigateToSection("Overview");
-      });
+        elNum.innerHTML = (i + 1) + '<span class="gf-total"> / ' + slides.length + "</span>";
+        elProgress.style.width = (slides.length > 1 ? (i / (slides.length - 1)) * 100 : 0) + "%";
 
-      footerSection.addEventListener("click", function () {
-        var sec = footerSection.getAttribute("data-current-section") || "";
-        if (sec) navigateToSection(sec);
-      });
+        // This slide's reference goes in the middle of the footer
+        var ref = slide && slide.querySelector(".slide-ref");
+        elRef.innerHTML = ref ? ref.innerHTML : "";
+        elRef.title = ref ? ref.textContent.trim().replace(/\s+/g, " ") : "";
 
-      function getFlatIndex() {
-        var indices    = window.Reveal.getIndices();
-        var containers = document.querySelectorAll(".reveal .slides > section");
-        var flat = 0;
-        var total = 0;
-        for (var h = 0; h < containers.length; h++) {
-          var inner = containers[h].querySelectorAll(":scope > section");
-          var count = inner.length > 0 ? inner.length : 1;
-          if (h < indices.h) flat += count;
-          else if (h === indices.h) flat += (indices.v || 0);
-          total += count;
-        }
-        return { current: flat + 1, total: total };
-      }
-
-      function updateFooter() {
-        var currentSlide = window.Reveal.getCurrentSlide();
-        var sec = currentSlide ? (currentSlide.getAttribute("data-section") || "") : "";
-        footerSection.textContent = sec;
-        footerSection.setAttribute("data-current-section", sec);
-
-        var pos = getFlatIndex();
-        footerPage.textContent = pos.current + " / " + pos.total;
+        var isTitle   = !!slide && slide.id === "title-slide";
+        var isDivider = !!slide && slide.classList.contains("divider");
+        var isClosing = !!slide && slide.classList.contains("closing");
+        footer.classList.toggle("is-hidden", isTitle || isDivider);
+        document.querySelector(".reveal").classList.toggle("show-logo", isTitle || isClosing);
       }
 
       function init() {
-        if (!window.Reveal) { setTimeout(init, 30); return; }
-        window.Reveal.on("ready", function () {
-          buildNavMap();
-          updateFooter();
-        });
-        window.Reveal.on("slidechanged", updateFooter);
-        // If Reveal already fired 'ready' before we got here
-        if (window.Reveal.isReady && window.Reveal.isReady()) {
-          buildNavMap();
-          updateFooter();
+        var R = window.Reveal;
+        if (!R || !R.on) { setTimeout(init, 30); return; }
+        var started = false;
+        function start() {
+          if (started) return;
+          started = true;
+          // Phones: scroll through the slides instead of tapping through them
+          R.configure({ scrollActivationWidth: 600, scrollLayout: "compact" });
+          build();
         }
+        R.on("ready", start);
+        R.on("slidechanged", function () { if (started) update(); });
+        if (R.isReady && R.isReady()) start();
       }
 
       init();

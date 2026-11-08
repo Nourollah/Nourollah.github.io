@@ -1,0 +1,149 @@
+/* ==========================================================
+   GMD talk — slide styling
+   Palette: ink navy + deep teal (primary) + amber (failure /
+   "the whole is new"). Serif headings, humanist sans body.
+   ========================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap");
+
+:root {
+  --ink:        #17233A;
+  --ink-soft:   #44506A;
+  --teal:       #0E6B6B;
+  --teal-soft:  #E5F0EF;
+  --amber:      #B26B12;
+  --amber-soft: #FBF0DF;
+  --line:       #D3DCE1;
+  --slot-bg:    #F4F7F8;
+  --serif: "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --sans:  "Source Sans 3", "Source Sans Pro", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+
+/* ---------- base ---------- */
+.reveal { font-family: var(--sans); font-size: 27px; color: var(--ink); }
+.reveal .slides { text-align: left; }
+.reveal .slides > section,
+.reveal .slides > section > section { padding: 0 6px; box-sizing: border-box; }
+
+.reveal p, .reveal li { line-height: 1.38; color: var(--ink); }
+.reveal ul, .reveal ol { margin-left: 1.05em; }
+.reveal li { margin: 0.28em 0; }
+.reveal li::marker { color: var(--teal); }
+.reveal strong { color: var(--ink); font-weight: 700; }
+.reveal em { color: var(--ink-soft); }
+.reveal a { color: var(--teal); }
+.reveal code { color: var(--teal); background: var(--teal-soft); padding: 0 4px; border-radius: 3px; font-size: 0.9em; }
+
+/* ---------- slide headings ---------- */
+.reveal h2 {
+  font-family: var(--serif);
+  font-weight: 600;
+  font-size: 44px;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  text-transform: none;
+  margin: 18px 0 26px 0;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--line);
+  position: relative;
+}
+/* short teal segment on the rule: marks the slide title */
+.reveal h2::after {
+  content: ""; position: absolute; left: 0; bottom: -2px;
+  width: 72px; height: 2px; background: var(--teal);
+}
+.reveal h3 {
+  font-family: var(--sans); font-weight: 700; font-size: 25px;
+  color: var(--teal); text-transform: none; margin: 0 0 10px 0; letter-spacing: 0;
+}
+
+/* ---------- two-column layout ---------- */
+.reveal .columns { display: flex; gap: 44px; align-items: flex-start; }
+.reveal .columns > .column { min-width: 0; }
+.reveal .columns.middle { align-items: center; }
+
+/* ---------- image placeholder (replace with ![](file.png)) ---------- */
+.reveal .img-slot {
+  height: 450px; box-sizing: border-box;
+  border: 2px dashed #A9B8C0; border-radius: 10px; background: var(--slot-bg);
+  display: flex; flex-direction: column; justify-content: center; align-items: center;
+  text-align: center; padding: 28px 36px; color: var(--ink-soft);
+}
+.reveal .img-slot.short { height: 330px; }
+.reveal .img-slot p { color: var(--ink-soft); font-size: 21px; line-height: 1.4; margin: 6px 0; }
+.reveal .img-slot p:first-child { font-family: var(--serif); font-weight: 600; color: var(--teal); font-size: 23px; }
+.reveal .img-slot code { background: #fff; color: var(--ink-soft); font-size: 17px; }
+
+/* real images inside a column */
+.reveal .column img { max-height: 470px; width: auto; max-width: 100%; display: block; margin: 0 auto; }
+
+/* ---------- message boxes ---------- */
+.reveal .key, .reveal .warn {
+  margin-top: 22px; padding: 14px 20px; border-radius: 0 8px 8px 0; font-size: 24px;
+}
+.reveal .key  { background: var(--teal-soft);  border-left: 5px solid var(--teal); }
+.reveal .warn { background: var(--amber-soft); border-left: 5px solid var(--amber); }
+.reveal .key p, .reveal .warn p { margin: 0; }
+
+.reveal .muted { color: var(--ink-soft); }
+.reveal .amber { color: var(--amber); font-weight: 700; }
+.reveal .teal  { color: var(--teal);  font-weight: 700; }
+.reveal .small { font-size: 22px; }
+
+/* big comparison number (used sparingly, on result slides) */
+.reveal .stat { font-family: var(--serif); font-size: 64px; font-weight: 700; line-height: 1; color: var(--amber); margin: 4px 0; }
+.reveal .stat-label { font-size: 21px; color: var(--ink-soft); }
+.reveal .stat p { color: var(--amber); margin: 0; font-family: var(--serif); }
+.reveal .stat-label p { color: var(--ink-soft); margin: 0 0 6px 0; }
+
+/* ---------- per-slide reference line ---------- */
+.reveal .slide-ref {
+  position: absolute; left: 6px; right: 6px; top: 628px;
+  font-size: 15px; line-height: 1.3; color: #6A7588;
+  border-top: 1px solid var(--line); padding-top: 6px;
+}
+.reveal .slide-ref p { margin: 0; color: #6A7588; }
+
+/* ---------- title slide ---------- */
+#title-slide { padding-top: 120px !important; }
+#title-slide .title {
+  font-family: var(--serif); font-weight: 700; font-size: 50px; line-height: 1.16;
+  color: var(--ink); text-transform: none; text-align: left; max-width: 1080px; letter-spacing: -0.01em;
+}
+#title-slide .subtitle {
+  font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 28px;
+  color: var(--teal); text-align: left; margin-top: 18px;
+}
+#title-slide .quarto-title-authors { justify-content: flex-start !important; flex-wrap: wrap; gap: 0 28px; margin-top: 70px; }
+#title-slide .quarto-title-author { padding: 0 !important; text-align: left; flex: 0 0 auto; }
+#title-slide .quarto-title-author-name { font-size: 23px; font-weight: 400; color: var(--ink-soft); }
+/* presenter first, on their own line */
+#title-slide .quarto-title-author:first-child { flex-basis: 100%; margin-bottom: 6px; }
+#title-slide .quarto-title-author:first-child .quarto-title-author-name { font-size: 29px; font-weight: 700; color: var(--ink); }
+#title-slide .date { font-size: 23px; color: var(--ink-soft); text-align: left; margin-top: 4px; }
+#title-slide::before {
+  content: ""; position: absolute; left: 6px; top: 80px; width: 120px; height: 6px; background: var(--teal);
+}
+
+/* ---------- closing slide ---------- */
+.reveal .closing h2 { border-bottom: none; }
+.reveal .closing h2::after { display: none; }
+
+/* ---------- footer (built by footer.html) ---------- */
+.gmd-footer {
+  position: absolute; left: 0; right: 0; top: 684px; height: 36px;
+  display: flex; align-items: center; gap: 24px;
+  padding: 0 6px 0 52px; box-sizing: border-box;
+  border-top: 1px solid var(--line);
+  font-family: var(--sans); font-size: 15px; color: #7A8597;
+  z-index: 30;
+}
+.gmd-footer .gf-title { white-space: nowrap; font-style: italic; }
+.gmd-footer nav { display: flex; gap: 18px; margin-left: auto; }
+.gmd-footer nav a { color: #9AA4B2; text-decoration: none; cursor: pointer; padding: 2px 0; border-bottom: 2px solid transparent; }
+.gmd-footer nav a:hover { color: var(--ink); }
+.gmd-footer nav a.active { color: var(--teal); font-weight: 700; border-bottom-color: var(--teal); }
+.gmd-footer .gf-num { min-width: 52px; text-align: right; font-variant-numeric: tabular-nums; }
+.reveal.on-title .gmd-footer { display: none; }
+
+/* print / PDF export */
+@media print { .reveal .img-slot { border-style: dashed; } }

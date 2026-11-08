@@ -1,63 +1,94 @@
 ---
-title: "Amir Masoud Nourollah"
-image: assets/profile.png
-
-about:
-  template: trestles
-  image-width: 14em
-  image-shape: round
-  links:
-    - icon: envelope
-      text: Email
-      href: mailto:am@nourollah.me
-    - icon: mortarboard
-      text: Google Scholar
-      href: https://scholar.google.com/citations?user=jnindL8AAAAJ
-    - icon: github
-      text: GitHub
-      href: https://github.com/Nourollah
-    - icon: orcid
-      text: ORCID
-      href: https://orcid.org/0000-0002-6083-6673
-    - icon: person-badge
-      text: University Profile
-      href: https://profiles.cardiff.ac.uk/staff/nourollaha
-    - icon: researchgate
-      text: ResearchGate
-      href: https://www.researchgate.net/profile/Amir-Masoud-Nourollah
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/amnrl
-    - icon: twitter-x
-      text: X
-      href: https://twitter.com/amirmasoudnrl
-    - icon: telegram
-      text: Telegram
-      href: https://t.me/amirmasoudnrl
-
+pagetitle: "Amir Masoud Nourollah · Scientific Machine Learning, Cardiff University"
+description: "PhD student at Cardiff University working on generalisation and interpretability of machine learning models for chemistry and molecular systems."
+image: assets/profile.jpg
 toc: false
+listing:
+  id: recent-writing
+  contents: blog/posts
+  sort: "date desc"
+  max-items: 3
+  type: default
+  fields: [date, title, description]
+  date-format: "D MMM YYYY"
 ---
 
-## Background
+::: hero
+![](assets/profile.jpg){.portrait fig-alt="Portrait of Amir Masoud Nourollah"}
 
-I am Amir Masoud Nourollah (Masoud), a PhD student in the School of Computer Science and Informatics at [Cardiff University](https://www.cardiff.ac.uk/), where I am part of the [Cardiff NLP](https://cardiffnlp.github.io/) and [Knowledge Representation and Reasoning](https://krr-cu.github.io) groups. I started my PhD in 2024.
+::: hero-text
+# Amir Masoud Nourollah
 
-Having explored programming languages and the GNU/Linux ecosystem for nearly two decades, I have developed a foundational interest in systems and software development that predates my formal studies. My academic background spans both chemistry and computer science. I studied Chemistry (2016–2020) before moving into Computer Science, completing a Master's degree focused on artificial intelligence and robotics (2020–2023).
+::: role
+PhD student, Department of Computer Science, [Cardiff University](https://www.cardiff.ac.uk/)
+:::
 
-Since my undergraduate studies, I have worked in industry as a software engineer and machine learning researcher, contributing to software and AI teams across different companies and projects. My experience spans computer vision, speech processing, and natural language processing. Alongside research, I remain focused on engineering practices, infrastructure, and open-source software.
+::: link-row
+[<i class="bi bi-envelope"></i>Email](mailto:am@nourollah.me)
+[<i class="bi bi-mortarboard"></i>Google Scholar](https://scholar.google.com/citations?user=jnindL8AAAAJ)
+[<i class="bi bi-github"></i>GitHub](https://github.com/Nourollah)
+[<i class="bi bi-orcid"></i>ORCID](https://orcid.org/0000-0002-6083-6673)
+[<i class="bi bi-linkedin"></i>LinkedIn](https://www.linkedin.com/in/amnrl)
+:::
+:::
+:::
 
-------------------------------------------------------------------------
+::: lede
+I work on **scientific machine learning** for chemistry and molecular systems. My research asks when machine learning models can be trusted outside the data they were trained on: how they **generalise** under distribution shift, and how we can **interpret and explain** what they have learnt. Currently I study compositional generalisation in machine learning interatomic potentials for molecular dynamics.
+:::
 
-## Research
+I am a member of the [Cardiff NLP](https://cardiffnlp.github.io/) and [Knowledge Representation and Reasoning](https://krr-cu.github.io) groups, supervised by [Prof. Steven Schockaert](https://profiles.cardiff.ac.uk/staff/schockaerts1) and [Prof. Stefano Leoni](https://profiles.cardiff.ac.uk/staff/leonis). Before my PhD I studied chemistry and then computer science, and worked for several years as a software engineer and machine learning researcher. [More about me →](about.qmd)
 
-Broadly, I am interested in **scientific machine learning (SciML)**, particularly for chemistry and molecular systems across organic, inorganic, and biomolecular domains.
+## News
 
-My research focuses on **generalisation, interpretability, and explainability** in machine learning models for scientific applications. Currently, I am investigating how machine learning models behave under distribution shifts and across chemically diverse systems, with a particular focus on molecular dynamics and computational chemistry.
+::: news
+- [2026]{.date} [*Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials*](projects/mlip-benchmark/index.qmd) published at **NeurIPS 2026**.
+- [Jul 2025]{.date} [*Large Language and Reasoning Models are Shallow Disjunctive Reasoners*](https://aclanthology.org/2025.acl-long.433/) published at **ACL 2025**.
+- [2025]{.date} Presented my [first-year review](presentations/annual-review-2025/index.qmd) at Cardiff University.
+- [2024]{.date} Started my PhD at Cardiff University.
+:::
 
-More generally, I am interested in robust, interpretable methods for **chemistry-oriented AI systems** and **Neural Rendering & Simulation**.
+## Selected Research
 
-------------------------------------------------------------------------
+::: entry
+[Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials](projects/mlip-benchmark/index.qmd){.entry-title}
 
-## Other Interests
+::: authors
+[Amir Masoud Nourollah]{.me}, Irtaza Khalid, Stefano Leoni, Steven Schockaert
+:::
 
-Outside of research, I enjoy reading literature, philosophy, and science, particularly classic works, as well as Persian poetry. I am also learning French, with Spanish as a future goal. I have a background in martial arts, having trained in Muay Thai and Judo, and retain a broad interest in the discipline more generally.
+[NeurIPS 2026]{.venue}
+
+::: pills
+[<i class="bi bi-journal-text"></i>Project page](projects/mlip-benchmark/index.qmd){.pill}
+[<i class="bi bi-file-earmark-text"></i>Paper](https://arxiv.org/abs/2605.08988){.pill}
+[<i class="bi bi-easel2"></i>Talks](presentations/index.qmd){.pill}
+:::
+:::
+
+::: entry
+[Large Language and Reasoning Models are Shallow Disjunctive Reasoners](https://aclanthology.org/2025.acl-long.433/){.entry-title}
+
+::: authors
+Irtaza Khalid, [Amir Masoud Nourollah]{.me}, Steven Schockaert
+:::
+
+[ACL 2025]{.venue}
+
+::: pills
+[<i class="bi bi-file-earmark-text"></i>Paper](https://aclanthology.org/2025.acl-long.433/){.pill}
+:::
+:::
+
+::: more
+[All research →](projects/index.qmd) · [Full list on Google Scholar →](https://scholar.google.com/citations?user=jnindL8AAAAJ)
+:::
+
+## Recent Writing
+
+::: {#recent-writing}
+:::
+
+::: more
+[All posts →](blog/index.qmd)
+:::

@@ -1,0 +1,37 @@
+<script>
+// Shared popovers for research/talk entries.
+//   <button class="pill" data-qr="/assets/qr/x.svg" data-qr-url="https://...">QR</button>
+//   <button class="pill" data-versions='[{"label":"...","href":"..."}]'>Slides</button>
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof bootstrap === 'undefined') return;
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+  var triggers = [];
+
+  document.querySelectorAll('[data-qr]').forEach(function (el) {
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Scan to open',
+      content: '<div class="qr-pop"><img src="' + esc(el.dataset.qr) + '" width="168" height="168" alt="QR code for ' + esc(el.dataset.qrUrl) + '"><small>' + esc(el.dataset.qrUrl) + '</small></div>'
+    }));
+  });
+
+  document.querySelectorAll('[data-versions]').forEach(function (el) {
+    var items = JSON.parse(el.dataset.versions).map(function (v) {
+      return '<li><a href="' + esc(v.href) + '">' + esc(v.label) + '</a></li>';
+    }).join('');
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Choose a version',
+      content: '<ul class="versions-pop">' + items + '</ul>'
+    }));
+  });
+
+  // Close any open popover on outside click or Escape.
+  var closeAll = function (except) { triggers.forEach(function (p) { if (p !== except) p.hide(); }); };
+  triggers.forEach(function (p) {
+    p._element.addEventListener('show.bs.popover', function () { closeAll(p); });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('[data-qr], [data-versions], .popover')) closeAll();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+});
+</script>

@@ -2,46 +2,58 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://nourollah.me/presentations/annual-review-2025/index.html</loc>
-    <lastmod>2026-05-12T06:37:33.105Z</lastmod>
+    <lastmod>2026-11-08T19:01:58.214Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/presentations/mlip-benchmark/computer-scientists/index.html</loc>
+    <lastmod>2026-11-08T19:00:27.010Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/presentations/theme/showcase.html</loc>
+    <lastmod>2026-11-08T19:00:19.978Z</lastmod>
   </url>
   <url>
     <loc>https://nourollah.me/about.html</loc>
-    <lastmod>2026-05-12T13:35:36.480Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nourollah.me/blog/posts/fedora-workstation/index.html</loc>
-    <lastmod>2026-11-06T19:19:44.048Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nourollah.me/blog/posts/chemical-foundation-models/index.html</loc>
-    <lastmod>2026-05-12T16:53:29.567Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nourollah.me/projects/mlip-benchmark/index.html</loc>
-    <lastmod>2026-08-02T14:29:45.995Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nourollah.me/projects/index.html</loc>
-    <lastmod>2026-05-12T11:52:44.584Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nourollah.me/index.html</loc>
-    <lastmod>2026-08-02T14:29:45.995Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nourollah.me/blog/index.html</loc>
-    <lastmod>2026-05-12T13:47:01.252Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nourollah.me/presentations/index.html</loc>
-    <lastmod>2026-05-12T11:52:23.100Z</lastmod>
-  </url>
-  <url>
-    <loc>https://nourollah.me/blog/posts/letting-go-of-the-wheel/index.html</loc>
-    <lastmod>2026-11-06T20:34:52.961Z</lastmod>
+    <lastmod>2026-11-08T18:57:17.030Z</lastmod>
   </url>
   <url>
     <loc>https://nourollah.me/blog/posts/decade-of-linux-setups/index.html</loc>
-    <lastmod>2026-11-06T20:15:05.053Z</lastmod>
+    <lastmod>2026-11-08T18:40:06.189Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/blog/posts/chemical-foundation-models/index.html</loc>
+    <lastmod>2026-11-08T18:40:06.187Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/projects/mlip-benchmark/index.html</loc>
+    <lastmod>2026-11-08T18:57:17.031Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/projects/index.html</loc>
+    <lastmod>2026-11-08T18:57:53.420Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/index.html</loc>
+    <lastmod>2026-11-08T18:57:53.422Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/blog/posts/letting-go-of-the-wheel/index.html</loc>
+    <lastmod>2026-11-08T18:40:06.184Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/blog/index.html</loc>
+    <lastmod>2026-11-08T18:39:57.395Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/presentations/index.html</loc>
+    <lastmod>2026-11-08T18:57:40.354Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/presentations/mlip-benchmark/conference/index.html</loc>
+    <lastmod>2026-11-08T19:00:26.980Z</lastmod>
+  </url>
+  <url>
+    <loc>https://nourollah.me/presentations/mlip-benchmark/chemists/index.html</loc>
+    <lastmod>2026-11-08T19:00:19.977Z</lastmod>
   </url>
 </urlset>

@@ -1,129 +1,72 @@
 ---
-title: "Projects"
-page-layout: full
+title: "Research"
+description: "Papers and projects, grouped by area. For a complete, up-to-date list see Google Scholar."
 toc: false
 ---
 
-<!-- A selection of projects I have worked on, with extended write-ups, animations, figures, and details beyond what appears in the official papers. Icons link to external resources where available. -->
-
-::: {.d-flex .justify-content-end .mb-2 style="font-size: 0.82rem; color: var(--text-muted);"}
-<span class="me-3"><span class="bi bi-journal-text"></span> Post</span>
-<span class="me-3"><span class="bi bi-file-earmark-text"></span> Paper</span>
-<span class="me-3"><span class="bi bi-github"></span> Code</span>
-<span class="me-3"><span class="bi bi-easel2"></span> Slides</span>
-<span class="me-3"><span class="bi bi-card-image"></span> Poster</span>
-<span class="me-3"><span class="bi bi-youtube"></span> Video</span>
-<span><span class="bi bi-qr-code"></span> QR</span>
-:::
-
----
+Where a project has its own page, it includes an extended write-up with figures and details beyond the published paper.
 
 ## Scientific Machine Learning
 
-```{=html}
-<table class="resource-table">
-  <tbody>
+::: entry
+[Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials](mlip-benchmark/index.qmd){.entry-title}
 
-    <tr>
-      <td class="rt-title">
-        <a class="title-text has-post" href="/projects/mlip-benchmark/">Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</a>
-        <div class="rt-meta">Nourollah, Khalid, Leoni, Schockaert &middot; 2026</div>
-      </td>
-      <td class="rt-links">
-        <a href="https://arxiv.org/abs/2605.08988" title="Paper" target="_blank" rel="noopener noreferrer"><span class="bi bi-file-earmark-text"></span></a>
-        <a href="#" class="qr-trigger" data-qr-url="https://nourollah.me/projects/mlip-benchmark/" title="QR Code" onclick="return false;"><span class="bi bi-qr-code"></span></a>
-      </td>
-    </tr>
+::: authors
+[Amir Masoud Nourollah]{.me}, Irtaza Khalid, Stefano Leoni, Steven Schockaert
+:::
 
-  </tbody>
-</table>
-```
+[NeurIPS 2026]{.venue}
+
+::: pills
+[<i class="bi bi-journal-text"></i>Project page](mlip-benchmark/index.qmd){.pill}
+[<i class="bi bi-file-earmark-text"></i>Paper](https://arxiv.org/abs/2605.08988){.pill}
+<button type="button" class="pill" data-versions='[{"label":"Conference talk","href":"/presentations/mlip-benchmark/conference/"},{"label":"For chemists","href":"/presentations/mlip-benchmark/chemists/"},{"label":"For computer scientists","href":"/presentations/mlip-benchmark/computer-scientists/"}]'><i class="bi bi-easel2"></i>Slides</button>
+<button type="button" class="pill" data-qr="/assets/qr/mlip-benchmark.svg" data-qr-url="https://nourollah.me/projects/mlip-benchmark/"><i class="bi bi-qr-code"></i>QR</button>
+:::
+:::
 
 ## Natural Language Processing
 
-```{=html}
-<table class="resource-table">
-  <tbody>
+::: entry
+[Large Language and Reasoning Models are Shallow Disjunctive Reasoners](https://aclanthology.org/2025.acl-long.433/){.entry-title}
 
-    <tr>
-      <td class="rt-title">
-        <span class="title-text no-post">Large Language and Reasoning Models are Shallow Disjunctive Reasoners</span>
-        <!-- <span class="coming-soon-badge">post coming soon</span> -->
-        <div class="rt-meta">Khalid, Nourollah, Schockaert &middot; ACL 2025</div>
-      </td>
-      <td class="rt-links">
-        <a href="https://aclanthology.org/2025.acl-long.433/" title="Paper" target="_blank" rel="noopener noreferrer"><span class="bi bi-file-earmark-text"></span></a>
-        <a href="#" class="qr-trigger" data-qr-url="https://nourollah.me/projects/llm-disjunctive/" title="QR Code" onclick="return false;"><span class="bi bi-qr-code"></span></a>
-      </td>
-    </tr>
+::: authors
+Irtaza Khalid, [Amir Masoud Nourollah]{.me}, Steven Schockaert
+:::
 
-  </tbody>
-</table>
-```
+[ACL 2025]{.venue}
+
+::: pills
+[<i class="bi bi-file-earmark-text"></i>Paper](https://aclanthology.org/2025.acl-long.433/){.pill}
+:::
+:::
 
 ## Computer Vision & Signal Processing
 
-```{=html}
-<table class="resource-table">
-  <tbody>
+::: entry
+[Quantifying Morphologies of Developing Neuronal Cells Using Deep Learning with Imperfect Annotations](https://www.sciencedirect.com/science/article/pii/S2667242123022959){.entry-title}
 
-    <tr>
-      <td class="rt-title">
-        <span class="title-text no-post">Quantifying Morphologies of Developing Neuronal Cells Using Deep Learning with Imperfect Annotations</span>
-        <!-- <span class="coming-soon-badge">post coming soon</span> -->
-        <div class="rt-meta">Nourollah, Hassanpour, Zehtabian &middot; 2024</div>
-      </td>
-      <td class="rt-links">
-        <a href="https://www.sciencedirect.com/science/article/pii/S2667242123022959" title="Paper" target="_blank" rel="noopener noreferrer"><span class="bi bi-file-earmark-text"></span></a>
-        <a href="#" class="qr-trigger" data-qr-url="https://nourollah.me/projects/neuronal-morphology/" title="QR Code" onclick="return false;"><span class="bi bi-qr-code"></span></a>
-      </td>
-    </tr>
-
-    <tr>
-      <td class="rt-title">
-        <span class="title-text no-post">WhisperNetV2: SlowFast Siamese Network for Lip-Based Biometrics</span>
-        <!-- <span class="coming-soon-badge">post coming soon</span> -->
-        <div class="rt-meta">Zakeri, Hassanpour, Khosravi, Nourollah &middot; arXiv 2024</div>
-      </td>
-      <td class="rt-links">
-        <a href="https://arxiv.org/abs/2407.08717" title="Paper" target="_blank" rel="noopener noreferrer"><span class="bi bi-file-earmark-text"></span></a>
-        <a href="#" class="qr-trigger" data-qr-url="https://nourollah.me/projects/whispernetv2/" title="QR Code" onclick="return false;"><span class="bi bi-qr-code"></span></a>
-      </td>
-    </tr>
-
-  </tbody>
-</table>
-```
-
----
-
-::: {style="font-size: 0.85rem; color: var(--text-muted); margin-top: 1rem;"}
-Posts are extended write-ups with additional figures, animations, and implementation details not included in the published paper.
+::: authors
+[Amir Masoud Nourollah]{.me}, Hamid Hassanpour, Amin Zehtabian
 :::
 
-```{=html}
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  document.querySelectorAll('.qr-trigger').forEach(function (el) {
-    var url = el.dataset.qrUrl;
-    var encoded = encodeURIComponent(url);
-    new bootstrap.Popover(el, {
-      trigger: 'click',
-      html: true,
-      placement: 'left',
-      title: 'Scan to open',
-      content: '<div style="text-align:center;padding:4px"><img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&data=' + encoded + '" alt="QR Code" style="border:6px solid white;display:block;margin:0 auto"><small style="color:#6b7280;font-size:0.75rem;word-break:break-all">' + url + '</small></div>'
-    });
-  });
-  document.addEventListener('click', function (e) {
-    if (!e.target.closest('.qr-trigger') && !e.target.closest('.popover')) {
-      document.querySelectorAll('.qr-trigger').forEach(function (el) {
-        var pop = bootstrap.Popover.getInstance(el);
-        if (pop) pop.hide();
-      });
-    }
-  });
-});
-</script>
-```
+[2024]{.venue}
 
+::: pills
+[<i class="bi bi-file-earmark-text"></i>Paper](https://www.sciencedirect.com/science/article/pii/S2667242123022959){.pill}
+:::
+:::
+
+::: entry
+[WhisperNetV2: SlowFast Siamese Network for Lip-Based Biometrics](https://arxiv.org/abs/2407.08717){.entry-title}
+
+::: authors
+Zakeri, Hassanpour, Khosravi, [Nourollah]{.me}
+:::
+
+[arXiv 2024]{.venue}
+
+::: pills
+[<i class="bi bi-file-earmark-text"></i>Paper](https://arxiv.org/abs/2407.08717){.pill}
+:::
+:::

@@ -4,7 +4,8 @@ description: "Every great innovation took a routine skill off our hands, and eve
 author: "Amir Masoud Nourollah"
 date: "2026-11-06"
 image: "wheel.jpg"
-categories: [ai, philosophy, agents, reinforcement learning, opinion]
+categories: [ai, opinion]
+image-alt: "An old wooden cart wheel engulfed in flames on grass"
 draft: false
 ---
 

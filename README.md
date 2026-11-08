@@ -6,34 +6,50 @@ Personal academic website of [Amir Masoud Nourollah](https://nourollah.me), Buil
 
 ```
 .
-├── _quarto.yml          # Site configuration (theme, navbar, output dir)
-├── index.qmd            # Home page (profile, bio, research summary)
-├── about.qmd            # About page (education, experience, contact)
-├── styles.css           # Custom CSS (colours, layout tweaks, icon fixes)
-├── assets/              # Static assets (profile image, etc.)
-├── blog/
-│   ├── index.qmd        # Blog listing page (auto-populated)
-│   └── posts/
-│       └── hello/
-│           └── index.qmd  # Example post
-├── presentations/
-│   ├── index.qmd        # Presentations listing
-│   └── annual-review-2025/
-│       └── index.qmd    # RevealJS slide deck
-├── projects/
-│   ├── index.qmd        # Projects listing
-│   └── mlip-benchmark/
-│       └── index.qmd    # Project page
-└── docs/                # Generated site output (served by GitHub Pages)
+├── _quarto.yml          # Site config: navbar, footer, theme, social cards
+├── _theme/
+│   ├── light.scss       # Navy & teal palette, light mode (fonts, colours)
+│   ├── dark.scss        # Same palette, dark mode
+│   └── site.html        # Shared JS: QR and slide-version popovers
+├── styles.css           # Layout and components (hero, news, entries, pills, CV rows)
+├── CNAME                # Custom domain; copied into docs/ on every render
+├── index.qmd            # Home: intro, news, selected research, recent writing
+├── about.qmd            # CV-style background, education, teaching, experience
+├── assets/              # Profile photo, favicon, pre-generated QR codes (assets/qr/)
+├── projects/            # "Research" page + per-project write-ups
+├── _extensions/talk/    # Slide template (format: talk-revealjs): theme.scss, footer.html, logo
+├── presentations/       # "Talks" page + decks; presentations/theme/showcase.qmd demos every component
+├── blog/                # "Writing" listing + posts
+└── docs/                # Generated site (served by GitHub Pages) — do not edit
 ```
 
 ## How It Works
 
-Source files are written in [Quarto Markdown](https://quarto.org/docs/authoring/markdown-basics.html) (`.qmd`). Running `quarto render` compiles them into static HTML under `docs/`, which is the directory served by GitHub Pages.
+Source files are [Quarto Markdown](https://quarto.org/docs/authoring/markdown-basics.html) (`.qmd`). `quarto render` compiles them into static HTML under `docs/`, which GitHub Pages serves.
 
-The site uses the built-in Quarto `cosmo` Bootstrap theme, extended with a custom `styles.css`. Icons come from [Bootstrap Icons](https://icons.getbootstrap.com/) (bundled by Quarto). Icons not included in Bootstrap Icons (ORCID, ResearchGate) are rendered via SVG `mask-image` in `styles.css` so they inherit the site's colour scheme.
+The theme is Bootstrap `cosmo` overridden by `_theme/light.scss` and `_theme/dark.scss` (visitors get a light/dark toggle). Colours used in `styles.css` come from `--c-*` CSS variables defined in those two files, so change the palette there only.
 
-Presentation slides use the Quarto RevealJS format.
+### Adding a research entry or talk
+
+Copy an existing `::: entry` block in `projects/index.qmd` or `presentations/index.qmd`. Action buttons are `{.pill}` links. For a QR button, generate a static SVG into `assets/qr/` (any QR tool) and add:
+
+```html
+<button type="button" class="pill" data-qr="/assets/qr/NAME.svg" data-qr-url="https://nourollah.me/..."><i class="bi bi-qr-code"></i>QR</button>
+```
+
+Only add QR codes for pages that exist.
+
+### Making a new slide deck
+
+Every deck uses the shared template. Front matter needs only:
+
+```yaml
+format:
+  talk-revealjs:
+    footer: "Short title for the footer"
+```
+
+See `presentations/theme/showcase.qmd` for every component (dividers, cards, `.key`, `.warn`, `.big-number`, `.columns .dense`, tables, closing slide). The website and slides share one palette: navy `#0B1F3A` for structure, teal `#0E6B6B` as the accent, amber `#B26B12` (slides only) for new or failing results. Add a line to **News** on the home page when something notable happens.
 
 ## Requirements
 
@@ -102,7 +118,9 @@ title: "Your Post Title"
 description: "A one-sentence summary shown in the listing."
 author: "Amir Masoud Nourollah"
 date: "2026-05-12"
-categories: [research, tools]   # optional — any labels you like
+categories: [research]          # keep to 1–3 broad labels
+image: "cover.jpg"               # optional thumbnail (keep under ~200 KB)
+image-alt: "Describe the image"
 draft: false                     # set to true to hide from listing
 ---
 

@@ -73,16 +73,21 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
+<link href="../../assets/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-cad2a2f8a56dfe71ee895a68e79c9b9a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-70be5ccd51f03de5ce195d75fadf0882.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-cad2a2f8a56dfe71ee895a68e79c9b9a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-cdd13912a56c529c216a958367180166.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-309b62c255de2f4944c2d6ae2d3b5544.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-c9df0fee04f31e5129f0b9c5cf3b9861.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-309b62c255de2f4944c2d6ae2d3b5544.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -114,9 +119,189 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials – Amir Masoud Nourollah">
+<meta property="og:description" content="NeurIPS 2026">
+<meta property="og:image" content="https://nourollah.me/projects/mlip-benchmark/assets/profile.jpg">
+<meta property="og:site_name" content="Amir Masoud Nourollah">
+<meta name="twitter:title" content="Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials – Amir Masoud Nourollah">
+<meta name="twitter:description" content="NeurIPS 2026">
+<meta name="twitter:image" content="https://nourollah.me/projects/mlip-benchmark/assets/profile.jpg">
+<meta name="twitter:creator" content="@amirmasoudnrl">
+<meta name="twitter:card" content="summary_large_image">
 </head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -132,45 +317,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"> <i class="bi bi-house" role="img" aria-label="Home">
-</i> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../../projects/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"> <i class="bi bi-person" role="img" aria-label="About">
-</i> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../projects/index.html"> <i class="bi bi-folder" role="img" aria-label="Projects">
-</i> 
-<span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../../presentations/index.html"> <i class="bi bi-display" role="img" aria-label="Presentations">
-</i> 
-<span class="menu-text">Presentations</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ"> <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
-</i> 
+    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog/index.html"> <i class="bi bi-pencil-square" role="img" aria-label="Blog">
-</i> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../../presentations/index.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="mailto:nourollah.am@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Contact">
-</i> 
-<span class="menu-text">Contact</span></a>
+    <a class="nav-link" href="../../blog/index.html"> 
+<span class="menu-text">Writing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -201,9 +374,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</h1>
+<p class="subtitle lead">NeurIPS 2026</p>
   <div class="quarto-categories">
     <div class="quarto-category">Scientific ML</div>
     <div class="quarto-category">Molecular Modelling</div>
@@ -240,70 +415,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<div class="callout callout-style-simple callout-note no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<p><strong>Paper:</strong> <a href="https://arxiv.org/abs/2605.08988">arxiv.org/abs/2605.08988</a></p>
-</div>
-</div>
+<div class="pills">
+<p><a href="https://arxiv.org/abs/2605.08988" class="pill"><i class="bi bi-file-earmark-text"></i>Paper (arXiv)</a> <a href="../../presentations/mlip-benchmark/conference/" class="pill"><i class="bi bi-easel2"></i>Conference talk</a> <a href="../../presentations/mlip-benchmark/chemists/" class="pill"><i class="bi bi-easel2"></i>Talk for chemists</a> <a href="../../presentations/mlip-benchmark/computer-scientists/" class="pill"><i class="bi bi-easel2"></i>Talk for computer scientists</a> <a href="#bibtex" class="pill"><i class="bi bi-quote"></i>BibTeX</a></p>
 </div>
 <section id="abstract" class="level2">
 <h2 class="anchored" data-anchor-id="abstract">Abstract</h2>
-<p>Machine learning models that predict how atoms in a molecule push and pull on each other - so-called Machine Learning Interatomic Potentials, or MLIPs - have become a popular, much cheaper stand-in for expensive quantum-chemistry calculations. They are used to simulate molecules in motion, which underpins everything from drug design to the discovery of new materials. But there’s a nagging question that doesn’t get asked often enough: when one of these models is shown a molecule it has never seen before, does it actually understand the underlying chemistry, or is it just pattern-matching to whatever it happened to be trained on?</p>
-<p>In this paper we introduce <strong>GMD</strong> (Generalisation for Molecular Dynamics), a benchmark built specifically to answer that question. GMD consists of six related tests, each of which trains a model on one set of molecules and then evaluates it on a carefully chosen set of <em>new</em> molecules - new in a very specific, controlled way. We ran a wide range of today’s most popular model architectures through these tests, including large “foundation models” pre-trained on millions of molecules. The headline result: on most of these tests, even the best models are off by one to three orders of magnitude compared to their performance on familiar molecules. Pre-training on huge datasets doesn’t fix this. And, perhaps most importantly for practitioners, a model’s performance on “normal” test data tells you almost nothing about how it will behave on genuinely new molecules.</p>
+<p>Machine learning models that predict how atoms in a molecule push and pull on each other — so-called Machine Learning Interatomic Potentials, or MLIPs — have become a popular, much cheaper stand-in for expensive quantum-chemistry calculations. They are used to simulate molecules in motion, which underpins everything from drug design to the discovery of new materials. But there’s a nagging question that doesn’t get asked often enough: when one of these models is shown a molecule it has never seen before, does it actually understand the underlying chemistry, or is it just pattern-matching to whatever it happened to be trained on?</p>
+<p>In this paper we introduce <strong>GMD</strong> (Generalisation for Molecular Dynamics), a benchmark built specifically to answer that question. GMD consists of six related tests, each of which trains a model on one set of molecules and then evaluates it on a carefully chosen set of <em>new</em> molecules — new in a very specific, controlled way. We ran a wide range of today’s most popular model architectures through these tests, including large “foundation models” pre-trained on millions of molecules. The headline result: on most of these tests, even the best models are off by one to three orders of magnitude compared to their performance on familiar molecules. Pre-training on huge datasets doesn’t fix this. And, perhaps most importantly for practitioners, a model’s performance on “normal” test data tells you almost nothing about how it will behave on genuinely new molecules.</p>
 </section>
 <section id="motivation" class="level2">
 <h2 class="anchored" data-anchor-id="motivation">Motivation</h2>
-<p>If you want to know how a molecule will behave - how it vibrates, how it reacts, how it folds - the gold-standard approach is to solve the equations of quantum mechanics for it directly. This is accurate, but punishingly slow: a single snapshot of a modestly sized molecule can take a powerful computer a long time to process, and a useful simulation needs thousands or millions of such snapshots.</p>
-<p>This is the gap that MLIPs are meant to close. Instead of solving the quantum mechanical equations every time, a neural network is trained to <em>predict</em> the result - the energy of the molecule and the forces acting on each atom - directly from its 3D structure. Once trained, the network can do in milliseconds what the original calculation took hours to do. This speed-up is what makes large-scale molecular dynamics simulations practical at all.</p>
-<p>The catch is that any practical use of these models - say, screening thousands of candidate drug molecules, or exploring new battery materials - inevitably involves molecules the model has never encountered during training. The space of possible molecules is, for all practical purposes, infinite. So the question of whether these models can reliably extrapolate beyond their training data isn’t a side issue; it’s central to whether they’re trustworthy tools at all. Recently, “foundation models” trained on millions of molecules have been put forward as a solution to this problem - the idea being that with enough scale and chemical diversity, a model will simply have “seen everything”. GMD was designed to test that assumption directly.</p>
+<p>If you want to know how a molecule will behave — how it vibrates, how it reacts, how it folds — the gold-standard approach is to solve the equations of quantum mechanics for it directly. This is accurate, but punishingly slow: a single snapshot of a modestly sized molecule can take a powerful computer a long time to process, and a useful simulation needs thousands or millions of such snapshots.</p>
+<p>This is the gap that MLIPs are meant to close. Instead of solving the quantum mechanical equations every time, a neural network is trained to <em>predict</em> the result — the energy of the molecule and the forces acting on each atom — directly from its 3D structure. Once trained, the network can do in milliseconds what the original calculation took hours to do. This speed-up is what makes large-scale molecular dynamics simulations practical at all.</p>
+<p>The catch is that any practical use of these models — say, screening thousands of candidate drug molecules, or exploring new battery materials — inevitably involves molecules the model has never encountered during training. The space of possible molecules is, for all practical purposes, infinite. So the question of whether these models can reliably extrapolate beyond their training data isn’t a side issue; it’s central to whether they’re trustworthy tools at all. Recently, “foundation models” trained on millions of molecules have been put forward as a solution to this problem — the idea being that with enough scale and chemical diversity, a model will simply have “seen everything”. GMD was designed to test that assumption directly.</p>
 </section>
 <section id="background" class="level2">
 <h2 class="anchored" data-anchor-id="background">Background</h2>
 <section id="machine-learning-interatomic-potentials" class="level3">
 <h3 class="anchored" data-anchor-id="machine-learning-interatomic-potentials">Machine Learning Interatomic Potentials</h3>
-<p>Every atom in a molecule experiences forces from its neighbours, and the molecule as a whole has a total energy associated with its current shape. These two quantities - energy and per-atom forces - are what you need to simulate how a molecule moves over time. Calculating them precisely requires quantum chemistry methods such as Density Functional Theory (DFT), which are accurate but computationally expensive.</p>
-<p>An MLIP is a neural network trained to take a molecule’s 3D structure as input and output its energy and forces, having learned to mimic the much slower quantum chemistry calculation. Modern MLIPs are built with “physics-aware” architectures - they’re designed so that, for example, rotating or translating a molecule in space doesn’t change the predicted energy, which mirrors a real physical symmetry. The hope is that baking in this kind of structure helps the model learn genuine chemical principles rather than superficial statistical patterns. Whether that hope is justified is exactly what this paper investigates.</p>
+<p>Every atom in a molecule experiences forces from its neighbours, and the molecule as a whole has a total energy associated with its current shape. These two quantities — energy and per-atom forces — are what you need to simulate how a molecule moves over time. Calculating them precisely requires quantum chemistry methods such as Density Functional Theory (DFT), which are accurate but computationally expensive.</p>
+<p>An MLIP is a neural network trained to take a molecule’s 3D structure as input and output its energy and forces, having learned to mimic the much slower quantum chemistry calculation. Modern MLIPs are built with “physics-aware” architectures — they’re designed so that, for example, rotating or translating a molecule in space doesn’t change the predicted energy, which mirrors a real physical symmetry. The hope is that baking in this kind of structure helps the model learn genuine chemical principles rather than superficial statistical patterns. Whether that hope is justified is exactly what this paper investigates.</p>
 </section>
 <section id="compositional-generalisation" class="level3">
 <h3 class="anchored" data-anchor-id="compositional-generalisation">Compositional Generalisation</h3>
-<p>Here’s a simple way to think about the problem. Imagine a model trained to recognise the handwritten digits 0 through 8. Now show it a 9. It has never seen this shape before, so at best it can only flag the input as “something unfamiliar” - it has no real basis for saying “this is nine”. Now imagine showing it “10”. A human immediately reads this as <em>ten</em> - a digit it already knows (1) combined with another digit it already knows (0), arranged in a new way. Recognising “10” as “ten” rather than as two unrelated symbols requires <em>composing</em> what was learned about individual digits into something new. This ability - to take familiar pieces and recombine them in ways never seen before - is called <strong>compositional generalisation</strong>, and it’s a long-standing open question in machine learning generally, well beyond chemistry.</p>
-<p>Molecules give us a particularly clean way to study this. Take pentanoic acid: a five-carbon chain with one carboxyl group (–COOH) attached at one end. A model trained on molecules like this has learned about “carbon chains” and about “carboxyl groups” - separately. Now consider pentanedioic acid: the same five-carbon chain, but with a carboxyl group at <em>both</em> ends. Nothing about this molecule is individually new - the chain is familiar, and the carboxyl group is familiar - but the <em>combination</em>, two of the same group on one backbone, has never been seen. If a model has genuinely learned what a carboxyl group “is” and how it behaves, it should handle this combination without difficulty. If, instead, it has only learned to recognise the <em>whole</em> molecules it was shown during training, it may fail badly. GMD is built around exactly this kind of test, applied systematically across many different molecules and types of recombination.</p>
+<p>Here’s a simple way to think about the problem. Imagine a model trained to recognise the handwritten digits 0 through 8. Now show it a 9. It has never seen this shape before, so at best it can only flag the input as “something unfamiliar” — it has no real basis for saying “this is nine”. Now imagine showing it “10”. A human immediately reads this as <em>ten</em> — a digit it already knows (1) combined with another digit it already knows (0), arranged in a new way. Recognising “10” as “ten” rather than as two unrelated symbols requires <em>composing</em> what was learned about individual digits into something new. This ability — to take familiar pieces and recombine them in ways never seen before — is called <strong>compositional generalisation</strong>, and it’s a long-standing open question in machine learning generally, well beyond chemistry.</p>
+<p>Molecules give us a particularly clean way to study this. Take pentanoic acid: a five-carbon chain with one carboxyl group (–COOH) attached at one end. A model trained on molecules like this has learned about “carbon chains” and about “carboxyl groups” — separately. Now consider pentanedioic acid: the same five-carbon chain, but with a carboxyl group at <em>both</em> ends. Nothing about this molecule is individually new — the chain is familiar, and the carboxyl group is familiar — but the <em>combination</em>, two of the same group on one backbone, has never been seen. If a model has genuinely learned what a carboxyl group “is” and how it behaves, it should handle this combination without difficulty. If, instead, it has only learned to recognise the <em>whole</em> molecules it was shown during training, it may fail badly. GMD is built around exactly this kind of test, applied systematically across many different molecules and types of recombination.</p>
 </section>
 </section>
 <section id="method" class="level2">
 <h2 class="anchored" data-anchor-id="method">Method</h2>
-<p>GMD is built from simple “Lego brick” molecules: straight chains of carbon atoms (think of these as the base structure) with one or more chemical “attachments” - functional groups such as –OH (an alcohol), –CHO (an aldehyde), –COOH (a carboxylic acid), or –NH₂ (an amine) - bolted on. By controlling exactly which combinations of chain lengths and functional groups appear during training versus testing, we can design tests that isolate one specific type of “new combination” at a time.</p>
-<p>Each of the six tasks below probes a different kind of compositional shift. The first four are the core tasks of the benchmark; the last two come from additional experiments, and are just as important for understanding the full picture - they tell us not just <em>whether</em> models fail, but <em>why</em>, and what (if anything) would fix it.</p>
+<p>GMD is built from simple “Lego brick” molecules: straight chains of carbon atoms (think of these as the base structure) with one or more chemical “attachments” — functional groups such as –OH (an alcohol), –CHO (an aldehyde), –COOH (a carboxylic acid), or –NH₂ (an amine) — bolted on. By controlling exactly which combinations of chain lengths and functional groups appear during training versus testing, we can design tests that isolate one specific type of “new combination” at a time.</p>
+<p>Each of the six tasks below probes a different kind of compositional shift. The first four are the core tasks of the benchmark; the last two come from additional experiments, and are just as important for understanding the full picture — they tell us not just <em>whether</em> models fail, but <em>why</em>, and what (if anything) would fix it.</p>
 <ol type="1">
-<li><p><strong>Fragment Chain Extension.</strong> Models are trained on small alkanes - straight chains from ethane (2 carbons) up to hexane (6 carbons) - and then tested on much longer chains, from heptane (7 carbons) up to tridecane (13 carbons). The question here is simple: having learned how a short chain behaves, can the model extrapolate to a longer one of the same basic type?</p></li>
-<li><p><strong>Fragment Fusion.</strong> Models are trained on alcohols and aldehydes (plus some more complex molecules containing both kinds of group), and then tested on carboxylic acids. Chemically, a carboxylic acid group can be thought of as a fusion of an alcohol-like piece and an aldehyde-like piece into one composite group. The model is never shown a carboxylic acid during training - can it infer what this new composite group should look like, having separately learned about its two “ingredients”?</p></li>
-<li><p><strong>Fragment Duplication.</strong> Models are trained on molecules containing <em>one</em> carboxylic acid group (monocarboxylic acids), and tested on the corresponding molecules with <em>two</em> such groups, one at each end of the same chain (dicarboxylic acids - like the pentanoic acid / pentanedioic acid example above). This tests whether a model can cope with a familiar motif simply appearing more than once.</p></li>
-<li><p><strong>Fragment Combination.</strong> Models are trained on two families of <em>symmetric</em> molecules: ones with two amine groups (diamines), and ones with two carboxylic acid groups (dicarboxylic acids). They’re then tested on <em>asymmetric</em> molecules of the same chain length that have one amine group and one carboxylic acid group (essentially, amino acids). The model has seen both types of group before, just never mixed together on the same backbone - can it learn that these are distinct, swappable “parts” rather than glued-together wholes?</p></li>
-<li><p><strong>Fragment Fission.</strong> This is the mirror image of Fragment Fusion. Here, we take the models from the Fragment Duplication task - trained only on carboxylic acids - and, without any further training, ask them to predict energies and forces for the corresponding plain alcohols and aldehydes (the “ingredients” that, in principle, combine to form a carboxylic acid). If a model has truly learned the carboxyl group as a <em>combination</em> of an alcohol-like piece and a carbonyl-like piece, it should be able to reason in this direction too. If it treats the carboxyl group as one indivisible unit, it will fail here just as it fails at Fusion - and, as we’ll see, that’s exactly what happens.</p></li>
-<li><p><strong>The “extra hints” experiments.</strong>. For two of the tasks - Chain Extension and Fusion - we ran a follow-up experiment where the training set was deliberately enriched to remove one possible excuse for failure. For Chain Extension, models were given training molecules that cover <em>all</em> the chain lengths used in testing, just attached to a different functional group than the one being tested. For Fusion, models were additionally trained on amides - a functional group that is itself a “fusion” of two simpler groups, giving the model a worked example of how such a combination can be built. The point of these experiments is to separate two very different explanations for failure: is it simply that the model never saw examples covering that range (a coverage problem, fixable with more data), or is it that the model never learned the underlying <em>rule</em> for combining pieces (a much deeper problem)?</p></li>
+<li><p><strong>Fragment Chain Extension.</strong> Models are trained on small alkanes — straight chains from ethane (2 carbons) up to hexane (6 carbons) — and then tested on much longer chains, from heptane (7 carbons) up to tridecane (13 carbons). The question here is simple: having learned how a short chain behaves, can the model extrapolate to a longer one of the same basic type?</p></li>
+<li><p><strong>Fragment Fusion.</strong> Models are trained on alcohols and aldehydes (plus some more complex molecules containing both kinds of group), and then tested on carboxylic acids. Chemically, a carboxylic acid group can be thought of as a fusion of an alcohol-like piece and an aldehyde-like piece into one composite group. The model is never shown a carboxylic acid during training — can it infer what this new composite group should look like, having separately learned about its two “ingredients”?</p></li>
+<li><p><strong>Fragment Duplication.</strong> Models are trained on molecules containing <em>one</em> carboxylic acid group (monocarboxylic acids), and tested on the corresponding molecules with <em>two</em> such groups, one at each end of the same chain (dicarboxylic acids — like the pentanoic acid / pentanedioic acid example above). This tests whether a model can cope with a familiar motif simply appearing more than once.</p></li>
+<li><p><strong>Fragment Combination.</strong> Models are trained on two families of <em>symmetric</em> molecules: ones with two amine groups (diamines), and ones with two carboxylic acid groups (dicarboxylic acids). They’re then tested on <em>asymmetric</em> molecules of the same chain length that have one amine group and one carboxylic acid group (essentially, amino acids). The model has seen both types of group before, just never mixed together on the same backbone — can it learn that these are distinct, swappable “parts” rather than glued-together wholes?</p></li>
+<li><p><strong>Fragment Fission.</strong> This is the mirror image of Fragment Fusion. Here, we take the models from the Fragment Duplication task — trained only on carboxylic acids — and, without any further training, ask them to predict energies and forces for the corresponding plain alcohols and aldehydes (the “ingredients” that, in principle, combine to form a carboxylic acid). If a model has truly learned the carboxyl group as a <em>combination</em> of an alcohol-like piece and a carbonyl-like piece, it should be able to reason in this direction too. If it treats the carboxyl group as one indivisible unit, it will fail here just as it fails at Fusion — and, as we’ll see, that’s exactly what happens.</p></li>
+<li><p><strong>The “extra hints” experiments.</strong>. For two of the tasks — Chain Extension and Fusion — we ran a follow-up experiment where the training set was deliberately enriched to remove one possible excuse for failure. For Chain Extension, models were given training molecules that cover <em>all</em> the chain lengths used in testing, just attached to a different functional group than the one being tested. For Fusion, models were additionally trained on amides — a functional group that is itself a “fusion” of two simpler groups, giving the model a worked example of how such a combination can be built. The point of these experiments is to separate two very different explanations for failure: is it simply that the model never saw examples covering that range (a coverage problem, fixable with more data), or is it that the model never learned the underlying <em>rule</em> for combining pieces (a much deeper problem)?</p></li>
 </ol>
-<p>To build the dataset itself, each molecule was first given a starting 3D shape, then simulated in motion for a long stretch of (simulated) time to generate a wide range of realistic configurations - not just the molecule sitting still at its lowest-energy shape, but wobbling and stretching as real molecules do. Roughly 2,000 snapshots were taken per molecule, and each one was then run through a DFT calculation to get its “correct” energy and forces - the answer key the ML models are trained and tested against. In total, GMD contains 118 molecules and around 296,000 labelled snapshots, and the whole dataset and the toolkit used to generate it have been released openly.</p>
+<p>To build the dataset itself, each molecule was first given a starting 3D shape, then simulated in motion for a long stretch of (simulated) time to generate a wide range of realistic configurations — not just the molecule sitting still at its lowest-energy shape, but wobbling and stretching as real molecules do. Roughly 2,000 snapshots were taken per molecule, and each one was then run through a DFT calculation to get its “correct” energy and forces — the answer key the ML models are trained and tested against. In total, GMD contains 118 molecules and around 296,000 labelled snapshots, and the whole dataset and the toolkit used to generate it have been released openly.</p>
 </section>
 <section id="results" class="level2">
 <h2 class="anchored" data-anchor-id="results">Results</h2>
-<p>We tested a broad range of model architectures spanning roughly a decade of MLIP development - from older, simpler designs through to today’s most advanced “equivariant” models such as MACE and EquiFormerV2 - alongside two prominent <strong>foundation models</strong>, MACE-MP-0 and UMA, which were pre-trained on enormous, chemically diverse datasets before being fine-tuned specifically for each GMD task.</p>
-<p>The clearest result is also the simplest to state: <strong>Fragment Chain Extension is comparatively easy, and the other three core tasks are not.</strong> On Chain Extension, most models extrapolate to longer chains reasonably well, particularly for predicting forces. But on Fragment Fusion, Fragment Duplication, and (to a lesser extent) Fragment Combination, errors on the new molecules are often one to three orders of magnitude larger than on familiar ones. For energy predictions on Fragment Duplication, for instance, some models are roughly a thousand times worse on the new (dicarboxylic acid) molecules than on the ones they were trained on. Fragment Combination shows the smallest gap of the three “hard” tasks - and notably, the UMA foundation model performs almost identically on new and familiar molecules here, even though it doesn’t on the others.</p>
+<p>We tested a broad range of model architectures spanning roughly a decade of MLIP development — from older, simpler designs through to today’s most advanced “equivariant” models such as MACE and EquiFormerV2 — alongside two prominent <strong>foundation models</strong>, MACE-MP-0 and UMA, which were pre-trained on enormous, chemically diverse datasets before being fine-tuned specifically for each GMD task.</p>
+<p>The clearest result is also the simplest to state: <strong>Fragment Chain Extension is comparatively easy, and the other three core tasks are not.</strong> On Chain Extension, most models extrapolate to longer chains reasonably well, particularly for predicting forces. But on Fragment Fusion, Fragment Duplication, and (to a lesser extent) Fragment Combination, errors on the new molecules are often one to three orders of magnitude larger than on familiar ones. For energy predictions on Fragment Duplication, for instance, some models are roughly a thousand times worse on the new (dicarboxylic acid) molecules than on the ones they were trained on. Fragment Combination shows the smallest gap of the three “hard” tasks — and notably, the UMA foundation model performs almost identically on new and familiar molecules here, even though it doesn’t on the others.</p>
 <p><strong>Pre-training on millions of molecules doesn’t fix this.</strong> We fine-tuned the foundation models (MACE-MP-0 at three different sizes, and UMA) as thoroughly as was practical, and compared them against a much smaller MACE model trained from scratch on each task alone. The from-scratch model was consistently among the best performers, and often <em>better</em> than the heavily pre-trained foundation models on the tasks that most directly probe compositional generalisation. Pre-training seems to broaden the range of molecules a model can comfortably interpolate between, but it doesn’t appear to teach the model the underlying <em>rules</em> for how chemical pieces combine.</p>
-<p><strong>Looking more closely at where the errors come from is revealing.</strong> A force prediction can be wrong in two ways: it can point in the wrong direction, or it can have the wrong strength. Across the board, the <em>direction</em> of predicted forces tends to stay fairly accurate even on new molecules - it’s the <em>strength</em> that goes badly wrong. Moreover, these errors aren’t spread evenly across the molecule. They concentrate specifically on the atoms involved in whatever is new about the test molecule - for example, the oxygen atoms in a newly-formed carboxyl group. Atoms whose local surroundings look like something the model has seen before continue to be predicted well, even within an otherwise “unseen” molecule.</p>
-<p><strong>The Fragment Fission results complete the picture, and they’re not encouraging.</strong> If a model had genuinely learned the carboxyl group as “an alcohol-like piece plus a carbonyl-like piece”, it should be able to run that logic in reverse - given a model trained only on carboxylic acids, it should still make reasonable predictions for plain alcohols and aldehydes. Instead, Fission fails just as badly as Fusion, and for the same reasons. The carboxyl group appears to be stored by these models as one indivisible chemical “token”, not as a combination of recognisable, reusable parts - and that holds true whether you’re asking the model to build the composite group from its parts, or to take it apart again.</p>
-<p><strong>Finally, the “extra hints” experiments help separate two very different kinds of failure.</strong> For Chain Extension, simply giving models training examples that cover the full range of chain lengths - even on a different functional group entirely - was enough to almost completely close the original gap (one older architecture being the sole exception). This tells us that the original Chain Extension failures, where they occurred, were mostly a <em>coverage</em> problem: the model just hadn’t seen chains that long before, regardless of what was attached to them. For Fragment Fusion, however, even giving models an explicit worked example of how two simple groups combine into a more complex one (training on amides, themselves a fusion of an amine and a carbonyl group) did essentially nothing to help the model handle the analogous carboxylic-acid case. This is a much harder problem: it’s not that the model lacks examples, it’s that it doesn’t seem to extract a reusable, abstract “combination rule” from the examples it does see - and more data of the same kind doesn’t fix that.</p>
+<p><strong>Looking more closely at where the errors come from is revealing.</strong> A force prediction can be wrong in two ways: it can point in the wrong direction, or it can have the wrong strength. Across the board, the <em>direction</em> of predicted forces tends to stay fairly accurate even on new molecules — it’s the <em>strength</em> that goes badly wrong. Moreover, these errors aren’t spread evenly across the molecule. They concentrate specifically on the atoms involved in whatever is new about the test molecule — for example, the oxygen atoms in a newly-formed carboxyl group. Atoms whose local surroundings look like something the model has seen before continue to be predicted well, even within an otherwise “unseen” molecule.</p>
+<p><strong>The Fragment Fission results complete the picture, and they’re not encouraging.</strong> If a model had genuinely learned the carboxyl group as “an alcohol-like piece plus a carbonyl-like piece”, it should be able to run that logic in reverse — given a model trained only on carboxylic acids, it should still make reasonable predictions for plain alcohols and aldehydes. Instead, Fission fails just as badly as Fusion, and for the same reasons. The carboxyl group appears to be stored by these models as one indivisible chemical “token”, not as a combination of recognisable, reusable parts — and that holds true whether you’re asking the model to build the composite group from its parts, or to take it apart again.</p>
+<p><strong>Finally, the “extra hints” experiments help separate two very different kinds of failure.</strong> For Chain Extension, simply giving models training examples that cover the full range of chain lengths — even on a different functional group entirely — was enough to almost completely close the original gap (one older architecture being the sole exception). This tells us that the original Chain Extension failures, where they occurred, were mostly a <em>coverage</em> problem: the model just hadn’t seen chains that long before, regardless of what was attached to them. For Fragment Fusion, however, even giving models an explicit worked example of how two simple groups combine into a more complex one (training on amides, themselves a fusion of an amine and a carbonyl group) did essentially nothing to help the model handle the analogous carboxylic-acid case. This is a much harder problem: it’s not that the model lacks examples, it’s that it doesn’t seem to extract a reusable, abstract “combination rule” from the examples it does see — and more data of the same kind doesn’t fix that.</p>
 </section>
 <section id="key-takeaways" class="level2">
 <h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
 <ul>
-<li><strong>Today’s MLIPs - including the most advanced architectures and the largest foundation models - do not reliably learn the compositional structure of chemistry.</strong> They can fail by one to three orders of magnitude on molecules that simply recombine pieces they’ve individually seen before.</li>
-<li><strong>Bigger pre-training data doesn’t automatically mean better generalisation.</strong> Foundation models pre-trained on millions of molecules were not consistently better than a small model trained from scratch on the specific task - sometimes the opposite.</li>
-<li><strong>A model’s accuracy on familiar, “in-distribution” molecules is not a reliable guide to how it will perform on genuinely new ones.</strong> The model that looks best on your usual validation set may not be the one that generalises - which has real implications for how these models are chosen and deployed in practice.</li>
-<li><strong>Not all failures are the same.</strong> Some generalisation gaps come down to simply not having seen enough examples (and can be fixed with the right kind of additional data), while others reflect a deeper failure to learn an abstract, reusable rule - and throwing more data at the problem doesn’t help with the latter.</li>
+<li><strong>Today’s MLIPs — including the most advanced architectures and the largest foundation models — do not reliably learn the compositional structure of chemistry.</strong> They can fail by one to three orders of magnitude on molecules that simply recombine pieces they’ve individually seen before.</li>
+<li><strong>Bigger pre-training data doesn’t automatically mean better generalisation.</strong> Foundation models pre-trained on millions of molecules were not consistently better than a small model trained from scratch on the specific task — sometimes the opposite.</li>
+<li><strong>A model’s accuracy on familiar, “in-distribution” molecules is not a reliable guide to how it will perform on genuinely new ones.</strong> The model that looks best on your usual validation set may not be the one that generalises — which has real implications for how these models are chosen and deployed in practice.</li>
+<li><strong>Not all failures are the same.</strong> Some generalisation gaps come down to simply not having seen enough examples (and can be fixed with the right kind of additional data), while others reflect a deeper failure to learn an abstract, reusable rule — and throwing more data at the problem doesn’t help with the latter.</li>
 <li><strong>GMD provides a controlled, extensible testbed</strong> for studying this gap directly, along with an open-source toolkit for generating new tasks in the same style, in the hope of encouraging the development of models that generalise for the right reasons.</li>
 </ul>
 </section>
@@ -322,9 +490,59 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+</main> <!-- /main -->
+<script>
+// Shared popovers for research/talk entries.
+//   <button class="pill" data-qr="/assets/qr/x.svg" data-qr-url="https://...">QR</button>
+//   <button class="pill" data-versions='[{"label":"...","href":"..."}]'>Slides</button>
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof bootstrap === 'undefined') return;
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+  var triggers = [];
+
+  document.querySelectorAll('[data-qr]').forEach(function (el) {
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Scan to open',
+      content: '<div class="qr-pop"><img src="' + esc(el.dataset.qr) + '" width="168" height="168" alt="QR code for ' + esc(el.dataset.qrUrl) + '"><small>' + esc(el.dataset.qrUrl) + '</small></div>'
+    }));
+  });
+
+  document.querySelectorAll('[data-versions]').forEach(function (el) {
+    var items = JSON.parse(el.dataset.versions).map(function (v) {
+      return '<li><a href="' + esc(v.href) + '">' + esc(v.label) + '</a></li>';
+    }).join('');
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Choose a version',
+      content: '<ul class="versions-pop">' + items + '</ul>'
+    }));
+  });
+
+  // Close any open popover on outside click or Escape.
+  var closeAll = function (except) { triggers.forEach(function (p) { if (p !== except) p.hide(); }); };
+  triggers.forEach(function (p) {
+    p._element.addEventListener('show.bs.popover', function () { closeAll(p); });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('[data-qr], [data-versions], .popover')) closeAll();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -729,6 +947,50 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Amir Masoud Nourollah · Cardiff University</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:am@nourollah.me">
+      <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Nourollah">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ">
+      <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/amnrl">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../blog/index.xml">
+      <i class="bi bi-rss" role="img" aria-label="RSS feed">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 

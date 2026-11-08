@@ -1,69 +1,75 @@
 project:
   type: website
   output-dir: docs
+  # CNAME must be copied into docs/ on every render, otherwise the custom domain breaks
+  resources:
+    - CNAME
+    - assets/qr/
 
 website:
   title: "Amir Masoud Nourollah"
   site-url: "https://nourollah.me"
-  description: "PhD Student · Scientific Machine Learning · Cardiff University"
-
-  back-to-top-navigation: true
+  description: "PhD student in scientific machine learning at Cardiff University."
+  favicon: assets/favicon.svg
+  image: assets/profile.jpg
+  open-graph: true
+  twitter-card:
+    creator: "@amirmasoudnrl"
+  back-to-top-navigation: false
+  page-navigation: false
 
   navbar:
-    background: "#8b1538"
-    collapse: true
+    title: "Amir Masoud Nourollah"
+    collapse-below: lg
+    left: []
     right:
-      - href: index.qmd
-        text: Home
-        icon: house
-        aria-label: Home
+      - href: projects/index.qmd
+        text: Research
+      - text: Publications
+        href: https://scholar.google.com/citations?user=jnindL8AAAAJ
+      - href: presentations/index.qmd
+        text: Talks
+      - href: blog/index.qmd
+        text: Writing
       - href: about.qmd
         text: About
-        icon: person
-        aria-label: About
-      - href: projects/index.qmd
-        text: Projects
-        icon: folder
-        aria-label: Projects
-      - href: presentations/index.qmd
-        text: Presentations
-        icon: display
-        aria-label: Presentations
+
+  page-footer:
+    left: "© 2026 Amir Masoud Nourollah · Cardiff University"
+    right:
+      - icon: envelope
+        href: mailto:am@nourollah.me
+        aria-label: Email
+      - icon: github
+        href: https://github.com/Nourollah
+        aria-label: GitHub
       - icon: mortarboard
-        text: Publications
         href: https://scholar.google.com/citations?user=jnindL8AAAAJ
         aria-label: Google Scholar
-      - href: blog/index.qmd
-        text: Blog
-        icon: pencil-square
-        aria-label: Blog
-      - href: mailto:nourollah.am@gmail.com
-        text: Contact
-        icon: envelope
-        aria-label: Contact
-      # - icon: github
-      #   href: https://github.com/Nourollah
-      #   aria-label: GitHub
-      # - icon: linkedin
-      #   href: https://www.linkedin.com/in/amnrl
-      #   aria-label: LinkedIn
-      # - icon: twitter-x
-      #   href: https://twitter.com/amirmasoudnrl
-      #   aria-label: X (Twitter)
+      - icon: linkedin
+        href: https://www.linkedin.com/in/amnrl
+        aria-label: LinkedIn
+      - icon: rss
+        href: blog/index.xml
+        aria-label: RSS feed
 
 format:
   html:
     theme:
-      light: cosmo
-      # dark: slate
+      light: [cosmo, _theme/light.scss]
+      dark: [cosmo, _theme/dark.scss]
+    respect-user-color-scheme: true
     css: styles.css
+    include-after-body: _theme/site.html
     lang: en-GB
     toc: true
     toc-location: right
+    toc-title: "On this page"
     smooth-scroll: true
     code-copy: true
     link-external-newwindow: true
-    highlight-style: ayu
+    link-external-icon: false
+    highlight-style: a11y
 
 execute:
   freeze: auto

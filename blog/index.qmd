@@ -1,9 +1,13 @@
 ---
-title: "Blog"
+title: "Writing"
+description: "Essays on scientific machine learning, AI, and the tools I use."
 listing:
   contents: posts
   sort: "date desc"
   type: default
+  fields: [image, date, title, description, categories, reading-time]
+  date-format: "D MMMM YYYY"
+  image-height: 120px
   categories: true
   sort-ui: false
   filter-ui: false

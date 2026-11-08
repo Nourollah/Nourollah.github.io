@@ -6,7 +6,8 @@ date: "2026-05-07"
 image: "linux.jpg"
 aliases:
   - /blog/posts/fedora-workstation/index.html
-categories: [linux, desktop, server, opensuse, tumbleweed, fedora, almalinux, pixi, workstation]
+categories: [linux, tools]
+image-alt: "Line-art chameleon beside a glowing infinity symbol labelled systemd-boot"
 draft: false
 ---
 
@@ -59,6 +60,14 @@ pixi global install zoxide ripgrep fd-find bat eza btm dust ncdu delta hyperfine
 ```
 
 No custom repositories. No extra layers. No searching for obscure PPAs or Copr entries. Everything in one command.
+
+uv never left my setup either. Pixi already uses it underneath for anything that comes from PyPI, but `pixi global` installs from conda channels, so a command-line tool published only on PyPI is not reachable that way. For those I call uv directly:
+
+``` bash
+uv tool install <package_name>
+```
+
+It is the PyPI counterpart of `pixi global install`: each tool gets its own isolated environment, and its command is available everywhere. Between the two, pixi for conda packages and uv for PyPI ones, I can install almost any developer tool without root access, which matters on exactly those remote servers.
 
 ------------------------------------------------------------------------
 
@@ -631,7 +640,38 @@ Two notes:
 - **`pyright-lsp`** only connects Claude to the language server; the server itself must be on your `PATH`. Install it with `pixi global install pyright` (or `npm install -g pyright`).
 - **`context7`** works anonymously out of the box. Set a `CONTEXT7_API_KEY` environment variable if you hit its rate limits.
 
-<!-- TODO: ponytail plugin and custom skills -->
+#### Beyond the official marketplace: Ponytail and graphify
+
+Two of the tools I rely on most do not come from Anthropic's marketplace at all.
+
+**[Ponytail](https://github.com/DietrichGebert/ponytail)** fixes the habit I find most annoying in coding agents: overengineering. Ask for a date picker and an agent will happily install a library or build a calendar by hand; Ponytail makes it stop and climb a ladder first. Does this need to exist? Is it already in the codebase? Does the standard library or the platform already do it? Only then does it write the minimum that works, plus a small test if there is logic in it. The rule is "write only what the task needs", not "write as little as possible": validation, error handling and security are never cut. It also adds two commands I use often, `/ponytail-review` for a change and `/ponytail-audit` for a whole repository, and a small band above the prompt showing what the current task has cost. It has its own marketplace, so it installs as two separate prompts:
+
+``` text
+/plugin marketplace add DietrichGebert/ponytail
+```
+
+``` text
+/plugin install ponytail@ponytail
+```
+
+Start a new session afterwards and it is active by default. `/ponytail` shows or changes the level (`lite`, `full` or `ultra`), and `/ponytail band` hides or shows the band. Its hooks run on Node.js, so `node` needs to be on your `PATH`. Install it only from `DietrichGebert/ponytail`; other marketplaces carry copies under the same name.
+
+**[graphify](https://github.com/Graphify-Labs/graphify)** is a skill rather than a plugin. Type `/graphify .` in a project and it turns the folder into a knowledge graph: code is parsed locally with tree-sitter, while papers, notes and images go through Claude to pull out concepts and how they connect. The result lands in `graphify-out/` as an interactive `graph.html`, a report, and a JSON graph that Claude can query in later sessions instead of re-reading every file. For a research project, where the code, the papers it implements and my notes all live side by side, this is the closest thing to a map of my own head. It needs Python 3.10 or newer, and is installed from the terminal, not from inside Claude Code. It is published only on PyPI, so this is a job for `uv tool install` from earlier rather than `pixi global`:
+
+``` bash
+uv tool install graphifyy    # or: pipx install graphifyy
+graphify install             # registers the /graphify skill with Claude Code
+```
+
+The PyPI package is spelled `graphifyy`, with two y's, while the original name is being reclaimed; the command is still `graphify`. Then, inside Claude Code:
+
+``` text
+/graphify .                            # build the graph for this folder
+/graphify . --update                   # re-read only the files that changed
+/graphify query "how does X reach Y?"  # ask the graph a question
+```
+
+If you want the graph to stay current on its own, `graphify hook install` adds a Git hook that rebuilds it after every commit.
 :::
 
 ### SLURM Helpers for Supercomputers

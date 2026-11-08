@@ -1,0 +1,27 @@
+---
+title: "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials"
+subtitle: "For Computer Scientists"
+author:
+  - Amir Masoud Nourollah
+  - Irtaza Khalid
+  - Stefano Leoni
+  - Steven Schockaert
+format: talk-revealjs
+# Audience: computer scientists. Lead with compositional generalisation and OOD evaluation; explain the chemistry from scratch.
+---
+
+
+## Overview {data-section="Overview"}
+
+1. **Motivation**
+2. **GMD: The Benchmark**
+3. **Results**
+4. **Takeaways**
+
+## Motivation {data-section="Motivation"}
+
+## GMD: The Benchmark {data-section="GMD"}
+
+## Results {data-section="Results"}
+
+## Takeaways {data-section="Takeaways"}

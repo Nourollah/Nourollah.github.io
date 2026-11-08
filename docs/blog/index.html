@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Essays on scientific machine learning, AI, and the tools I use.">
 
-<title>Blog – Amir Masoud Nourollah</title>
+<title>Writing – Amir Masoud Nourollah</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -33,6 +34,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../assets/favicon.svg" rel="icon" type="image/svg+xml">
 <script src="../site_libs/quarto-listing/list.min.js"></script>
 <script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
@@ -41,10 +43,14 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-2b91fda96fc4217d309e4768f8eb8023.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cad2a2f8a56dfe71ee895a68e79c9b9a.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-70be5ccd51f03de5ce195d75fadf0882.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-cad2a2f8a56dfe71ee895a68e79c9b9a.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-cdd13912a56c529c216a958367180166.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-309b62c255de2f4944c2d6ae2d3b5544.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark-c9df0fee04f31e5129f0b9c5cf3b9861.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../site_libs/bootstrap/bootstrap-309b62c255de2f4944c2d6ae2d3b5544.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -82,7 +88,7 @@ ul.task-list li input[type="checkbox"] {
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-description','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
@@ -134,9 +140,191 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../styles.css">
-<link rel="alternate" type="application/rss+xml" title="Amir Masoud Nourollah" href="index.xml" data-external="1"></head>
+<link rel="alternate" type="application/rss+xml" title="Amir Masoud Nourollah" href="index.xml" data-external="1"><meta property="og:title" content="Writing – Amir Masoud Nourollah">
+<meta property="og:description" content="Essays on scientific machine learning, AI, and the tools I use.">
+<meta property="og:image" content="https://nourollah.me/blog/posts/letting-go-of-the-wheel/wheel.jpg">
+<meta property="og:site_name" content="Amir Masoud Nourollah">
+<meta property="og:image:alt" content="An old wooden cart wheel engulfed in flames on grass">
+<meta name="twitter:title" content="Writing – Amir Masoud Nourollah">
+<meta name="twitter:description" content="Essays on scientific machine learning, AI, and the tools I use.">
+<meta name="twitter:image" content="https://nourollah.me/blog/posts/letting-go-of-the-wheel/wheel.jpg">
+<meta name="twitter:creator" content="@amirmasoudnrl">
+<meta name="twitter:image:alt" content="An old wooden cart wheel engulfed in flames on grass">
+<meta name="twitter:card" content="summary_large_image">
+</head>
 
-<body class="nav-fixed quarto-light">
+<body class="nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -152,45 +340,33 @@ window.Quarto = {
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+</ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html"> <i class="bi bi-house" role="img" aria-label="Home">
-</i> 
-<span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../projects/index.html"> 
+<span class="menu-text">Research</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html"> <i class="bi bi-person" role="img" aria-label="About">
-</i> 
-<span class="menu-text">About</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../projects/index.html"> <i class="bi bi-folder" role="img" aria-label="Projects">
-</i> 
-<span class="menu-text">Projects</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../presentations/index.html"> <i class="bi bi-display" role="img" aria-label="Presentations">
-</i> 
-<span class="menu-text">Presentations</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ"> <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
-</i> 
+    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ"> 
 <span class="menu-text">Publications</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../blog/index.html" aria-current="page"> <i class="bi bi-pencil-square" role="img" aria-label="Blog">
-</i> 
-<span class="menu-text">Blog</span></a>
+    <a class="nav-link" href="../presentations/index.html"> 
+<span class="menu-text">Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="mailto:nourollah.am@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Contact">
-</i> 
-<span class="menu-text">Contact</span></a>
+    <a class="nav-link active" href="../blog/index.html" aria-current="page"> 
+<span class="menu-text">Writing</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">About</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -200,15 +376,21 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YWdlbnRz">agents <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWk=">ai <span class="quarto-category-count">(1)</span></div><div class="category" data-category="YWxtYWxpbnV4">almalinux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hlbWlzdHJ5">chemistry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZGVza3RvcA==">desktop <span class="quarto-category-count">(1)</span></div><div class="category" data-category="ZmVkb3Jh">fedora <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGludXg=">linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZSUyMGxlYXJuaW5n">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3BlbnN1c2U=">opensuse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3Bpbmlvbg==">opinion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGhpbG9zb3BoeQ==">philosophy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cGl4aQ==">pixi <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVpbmZvcmNlbWVudCUyMGxlYXJuaW5n">reinforcement learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzZWFyY2g=">research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2NpZW50aWZpYyUyMG1s">scientific ml <span class="quarto-category-count">(1)</span></div><div class="category" data-category="c2VydmVy">server <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dHVtYmxld2VlZA==">tumbleweed <span class="quarto-category-count">(1)</span></div><div class="category" data-category="d29ya3N0YXRpb24=">workstation <span class="quarto-category-count">(1)</span></div></div></div>
+    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(3)</span></div><div class="category" data-category="YWk=">ai <span class="quarto-category-count">(1)</span></div><div class="category" data-category="Y2hlbWlzdHJ5">chemistry <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bGludXg=">linux <span class="quarto-category-count">(1)</span></div><div class="category" data-category="bWFjaGluZSUyMGxlYXJuaW5n">machine learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="b3Bpbmlvbg==">opinion <span class="quarto-category-count">(1)</span></div><div class="category" data-category="cmVzZWFyY2g=">research <span class="quarto-category-count">(1)</span></div><div class="category" data-category="dG9vbHM=">tools <span class="quarto-category-count">(1)</span></div></div></div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
+
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Blog</h1>
+<h1 class="title">Writing</h1>
 </div>
 
+<div>
+  <div class="description">
+    Essays on scientific machine learning, AI, and the tools I use.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta column-page-left">
@@ -229,10 +411,10 @@ window.Quarto = {
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="YWklMkNwaGlsb3NvcGh5JTJDYWdlbnRzJTJDcmVpbmZvcmNlbWVudCUyMGxlYXJuaW5nJTJDb3Bpbmlvbg==" data-listing-date-sort="1793923200000" data-listing-file-modified-sort="1793997292961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2567">
+<div class="quarto-post image-right" data-index="0" data-categories="YWklMkNvcGluaW9u" data-listing-date-sort="1793923200000" data-listing-file-modified-sort="1794163206184" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="13" data-listing-word-count-sort="2567">
 <div class="thumbnail"><a href="../blog/posts/letting-go-of-the-wheel/index.html" class="no-external">
 
-<img loading="lazy" src="../blog/posts/letting-go-of-the-wheel/wheel.jpg" class="thumbnail-image">
+<img loading="lazy" src="../blog/posts/letting-go-of-the-wheel/wheel.jpg" class="thumbnail-image" style="height: 120px;" alt="An old wooden cart wheel engulfed in flames on grass">
 
 </a></div>
 <div class="body">
@@ -242,12 +424,6 @@ window.Quarto = {
 <div class="listing-categories">
 
 <div class="listing-category" onclick="window.quartoListingCategory('YWk='); return false;">ai</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGhpbG9zb3BoeQ=='); return false;">philosophy</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWdlbnRz'); return false;">agents</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cmVpbmZvcmNlbWVudCUyMGxlYXJuaW5n'); return false;">reinforcement learning</div>
 
 <div class="listing-category" onclick="window.quartoListingCategory('b3Bpbmlvbg=='); return false;">opinion</div>
 
@@ -259,18 +435,16 @@ window.Quarto = {
 <div class="metadata">
 <a href="../blog/posts/letting-go-of-the-wheel/index.html" class="no-external">
 <div class="listing-date">
-6 Nov 2026
+6 November 2026
 </div>
-<div class="listing-author">
-Amir Masoud Nourollah
-</div>
+<div class="listing-reading-time">13 min</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="cmVzZWFyY2glMkNtYWNoaW5lJTIwbGVhcm5pbmclMkNjaGVtaXN0cnklMkNzY2llbnRpZmljJTIwbWw=" data-listing-date-sort="1778540400000" data-listing-file-modified-sort="1778604809567" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1414">
+<div class="quarto-post image-right" data-index="1" data-categories="cmVzZWFyY2glMkNtYWNoaW5lJTIwbGVhcm5pbmclMkNjaGVtaXN0cnk=" data-listing-date-sort="1778540400000" data-listing-file-modified-sort="1794163206187" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1414">
 <div class="thumbnail"><a href="../blog/posts/chemical-foundation-models/index.html" class="no-external">
 
-<img loading="lazy" src="../blog/posts/chemical-foundation-models/molecule.png" class="thumbnail-image">
+<img loading="lazy" src="../blog/posts/chemical-foundation-models/molecule.jpg" class="thumbnail-image" style="height: 120px;" alt="Ball-and-stick model of a fullerene cage inside a wireframe surface">
 
 </a></div>
 <div class="body">
@@ -285,8 +459,6 @@ Amir Masoud Nourollah
 
 <div class="listing-category" onclick="window.quartoListingCategory('Y2hlbWlzdHJ5'); return false;">chemistry</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('c2NpZW50aWZpYyUyMG1s'); return false;">scientific ml</div>
-
 </div>
 <div class="delink listing-description"><a href="../blog/posts/chemical-foundation-models/index.html" class="no-external">
 <p>From billion-parameter transformers to universal interatomic potentials, chemistry AI is scaling fast. But scale alone does not equal scientific discovery — and the evidence reveals exactly where these models shine and where they break down.</p>
@@ -297,16 +469,14 @@ Amir Masoud Nourollah
 <div class="listing-date">
 12 May 2026
 </div>
-<div class="listing-author">
-Amir Masoud Nourollah
-</div>
+<div class="listing-reading-time">8 min</div>
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="bGludXglMkNkZXNrdG9wJTJDc2VydmVyJTJDb3BlbnN1c2UlMkN0dW1ibGV3ZWVkJTJDZmVkb3JhJTJDYWxtYWxpbnV4JTJDcGl4aSUyQ3dvcmtzdGF0aW9u" data-listing-date-sort="1778108400000" data-listing-file-modified-sort="1793996105053" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="40" data-listing-word-count-sort="7876">
+<div class="quarto-post image-right" data-index="2" data-categories="bGludXglMkN0b29scw==" data-listing-date-sort="1778108400000" data-listing-file-modified-sort="1794163206189" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="43" data-listing-word-count-sort="8490">
 <div class="thumbnail"><a href="../blog/posts/decade-of-linux-setups/index.html" class="no-external">
 
-<img loading="lazy" src="../blog/posts/decade-of-linux-setups/linux.jpg" class="thumbnail-image">
+<img loading="lazy" src="../blog/posts/decade-of-linux-setups/linux.jpg" class="thumbnail-image" style="height: 120px;" alt="Line-art chameleon beside a glowing infinity symbol labelled systemd-boot">
 
 </a></div>
 <div class="body">
@@ -317,21 +487,7 @@ Amir Masoud Nourollah
 
 <div class="listing-category" onclick="window.quartoListingCategory('bGludXg='); return false;">linux</div>
 
-<div class="listing-category" onclick="window.quartoListingCategory('ZGVza3RvcA=='); return false;">desktop</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('c2VydmVy'); return false;">server</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('b3BlbnN1c2U='); return false;">opensuse</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('dHVtYmxld2VlZA=='); return false;">tumbleweed</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('ZmVkb3Jh'); return false;">fedora</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('YWxtYWxpbnV4'); return false;">almalinux</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('cGl4aQ=='); return false;">pixi</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('d29ya3N0YXRpb24='); return false;">workstation</div>
+<div class="listing-category" onclick="window.quartoListingCategory('dG9vbHM='); return false;">tools</div>
 
 </div>
 <div class="delink listing-description"><a href="../blog/posts/decade-of-linux-setups/index.html" class="no-external">
@@ -343,17 +499,65 @@ Amir Masoud Nourollah
 <div class="listing-date">
 7 May 2026
 </div>
-<div class="listing-author">
-Amir Masoud Nourollah
-</div>
+<div class="listing-reading-time">43 min</div>
 </a>
 </div>
 </div>
 </div>
 <div class="listing-no-matching d-none">No matching items</div>
-</div><a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+</div></main> <!-- /main -->
+<script>
+// Shared popovers for research/talk entries.
+//   <button class="pill" data-qr="/assets/qr/x.svg" data-qr-url="https://...">QR</button>
+//   <button class="pill" data-versions='[{"label":"...","href":"..."}]'>Slides</button>
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof bootstrap === 'undefined') return;
+  var esc = function (s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; };
+  var triggers = [];
+
+  document.querySelectorAll('[data-qr]').forEach(function (el) {
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Scan to open',
+      content: '<div class="qr-pop"><img src="' + esc(el.dataset.qr) + '" width="168" height="168" alt="QR code for ' + esc(el.dataset.qrUrl) + '"><small>' + esc(el.dataset.qrUrl) + '</small></div>'
+    }));
+  });
+
+  document.querySelectorAll('[data-versions]').forEach(function (el) {
+    var items = JSON.parse(el.dataset.versions).map(function (v) {
+      return '<li><a href="' + esc(v.href) + '">' + esc(v.label) + '</a></li>';
+    }).join('');
+    triggers.push(new bootstrap.Popover(el, {
+      trigger: 'click', html: true, placement: 'auto', title: 'Choose a version',
+      content: '<ul class="versions-pop">' + items + '</ul>'
+    }));
+  });
+
+  // Close any open popover on outside click or Escape.
+  var closeAll = function (except) { triggers.forEach(function (p) { if (p !== except) p.hide(); }); };
+  triggers.forEach(function (p) {
+    p._element.addEventListener('show.bs.popover', function () { closeAll(p); });
+  });
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('[data-qr], [data-versions], .popover')) closeAll();
+  });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closeAll(); });
+});
+</script>
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -758,6 +962,50 @@ Amir Masoud Nourollah
   });
   </script>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 Amir Masoud Nourollah · Cardiff University</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:am@nourollah.me">
+      <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/Nourollah">
+      <i class="bi bi-github" role="img" aria-label="GitHub">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://scholar.google.com/citations?user=jnindL8AAAAJ">
+      <i class="bi bi-mortarboard" role="img" aria-label="Google Scholar">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/amnrl">
+      <i class="bi bi-linkedin" role="img" aria-label="LinkedIn">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../blog/index.xml">
+      <i class="bi bi-rss" role="img" aria-label="RSS feed">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
 
 
 
