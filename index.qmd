@@ -62,6 +62,7 @@ I am a member of the [Cardiff NLP](https://cardiffnlp.github.io/) and [Knowledge
 ::: pills
 [<i class="bi bi-journal-text"></i>Project page](projects/mlip-benchmark/index.qmd){.pill}
 [<i class="bi bi-file-earmark-text"></i>Paper](https://arxiv.org/abs/2605.08988){.pill}
+[<i class="bi bi-card-image"></i>Poster](projects/mlip-benchmark/gmd-poster-neurips2026.pdf){.pill}
 [<i class="bi bi-easel2"></i>Talks](presentations/index.qmd){.pill}
 :::
 :::

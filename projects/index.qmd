@@ -20,6 +20,7 @@ Where a project has its own page, it includes an extended write-up with figures 
 ::: pills
 [<i class="bi bi-journal-text"></i>Project page](mlip-benchmark/index.qmd){.pill}
 [<i class="bi bi-file-earmark-text"></i>Paper](https://arxiv.org/abs/2605.08988){.pill}
+[<i class="bi bi-card-image"></i>Poster](mlip-benchmark/gmd-poster-neurips2026.pdf){.pill}
 <button type="button" class="pill" data-versions='[{"label":"Conference talk","href":"/presentations/mlip-benchmark/conference/"},{"label":"For chemists","href":"/presentations/mlip-benchmark/chemists/"},{"label":"For computer scientists","href":"/presentations/mlip-benchmark/computer-scientists/"}]'><i class="bi bi-easel2"></i>Slides</button>
 <button type="button" class="pill" data-qr="/assets/qr/mlip-benchmark.svg" data-qr-url="https://nourollah.me/projects/mlip-benchmark/"><i class="bi bi-qr-code"></i>QR</button>
 :::

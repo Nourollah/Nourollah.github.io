@@ -398,3 +398,13 @@ details.versions .version p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   details.versions > summary::before { transition: none; }
 }
+
+/* ===== Poster preview (project pages) ===== */
+.poster-preview {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--c-rule);
+  border-radius: 6px;
+  transition: border-color 0.15s ease;
+}
+a:hover .poster-preview { border-color: var(--c-accent); }

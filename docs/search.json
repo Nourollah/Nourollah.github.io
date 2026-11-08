@@ -382,7 +382,7 @@
     "href": "projects/mlip-benchmark/index.html",
     "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
     "section": "",
-    "text": "Paper (arXiv) Conference talk Talk for chemists Talk for computer scientists BibTeX"
+    "text": "Paper (arXiv) Poster Conference talk Talk for chemists Talk for computer scientists BibTeX"
   },
   {
     "objectID": "projects/mlip-benchmark/index.html#abstract",
@@ -427,6 +427,13 @@
     "text": "Key Takeaways\n\nToday’s MLIPs — including the most advanced architectures and the largest foundation models — do not reliably learn the compositional structure of chemistry. They can fail by one to three orders of magnitude on molecules that simply recombine pieces they’ve individually seen before.\nBigger pre-training data doesn’t automatically mean better generalisation. Foundation models pre-trained on millions of molecules were not consistently better than a small model trained from scratch on the specific task — sometimes the opposite.\nA model’s accuracy on familiar, “in-distribution” molecules is not a reliable guide to how it will perform on genuinely new ones. The model that looks best on your usual validation set may not be the one that generalises — which has real implications for how these models are chosen and deployed in practice.\nNot all failures are the same. Some generalisation gaps come down to simply not having seen enough examples (and can be fixed with the right kind of additional data), while others reflect a deeper failure to learn an abstract, reusable rule — and throwing more data at the problem doesn’t help with the latter.\nGMD provides a controlled, extensible testbed for studying this gap directly, along with an open-source toolkit for generating new tasks in the same style, in the hope of encouraging the development of models that generalise for the right reasons."
   },
   {
+    "objectID": "projects/mlip-benchmark/index.html#poster",
+    "href": "projects/mlip-benchmark/index.html#poster",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Poster",
+    "text": "Poster\nThe NeurIPS 2026 poster summarises the benchmark, the results for all models, and a per-atom failure analysis on one page.\n\n\n\nThe GMD poster for NeurIPS 2026. Click to open the full-resolution PDF.\n\n\n\nPoster (PDF)"
+  },
+  {
     "objectID": "projects/mlip-benchmark/index.html#bibtex",
     "href": "projects/mlip-benchmark/index.html#bibtex",
     "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
@@ -445,7 +452,7 @@
     "href": "projects/index.html#scientific-machine-learning",
     "title": "Research",
     "section": "Scientific Machine Learning",
-    "text": "Scientific Machine Learning\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nAmir Masoud Nourollah, Irtaza Khalid, Stefano Leoni, Steven Schockaert\n\nNeurIPS 2026\n\nProject page Paper Slides QR"
+    "text": "Scientific Machine Learning\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nAmir Masoud Nourollah, Irtaza Khalid, Stefano Leoni, Steven Schockaert\n\nNeurIPS 2026\n\nProject page Paper Poster Slides QR"
   },
   {
     "objectID": "projects/index.html#natural-language-processing",
@@ -480,7 +487,7 @@
     "href": "index.html#selected-research",
     "title": "Amir Masoud Nourollah",
     "section": "Selected Research",
-    "text": "Selected Research\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nAmir Masoud Nourollah, Irtaza Khalid, Stefano Leoni, Steven Schockaert\n\nNeurIPS 2026\n\nProject page Paper Talks\n\n\n\nLarge Language and Reasoning Models are Shallow Disjunctive Reasoners\n\nIrtaza Khalid, Amir Masoud Nourollah, Steven Schockaert\n\nACL 2025\n\nPaper\n\n\n\nAll research → · Full list on Google Scholar →"
+    "text": "Selected Research\n\nBenchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\n\nAmir Masoud Nourollah, Irtaza Khalid, Stefano Leoni, Steven Schockaert\n\nNeurIPS 2026\n\nProject page Paper Poster Talks\n\n\n\nLarge Language and Reasoning Models are Shallow Disjunctive Reasoners\n\nIrtaza Khalid, Amir Masoud Nourollah, Steven Schockaert\n\nACL 2025\n\nPaper\n\n\n\nAll research → · Full list on Google Scholar →"
   },
   {
     "objectID": "index.html#recent-writing",
@@ -557,14 +564,14 @@
     "href": "presentations/index.html",
     "title": "Talks",
     "section": "",
-    "text": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\nNeurIPS 2026\n\nPaper Project page\n\n\n\nSlides: 3 versions for different audiences\n\n\nConference talk\n\nSlides QR\n\n\n\nFor chemists: Knowing the parts, missing the whole\n\nSeminar version. Leads with the chemistry (functional groups, molecular dynamics, DFT) and keeps machine learning jargon light.\n\n\nSlides QR\n\n\n\nFor computer scientists\n\nSeminar version. Leads with compositional generalisation and out-of-distribution evaluation, and explains the chemistry from scratch.\n\n\nSlides QR"
+    "text": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\nNeurIPS 2026\n\nPaper Poster Project page\n\n\n\nSlides: 3 versions for different audiences\n\n\nConference talk\n\nSlides QR\n\n\n\nFor chemists: Knowing the parts, missing the whole\n\nSeminar version. Leads with the chemistry (functional groups, molecular dynamics, DFT) and keeps machine learning jargon light.\n\n\nSlides QR\n\n\n\nFor computer scientists\n\nSeminar version. Leads with compositional generalisation and out-of-distribution evaluation, and explains the chemistry from scratch.\n\n\nSlides QR"
   },
   {
     "objectID": "presentations/index.html#research-talks",
     "href": "presentations/index.html#research-talks",
     "title": "Talks",
     "section": "",
-    "text": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\nNeurIPS 2026\n\nPaper Project page\n\n\n\nSlides: 3 versions for different audiences\n\n\nConference talk\n\nSlides QR\n\n\n\nFor chemists: Knowing the parts, missing the whole\n\nSeminar version. Leads with the chemistry (functional groups, molecular dynamics, DFT) and keeps machine learning jargon light.\n\n\nSlides QR\n\n\n\nFor computer scientists\n\nSeminar version. Leads with compositional generalisation and out-of-distribution evaluation, and explains the chemistry from scratch.\n\n\nSlides QR"
+    "text": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials\nNeurIPS 2026\n\nPaper Poster Project page\n\n\n\nSlides: 3 versions for different audiences\n\n\nConference talk\n\nSlides QR\n\n\n\nFor chemists: Knowing the parts, missing the whole\n\nSeminar version. Leads with the chemistry (functional groups, molecular dynamics, DFT) and keeps machine learning jargon light.\n\n\nSlides QR\n\n\n\nFor computer scientists\n\nSeminar version. Leads with compositional generalisation and out-of-distribution evaluation, and explains the chemistry from scratch.\n\n\nSlides QR"
   },
   {
     "objectID": "presentations/index.html#reviews",

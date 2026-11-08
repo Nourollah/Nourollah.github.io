@@ -13,6 +13,7 @@ toc: true
 
 ::: pills
 [<i class="bi bi-file-earmark-text"></i>Paper (arXiv)](https://arxiv.org/abs/2605.08988){.pill}
+[<i class="bi bi-card-image"></i>Poster](gmd-poster-neurips2026.pdf){.pill}
 [<i class="bi bi-easel2"></i>Conference talk](/presentations/mlip-benchmark/conference/){.pill}
 [<i class="bi bi-easel2"></i>Talk for chemists](/presentations/mlip-benchmark/chemists/){.pill}
 [<i class="bi bi-easel2"></i>Talk for computer scientists](/presentations/mlip-benchmark/computer-scientists/){.pill}
@@ -88,6 +89,16 @@ The clearest result is also the simplest to state: **Fragment Chain Extension is
 - **A model's accuracy on familiar, "in-distribution" molecules is not a reliable guide to how it will perform on genuinely new ones.** The model that looks best on your usual validation set may not be the one that generalises — which has real implications for how these models are chosen and deployed in practice.
 - **Not all failures are the same.** Some generalisation gaps come down to simply not having seen enough examples (and can be fixed with the right kind of additional data), while others reflect a deeper failure to learn an abstract, reusable rule — and throwing more data at the problem doesn't help with the latter.
 - **GMD provides a controlled, extensible testbed** for studying this gap directly, along with an open-source toolkit for generating new tasks in the same style, in the hope of encouraging the development of models that generalise for the right reasons.
+
+## Poster
+
+The NeurIPS 2026 poster summarises the benchmark, the results for all models, and a per-atom failure analysis on one page.
+
+[![The GMD poster for NeurIPS 2026. Click to open the full-resolution PDF.](gmd-poster-preview.jpg){.poster-preview fig-alt="Poster: Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials, with panels on motivation, the GMD benchmark tasks, performance of all models, failure analysis, errors over time, and take-home messages."}](gmd-poster-neurips2026.pdf)
+
+::: pills
+[<i class="bi bi-card-image"></i>Poster (PDF)](gmd-poster-neurips2026.pdf){.pill}
+:::
 
 ## BibTeX
 

@@ -99,7 +99,7 @@
     code span.vs { color: #20794d; } /* VerbatimString */
     code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
-  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-9a6eaeb264ba240db31ae3140398d6a4.css">
+  <link rel="stylesheet" href="../../site_libs/revealjs/dist/theme/quarto-8c388b991024d9de087ccb0cb797095a.css">
   <link href="../../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="../../site_libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -704,6 +704,11 @@ E = \sum_{i=1}^{N} \varepsilon\left(\mathbf{r}_i, \{\mathbf{r}_j\}_{j \in \mathc
           '<span class="gf-ref"></span>' +
           '<span class="gf-num" title="Show all slides"></span>';
         document.querySelector(".reveal .slides").appendChild(footer);
+
+        // Put the logo inside the slide too, so it scales and moves with the slide
+        // (otherwise it stays full-size and pinned to the screen corner on phones).
+        var logo = document.querySelector(".reveal .slide-logo");
+        if (logo) document.querySelector(".reveal .slides").appendChild(logo);
 
         elProgress = footer.querySelector(".gf-progress");
         elTitle    = footer.querySelector(".gf-title");
