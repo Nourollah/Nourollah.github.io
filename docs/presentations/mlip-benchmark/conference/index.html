@@ -426,7 +426,7 @@ Steven Schockaert
 
       Also: navy background on the title slide and on section dividers (.divider),
       logo only on the title and closing slides, divider numbering (01, 02, …),
-      and a scrolling layout on phones.
+      and the same slide layout on phones as on desktops.
     -->
     <script>
     (function () {
@@ -558,8 +558,9 @@ Steven Schockaert
         function start() {
           if (started) return;
           started = true;
-          // Phones: scroll through the slides instead of tapping through them
-          R.configure({ scrollActivationWidth: 600, scrollLayout: "compact" });
+          // Phones show the same slides as desktops (scaled to fit; swipe to move).
+          // reveal.js would otherwise switch narrow screens to its scroll view.
+          R.configure({ scrollActivationWidth: null });
           build();
         }
         R.on("ready", start);
