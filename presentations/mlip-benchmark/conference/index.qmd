@@ -507,7 +507,7 @@ Every group is in training; only the molecule is new.
 ::::
 
 ::: {.slide-ref}
-G. W. Bemis, M. A. Murcko, *J. Med. Chem.* **39**, 2887 (1996); A. M. Nourollah *et al.*, *NeurIPS* (2026); arXiv:2605.08988.
+A. M. Nourollah *et al.*, *NeurIPS* (2026); arXiv:2605.08988.
 :::
 
 ::: {.notes}

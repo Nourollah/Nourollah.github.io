@@ -795,7 +795,7 @@
     "href": "presentations/mlip-benchmark/conference/index.html#our-choice-scaffold-out-of-distribution",
     "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
     "section": "Our choice: scaffold out-of-distribution",
-    "text": "Our choice: scaffold out-of-distribution\n\n\n\nFusion: –OH and C=O seen apart; tested together on one carbon, as –COOH\nDuplication: one –COOH seen; tested with two\n\n\nEvery group is in training; only the molecule is new.\n\n\n\n\n\nG. W. Bemis, M. A. Murcko, J. Med. Chem. 39, 2887 (1996); A. M. Nourollah et al., NeurIPS (2026); arXiv:2605.08988.\n\n\nTwo examples now; the full set of five comes in the next section.\n\n\nTo run this test properly, we need a dataset built for it. That is GMD."
+    "text": "Our choice: scaffold out-of-distribution\n\n\n\nFusion: –OH and C=O seen apart; tested together on one carbon, as –COOH\nDuplication: one –COOH seen; tested with two\n\n\nEvery group is in training; only the molecule is new.\n\n\n\n\n\nA. M. Nourollah et al., NeurIPS (2026); arXiv:2605.08988.\n\n\nTwo examples now; the full set of five comes in the next section.\n\n\nTo run this test properly, we need a dataset built for it. That is GMD."
   },
   {
     "objectID": "presentations/mlip-benchmark/conference/index.html#gmd-generalisation-for-molecular-dynamics",
@@ -1019,7 +1019,7 @@
     "href": "presentations/mlip-benchmark/chemists/index.html#our-choice-scaffold-out-of-distribution",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "Our choice: scaffold out-of-distribution",
-    "text": "Our choice: scaffold out-of-distribution\n\n\n\nFusion: –OH and C=O seen apart; tested together on one carbon, as –COOH\nDuplication: one –COOH seen; tested with two\n\n\nEvery group is in training; only the molecule is new.\n\n\n\n\n\nG. W. Bemis, M. A. Murcko, J. Med. Chem. 39, 2887 (1996); A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nTwo of the five GMD tasks, shown as examples; the full set comes in the next section. The question: does a model understand molecules the way we do, from their parts?\n\n\nTo run this test, we need a dataset built for it. That is GMD."
+    "text": "Our choice: scaffold out-of-distribution\n\n\n\nFusion: –OH and C=O seen apart; tested together on one carbon, as –COOH\nDuplication: one –COOH seen; tested with two\n\n\nEvery group is in training; only the molecule is new.\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nTwo of the five GMD tasks, shown as examples; the full set comes in the next section. The question: does a model understand molecules the way we do, from their parts?\n\n\nTo run this test, we need a dataset built for it. That is GMD."
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#gmd-generalisation-for-molecular-dynamics",
