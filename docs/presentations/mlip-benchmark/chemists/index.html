@@ -355,8 +355,8 @@ Steven Schockaert
 <p>If these methods already give us energies and forces, why not just keep using them?</p>
 </div>
 </section>
-<section id="why-we-invented-semi-empirical-methods" class="slide level2" data-section="Introduction">
-<h2>Why we invented semi-empirical methods</h2>
+<section id="why-were-semi-empirical-methods-invented" class="slide level2" data-section="Introduction">
+<h2>Why were semi-empirical methods invented?</h2>
 <div class="columns">
 <div class="column" style="width:48%;">
 <ul>
@@ -537,20 +537,20 @@ Steven Schockaert
           display:block!important;
       }</style></aside>
 <div class="bridge fragment">
-<p>So where exactly do models go wrong? Let’s go back to our scatter plot.</p>
+<p>If a model only learns what its data covers, what happens where the data runs out?</p>
 </div>
 </section>
-<section id="molecules-are-not-dots-on-a-plane" class="slide level2" data-section="Motivation">
-<h2>Molecules are not dots on a plane</h2>
+<section id="what-the-data-covers" class="slide level2" data-section="Motivation">
+<h2>What the data covers</h2>
 <div class="columns">
 <div class="column" style="width:48%;">
 <ul>
-<li>A molecule has 3<em>N</em> coordinates, so we cannot draw it as a dot on a plane</li>
-<li>But errors still gather at the <strong>borders</strong>, where the answer changes fast and data are thin</li>
-<li>For energies, a border is a <strong>steep slope</strong>: the wall when atoms are pushed together, which MD rarely visits</li>
+<li>A model is only checked where its training data are</li>
+<li>MD at room temperature samples the energy well densely, and the steep repulsive wall almost never</li>
+<li>On the wall the model has to guess, and it guesses wrong</li>
 </ul>
 <div class="key">
-<p>A model is weakest where the energy changes fastest and the data are thinnest.</p>
+<p>High-energy geometries the data does not cover: one kind of out-of-distribution.</p>
 </div>
 </div><div class="column" style="width:52%;">
 <p><img data-src="figures/steep_wall.png"></p>
@@ -559,7 +559,7 @@ Steven Schockaert
 <p>J. Behler, <em>Chem. Rev.</em> <strong>121</strong>, 10037 (2021); X. Fu <em>et al.</em>, <em>Trans. Mach. Learn. Res.</em> (2023).</p>
 </div>
 <aside class="notes">
-<p>Schematic Morse-like curve. Same idea as the wiggly border: the model is only checked where the data are.</p>
+<p>Schematic Morse-like curve. The tick marks along the bottom show where the MD samples fall.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -581,11 +581,11 @@ Steven Schockaert
 <div class="column" style="width:48%;">
 <ul>
 <li>MD spends almost all its time in the reactant and product wells</li>
-<li>The <strong>transition state</strong> is visited rarely, so it is barely in the training data</li>
-<li>A model can get the barrier wrong, and the rate with it: at 298 K, every 1.4 kcal/mol of barrier error is a factor of 10 in <em>k</em></li>
+<li>The <strong>transition state</strong> is visited rarely, so it is barely in the data</li>
+<li>At 298 K, every 1.4 kcal/mol of barrier error is a factor of 10 in the rate</li>
 </ul>
 <div class="key">
-<p>The chemistry we care about most often sits where the data are thinnest.</p>
+<p>Rare events the data barely covers: a second kind of out-of-distribution.</p>
 </div>
 </div><div class="column" style="width:52%;">
 <p><img data-src="figures/reaction_ts.png"></p>
@@ -607,52 +607,63 @@ Steven Schockaert
           display:block!important;
       }</style></aside>
 <div class="bridge fragment">
-<p>Steep walls, rare transition states… in how many ways can data be “new” to a model?</p>
+<p>Steep walls, rare events… what else counts as out-of-distribution?</p>
 </div>
 </section>
 <section id="many-ways-to-be-out-of-distribution" class="slide level2" data-section="Motivation">
 <h2>Many ways to be out-of-distribution</h2>
 <div class="columns">
-<div class="column" style="width:48%;">
-<p><strong>Out-of-distribution</strong> means unlike the training data, and there are many ways to be unlike:</p>
+<div class="column" style="width:50%;">
+<p><strong>Out-of-distribution</strong>: anything the training data does not represent, where the model has to go beyond its data rather than fill in between it.</p>
 <ul>
-<li>High-energy geometries: the steep walls</li>
-<li>Rare events: transition states</li>
-<li>High temperature, unseen elements, other properties</li>
+<li>High-energy geometries; rare events</li>
+<li>Higher temperature than in training</li>
+<li>Elements, charges or spin states never seen</li>
+<li>Solvent or surfaces, when trained in vacuum</li>
+<li><strong>A new combination of known groups</strong></li>
 </ul>
-<div class="key">
-<p>All of these change the <strong>conditions</strong>. Few tests ask about new <strong>combinations</strong> of familiar parts.</p>
-</div>
-</div><div class="column" style="width:52%;">
+</div><div class="column" style="width:50%;">
 <p><img data-src="figures/ood_map.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>S. Chmiela <em>et al.</em>, <em>Sci. Adv.</em> <strong>3</strong>, e1603015 (2017); X. Fu <em>et al.</em>, <em>Trans. Mach. Learn. Res.</em> (2023).</p>
 </div>
+<aside class="notes">
+<p>All but the last change the conditions. The last one changes only the composition: every part is covered, the whole is not.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
 <div class="bridge fragment">
-<p>So what would a test of new combinations look like, and why should a chemist care?</p>
+<p>That last one is the least tested. What would a test of it look like?</p>
 </div>
 </section>
 <section id="our-choice-scaffold-out-of-distribution" class="slide level2" data-section="Motivation">
 <h2>Our choice: scaffold out-of-distribution</h2>
 <div class="columns">
-<div class="column" style="width:48%;">
+<div class="column" style="width:36%;">
 <ul>
-<li><strong>Train</strong> on molecules with fragments A, B and C; <strong>test</strong> on the same fragments joined in a new way</li>
-<li>Every local environment is familiar; only the whole molecule is new</li>
-<li>This is how new chemistry is made: known groups in a new arrangement</li>
+<li><strong>Fusion</strong>: –OH and C=O seen apart; tested together on one carbon, as –COOH</li>
+<li><strong>Duplication</strong>: one –COOH seen; tested with two</li>
 </ul>
 <div class="key">
-<p>It asks whether a model understands molecules the way we do: from their parts.</p>
+<p>Every group is in training; only the molecule is new.</p>
 </div>
-</div><div class="column" style="width:52%;">
-<p><img data-src="figures/scaffold_split.png"></p>
+</div><div class="column" style="width:64%;">
+<p><img data-src="figures/scaffold_fd.png"></p>
 </div></div>
 <div class="slide-ref">
-<p>G. W. Bemis, M. A. Murcko, <em>J. Med. Chem.</em> <strong>39</strong>, 2887 (1996); Z. Wu <em>et al.</em>, <em>Chem. Sci.</em> <strong>9</strong>, 513 (2018).</p>
+<p>G. W. Bemis, M. A. Murcko, <em>J. Med. Chem.</em> <strong>39</strong>, 2887 (1996); A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
 </div>
 <aside class="notes">
-<p>Language analogy: knowing the words doesn’t guarantee you understand a new sentence. Of all the ways to be “new”, this is the one closest to how chemists work.</p>
+<p>Two of the five GMD tasks, shown as examples; the full set comes in the next section. The question: does a model understand molecules the way we do, from their parts?</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;

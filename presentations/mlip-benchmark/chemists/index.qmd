@@ -192,7 +192,7 @@ S. Chmiela *et al.*, *Sci. Adv.* **3**, e1603015 (2017); C. Bannwarth, S. Ehlert
 If these methods already give us energies and forces, why not just keep using them?
 :::
 
-## Why we invented semi-empirical methods {data-section="Introduction"}
+## Why were semi-empirical methods invented? {data-section="Introduction"}
 
 :::: {.columns}
 
@@ -375,20 +375,20 @@ Analogy: a student who memorised answers for 20 molecules vs one who learned gro
 :::
 
 ::: {.bridge .fragment}
-So where exactly do models go wrong? Let's go back to our scatter plot.
+If a model only learns what its data covers, what happens where the data runs out?
 :::
 
-## Molecules are not dots on a plane {data-section="Motivation"}
+## What the data covers {data-section="Motivation"}
 
 :::: {.columns}
 
 ::: {.column width="48%"}
-- A molecule has 3*N* coordinates, so we cannot draw it as a dot on a plane
-- But errors still gather at the **borders**, where the answer changes fast and data are thin
-- For energies, a border is a **steep slope**: the wall when atoms are pushed together, which MD rarely visits
+- A model is only checked where its training data are
+- MD at room temperature samples the energy well densely, and the steep repulsive wall almost never
+- On the wall the model has to guess, and it guesses wrong
 
 ::: {.key}
-A model is weakest where the energy changes fastest and the data are thinnest.
+High-energy geometries the data does not cover: one kind of out-of-distribution.
 :::
 :::
 
@@ -403,7 +403,7 @@ J. Behler, *Chem. Rev.* **121**, 10037 (2021); X. Fu *et al.*, *Trans. Mach. Lea
 :::
 
 ::: {.notes}
-Schematic Morse-like curve. Same idea as the wiggly border: the model is only checked where the data are.
+Schematic Morse-like curve. The tick marks along the bottom show where the MD samples fall.
 :::
 
 ::: {.bridge .fragment}
@@ -416,11 +416,11 @@ Now think of a reaction. Which point on the path does MD visit least?
 
 ::: {.column width="48%"}
 - MD spends almost all its time in the reactant and product wells
-- The **transition state** is visited rarely, so it is barely in the training data
-- A model can get the barrier wrong, and the rate with it: at 298 K, every 1.4 kcal/mol of barrier error is a factor of 10 in *k*
+- The **transition state** is visited rarely, so it is barely in the data
+- At 298 K, every 1.4 kcal/mol of barrier error is a factor of 10 in the rate
 
 ::: {.key}
-The chemistry we care about most often sits where the data are thinnest.
+Rare events the data barely covers: a second kind of out-of-distribution.
 :::
 :::
 
@@ -439,26 +439,24 @@ From k ∝ exp(−ΔG‡/RT): RT ln 10 ≈ 1.36 kcal/mol at 298 K. Schematic pro
 :::
 
 ::: {.bridge .fragment}
-Steep walls, rare transition states... in how many ways can data be "new" to a model?
+Steep walls, rare events... what else counts as out-of-distribution?
 :::
 
 ## Many ways to be out-of-distribution {data-section="Motivation"}
 
 :::: {.columns}
 
-::: {.column width="48%"}
-**Out-of-distribution** means unlike the training data, and there are many ways to be unlike:
+::: {.column width="50%"}
+**Out-of-distribution**: anything the training data does not represent, where the model has to go beyond its data rather than fill in between it.
 
-- High-energy geometries: the steep walls
-- Rare events: transition states
-- High temperature, unseen elements, other properties
-
-::: {.key}
-All of these change the **conditions**. Few tests ask about new **combinations** of familiar parts.
-:::
+- High-energy geometries; rare events
+- Higher temperature than in training
+- Elements, charges or spin states never seen
+- Solvent or surfaces, when trained in vacuum
+- **A new combination of known groups**
 :::
 
-::: {.column width="52%"}
+::: {.column width="50%"}
 ![](figures/ood_map.png)
 :::
 
@@ -468,41 +466,45 @@ All of these change the **conditions**. Few tests ask about new **combinations**
 S. Chmiela *et al.*, *Sci. Adv.* **3**, e1603015 (2017); X. Fu *et al.*, *Trans. Mach. Learn. Res.* (2023).
 :::
 
+::: {.notes}
+All but the last change the conditions. The last one changes only the composition: every part is covered, the whole is not.
+:::
+
 ::: {.bridge .fragment}
-So what would a test of new combinations look like, and why should a chemist care?
+That last one is the least tested. What would a test of it look like?
 :::
 
 ## Our choice: scaffold out-of-distribution {data-section="Motivation"}
 
 :::: {.columns}
 
-::: {.column width="48%"}
-- **Train** on molecules with fragments A, B and C; **test** on the same fragments joined in a new way
-- Every local environment is familiar; only the whole molecule is new
-- This is how new chemistry is made: known groups in a new arrangement
+::: {.column width="36%"}
+- **Fusion**: –OH and C=O seen apart; tested together on one carbon, as –COOH
+- **Duplication**: one –COOH seen; tested with two
 
 ::: {.key}
-It asks whether a model understands molecules the way we do: from their parts.
+Every group is in training; only the molecule is new.
 :::
 :::
 
-::: {.column width="52%"}
-![](figures/scaffold_split.png)
+::: {.column width="64%"}
+![](figures/scaffold_fd.png)
 :::
 
 ::::
 
 ::: {.slide-ref}
-G. W. Bemis, M. A. Murcko, *J. Med. Chem.* **39**, 2887 (1996); Z. Wu *et al.*, *Chem. Sci.* **9**, 513 (2018).
+G. W. Bemis, M. A. Murcko, *J. Med. Chem.* **39**, 2887 (1996); A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluations & Datasets Track; arXiv:2605.08988.
 :::
 
 ::: {.notes}
-Language analogy: knowing the words doesn't guarantee you understand a new sentence. Of all the ways to be "new", this is the one closest to how chemists work.
+Two of the five GMD tasks, shown as examples; the full set comes in the next section. The question: does a model understand molecules the way we do, from their parts?
 :::
 
 ::: {.bridge .fragment}
 To run this test, we need a dataset built for it. That is GMD.
 :::
+
 
 <!-- ===================== GMD ===================== -->
 

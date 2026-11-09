@@ -11,10 +11,9 @@
   <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Amir Masoud Nourollah">
-  <meta name="author" content="Irtaza Khalid">
   <meta name="author" content="Stefano Leoni">
   <meta name="author" content="Steven Schockaert">
-  <title>Amir Masoud Nourollah – Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</title>
+  <title>Amir Masoud Nourollah – Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -128,12 +127,12 @@
       margin-right: 0; 
     }
   </style>
-<meta property="og:title" content="Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials – Amir Masoud Nourollah">
-<meta property="og:description" content="For Computer Scientists">
+<meta property="og:title" content="Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows? – Amir Masoud Nourollah">
+<meta property="og:description" content="Knowing the parts, missing the whole">
 <meta property="og:image" content="https://nourollah.me/presentations/mlip-benchmark/computer-scientists/assets/profile.jpg">
 <meta property="og:site_name" content="Amir Masoud Nourollah">
-<meta name="twitter:title" content="Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials – Amir Masoud Nourollah">
-<meta name="twitter:description" content="For Computer Scientists">
+<meta name="twitter:title" content="Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows? – Amir Masoud Nourollah">
+<meta name="twitter:description" content="Knowing the parts, missing the whole">
 <meta name="twitter:image" content="https://nourollah.me/presentations/mlip-benchmark/computer-scientists/assets/profile.jpg">
 <meta name="twitter:creator" content="@amirmasoudnrl">
 <meta name="twitter:card" content="summary_large_image">
@@ -143,18 +142,13 @@
     <div class="slides">
 
 <section id="title-slide" data-background-color="#0B1F3A" data-section="Introduction" class="quarto-title-block center">
-  <h1 class="title">Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials</h1>
-  <p class="subtitle">For Computer Scientists</p>
+  <h1 class="title">Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?</h1>
+  <p class="subtitle">Knowing the parts, missing the whole</p>
 
 <div class="quarto-title-authors">
 <div class="quarto-title-author">
 <div class="quarto-title-author-name">
 Amir Masoud Nourollah 
-</div>
-</div>
-<div class="quarto-title-author">
-<div class="quarto-title-author-name">
-Irtaza Khalid 
 </div>
 </div>
 <div class="quarto-title-author">
@@ -172,24 +166,461 @@ Steven Schockaert
 </section>
 <section id="overview" class="slide level2" data-section="Overview">
 <h2>Overview</h2>
+<div class="columns middle">
+<div class="column" style="width:46%;">
 <ol type="1">
-<li><strong>Motivation</strong></li>
-<li><strong>GMD: The Benchmark</strong></li>
-<li><strong>Results</strong></li>
-<li><strong>Takeaways</strong></li>
+<li><strong>Introduction</strong>: compositional generalisation, and why molecules are a clean test for it</li>
+<li><strong>Motivation</strong>: how ML potentials are tested today, and what is missing</li>
+<li><strong>GMD: the benchmark</strong>: known parts, new molecules</li>
+<li><strong>Results</strong>: 13 models, five tasks, one failure mode</li>
+<li><strong>Takeaways</strong> and what comes next</li>
 </ol>
+</div><div class="column" style="width:54%;">
+<p><img data-src="figures/overview_teaser.png"></p>
+</div></div>
+<div class="bridge fragment">
+<p>Let’s start with a question ML has asked for years: can models recombine what they know?</p>
+</div>
+<!-- ===================== INTRODUCTION ===================== -->
 </section>
-<section id="motivation" class="slide level2" data-section="Motivation">
-<h2>Motivation</h2>
+<section id="compositional-generalisation" class="slide level2" data-section="Introduction">
+<h2>Compositional generalisation</h2>
+<div class="columns">
+<div class="column" style="width:44%;">
+<ul>
+<li>Train on the parts, test on <strong>new combinations</strong> of them</li>
+<li>A model that knows <em>jump</em> and <em>walk twice</em> should handle <em>jump twice</em></li>
+<li>Standard models often fail: SCAN and COGS in language, CLEVR-CoGenT in vision</li>
+</ul>
+<div class="key">
+<p>Most of these tests use synthetic tasks, where “correct” is defined by a grammar we wrote.</p>
+</div>
+</div><div class="column" style="width:56%;">
+<p><img data-src="figures/compositional_ml.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>B. Lake, M. Baroni, <em>ICML</em> (2018); N. Kim, T. Linzen, <em>EMNLP</em> (2020); J. Johnson <em>et al.</em>, <em>CVPR</em> (2017).</p>
+</div>
+<div class="bridge fragment">
+<p>Is there a domain that is compositional by nature, with ground truth given by physics?</p>
+</div>
 </section>
-<section id="gmd-the-benchmark" class="slide level2" data-section="GMD">
-<h2>GMD: The Benchmark</h2>
+<section id="molecules-are-compositional-by-construction" class="slide level2" data-section="Introduction">
+<h2>Molecules are compositional by construction</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>Chemists read a molecule as <strong>parts</strong>: functional groups, rings, chains</li>
+<li>Parts carry their behaviour with them, which is why chemists can reason about molecules they have never met</li>
+<li>And the “correct answer” is not a rule we invented: it is quantum mechanics</li>
+</ul>
+<div class="key">
+<p>Molecules are a natural testbed for compositional generalisation, with physically exact labels.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="figures/molecule_parts.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>S. W. Benson, J. H. Buss, <em>J. Chem. Phys.</em> <strong>29</strong>, 546 (1958).</p>
+</div>
+<div class="bridge fragment">
+<p>So what does an ML model actually learn about a molecule?</p>
+</div>
 </section>
-<section id="results" class="slide level2" data-section="Results">
-<h2>Results</h2>
+<section id="machine-learning-interatomic-potentials" class="slide level2" data-section="Introduction">
+<h2>Machine-learning interatomic potentials</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li><strong>Input</strong>: element and 3D position of every atom</li>
+<li><strong>Output</strong>: energy <em>E</em> and forces <strong>F</strong><sub><em>i</em></sub> = −∂<em>E</em>/∂<strong>r</strong><sub><em>i</em></sub></li>
+<li>Each atom sees a <strong>local neighbourhood</strong>; <em>E</em> is a sum over atoms</li>
+<li>Mostly equivariant GNNs: NequIP, MACE, EquiFormerV2</li>
+</ul>
+<div class="key">
+<p>The architecture is built from local parts, so compositional generalisation looks like it should come for free.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="figures/molecule_as_data.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>J. Behler, M. Parrinello, <em>Phys. Rev.&nbsp;Lett.</em> <strong>98</strong>, 146401 (2007); I. Batatia <em>et al.</em>, <em>NeurIPS</em> (2022).</p>
+</div>
+<div class="bridge fragment">
+<p>But why learn energies at all, instead of computing them?</p>
+</div>
 </section>
-<section id="takeaways" class="slide level2" data-section="Takeaways">
-<h2>Takeaways</h2>
+<section id="labels-are-expensive" class="slide level2" data-section="Introduction">
+<h2>Labels are expensive</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>Reference labels come from quantum chemistry: DFT scales roughly as <em>N</em><sup>3</sup>, coupled cluster as <em>N</em><sup>7</sup></li>
+<li>Molecular dynamics needs 10<sup>6</sup> or more energy and force evaluations</li>
+<li>An MLIP pays the DFT cost once, at training time, then runs close to the speed of a classical force field</li>
+</ul>
+<div class="key">
+<p>MLIPs amortise quantum chemistry. Their value depends entirely on how far they transfer.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="figures/cost_scaling.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>J. Behler, <em>Chem. Rev.</em> <strong>121</strong>, 10037 (2021).</p>
+</div>
+<div class="bridge fragment">
+<p>If labels are this expensive, why not pay once, at scale, for all of chemistry?</p>
+</div>
+</section>
+<section id="foundation-models-for-atoms" class="slide level2" data-section="Introduction">
+<h2>Foundation models for atoms</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>More DFT calculations, bigger datasets: MPtrj (materials), OMol25 (molecules, 100M+ calculations)</li>
+<li>Pre-train once on millions of structures, then fine-tune or use zero-shot</li>
+<li>Examples: MACE-MP-0, UMA, PET-MAD</li>
+</ul>
+<div class="warn">
+<p>The assumption: they learn chemistry itself. Or do they stay grounded in what they have seen?</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="figures/universal_models.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>I. Batatia <em>et al.</em>, arXiv:2401.00096 (2023); D. S. Levine <em>et al.</em>, arXiv (2025); A. Mazitov <em>et al.</em>, arXiv (2025).</p>
+</div>
+<div class="bridge fragment">
+<p>So how is out-of-distribution performance tested for these models today?</p>
+</div>
+<!-- ===================== MOTIVATION ===================== -->
+</section>
+<section id="how-mlips-are-tested-out-of-distribution" class="slide level2" data-section="Motivation">
+<h2>How MLIPs are tested out-of-distribution</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>Random splits of MD trajectories: test frames are near-duplicates of training frames</li>
+<li>Shifts in <strong>conditions</strong>: high temperature, distorted geometries, rare events, unseen elements</li>
+<li>Scaffold splits exist for molecular <strong>property prediction</strong>, but not for potentials</li>
+</ul>
+<div class="key">
+<p>Missing: a controlled shift in <strong>composition</strong>, where every part is seen and only the whole is new.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="figures/ood_map.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>S. Chmiela <em>et al.</em>, <em>Sci. Adv.</em> <strong>3</strong>, e1603015 (2017); X. Fu <em>et al.</em>, <em>TMLR</em> (2023); Z. Wu <em>et al.</em>, <em>Chem. Sci.</em> <strong>9</strong>, 513 (2018).</p>
+</div>
+<div class="bridge fragment">
+<p>What would such a test look like for a potential?</p>
+</div>
+</section>
+<section id="the-question" class="slide level2" data-section="Motivation">
+<h2>The question</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li><strong>Train</strong> on molecules built from fragments A, B and C</li>
+<li><strong>Test</strong> on new molecules that join the same fragments in a new way</li>
+<li>A model that learned transferable local chemistry should find this easy</li>
+</ul>
+<div class="warn">
+<p>Do MLIPs generalise compositionally, or do they memorise the molecules they were trained on?</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="figures/scaffold_split.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>G. W. Bemis, M. A. Murcko, <em>J. Med. Chem.</em> <strong>39</strong>, 2887 (1996); Z. Wu <em>et al.</em>, <em>Chem. Sci.</em> <strong>9</strong>, 513 (2018).</p>
+</div>
+<div class="bridge fragment">
+<p>To answer this cleanly, we built a benchmark for it.</p>
+</div>
+<!-- ===================== GMD ===================== -->
+</section>
+<section id="gmd-generalisation-for-molecular-dynamics" class="slide level2" data-section="GMD">
+<h2>GMD: Generalisation for Molecular Dynamics</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<ul>
+<li>140 molecules in 12 families, built from H, C, N and O</li>
+<li>300 K MD for each molecule, DFT energies and forces for every snapshot: about 280,000 labelled configurations</li>
+<li>Splits are <strong>by molecule</strong>, never by snapshot</li>
+</ul>
+<div class="key">
+<p>Open data and code: huggingface.co/datasets/AmirMasoud/GMD</p>
+</div>
+</div><div class="column" style="width:54%;">
+<p><img data-src="figures/gmd_pipeline.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>Which compositional operations do we test?</p>
+</div>
+</section>
+<section id="five-compositional-operations" class="slide level2" data-section="GMD">
+<h2>Five compositional operations</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="figures/gmd_tasks.png" class="quarto-figure quarto-figure-center" height="365"></p>
+</figure>
+</div>
+<div class="small" style="text-align:center">
+<p>Each task isolates one operation; every fragment in a test molecule appears in training.</p>
+</div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Chain extension is the length-generalisation analogue; fusion, duplication, combination and fission are the compositional ones.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Why such small molecules?</p>
+</div>
+</section>
+<section id="design-choices" class="slide level2" data-section="GMD">
+<h2>Design choices</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li><strong>One operation per task</strong>: a failure has one cause</li>
+<li><strong>Minimal shift</strong>: failing the smallest step is a strong negative result</li>
+<li><strong>Consistent labels</strong>: one DFT level, cheap enough for many models</li>
+<li><strong>Controls</strong>: augmented training sets and GFN2-xTB labels</li>
+</ul>
+</div><div class="column" style="width:52%;">
+<p><img data-src="figures/gmd_families.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>Which models did we put through this?</p>
+</div>
+</section>
+<section id="models-and-protocol" class="slide level2" data-section="GMD">
+<h2>Models and protocol</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="trained-from-scratch">Trained from scratch</h3>
+<p>SchNet, DimeNet++, GemNet, PaiNN, NequIP, MACE, eSCN, EquiFormerV2: invariant to fully equivariant, 2017 to 2024</p>
+<h3 id="foundation-models">Foundation models</h3>
+<p>MACE-MP-0 Small, Medium and Large and UMA-Small, fine-tuned per task; MACE-MP-0 Medium zero-shot</p>
+</div><div class="column" style="width:50%;">
+<h3 id="metrics">Metrics</h3>
+<p>Energy and force MAE against DFT, on known molecules (ID) and new molecules (OOD)</p>
+<h3 id="headline-number">Headline number</h3>
+<p>OOD/ID error ratio per model, averaged over tasks</p>
+<aside class="notes">
+<p>Foundation models fine-tuned for 2000 epochs per task: an upper bound on what fine-tuning can do. [Check seeds and error bars before the talk.]</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>So what happens on new molecules?</p>
+</div>
+<!-- ===================== RESULTS ===================== -->
+</section>
+<section id="every-model-degrades-on-new-compositions" class="slide level2" data-section="Results">
+<h2>Every model degrades on new compositions</h2>
+<div class="columns middle">
+<div class="column" style="width:44%;">
+<ul>
+<li>Each bar runs from ID error (|) to OOD error, one marker per task</li>
+<li>Force errors grow ×1 to ×19 on average; energy errors can grow over 1000×</li>
+<li>Fusion, duplication and fission are hardest; chain extension (◆) is easiest</li>
+<li>The best ID model is not always the best OOD</li>
+</ul>
+</div><div class="column" style="width:56%;">
+<p><img data-src="figures/results_forces.png" style="max-height:465px"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>MACE-Medium zero-shot has a ratio near ×1 only because its ID error is already high. In-distribution accuracy is a poor proxy for compositional generalisation.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Where inside a molecule does the error appear?</p>
+</div>
+</section>
+<section id="the-error-localises-on-the-new-composition" class="slide level2" data-section="Results">
+<h2>The error localises on the new composition</h2>
+<div class="columns middle">
+<div class="column" style="width:34%;">
+<ul>
+<li><strong>Hexanoic acid</strong>, OOD in fusion: trained on alcohols and aldehydes</li>
+<li>Inner disc: force-<strong>magnitude</strong> error; ring: <strong>direction</strong> error</li>
+<li>Backbone is fine; error sits on <strong>–COOH</strong>, and it is mostly magnitude</li>
+</ul>
+<div class="warn">
+<p>Known: –OH and C=O. Not composed: –COOH.</p>
+</div>
+</div><div class="column" style="width:66%;">
+<p><img data-src="figures/per_atom_fusion.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Per-atom errors averaged over 200 test snapshots. NequIP spreads the error over the group; the others concentrate it on one or two atoms.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Is length generalisation any easier than composition?</p>
+</div>
+</section>
+<section id="chain-extension-length-generalisation-is-easier" class="slide level2" data-section="Results">
+<h2>Chain extension: length generalisation is easier</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Train on C<sub>2</sub> to C<sub>6</sub> alkanes; test on C<sub>7</sub> to C<sub>13</sub></li>
+<li>Errors still rise with length, but far less than in the compositional tasks</li>
+<li>SchNet and DimeNet++ break down past the training lengths</li>
+</ul>
+<div class="key">
+<p>Repeating a known part costs some accuracy. Composing parts in a new way costs far more.</p>
+</div>
+</div><div class="column" style="width:60%;">
+<p><img data-src="figures/results_grid_FCE.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>Could more data, bigger models or pre-training close the gap?</p>
+</div>
+</section>
+<section id="not-a-data-scale-or-label-problem" class="slide level2" data-section="Results">
+<h2>Not a data, scale or label problem</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="pre-training">Pre-training</h3>
+<p>Foundation models pre-trained on millions of structures do not consistently beat MACE trained from scratch on GMD</p>
+<h3 id="scale">Scale</h3>
+<p>Larger MACE-MP-0 helps on some tasks; the OOD gap remains</p>
+</div><div class="column" style="width:50%;">
+<h3 id="coverage">Coverage</h3>
+<p>Augmented training sets do not close the gap on fusion</p>
+<h3 id="labels">Labels</h3>
+<p>GFN2-xTB labels instead of DFT give the same pattern</p>
+</div></div>
+<div class="warn">
+<p>Fine-tuning fixes the molecules the model was shown, not the ones it was not.</p>
+</div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>So what does this mean for how we build and evaluate MLIPs?</p>
+</div>
+<!-- ===================== TAKEAWAYS ===================== -->
+</section>
+<section id="takeaways-and-future-work" class="slide level2" data-section="Takeaways">
+<h2>Takeaways and future work</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-we-found">What we found</h3>
+<ul>
+<li>Locality in the architecture does not give compositional generalisation</li>
+<li>Scale, pre-training and fine-tuning do not either</li>
+<li>ID accuracy is a poor proxy for OOD accuracy</li>
+<li>Random-split evaluations hide this failure</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="what-i-am-working-on">What I am working on</h3>
+<ul>
+<li>An inductive bias that controls <strong>how</strong> the model learns a molecule</li>
+<li>Forcing it to represent molecules through their functional groups and how they connect</li>
+</ul>
+<div class="key">
+<p>GMD gives a cheap, exact testbed for any such idea.</p>
+</div>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+</section>
+<section id="thank-you" class="slide level2 closing" data-section="Takeaways">
+<h2>Thank you</h2>
+<div class="columns middle">
+<div class="column" style="width:50%;">
+<p><strong>Amir Masoud Nourollah</strong></p>
+<p>Paper: arXiv:2605.08988 (NeurIPS 2026)</p>
+<p>Data: huggingface.co/datasets/AmirMasoud/GMD</p>
+<p>Code: github.com/Nourollah/GMD-26</p>
+<div class="key">
+<p>Questions?</p>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="figures/compositional_ml.png"></p>
+</div></div>
+<!-- ===================== BACKUP ===================== -->
+</section>
+<section id="backup-are-the-test-environments-really-local-repeats" class="slide level2" data-section="Takeaways">
+<h2>Backup: are the test environments really local repeats?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>The obvious question from an ML audience: with a cut-off of [r<sub>c</sub>] Å, does every OOD local environment appear in training?</li>
+<li>[Answer from the paper: share of OOD atom environments within the cut-off that have a close match in training]</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="img-slot">
+<p>Image: local-environment coverage</p>
+<p>[If the paper has it: nearest-training-neighbour distance of each OOD atomic environment, for each task.]</p>
+<p><code>env_coverage.png</code></p>
+</div>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
 
 
 </section>
@@ -197,7 +628,7 @@ Steven Schockaert
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="../../../site_libs/quarto-contrib/quarto-project/talk/logo.png" class="slide-logo"></p>
 <div class="footer footer-default">
-
+<p>Knowing the parts, missing the whole</p>
 </div>
 </div></div>
 

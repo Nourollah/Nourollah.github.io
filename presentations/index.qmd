@@ -43,7 +43,7 @@ Seminar version. Leads with the chemistry (functional groups, molecular dynamics
 :::
 
 ::: version
-[For computer scientists](mlip-benchmark/computer-scientists/index.qmd){.version-title}
+[For computer scientists: *Knowing the parts, missing the whole*](mlip-benchmark/computer-scientists/index.qmd){.version-title}
 
 ::: version-meta
 Seminar version. Leads with compositional generalisation and out-of-distribution evaluation, and explains the chemistry from scratch.
