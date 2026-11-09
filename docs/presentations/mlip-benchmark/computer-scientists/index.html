@@ -167,7 +167,7 @@ Steven Schockaert
 <section id="overview" class="slide level2" data-section="Overview">
 <h2>Overview</h2>
 <div class="columns middle">
-<div class="column" style="width:46%;">
+<div class="column" style="width:56%;">
 <ol type="1">
 <li><strong>Introduction</strong>: compositional generalisation, and why molecules are a clean test for it</li>
 <li><strong>Motivation</strong>: how ML potentials are tested today, and what is missing</li>
@@ -175,8 +175,8 @@ Steven Schockaert
 <li><strong>Results</strong>: 13 models, five tasks, one failure mode</li>
 <li><strong>Takeaways</strong> and what comes next</li>
 </ol>
-</div><div class="column" style="width:54%;">
-<p><img data-src="figures/overview_teaser.png"></p>
+</div><div class="column" style="width:44%;">
+<p><img data-src="../figures/overview_teaser.png"></p>
 </div></div>
 <div class="bridge fragment">
 <p>Let’s start with a question ML has asked for years: can models recombine what they know?</p>
@@ -196,7 +196,7 @@ Steven Schockaert
 <p>Most of these tests use synthetic tasks, where “correct” is defined by a grammar we wrote.</p>
 </div>
 </div><div class="column" style="width:56%;">
-<p><img data-src="figures/compositional_ml.png"></p>
+<p><img data-src="../figures/compositional_ml.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>B. Lake, M. Baroni, <em>ICML</em> (2018); N. Kim, T. Linzen, <em>EMNLP</em> (2020); J. Johnson <em>et al.</em>, <em>CVPR</em> (2017).</p>
@@ -218,7 +218,7 @@ Steven Schockaert
 <p>Molecules are a natural testbed for compositional generalisation, with physically exact labels.</p>
 </div>
 </div><div class="column" style="width:52%;">
-<p><img data-src="figures/molecule_parts.png"></p>
+<p><img data-src="../figures/molecule_parts.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>S. W. Benson, J. H. Buss, <em>J. Chem. Phys.</em> <strong>29</strong>, 546 (1958).</p>
@@ -241,7 +241,7 @@ Steven Schockaert
 <p>The architecture is built from local parts, so compositional generalisation looks like it should come for free.</p>
 </div>
 </div><div class="column" style="width:52%;">
-<p><img data-src="figures/molecule_as_data.png"></p>
+<p><img data-src="../figures/molecule_as_data.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>J. Behler, M. Parrinello, <em>Phys. Rev.&nbsp;Lett.</em> <strong>98</strong>, 146401 (2007); I. Batatia <em>et al.</em>, <em>NeurIPS</em> (2022).</p>
@@ -263,7 +263,7 @@ Steven Schockaert
 <p>MLIPs amortise quantum chemistry. Their value depends entirely on how far they transfer.</p>
 </div>
 </div><div class="column" style="width:52%;">
-<p><img data-src="figures/cost_scaling.png"></p>
+<p><img data-src="../figures/cost_scaling.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>J. Behler, <em>Chem. Rev.</em> <strong>121</strong>, 10037 (2021).</p>
@@ -285,7 +285,7 @@ Steven Schockaert
 <p>The assumption: they learn chemistry itself. Or do they stay grounded in what they have seen?</p>
 </div>
 </div><div class="column" style="width:52%;">
-<p><img data-src="figures/universal_models.png"></p>
+<p><img data-src="../figures/universal_models.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>I. Batatia <em>et al.</em>, arXiv:2401.00096 (2023); D. S. Levine <em>et al.</em>, arXiv (2025); A. Mazitov <em>et al.</em>, arXiv (2025).</p>
@@ -308,7 +308,7 @@ Steven Schockaert
 <p>Missing: a controlled shift in <strong>composition</strong>, where every part is seen and only the whole is new.</p>
 </div>
 </div><div class="column" style="width:52%;">
-<p><img data-src="figures/ood_map.png"></p>
+<p><img data-src="../figures/ood_map.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>S. Chmiela <em>et al.</em>, <em>Sci. Adv.</em> <strong>3</strong>, e1603015 (2017); X. Fu <em>et al.</em>, <em>TMLR</em> (2023); Z. Wu <em>et al.</em>, <em>Chem. Sci.</em> <strong>9</strong>, 513 (2018).</p>
@@ -330,7 +330,7 @@ Steven Schockaert
 <p>Do MLIPs generalise compositionally, or do they memorise the molecules they were trained on?</p>
 </div>
 </div><div class="column" style="width:52%;">
-<p><img data-src="figures/scaffold_split.png"></p>
+<p><img data-src="../figures/scaffold_split.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>G. W. Bemis, M. A. Murcko, <em>J. Med. Chem.</em> <strong>39</strong>, 2887 (1996); Z. Wu <em>et al.</em>, <em>Chem. Sci.</em> <strong>9</strong>, 513 (2018).</p>
@@ -353,7 +353,7 @@ Steven Schockaert
 <p>Open data and code: huggingface.co/datasets/AmirMasoud/GMD</p>
 </div>
 </div><div class="column" style="width:54%;">
-<p><img data-src="figures/gmd_pipeline.png"></p>
+<p><img data-src="../figures/gmd_pipeline.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
@@ -364,19 +364,17 @@ Steven Schockaert
 </section>
 <section id="five-compositional-operations" class="slide level2" data-section="GMD">
 <h2>Five compositional operations</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure>
-<p><img data-src="figures/gmd_tasks.png" class="quarto-figure quarto-figure-center" height="365"></p>
-</figure>
-</div>
-<div class="small" style="text-align:center">
-<p>Each task isolates one operation; every fragment in a test molecule appears in training.</p>
-</div>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><img data-src="../figures/gmd_tasks.png" style="height:420px; max-height:420px"></p>
+</div><div class="column" style="width:42%;">
+<p><img data-src="../figures/gmd_examples_rows.png" style="height:420px; max-height:420px"></p>
+</div></div>
 <div class="slide-ref">
 <p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
 </div>
 <aside class="notes">
-<p>Chain extension is the length-generalisation analogue; fusion, duplication, combination and fission are the compositional ones.</p>
+<p>Abstract task on the left, real molecules on the right, row by row. Chain extension is the length-generalisation analogue; the other four are compositional.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -403,7 +401,7 @@ Steven Schockaert
 <li><strong>Controls</strong>: augmented training sets and GFN2-xTB labels</li>
 </ul>
 </div><div class="column" style="width:52%;">
-<p><img data-src="figures/gmd_families.png"></p>
+<p><img data-src="../figures/gmd_families.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
@@ -447,24 +445,18 @@ Steven Schockaert
 </div>
 <!-- ===================== RESULTS ===================== -->
 </section>
-<section id="every-model-degrades-on-new-compositions" class="slide level2" data-section="Results">
-<h2>Every model degrades on new compositions</h2>
-<div class="columns middle">
-<div class="column" style="width:44%;">
-<ul>
-<li>Each bar runs from ID error (|) to OOD error, one marker per task</li>
-<li>Force errors grow ×1 to ×19 on average; energy errors can grow over 1000×</li>
-<li>Fusion, duplication and fission are hardest; chain extension (◆) is easiest</li>
-<li>The best ID model is not always the best OOD</li>
-</ul>
-</div><div class="column" style="width:56%;">
-<p><img data-src="figures/results_forces.png" style="max-height:465px"></p>
-</div></div>
+<section id="known-molecules-versus-new-molecules" class="slide level2" data-section="Results">
+<h2>Known molecules versus new molecules</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../figures/results_forces_simple.png" class="quarto-figure quarto-figure-center" height="435"></p>
+</figure>
+</div>
 <div class="slide-ref">
 <p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
 </div>
 <aside class="notes">
-<p>MACE-Medium zero-shot has a ratio near ×1 only because its ID error is already high. In-distribution accuracy is a poor proxy for compositional generalisation.</p>
+<p>Each bar runs from a model’s error on known molecules (|) to its error on new ones, one marker per task; right column is the average OOD/ID ratio. MACE-Medium zero-shot shows ×1.0 only because it is already about ten times worse on known molecules. Energies are worse still: over 1000× on new molecules. The best ID model is not always the best OOD: ID accuracy is a poor proxy.</p>
 <style type="text/css">
         span.MJX_Assistive_MathML {
           position:absolute!important;
@@ -493,7 +485,7 @@ Steven Schockaert
 <p>Known: –OH and C=O. Not composed: –COOH.</p>
 </div>
 </div><div class="column" style="width:66%;">
-<p><img data-src="figures/per_atom_fusion.png"></p>
+<p><img data-src="../figures/per_atom_fusion.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
@@ -528,7 +520,7 @@ Steven Schockaert
 <p>Repeating a known part costs some accuracy. Composing parts in a new way costs far more.</p>
 </div>
 </div><div class="column" style="width:60%;">
-<p><img data-src="figures/results_grid_FCE.png"></p>
+<p><img data-src="../figures/results_grid_FCE.png"></p>
 </div></div>
 <div class="slide-ref">
 <p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
@@ -599,7 +591,7 @@ Steven Schockaert
 <p>Questions?</p>
 </div>
 </div><div class="column" style="width:50%;">
-<p><img data-src="figures/compositional_ml.png"></p>
+<p><img data-src="../figures/compositional_ml.png"></p>
 </div></div>
 <!-- ===================== BACKUP ===================== -->
 </section>

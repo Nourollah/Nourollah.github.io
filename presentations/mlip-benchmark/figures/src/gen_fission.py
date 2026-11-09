@@ -1,0 +1,16 @@
+pre=open('preamble.tex').read()
+def tile(x,y,col,txt,dashed=False,w=1.4):
+    return r"\node[draw=%s, fill=%s!12, line width=1.4pt, rounded corners=6pt, minimum height=0.95cm, minimum width=%.1fcm, font=\bfseries, text=%s%s] at (%.2f,%.2f) {%s};"%(col,col,w,col,", dashed" if dashed else "",x,y,txt)
+o=[r"\begin{tikzpicture}"]
+o.append(r"\node[font=\bfseries, text=teal] at (1.6,3.0) {training};")
+o.append(r"\node[font=\bfseries, text=amber] at (7.0,3.0) {test};")
+o.append(r"\fill[tealsoft, rounded corners=8pt] (0,-0.6) rectangle (3.2,2.4);")
+o.append(r"\draw[amber, dashed, line width=1.2pt, fill=ambersoft, rounded corners=8pt] (4.6,-0.6) rectangle (9.4,2.4);")
+o.append(r"\node[draw=amber, fill=amber!12, line width=1.4pt, rounded corners=6pt, minimum height=1.6cm, minimum width=2.2cm, align=center, font=\bfseries, text=amber] at (1.6,0.9) {COOH\\[2pt]{\footnotesize\mdseries\textcolor{inksoft}{OH and C=O}}\\[-2pt]{\footnotesize\mdseries\textcolor{inksoft}{always together}}};")
+o.append(r"\draw[->, inksoft, line width=1.7pt] (3.35,0.9) -- (4.45,0.9);")
+o.append(tile(5.9,1.45,"plum","OH"))
+o.append(tile(8.1,1.45,"blue","C=O"))
+o.append(r"\node[font=\footnotesize, text=inksoft, align=center] at (7.0,0.2) {each part on its own:\\[-1pt]alcohols, aldehydes};")
+o.append(r"\node[font=\small, text=inksoft] at (4.7,-1.15) {models fail: consistent with the group being learned as one unit};")
+o.append(r"\end{tikzpicture}")
+open('fission_unit.tex','w').write(pre+"\n\\begin{document}\n"+"\n".join(o)+"\n\\end{document}\n")

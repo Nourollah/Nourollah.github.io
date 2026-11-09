@@ -172,7 +172,7 @@
     "href": "presentations/mlip-benchmark/computer-scientists/index.html#five-compositional-operations",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "Five compositional operations",
-    "text": "Five compositional operations\n\n\n\n\n\n\nEach task isolates one operation; every fragment in a test molecule appears in training.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nChain extension is the length-generalisation analogue; fusion, duplication, combination and fission are the compositional ones.\n\n\nWhy such small molecules?"
+    "text": "Five compositional operations\n\n\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nAbstract task on the left, real molecules on the right, row by row. Chain extension is the length-generalisation analogue; the other four are compositional.\n\n\nWhy such small molecules?"
   },
   {
     "objectID": "presentations/mlip-benchmark/computer-scientists/index.html#design-choices",
@@ -189,11 +189,11 @@
     "text": "Models and protocol\n\n\nTrained from scratch\nSchNet, DimeNet++, GemNet, PaiNN, NequIP, MACE, eSCN, EquiFormerV2: invariant to fully equivariant, 2017 to 2024\nFoundation models\nMACE-MP-0 Small, Medium and Large and UMA-Small, fine-tuned per task; MACE-MP-0 Medium zero-shot\n\nMetrics\nEnergy and force MAE against DFT, on known molecules (ID) and new molecules (OOD)\nHeadline number\nOOD/ID error ratio per model, averaged over tasks\n\nFoundation models fine-tuned for 2000 epochs per task: an upper bound on what fine-tuning can do. [Check seeds and error bars before the talk.]\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nSo what happens on new molecules?"
   },
   {
-    "objectID": "presentations/mlip-benchmark/computer-scientists/index.html#every-model-degrades-on-new-compositions",
-    "href": "presentations/mlip-benchmark/computer-scientists/index.html#every-model-degrades-on-new-compositions",
+    "objectID": "presentations/mlip-benchmark/computer-scientists/index.html#known-molecules-versus-new-molecules",
+    "href": "presentations/mlip-benchmark/computer-scientists/index.html#known-molecules-versus-new-molecules",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Every model degrades on new compositions",
-    "text": "Every model degrades on new compositions\n\n\n\nEach bar runs from ID error (|) to OOD error, one marker per task\nForce errors grow ×1 to ×19 on average; energy errors can grow over 1000×\nFusion, duplication and fission are hardest; chain extension (◆) is easiest\nThe best ID model is not always the best OOD\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nMACE-Medium zero-shot has a ratio near ×1 only because its ID error is already high. In-distribution accuracy is a poor proxy for compositional generalisation.\n\n\nWhere inside a molecule does the error appear?"
+    "section": "Known molecules versus new molecules",
+    "text": "Known molecules versus new molecules\n\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nEach bar runs from a model’s error on known molecules (|) to its error on new ones, one marker per task; right column is the average OOD/ID ratio. MACE-Medium zero-shot shows ×1.0 only because it is already about ten times worse on known molecules. Energies are worse still: over 1000× on new molecules. The best ID model is not always the best OOD: ID accuracy is a poor proxy.\n\n\nWhere inside a molecule does the error appear?"
   },
   {
     "objectID": "presentations/mlip-benchmark/computer-scientists/index.html#the-error-localises-on-the-new-composition",
@@ -683,84 +683,301 @@
     "href": "presentations/mlip-benchmark/conference/index.html#overview",
     "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
     "section": "Overview",
-    "text": "Overview\n\nMotivation\nGMD: The Benchmark\nResults\nTakeaways"
+    "text": "Overview\n\n\n\nIntroduction: two fields, one question\nBackground: how machines learn about molecules\nMotivation: where the data runs out\nGMD: a benchmark for known parts in new molecules\nResults: where and why models fail\nTakeaways and what comes next\n\n\n\n\n\nMixed room: say up front that every concept gets a chemistry view and a machine-learning view.\n\n\nLet’s start with something every chemist does without thinking: reading a molecule."
   },
   {
-    "objectID": "presentations/mlip-benchmark/conference/index.html#motivation",
-    "href": "presentations/mlip-benchmark/conference/index.html#motivation",
+    "objectID": "presentations/mlip-benchmark/conference/index.html#how-a-chemist-reads-a-molecule",
+    "href": "presentations/mlip-benchmark/conference/index.html#how-a-chemist-reads-a-molecule",
     "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
-    "section": "Motivation",
-    "text": "Motivation"
+    "section": "How a chemist reads a molecule",
+    "text": "How a chemist reads a molecule\n\n\n\n\n\n\nG. Socrates, Infrared and Raman Characteristic Group Frequencies, 3rd ed., Wiley (2001); S. W. Benson, J. H. Buss, J. Chem. Phys. 29, 546 (1958).\n\n\nWe read a molecule as parts, and so does experiment: each group of ethyl acetate has its own peak (C–H near 2980, C=O near 1740, C–O–C near 1240 and 1050 cm⁻¹). Properties are close to additive, which is why group-additivity schemes work. Schematic spectrum.\n\n\nMachine learning has a name for this ability. What is it, and do models have it?"
   },
   {
-    "objectID": "presentations/mlip-benchmark/conference/index.html#gmd-the-benchmark",
-    "href": "presentations/mlip-benchmark/conference/index.html#gmd-the-benchmark",
+    "objectID": "presentations/mlip-benchmark/conference/index.html#compositional-generalisation",
+    "href": "presentations/mlip-benchmark/conference/index.html#compositional-generalisation",
     "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
-    "section": "GMD: The Benchmark",
-    "text": "GMD: The Benchmark"
+    "section": "Compositional generalisation",
+    "text": "Compositional generalisation\n\n\n\nLearn the parts, then handle new combinations of them\nKnowing jump and walk twice should give jump twice\nStandard models often fail: SCAN, COGS in language; CLEVR-CoGenT in vision\n\n\nChemists do this every day. For ML it is still an open problem.\n\n\n\n\n\nB. Lake, M. Baroni, ICML (2018); N. Kim, T. Linzen, EMNLP (2020); J. Johnson et al., CVPR (2017).\n\n\nFor chemists: SCAN is a toy language of commands. For ML people: molecules give the same test, with quantum mechanics as the ground truth instead of a grammar.\n\n\nBefore asking whether ML models do this for molecules: how does a machine learn anything at all?"
   },
   {
-    "objectID": "presentations/mlip-benchmark/conference/index.html#results",
-    "href": "presentations/mlip-benchmark/conference/index.html#results",
+    "objectID": "presentations/mlip-benchmark/conference/index.html#teaching-a-computer-from-examples",
+    "href": "presentations/mlip-benchmark/conference/index.html#teaching-a-computer-from-examples",
     "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
-    "section": "Results",
-    "text": "Results"
+    "section": "Teaching a computer from examples",
+    "text": "Teaching a computer from examples\n\n\n\nWe give the computer examples: inputs and the correct answers\nIt tunes a flexible formula until its predictions match those answers\n“Learning” means finding the parameters with the smallest error\n\n\nYou already do this: fit a curve to two or three experimental points, then predict other amounts of reactant without running more experiments.\n\n\n\n\n\nC. M. Bishop, Pattern Recognition and Machine Learning, Springer (2006), ch. 1.\n\n\nCan we trust that curve everywhere, even far from the points we measured?"
   },
   {
-    "objectID": "presentations/mlip-benchmark/conference/index.html#takeaways",
-    "href": "presentations/mlip-benchmark/conference/index.html#takeaways",
+    "objectID": "presentations/mlip-benchmark/conference/index.html#inside-the-data-versus-outside-it",
+    "href": "presentations/mlip-benchmark/conference/index.html#inside-the-data-versus-outside-it",
     "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
-    "section": "Takeaways",
-    "text": "Takeaways"
+    "section": "Inside the data versus outside it",
+    "text": "Inside the data versus outside it\n\n\n\nBetween known points the model interpolates, and is usually reliable\nBeyond them it extrapolates, and nothing in the training checks it\nModels that agree inside the data can disagree wildly outside it\n\n\nA small training error says little about data the model has never seen.\n\n\n\n\n\nC. M. Bishop, Pattern Recognition and Machine Learning, Springer (2006), §1.1, §3.2.\n\n\nLet’s see how different our interpretation of a molecule is from a computer’s."
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#what-does-a-molecule-look-like-to-a-computer",
+    "href": "presentations/mlip-benchmark/conference/index.html#what-does-a-molecule-look-like-to-a-computer",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "What does a molecule look like to a computer?",
+    "text": "What does a molecule look like to a computer?\n\n\n\nInput: each atom’s element and 3D position, exactly what an .xyz file holds\nOutput: the energy E, and the force on every atom\nThere are many ways to give a molecule to a computer: 3D coordinates, adjacency matrices, molecular graphs, SMILES strings, fingerprints\n\n\nThe model never sees a label like “carbonyl”: only elements and distances.\n\n\n\n\n\nJ. Behler, M. Parrinello, Phys. Rev. Lett. 98, 146401 (2007); I. Batatia et al., NeurIPS (2022).\n\n\nFor ML people: these are equivariant graph neural networks (NequIP, MACE, EquiFormerV2). For chemists: the symmetry is built in, not learned.\n\n\nThen does machine learning read molecules the way a chemist does?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#does-machine-learning-read-molecules-this-way",
+    "href": "presentations/mlip-benchmark/conference/index.html#does-machine-learning-read-molecules-this-way",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Does machine learning read molecules this way?",
+    "text": "Does machine learning read molecules this way?\n\n\n\nThe model learns from whole molecules, one geometry at a time\nNothing forces it to learn “parts” the way a chemist does\nIt might learn rules, or it might memorise the molecules it was shown\n\n\nIf every part of a new molecule is familiar, does the model find the whole familiar?\n\n\n\n\n\nB. Lake, M. Baroni, ICML (2018).\n\n\nWhere to get these data, and how?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#any-method-can-supply-the-data-and-become-a-teacher",
+    "href": "presentations/mlip-benchmark/conference/index.html#any-method-can-supply-the-data-and-become-a-teacher",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Any method can supply the data and become a teacher",
+    "text": "Any method can supply the data and become a teacher\n\n\n\nFrom CCSD(T) to GFN2-xTB, every method gives energies and forces for a geometry\nSo any of them can supply training data\nDatasets range from ten small molecules (MD17) to over 100 million calculations (OMol25)\n\n\nA model is at best as accurate as the method that produced its data.\n\n\n\n\n\nS. Chmiela et al., Sci. Adv. 3, e1603015 (2017); C. Bannwarth, S. Ehlert, S. Grimme, J. Chem. Theory Comput. 15, 1652 (2019); D. S. Levine et al., arXiv (2025).\n\n\nFor ML people: this is a ladder of label quality versus label cost.\n\n\nIf these methods already give us energies and forces, why not just keep using them?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#why-we-invented-semi-empirical-methods",
+    "href": "presentations/mlip-benchmark/conference/index.html#why-we-invented-semi-empirical-methods",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Why we invented semi-empirical methods",
+    "text": "Why we invented semi-empirical methods\n\n\n\nCost grows steeply with size: roughly N4 for Hartree–Fock, N5 for MP2, N7 for CCSD(T)\nMolecular dynamics needs energies and forces at millions of time steps\nSemi-empirical methods replaced expensive integrals with fitted parameters\n\n\nEvery step down the ladder makes the same trade: accuracy for time and computer resources.\n\n\n\n\n\nM. J. S. Dewar, W. Thiel, J. Am. Chem. Soc. 99, 4899 (1977); W. Thiel, WIREs Comput. Mol. Sci. 4, 145 (2014).\n\n\nMachine learning makes a similar trade, by fitting to data. So what kind of method is it?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#enter-machine-learning-potentials",
+    "href": "presentations/mlip-benchmark/conference/index.html#enter-machine-learning-potentials",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Enter machine-learning potentials",
+    "text": "Enter machine-learning potentials\n\n\n\nLearn from reference calculations once\nThen predict energies and forces in milliseconds, close to the reference accuracy\nNanosecond MD at near-reference accuracy becomes routine\n\n\nIs machine learning a numerical, a semi-empirical, or an empirical method?\n\n\n\n\n\nJ. Behler, Chem. Rev. 121, 10037 (2021).\n\n\nDon’t answer the question. Pause and let both halves of the room think.\n\n\nWhatever it is, it learns from data. If labels are this expensive, why not pay once, at scale, for all of chemistry?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#foundation-models-for-atoms",
+    "href": "presentations/mlip-benchmark/conference/index.html#foundation-models-for-atoms",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Foundation models for atoms",
+    "text": "Foundation models for atoms\n\n\n\nMore DFT calculations, bigger datasets: MPtrj (materials), OMol25 (molecules, 100M+ calculations)\nPre-train once on millions of structures, then fine-tune or use zero-shot\nExamples: MACE-MP-0, UMA, PET-MAD\n\n\nThe assumption: they learn chemistry itself. Or do they stay grounded in what they have seen?\n\n\n\n\n\nI. Batatia et al., arXiv:2401.00096 (2023); D. S. Levine et al., arXiv (2025); A. Mazitov et al., arXiv (2025).\n\n\nEven with millions of structures, what happens where the data runs out?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#what-the-data-covers",
+    "href": "presentations/mlip-benchmark/conference/index.html#what-the-data-covers",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "What the data covers",
+    "text": "What the data covers\n\n\n\nA model is only checked where its training data are\nRoom-temperature MD samples the energy well densely, and the steep repulsive wall almost never\nOn the wall the model has to guess, and it guesses wrong\n\n\nHigh-energy geometries the data does not cover: one kind of out-of-distribution.\n\n\n\n\n\nJ. Behler, Chem. Rev. 121, 10037 (2021); X. Fu et al., Trans. Mach. Learn. Res. (2023).\n\n\nNow think of a reaction. Which point on the path does MD visit least?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#reactions-the-rarest-point-matters-most",
+    "href": "presentations/mlip-benchmark/conference/index.html#reactions-the-rarest-point-matters-most",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Reactions: the rarest point matters most",
+    "text": "Reactions: the rarest point matters most\n\n\n\nMD spends almost all its time in the reactant and product wells\nThe transition state is visited rarely, so it is barely in the data\nAt 298 K, every 1.4 kcal/mol of barrier error is a factor of 10 in the rate\n\n\nRare events the data barely covers: a second kind of out-of-distribution.\n\n\n\n\n\nH. Eyring, J. Chem. Phys. 3, 107 (1935).\n\n\nFrom k ∝ exp(−ΔG‡/RT): RT ln 10 ≈ 1.36 kcal/mol at 298 K. Schematic profile.\n\n\nSteep walls, rare events… what else counts as out-of-distribution?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#many-ways-to-be-out-of-distribution",
+    "href": "presentations/mlip-benchmark/conference/index.html#many-ways-to-be-out-of-distribution",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Many ways to be out-of-distribution",
+    "text": "Many ways to be out-of-distribution\n\n\nOut-of-distribution: anything the training data does not represent, where the model has to go beyond its data rather than fill in between it.\n\nHigh-energy geometries; rare events\nHigher temperature than in training\nElements, charges or spin states never seen\nSolvent or surfaces, when trained in vacuum\nA new combination of known groups\n\n\n\n\n\nS. Chmiela et al., Sci. Adv. 3, e1603015 (2017); X. Fu et al., Trans. Mach. Learn. Res. (2023).\n\n\nAll but the last change the conditions. The last one changes only the composition: every part is covered, the whole is not.\n\n\nWhich of these do we actually test when we evaluate ML potentials today?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#how-ml-potentials-are-evaluated-today",
+    "href": "presentations/mlip-benchmark/conference/index.html#how-ml-potentials-are-evaluated-today",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "How ML potentials are evaluated today",
+    "text": "How ML potentials are evaluated today\n\n\nRandom splits\nTest frames come from the same MD trajectories as training frames, so they are near-copies of what the model saw\nShifts in conditions\nHigher temperature, distorted geometries, rare events, unseen elements\n\nScaffold splits\nStandard for predicting molecular properties (MoleculeNet), but not used for potentials\nWhat is missing\nA controlled shift in composition: every part seen, only the whole new\n\n\nThe test chemists would care about most, a new molecule built from known groups, is the one we rarely run.\n\n\nS. Chmiela et al., Sci. Adv. 3, e1603015 (2017); X. Fu et al., TMLR (2023); Z. Wu et al., Chem. Sci. 9, 513 (2018).\n\n\nShouldn’t these models handle new combinations anyway? After all, they are built from local parts."
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#locality-where-chemistry-and-ml-agree",
+    "href": "presentations/mlip-benchmark/conference/index.html#locality-where-chemistry-and-ml-agree",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Locality: where chemistry and ML agree",
+    "text": "Locality: where chemistry and ML agree\n\n\n\nChemistry: a property is roughly a sum of group contributions\nML potential: the energy is a sum of contributions from each atom’s neighbourhood\nBoth say the whole is built from local parts\n\n\nSo compositional generalisation should come for free. Does it?\n\n\n\n\n\nS. W. Benson, J. H. Buss, J. Chem. Phys. 29, 546 (1958); J. Behler, M. Parrinello, Phys. Rev. Lett. 98, 146401 (2007).\n\n\nThis is the bridge between the two halves of the room: Benson’s additivity and the Behler–Parrinello energy decomposition have the same shape. Group-additivity values are schematic here.\n\n\nHow would we test that cleanly?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#our-choice-scaffold-out-of-distribution",
+    "href": "presentations/mlip-benchmark/conference/index.html#our-choice-scaffold-out-of-distribution",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Our choice: scaffold out-of-distribution",
+    "text": "Our choice: scaffold out-of-distribution\n\n\n\nFusion: –OH and C=O seen apart; tested together on one carbon, as –COOH\nDuplication: one –COOH seen; tested with two\n\n\nEvery group is in training; only the molecule is new.\n\n\n\n\n\nG. W. Bemis, M. A. Murcko, J. Med. Chem. 39, 2887 (1996); A. M. Nourollah et al., NeurIPS (2026); arXiv:2605.08988.\n\n\nTwo examples now; the full set of five comes in the next section.\n\n\nTo run this test properly, we need a dataset built for it. That is GMD."
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#gmd-generalisation-for-molecular-dynamics",
+    "href": "presentations/mlip-benchmark/conference/index.html#gmd-generalisation-for-molecular-dynamics",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "GMD: Generalisation for Molecular Dynamics",
+    "text": "GMD: Generalisation for Molecular Dynamics\n\n\n\n140 molecules in 12 families, built from H, C, N and O\n300 K MD for each molecule, DFT energies and forces for every snapshot: about 280,000 configurations\nSplits are by molecule, never by snapshot\n\n\nModels are usually tested on new shapes of known molecules. GMD tests them on new molecules.\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nOpen data and code: huggingface.co/datasets/AmirMasoud/GMD. Splitting by molecule is what makes this a test of new molecules rather than new frames.\n\n\n“New molecule” can mean many things. Which kinds of novelty do we test?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#which-kinds-of-compositionality",
+    "href": "presentations/mlip-benchmark/conference/index.html#which-kinds-of-compositionality",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Which kinds of compositionality?",
+    "text": "Which kinds of compositionality?\n\n\nFive aspects, from linguistics and ML\nSystematicity, productivity, substitutivity, localism, overgeneralisation\nGMD tests two of them\nThe two that transfer cleanly to atoms\n\nProductivity\nHandle longer structures than in training: one task, chain extension\nSystematicity\nRecombine known parts in new ways: four tasks, fusion, duplication, combination, fission\n\n\nEach GMD task is one compositional operation, chosen from a framework the ML community already uses.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nFor chemists: productivity is “bigger molecules from the same pieces”; systematicity is “new arrangements of the same pieces”. Substitutivity, localism and overgeneralisation do not transfer directly to atoms and are left to future work.\n\n\nSo what do these five operations look like?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#five-ways-to-build-a-new-molecule-from-known-parts",
+    "href": "presentations/mlip-benchmark/conference/index.html#five-ways-to-build-a-new-molecule-from-known-parts",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Five ways to build a new molecule from known parts",
+    "text": "Five ways to build a new molecule from known parts\n\n\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nAbstract task on the left, real molecules on the right, row by row. Chain extension: C2–C6 alkanes in training, C7–C13 at test, motivated by drug discovery, where models trained on fragments must handle larger lead compounds. Fusion: C4–C10 with extra complex carbonyls and alcohols for coverage. Duplication and fission: C5–C10. Combination: C2–C9. Why small molecules: one operation per task, every part of a test molecule is in training, chemists can check the answers, and failing the smallest step is a strong result.\n\n\nBut if a model fails, is it because it never saw enough, or because it cannot compose?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#two-reasons-a-model-could-fail",
+    "href": "presentations/mlip-benchmark/conference/index.html#two-reasons-a-model-could-fail",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Two reasons a model could fail",
+    "text": "Two reasons a model could fail\n\n\nMissing coverage\nThe model never saw long chains, or never saw a group in a given setting\nFix: add the missing coverage to training\n\nMissing composition\nThe model saw every piece, but never learned how pieces combine\nFix: show it a worked example of combining pieces\n\n\nThe augmented variants close the first gap and leave the second, so we can tell the two apart.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nWhat do the augmented variants look like?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#the-augmented-variants",
+    "href": "presentations/mlip-benchmark/conference/index.html#the-augmented-variants",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "The augmented variants",
+    "text": "The augmented variants\n\n\n\n\n\n\nChain extension gets the missing coverage; fusion gets a worked example of composition.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nWhich models do we put through all of this?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#models-and-protocol",
+    "href": "presentations/mlip-benchmark/conference/index.html#models-and-protocol",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Models and protocol",
+    "text": "Models and protocol\n\n\nTrained from scratch\nSchNet, DimeNet++, GemNet, PaiNN, NequIP, MACE, eSCN, EquiFormerV2: from the oldest to the newest designs, 2017 to 2024\nFoundation models\nMACE-MP-0 Small, Medium and Large and UMA-Small, fine-tuned per task; MACE-MP-0 Medium zero-shot\n\nError\nMean absolute error of energies and forces against DFT\nID and OOD\nOn known molecules (in-distribution) and new ones (out-of-distribution); headline: the OOD/ID ratio\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nFoundation models fine-tuned for 2000 epochs per task: an upper bound on what fine-tuning can do. [Check seeds and error bars before the talk.]\n\n\nSo what happens on new molecules?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#known-molecules-versus-new-molecules",
+    "href": "presentations/mlip-benchmark/conference/index.html#known-molecules-versus-new-molecules",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Known molecules versus new molecules",
+    "text": "Known molecules versus new molecules\n\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nEach bar runs from a model’s error on known molecules (|) to its error on new ones, one marker per task; right column is the average OOD/ID ratio. MACE-Medium zero-shot shows ×1.0 only because it is already about ten times worse on known molecules. Energies are worse still: over 1000× on new molecules. In-distribution accuracy does not reliably predict out-of-distribution accuracy.\n\n\nWhere inside the molecule does the error appear?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#where-the-failure-happens-inside-the-molecule",
+    "href": "presentations/mlip-benchmark/conference/index.html#where-the-failure-happens-inside-the-molecule",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Where the failure happens: inside the molecule",
+    "text": "Where the failure happens: inside the molecule\n\n\n\nHexanoic acid: new in the fusion task\nInner disc: error in force strength; ring: error in direction\nBackbone fine; error on –COOH, mostly strength\n\n\nKnown: –OH and C=O. Not composed: –COOH.\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nAcross tasks, direction errors localise on the heteroatoms of each task’s new environment: oxygen for fusion, duplication and fission; the O–N pairing for combination. The same atoms are fine where their environment matches training.\n\n\nCombining parts fails badly. How does the simplest task, a longer chain, compare?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#chain-extension-a-smaller-drop",
+    "href": "presentations/mlip-benchmark/conference/index.html#chain-extension-a-smaller-drop",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Chain extension: a smaller drop",
+    "text": "Chain extension: a smaller drop\n\n\n\nTrain on ethane to hexane; test on heptane to tridecane\nErrors still rise with length, but far less than in the other four tasks\nSchNet and DimeNet++ break down past the training lengths\n\n\nRepeating a known part costs some accuracy. Combining parts in a new way costs far more.\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nSo is the problem coverage, or composition? The augmented variants answer that."
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#coverage-helps-length-not-composition",
+    "href": "presentations/mlip-benchmark/conference/index.html#coverage-helps-length-not-composition",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Coverage helps length, not composition",
+    "text": "Coverage helps length, not composition\n\n\nAugmented chain extension\nMuch easier for every model except SchNet: OOD/ID close to ×1, and DimeNet++ recovers\nCoverage was the missing piece\n\nAugmented fusion\nThe amide example does not help: errors on carboxylic acids stay as large as before\nComposition is the missing piece\n\n\nConsistent with models treating each group as a standalone token, not learning how groups combine.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nPaper Figure 19 has the full results if you want to show them here.\n\n\nAnd if we run fusion backwards, can a model split a group it only saw whole?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#fission-the-group-is-learned-as-one-unit",
+    "href": "presentations/mlip-benchmark/conference/index.html#fission-the-group-is-learned-as-one-unit",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Fission: the group is learned as one unit",
+    "text": "Fission: the group is learned as one unit\n\n\n\nTrained on carboxylic acids: –OH and C=O only ever appear together\nTested on alcohols and aldehydes: each part alone\nThe models cannot recover the parts\n\n\nConsistent with –COOH being learned as one unit, not built up from its parts.\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nRelated to localism in the compositionality framework, but not a direct test of it: the –OH and C=O environments in the test molecules differ physically from those inside –COOH.\n\n\nCould bigger models, pre-training or a different level of theory close the gap?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#not-a-data-scale-or-label-problem",
+    "href": "presentations/mlip-benchmark/conference/index.html#not-a-data-scale-or-label-problem",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Not a data, scale or label problem",
+    "text": "Not a data, scale or label problem\n\n\nPre-training\nFoundation models pre-trained on millions of structures do not consistently beat MACE trained from scratch\nScale\nLarger MACE-MP-0 helps on some tasks; the gap remains\n\nLabels\nGFN2-xTB labels instead of DFT give the same pattern\nCoverage\nHelps chain extension, not fusion (previous slides)\n\n\nFine-tuning fixes the molecules the model was shown, not the ones it was not.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nSo what does all this mean, for chemists and for machine learning?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#what-it-means",
+    "href": "presentations/mlip-benchmark/conference/index.html#what-it-means",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "What it means",
+    "text": "What it means\n\n\nFor chemists\n\nErrors sit on the new functional group: wrong vibrations, conformers, barriers\nThey appear exactly where a molecule is new, which is where you would use a model\nA good score on known molecules says little about yours\n\n\nFor machine learning\n\nLocality in the architecture does not give compositional generalisation\nScale, pre-training and fine-tuning do not either\nIn-distribution accuracy does not reliably predict out-of-distribution accuracy\n\n\n\nBefore trusting a model on a new molecule, ask: has it seen this combination, or only these parts?\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nHow far do these conclusions reach, and where should we look next?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#scope-and-next-steps-for-the-benchmark",
+    "href": "presentations/mlip-benchmark/conference/index.html#scope-and-next-steps-for-the-benchmark",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Scope and next steps for the benchmark",
+    "text": "Scope and next steps for the benchmark\n\n\nWhat GMD covers\nSmall H/C/N/O molecules in vacuum, one DFT level (PBE/def2-TZVP+D3BJ)\nWhy that is enough\nEvery part of each test molecule is in training: failure under this minimal shift is a strong result\n\nWhat it does not cover\nAromatic, charged, inorganic or transition-metal chemistry; condensed phases\nNatural extensions\nRicher fragment vocabularies: peptides for proteins, monomers for polymers\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nSo what do we take home, and can we teach a model to see molecules as we do?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#takeaways-and-future-work",
+    "href": "presentations/mlip-benchmark/conference/index.html#takeaways-and-future-work",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Takeaways and future work",
+    "text": "Takeaways and future work\n\n\nWhat we found\n\nMore of the same (longer chains) costs some accuracy\nKnown parts in new combinations cost far more\nCoverage, scale and pre-training do not fix composition\nModels learn groups as units, not from their parts\n\n\nWhat I am working on\n\nA model whose learning is guided by chemical structure\nForcing it to see a molecule as a chemist does: functional groups and how they connect\n\n\nGoal: a model that understands a new molecule from its parts.\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988."
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#thank-you",
+    "href": "presentations/mlip-benchmark/conference/index.html#thank-you",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Thank you",
+    "text": "Thank you\n\n\nAmir Masoud Nourollah\nPaper: arXiv:2605.08988 (NeurIPS 2026)\nData: huggingface.co/datasets/AmirMasoud/GMD\nCode: github.com/Nourollah/GMD-26\n\nQuestions?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#backup-are-the-test-environments-really-local-repeats",
+    "href": "presentations/mlip-benchmark/conference/index.html#backup-are-the-test-environments-really-local-repeats",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Backup: are the test environments really local repeats?",
+    "text": "Backup: are the test environments really local repeats?\n\n\n\nExpected question from ML people: with a cut-off of [rc] Å, does every OOD local environment appear in training?\nPartial answer from the paper: the same atoms are predicted well where their environment matches training, and poorly where it does not\n[Add any direct coverage measure you have]\n\n\n\nImage: local-environment coverage\n[If available: nearest-training-neighbour distance of each OOD atomic environment, per task.]\nenv_coverage.png\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988."
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/conference/index.html#fitting-well-is-not-generalising-well",
+    "href": "presentations/mlip-benchmark/conference/index.html#fitting-well-is-not-generalising-well",
+    "title": "Benchmarking Compositional Generalisation for Machine Learning Interatomic Potentials",
+    "section": "Fitting well is not generalising well",
+    "text": "Fitting well is not generalising well\n\n\n\nTwo kinds of points: the model learns a border between them\nA straight line misses a few training points, but gets new points right\nA wiggly border gets every training point right, and new points wrong\n\n\nThe goal is accuracy on data the model has never seen: generalisation.\n\n\n\n\n\nC. M. Bishop, Pattern Recognition and Machine Learning, Springer (2006), §1.1, §4.1.\n\n\nWhat about points that land outside everything the model has seen, or outside what our data covers?"
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#overview",
     "href": "presentations/mlip-benchmark/chemists/index.html#overview",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "Overview",
-    "text": "Overview\n\n\n\nIntroduction: how machine learning learns, and what it learns from\nMotivation: how chemists read molecules, and where models go wrong\nGMD: the benchmark: familiar parts, new molecules\nResults: where today’s models break\nTakeaways and what comes next\n\n\n\n\n\nOne sentence: chemists know a molecule from its parts; we ask whether ML models do too."
+    "text": "Overview\n\n\n\nIntroduction: how machine learning learns, and how chemists and computers read molecules\nMotivation: where the data runs out, and what counts as new\nGMD: the benchmark: familiar parts, new molecules\nResults: where today’s models break\nTakeaways\n\n\n\n\n\nOne sentence: chemists know a molecule from its parts; we ask whether ML models do too.\n\n\nSo how does a computer learn anything at all?"
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#teaching-a-computer-from-examples",
     "href": "presentations/mlip-benchmark/chemists/index.html#teaching-a-computer-from-examples",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "Teaching a computer from examples",
-    "text": "Teaching a computer from examples\n\n\n\nWe give the computer examples: inputs and the correct answers\nIt tunes a flexible formula until its predictions match those answers\n“Learning” just means finding the parameters with the smallest error\n\n\nYou already do this: fitting a calibration curve or a rate law is the same idea, with three parameters instead of millions.\n\n\n\n\n\nC. M. Bishop, Pattern Recognition and Machine Learning, Springer (2006), ch. 1.\n\n\nKeep it friendly. Model = summary of the data it has seen.\n\n\nThe curve passes close to every point. But is that really what we want?"
-  },
-  {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#fitting-well-is-not-generalising-well",
-    "href": "presentations/mlip-benchmark/chemists/index.html#fitting-well-is-not-generalising-well",
-    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Fitting well is not generalising well",
-    "text": "Fitting well is not generalising well\n\n\n\nTwo kinds of points: the model learns a border between them\nA straight line misses a few training points, but gets new points right\nA wiggly border gets every training point right, and new points wrong\n\n\nWe want a model that works on data it has never seen, not one that remembers its training data. That is generalisation.\n\n\n\n\n\nC. M. Bishop, Pattern Recognition and Machine Learning, Springer (2006), §1.1, §4.1.\n\n\nPoint at the circled new points on the right panel. The over-fitted model “learned” the noise.\n\n\nAnd what about points that lie outside everything the model has seen?"
+    "text": "Teaching a computer from examples\n\n\n\nWe give the computer examples: inputs and the correct answers\nIt tunes a flexible formula until its predictions match those answers\n“Learning” just means finding the parameters with the smallest error\n\n\nYou already do this: fit a curve to two or three experimental points, then predict other amounts of reactant without running more experiments.\n\n\n\n\n\nC. M. Bishop, Pattern Recognition and Machine Learning, Springer (2006), ch. 1.\n\n\nKeep it friendly. Model = summary of the data it has seen.\n\n\nCan we trust that curve everywhere, even far from the points we measured?"
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#inside-the-data-versus-outside-it",
     "href": "presentations/mlip-benchmark/chemists/index.html#inside-the-data-versus-outside-it",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "Inside the data versus outside it",
-    "text": "Inside the data versus outside it\n\n\n\nBetween known points the model interpolates, and is usually reliable\nBeyond them it extrapolates, and nothing in the training checks it\nA very flexible model can pass every training point and still go wild just outside\n\n\nA small error on the training data says little about data the model has never seen.\n\n\n\n\n\nC. M. Bishop, Pattern Recognition and Machine Learning, Springer (2006), §1.1, §3.2.\n\n\nPlant the seed: “outside the data” is the theme of the talk. Don’t say “out-of-distribution” yet.\n\n\nSo a model is only as good as its data. For molecules, what does that data look like?"
+    "text": "Inside the data versus outside it\n\n\n\nBetween known points the model interpolates, and is usually reliable\nBeyond them it extrapolates, and nothing in the training checks it\nA very flexible model can pass every training point and still go wild just outside\n\n\nA small error on the training data says little about data the model has never seen.\n\n\n\n\n\nC. M. Bishop, Pattern Recognition and Machine Learning, Springer (2006), §1.1, §3.2.\n\n\nPlant the seed: “outside the data” is the theme of the talk. Don’t say “out-of-distribution” yet.\n\n\nLet’s see how different our interpretation of a molecule is from a computer’s."
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/chemists/index.html#how-a-chemist-reads-a-molecule",
+    "href": "presentations/mlip-benchmark/chemists/index.html#how-a-chemist-reads-a-molecule",
+    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
+    "section": "How a chemist reads a molecule",
+    "text": "How a chemist reads a molecule\n\n\n\n\n\n\nG. Socrates, Infrared and Raman Characteristic Group Frequencies, 3rd ed., Wiley (2001).\n\n\nEach part of ethyl acetate has its own peak: C–H stretch near 2980 cm⁻¹, C=O near 1740 cm⁻¹, C–O–C near 1240 and 1050 cm⁻¹. We read the whole molecule from its parts. Schematic spectrum.\n\n\nHow is that different from how a computer reads a molecule?"
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#what-does-a-molecule-look-like-to-a-computer",
     "href": "presentations/mlip-benchmark/chemists/index.html#what-does-a-molecule-look-like-to-a-computer",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "What does a molecule look like to a computer?",
-    "text": "What does a molecule look like to a computer?\n\n\n\nInput: each atom’s element and its 3D position, exactly what an .xyz file holds\nOutput: the energy E, and the force on every atom, F = −∂E/∂r\nEach atom looks at its neighbours within a few ångström; the total energy is built from these atomic contributions\n\n\nThe model never sees a label like “carbonyl” or “ring”: only elements and distances.\n\n\n\n\n\nJ. Behler, M. Parrinello, Phys. Rev. Lett. 98, 146401 (2007).\n\n\nAvoid “graph”, “message passing”. Neighbourhood + sum over atoms is enough.\n\n\nWhere can we get this data, and how much of it is available?"
+    "text": "What does a molecule look like to a computer?\n\n\n\nInput: each atom’s element and 3D position, exactly what an .xyz file holds\nOutput: the energy E, and the force on every atom\nThere are many ways to give a molecule to a computer: 3D coordinates, adjacency matrices, molecular graphs, SMILES strings, fingerprints\n\n\nThe model never sees a label like “carbonyl” or “ring”: only elements and distances.\n\n\n\n\n\nJ. Behler, M. Parrinello, Phys. Rev. Lett. 98, 146401 (2007).\n\n\nAvoid “graph”, “message passing”. Neighbourhood + sum over atoms is enough.\n\n\nThen does machine learning read molecules the way a chemist does?"
   },
   {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#any-method-can-be-the-teacher",
-    "href": "presentations/mlip-benchmark/chemists/index.html#any-method-can-be-the-teacher",
+    "objectID": "presentations/mlip-benchmark/chemists/index.html#does-machine-learning-read-molecules-this-way",
+    "href": "presentations/mlip-benchmark/chemists/index.html#does-machine-learning-read-molecules-this-way",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Any method can be the teacher",
-    "text": "Any method can be the teacher\n\n\n\nFrom CCSD(T) to GFN2-xTB, every method gives energies and forces for a geometry\nSo any of them can supply training data\nDatasets range from ten small molecules (MD17) to over 100 million calculations (OMol25)\n\n\nA model is at best as accurate as the method that produced its data.\n\n\n\n\n\nS. Chmiela et al., Sci. Adv. 3, e1603015 (2017); C. Bannwarth, S. Ehlert, S. Grimme, J. Chem. Theory Comput. 15, 1652 (2019); D. S. Levine et al., arXiv (2025).\n\n\nIf these methods already give us energies and forces, why not just keep using them?"
+    "section": "Does machine learning read molecules this way?",
+    "text": "Does machine learning read molecules this way?\n\n\n\nThe model learns from whole molecules, one geometry at a time\nNothing forces it to learn “parts” the way a chemist does\nIt might learn rules, or it might memorise the molecules it was shown\n\n\nIf every part of a new molecule is familiar, does the model find the whole familiar?\n\n\n\n\n\nB. Lake, M. Baroni, Proc. ICML (2018).\n\n\nAnalogy: a student who memorised answers for 20 molecules vs one who learned group frequencies. Both score well on the homework; only one passes the exam.\n\n\nWhere to get these data, and how?"
   },
   {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#why-were-semi-empirical-methods-invented",
-    "href": "presentations/mlip-benchmark/chemists/index.html#why-were-semi-empirical-methods-invented",
+    "objectID": "presentations/mlip-benchmark/chemists/index.html#any-method-can-supply-the-data-and-become-a-teacher",
+    "href": "presentations/mlip-benchmark/chemists/index.html#any-method-can-supply-the-data-and-become-a-teacher",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Why were semi-empirical methods invented?",
-    "text": "Why were semi-empirical methods invented?\n\n\n\nCost grows steeply with size: roughly N⁴ for Hartree–Fock, N⁵ for MP2, N⁷ for CCSD(T)\nMolecular dynamics needs energies and forces at millions of time steps\nSemi-empirical methods replaced expensive integrals with fitted parameters, trading some accuracy for speed\n\n\nEvery step down the ladder makes the same trade: accuracy for time and computer resources.\n\n\n\n\n\nM. J. S. Dewar, W. Thiel, J. Am. Chem. Soc. 99, 4899 (1977); W. Thiel, WIREs Comput. Mol. Sci. 4, 145 (2014).\n\n\nLet the room answer “why not keep using them?” before revealing the bullets. They know the answer: cost.\n\n\nMachine learning makes a similar trade, by fitting to data. So what kind of method is it?"
+    "section": "Any method can supply the data and become a teacher",
+    "text": "Any method can supply the data and become a teacher\n\n\n\nFrom CCSD(T) to GFN2-xTB, every method gives energies and forces for a geometry\nSo any of them can supply training data\nDatasets range from ten small molecules (MD17) to over 100 million calculations (OMol25)\n\n\nA model is at best as accurate as the method that produced its data.\n\n\n\n\n\nS. Chmiela et al., Sci. Adv. 3, e1603015 (2017); C. Bannwarth, S. Ehlert, S. Grimme, J. Chem. Theory Comput. 15, 1652 (2019); D. S. Levine et al., arXiv (2025).\n\n\nIf these methods already give us energies and forces, why not just keep using them?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/chemists/index.html#why-we-invented-semi-empirical-methods",
+    "href": "presentations/mlip-benchmark/chemists/index.html#why-we-invented-semi-empirical-methods",
+    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
+    "section": "Why we invented semi-empirical methods",
+    "text": "Why we invented semi-empirical methods\n\n\n\nCost grows steeply with size: roughly N⁴ for Hartree–Fock, N⁵ for MP2, N⁷ for CCSD(T)\nMolecular dynamics needs energies and forces at millions of time steps\nSemi-empirical methods replaced expensive integrals with fitted parameters, trading some accuracy for speed\n\n\nEvery step down the ladder makes the same trade: accuracy for time and computer resources.\n\n\n\n\n\nM. J. S. Dewar, W. Thiel, J. Am. Chem. Soc. 99, 4899 (1977); W. Thiel, WIREs Comput. Mol. Sci. 4, 145 (2014).\n\n\nLet the room answer “why not keep using them?” before revealing the bullets. They know the answer: cost.\n\n\nMachine learning makes a similar trade, by fitting to data. So what kind of method is it?"
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#enter-machine-learning-potentials",
@@ -774,28 +991,7 @@
     "href": "presentations/mlip-benchmark/chemists/index.html#universal-models",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "Universal models",
-    "text": "Universal models\n\n\n\nTrain once on millions of DFT calculations across chemistry\nOne model for many molecules, with no new DFT for each system\nExamples: MACE-OFF, MACE-MP-0, PET-MAD, models trained on SPICE and OMol25\n\n\nThe promise: download a model and simulate your molecule. But what has the model actually learned about chemistry?\n\n\n\n\n\nI. Batatia et al., NeurIPS (2022); D. P. Kovács et al., J. Am. Chem. Soc. (2025); P. Eastman et al., Sci. Data 10, 11 (2023); A. Mazitov et al., arXiv (2025).\n\n\nEnd on the question. This is the bridge to Motivation.\n\n\nTo answer that, let’s first ask how we, as chemists, understand a molecule."
-  },
-  {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#how-a-chemist-reads-a-molecule",
-    "href": "presentations/mlip-benchmark/chemists/index.html#how-a-chemist-reads-a-molecule",
-    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "How a chemist reads a molecule",
-    "text": "How a chemist reads a molecule\n\n\n\nWe see a molecule as parts: functional groups, rings, chains\nParts carry their behaviour with them: an ester behaves like an ester\nMany properties are close to additive, which is why group-additivity schemes work\n\n\nShown a molecule you have never met, built from groups you know, you can still predict a lot about it.\n\n\n\n\n\nS. W. Benson, J. H. Buss, J. Chem. Phys. 29, 546 (1958).\n\n\nIs this only a habit on paper, or does experiment read molecules the same way?"
-  },
-  {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#even-a-spectrum-is-read-in-parts",
-    "href": "presentations/mlip-benchmark/chemists/index.html#even-a-spectrum-is-read-in-parts",
-    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Even a spectrum is read in parts",
-    "text": "Even a spectrum is read in parts\n\n\n\nIn IR, peaks belong to groups, not to whole molecules\nC=O stretch near 1700 cm⁻¹, broad O–H near 3300 cm⁻¹, C–H just below 3000 cm⁻¹\nSpecific combinations of atoms leave their own signatures in the fingerprint region\n\n\nChemistry is compositional: we understand the whole by knowing the parts and how they connect.\n\n\n\n\n\nG. Socrates, Infrared and Raman Characteristic Group Frequencies, 3rd ed., Wiley (2001).\n\n\nWe read molecules in parts. Do machine-learning models?"
-  },
-  {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#does-machine-learning-read-molecules-this-way",
-    "href": "presentations/mlip-benchmark/chemists/index.html#does-machine-learning-read-molecules-this-way",
-    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Does machine learning read molecules this way?",
-    "text": "Does machine learning read molecules this way?\n\n\n\nThe model learns from whole molecules, one geometry at a time\nNothing forces it to learn “parts” the way a chemist does\nIt might learn rules, or it might memorise the molecules it was shown\n\n\nIf every part of a new molecule is familiar, does the model find the whole familiar?\n\n\n\n\n\nB. Lake, M. Baroni, Proc. ICML (2018).\n\n\nAnalogy: a student who memorised answers for 20 molecules vs one who learned group frequencies. Both score well on the homework; only one passes the exam.\n\n\nIf a model only learns what its data covers, what happens where the data runs out?"
+    "text": "Universal models\n\n\n\nTrain once on millions of DFT calculations across chemistry\nOne model for many molecules, with no new DFT for each system\nExamples: MACE-OFF, MACE-MP-0, PET-MAD, models trained on SPICE and OMol25\n\n\nThe promise: download a model and simulate your molecule. But what has the model actually learned about chemistry?\n\n\n\n\n\nI. Batatia et al., NeurIPS (2022); D. P. Kovács et al., J. Am. Chem. Soc. (2025); P. Eastman et al., Sci. Data 10, 11 (2023); A. Mazitov et al., arXiv (2025).\n\n\nEnd on the question. This is the bridge to Motivation.\n\n\nEven with millions of molecules, what happens where the data runs out?"
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#what-the-data-covers",
@@ -830,28 +1026,21 @@
     "href": "presentations/mlip-benchmark/chemists/index.html#gmd-generalisation-for-molecular-dynamics",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "GMD: Generalisation for Molecular Dynamics",
-    "text": "GMD: Generalisation for Molecular Dynamics\n\n\n\nCarbon chains carrying –OH, –CHO, –COOH or –NH2\nMD for each molecule, DFT energies and forces for every snapshot\nTraining and test sets contain different molecules, not just different snapshots\n\n\nUsually models are tested on new shapes of known molecules. GMD tests them on new molecules.\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988. F. Bigi et al., arXiv:2505.19350 (2025); F. Neese, WIREs Comput. Mol. Sci. 2, 73 (2012).\n\n\nData and code are public: huggingface.co/datasets/AmirMasoud/GMD. Each molecule’s trajectory has about 2000 snapshots; 140 molecules in total.\n\n\nSo which new molecules do we test them on?"
+    "text": "GMD: Generalisation for Molecular Dynamics\n\n\n\nCarbon chains carrying –OH, –CHO, –COOH or –NH2\nMD for each molecule, DFT energies and forces for every snapshot\nTraining and test sets contain different molecules, not just different snapshots\n\n\nUsually models are tested on new shapes of known molecules. GMD tests them on new molecules.\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nData and code are public: huggingface.co/datasets/AmirMasoud/GMD. Each molecule’s trajectory has about 2000 snapshots; 140 molecules in total.\n\n\nSo which new molecules do we test them on?"
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#five-ways-to-build-a-new-molecule-from-known-parts",
     "href": "presentations/mlip-benchmark/chemists/index.html#five-ways-to-build-a-new-molecule-from-known-parts",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "Five ways to build a new molecule from known parts",
-    "text": "Five ways to build a new molecule from known parts\n\n\n\n\n\n\nEvery part of a test molecule is in the training data; only how the parts are joined is new.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nPaper Figure 1. Walk through the five tasks: chain extension, fusion, duplication, combination, fission.\n\n\nWhy build all of this from such small, simple molecules?"
+    "text": "Five ways to build a new molecule from known parts\n\n\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nWalk down the rows: abstract task on the left, real molecules on the right. Why small molecules: each task changes exactly one thing, so a failure has one cause; every part of a test molecule is in training; chemists can check what a sensible answer looks like; failing the smallest possible step is a strong result.\n\n\nSo how do today’s models do?"
   },
   {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#why-small-molecules",
-    "href": "presentations/mlip-benchmark/chemists/index.html#why-small-molecules",
+    "objectID": "presentations/mlip-benchmark/chemists/index.html#known-molecules-versus-new-molecules",
+    "href": "presentations/mlip-benchmark/chemists/index.html#known-molecules-versus-new-molecules",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Why small molecules?",
-    "text": "Why small molecules?\n\n\n\nControl: each task changes exactly one thing, so a failure has one cause\nNothing hidden: every part of a test molecule is in the training data\nCheckable: chemists can see what a sensible answer looks like\nA strong test: if a model fails at the smallest possible step, bigger molecules will not be easier\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nSo how do today’s models do?"
-  },
-  {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#new-molecules-errors-often-ten-times-larger",
-    "href": "presentations/mlip-benchmark/chemists/index.html#new-molecules-errors-often-ten-times-larger",
-    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "New molecules: errors often ten times larger",
-    "text": "New molecules: errors often ten times larger\n\n\n\nEach row is a model; each bar runs from its error on known molecules (|) to its error on new ones\nFusion and duplication give the longest bars\nChain extension (◆) gives the shortest\nRight: how many times larger the error gets, on average\n\n\nError = mean absolute error of the forces against DFT.\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nPaper Figure 2a. Energies are worse: on new molecules, energy errors can exceed known-molecule errors by more than 1000 times.\n\n\nBut where inside the molecule do these errors actually appear?"
+    "section": "Known molecules versus new molecules",
+    "text": "Known molecules versus new molecules\n\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nEach bar runs from a model’s error on known molecules (|) to its error on new ones, one marker per task; right column is the average OOD/ID ratio. MACE-Medium zero-shot shows ×1.0 only because it is already about ten times worse on known molecules. Energies are worse still: over 1000× on new molecules.\n\n\nBut where inside the molecule do these errors actually appear?"
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#where-the-failure-happens-inside-the-molecule",
@@ -865,34 +1054,41 @@
     "href": "presentations/mlip-benchmark/chemists/index.html#chain-extension-a-smaller-drop",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "Chain extension: a smaller drop",
-    "text": "Chain extension: a smaller drop\n\n\n\nTrain on ethane to hexane; test on heptane to tridecane\nErrors still rise on longer chains, but far less than in the other four tasks\nA longer chain adds more CH2, nothing chemically new\n\n\nRepeating a known part costs some accuracy. Combining parts in a new way costs far more.\n\n\n\n\n\nSchNet and DimeNet++ are the exceptions: their errors jump by orders of magnitude past hexane.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nMaybe the models were just too small, or saw too little data?"
+    "text": "Chain extension: a smaller drop\n\n\n\nTrain on ethane to hexane; test on heptane to tridecane\nErrors still rise on longer chains, but far less than in the other four tasks\nA longer chain adds more CH2, nothing chemically new\n\n\nRepeating a known part costs some accuracy. Combining parts in a new way costs far more.\n\n\n\n\n\nSchNet and DimeNet++ are the exceptions: their errors jump by orders of magnitude past hexane.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nSo what do we take home from all this?"
   },
   {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#not-a-data-or-model-size-problem",
-    "href": "presentations/mlip-benchmark/chemists/index.html#not-a-data-or-model-size-problem",
+    "objectID": "presentations/mlip-benchmark/chemists/index.html#takeaways",
+    "href": "presentations/mlip-benchmark/chemists/index.html#takeaways",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Not a data or model-size problem",
-    "text": "Not a data or model-size problem\n\n\nMore data\nFoundation models pre-trained on millions of structures (MACE-MP-0, UMA) do not consistently beat MACE trained from scratch on GMD.\nBigger models\nA larger MACE-MP-0 helps on some tasks, but the gap stays.\n\nMore training coverage\nAdding related molecules to the training set does not close the gap for fusion.\nAnother level of theory\nGFN2-xTB labels instead of DFT give the same pattern.\n\n\nFine-tuning fixes the molecules the model was shown, not the ones it wasn’t.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nPaper Section 4.3 and Appendices A.3 and C.2. Foundation models were fine-tuned for 2000 epochs per task, an upper bound on what fine-tuning can do.\n\n\nSo where does this leave us, and why should a chemist care?"
-  },
-  {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#why-a-chemist-should-care",
-    "href": "presentations/mlip-benchmark/chemists/index.html#why-a-chemist-should-care",
-    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Why a chemist should care",
-    "text": "Why a chemist should care\n\n\n\nWrong force strengths on a functional group mean wrong vibrations, wrong conformers, wrong barriers\nThe errors appear exactly where a molecule is new, which is where you would use a model\nA good score on known molecules says little about your molecule\n\n\nBefore trusting a model on a new molecule, ask: has it seen this combination, or only these parts?\n\n\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nCall back to the paracetamol slide: every molecule you care about is a new combination of familiar parts."
-  },
-  {
-    "objectID": "presentations/mlip-benchmark/chemists/index.html#takeaways-and-future-work",
-    "href": "presentations/mlip-benchmark/chemists/index.html#takeaways-and-future-work",
-    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
-    "section": "Takeaways and future work",
-    "text": "Takeaways and future work\n\n\nWhat we found\n\nMore of the same (longer chains) costs some accuracy\nKnown parts in new combinations cost far more\nMore data, bigger models and pre-training do not fix it\nAccuracy on known molecules does not predict accuracy on new ones\n\n\nWhat I am working on\n\nA model whose learning is guided by chemical structure\nIt is forced to see a molecule the way a chemist does: as functional groups and how they connect\n\n\nGoal: a model that understands a new molecule from its parts.\n\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988."
+    "section": "Takeaways",
+    "text": "Takeaways\n\n\n\nMore of the same (longer chains) costs some accuracy; known parts in new combinations cost far more\nWrong force strengths on a functional group mean wrong vibrations, wrong conformers, wrong barriers\nMore data, bigger models and pre-training do not fix it\nAccuracy on known molecules does not predict accuracy on new ones\n\n\n\n\n\nBefore trusting a model on a new molecule, ask: has it seen this combination, or only these parts?\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nCall back to the first slides: every molecule you care about is a new combination of familiar parts. Details on data and model size are in the appendix."
   },
   {
     "objectID": "presentations/mlip-benchmark/chemists/index.html#thank-you",
     "href": "presentations/mlip-benchmark/chemists/index.html#thank-you",
     "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
     "section": "Thank you",
-    "text": "Thank you\n\n\nAmir Masoud Nourollah\nStefano Leoni · Steven Schockaert\nPaper: arXiv:2605.08988 (NeurIPS 2026)\nData: huggingface.co/datasets/AmirMasoud/GMD\nCode: github.com/Nourollah/GOAL\n\nQuestions?"
+    "text": "Thank you\n\n\nAmir Masoud Nourollah\nStefano Leoni · Steven Schockaert\nPaper: arXiv:2605.08988 (NeurIPS 2026)\nData: huggingface.co/datasets/AmirMasoud/GMD\nCode: github.com/Nourollah/GMD-26\n\nQuestions?"
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/chemists/index.html#not-a-data-or-model-size-problem",
+    "href": "presentations/mlip-benchmark/chemists/index.html#not-a-data-or-model-size-problem",
+    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
+    "section": "Not a data or model-size problem",
+    "text": "Not a data or model-size problem\n\n\nMore data\nFoundation models pre-trained on millions of structures (MACE-MP-0, UMA) do not consistently beat MACE trained from scratch on GMD.\nBigger models\nA larger MACE-MP-0 helps on some tasks, but the gap stays.\n\nMore training coverage\nAdding related molecules to the training set does not close the gap for fusion.\nAnother level of theory\nGFN2-xTB labels instead of DFT give the same pattern.\n\n\nFine-tuning fixes the molecules the model was shown, not the ones it wasn’t.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988.\n\n\nPaper Section 4.3 and Appendices A.3 and C.2. Foundation models were fine-tuned for 2000 epochs per task, an upper bound on what fine-tuning can do."
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/chemists/index.html#future-work",
+    "href": "presentations/mlip-benchmark/chemists/index.html#future-work",
+    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
+    "section": "Future work",
+    "text": "Future work\n\n\nWhat I am working on\n\nA model whose learning is guided by chemical structure\nIt is forced to see a molecule the way a chemist does: as functional groups and how they connect\n\n\n\n\n\nGoal: a model that understands a new molecule from its parts.\n\n\nA. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, NeurIPS (2026), Evaluations & Datasets Track; arXiv:2605.08988."
+  },
+  {
+    "objectID": "presentations/mlip-benchmark/chemists/index.html#fitting-well-is-not-generalising-well",
+    "href": "presentations/mlip-benchmark/chemists/index.html#fitting-well-is-not-generalising-well",
+    "title": "Knowing the parts, missing the whole: does machine learning understand new molecules built from what it already knows?",
+    "section": "Fitting well is not generalising well",
+    "text": "Fitting well is not generalising well\n\n\n\nTwo kinds of points: the model learns a border between them\nA straight line misses a few training points, but gets new points right\nA wiggly border gets every training point right, and new points wrong\n\n\nWe want a model that works on data it has never seen, not one that remembers its training data. That is generalisation.\n\n\n\n\n\nC. M. Bishop, Pattern Recognition and Machine Learning, Springer (2006), §1.1, §4.1.\n\n\nPoint at the circled new points on the right panel. The over-fitted model “learned” the noise.\n\n\nWhat about points that land outside everything the model has seen, or outside what our data covers?"
   }
 ]

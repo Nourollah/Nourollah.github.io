@@ -172,24 +172,987 @@ Steven Schockaert
 </section>
 <section id="overview" class="slide level2" data-section="Overview">
 <h2>Overview</h2>
+<div class="columns middle">
+<div class="column" style="width:64%;">
 <ol type="1">
-<li><strong>Motivation</strong></li>
-<li><strong>GMD: The Benchmark</strong></li>
-<li><strong>Results</strong></li>
-<li><strong>Takeaways</strong></li>
+<li><strong>Introduction</strong>: two fields, one question</li>
+<li><strong>Background</strong>: how machines learn about molecules</li>
+<li><strong>Motivation</strong>: where the data runs out</li>
+<li><strong>GMD</strong>: a benchmark for known parts in new molecules</li>
+<li><strong>Results</strong>: where and why models fail</li>
+<li><strong>Takeaways</strong> and what comes next</li>
 </ol>
+</div><div class="column" style="width:36%;">
+<p><img data-src="../figures/overview_teaser.png"></p>
+</div></div>
+<aside class="notes">
+<p>Mixed room: say up front that every concept gets a chemistry view and a machine-learning view.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Let’s start with something every chemist does without thinking: reading a molecule.</p>
+</div>
+<!-- ===================== INTRODUCTION ===================== -->
 </section>
-<section id="motivation" class="slide level2" data-section="Motivation">
-<h2>Motivation</h2>
+<section id="how-a-chemist-reads-a-molecule" class="slide level2" data-section="Introduction">
+<h2>How a chemist reads a molecule</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../figures/ir_mapped.png" class="quarto-figure quarto-figure-center" height="430"></p>
+</figure>
+</div>
+<div class="slide-ref">
+<p>G. Socrates, <em>Infrared and Raman Characteristic Group Frequencies</em>, 3rd ed., Wiley (2001); S. W. Benson, J. H. Buss, <em>J. Chem. Phys.</em> <strong>29</strong>, 546 (1958).</p>
+</div>
+<aside class="notes">
+<p>We read a molecule as parts, and so does experiment: each group of ethyl acetate has its own peak (C–H near 2980, C=O near 1740, C–O–C near 1240 and 1050 cm⁻¹). Properties are close to additive, which is why group-additivity schemes work. Schematic spectrum.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Machine learning has a name for this ability. What is it, and do models have it?</p>
+</div>
 </section>
-<section id="gmd-the-benchmark" class="slide level2" data-section="GMD">
-<h2>GMD: The Benchmark</h2>
+<section id="compositional-generalisation" class="slide level2" data-section="Introduction">
+<h2>Compositional generalisation</h2>
+<div class="columns">
+<div class="column" style="width:44%;">
+<ul>
+<li>Learn the parts, then handle <strong>new combinations</strong> of them</li>
+<li>Knowing <em>jump</em> and <em>walk twice</em> should give <em>jump twice</em></li>
+<li>Standard models often fail: SCAN, COGS in language; CLEVR-CoGenT in vision</li>
+</ul>
+<div class="key">
+<p>Chemists do this every day. For ML it is still an open problem.</p>
+</div>
+</div><div class="column" style="width:56%;">
+<p><img data-src="../figures/compositional_ml.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>B. Lake, M. Baroni, <em>ICML</em> (2018); N. Kim, T. Linzen, <em>EMNLP</em> (2020); J. Johnson <em>et al.</em>, <em>CVPR</em> (2017).</p>
+</div>
+<aside class="notes">
+<p>For chemists: SCAN is a toy language of commands. For ML people: molecules give the same test, with quantum mechanics as the ground truth instead of a grammar.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Before asking whether ML models do this for molecules: how does a machine learn anything at all?</p>
+</div>
+<!-- ===================== BACKGROUND ===================== -->
 </section>
-<section id="results" class="slide level2" data-section="Results">
-<h2>Results</h2>
+<section id="teaching-a-computer-from-examples" class="slide level2" data-section="Background">
+<h2>Teaching a computer from examples</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>We give the computer <strong>examples</strong>: inputs and the correct answers</li>
+<li>It tunes a flexible formula until its predictions match those answers</li>
+<li>“Learning” means finding the parameters with the smallest error</li>
+</ul>
+<div class="key">
+<p>You already do this: fit a curve to two or three experimental points, then predict other amounts of reactant without running more experiments.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/fit_example.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>C. M. Bishop, <em>Pattern Recognition and Machine Learning</em>, Springer (2006), ch.&nbsp;1.</p>
+</div>
+<div class="bridge fragment">
+<p>Can we trust that curve everywhere, even far from the points we measured?</p>
+</div>
 </section>
-<section id="takeaways" class="slide level2" data-section="Takeaways">
-<h2>Takeaways</h2>
+<section id="inside-the-data-versus-outside-it" class="slide level2" data-section="Background">
+<h2>Inside the data versus outside it</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>Between known points the model <strong>interpolates</strong>, and is usually reliable</li>
+<li>Beyond them it <strong>extrapolates</strong>, and nothing in the training checks it</li>
+<li>Models that agree inside the data can disagree wildly outside it</li>
+</ul>
+<div class="key">
+<p>A small training error says little about data the model has never seen.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/extrapolation.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>C. M. Bishop, <em>Pattern Recognition and Machine Learning</em>, Springer (2006), §1.1, §3.2.</p>
+</div>
+<div class="bridge fragment">
+<p>Let’s see how different our interpretation of a molecule is from a computer’s.</p>
+</div>
+</section>
+<section id="what-does-a-molecule-look-like-to-a-computer" class="slide level2" data-section="Background">
+<h2>What does a molecule look like to a computer?</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li><strong>Input</strong>: each atom’s element and 3D position, exactly what an <code>.xyz</code> file holds</li>
+<li><strong>Output</strong>: the energy <em>E</em>, and the force on every atom</li>
+<li>There are many ways to give a molecule to a computer: 3D coordinates, adjacency matrices, molecular graphs, SMILES strings, fingerprints</li>
+</ul>
+<div class="key">
+<p>The model never sees a label like “carbonyl”: only elements and distances.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/molecule_as_data.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>J. Behler, M. Parrinello, <em>Phys. Rev.&nbsp;Lett.</em> <strong>98</strong>, 146401 (2007); I. Batatia <em>et al.</em>, <em>NeurIPS</em> (2022).</p>
+</div>
+<aside class="notes">
+<p>For ML people: these are equivariant graph neural networks (NequIP, MACE, EquiFormerV2). For chemists: the symmetry is built in, not learned.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Then does machine learning read molecules the way a chemist does?</p>
+</div>
+</section>
+<section id="does-machine-learning-read-molecules-this-way" class="slide level2" data-section="Background">
+<h2>Does machine learning read molecules this way?</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>The model learns from whole molecules, one geometry at a time</li>
+<li>Nothing forces it to learn “parts” the way a chemist does</li>
+<li>It might learn rules, or it might memorise the molecules it was shown</li>
+</ul>
+<div class="warn">
+<p>If every part of a new molecule is familiar, does the model find the whole familiar?</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/chemist_vs_model.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>B. Lake, M. Baroni, <em>ICML</em> (2018).</p>
+</div>
+<div class="bridge fragment">
+<p>Where to get these data, and how?</p>
+</div>
+</section>
+<section id="any-method-can-supply-the-data-and-become-a-teacher" class="slide level2" data-section="Background">
+<h2>Any method can supply the data and become a teacher</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>From CCSD(T) to GFN2-xTB, every method gives energies and forces for a geometry</li>
+<li>So <strong>any</strong> of them can supply training data</li>
+<li>Datasets range from ten small molecules (MD17) to over 100 million calculations (OMol25)</li>
+</ul>
+<div class="key">
+<p>A model is at best as accurate as the method that produced its data.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/methods_ladder.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>S. Chmiela <em>et al.</em>, <em>Sci. Adv.</em> <strong>3</strong>, e1603015 (2017); C. Bannwarth, S. Ehlert, S. Grimme, <em>J. Chem. Theory Comput.</em> <strong>15</strong>, 1652 (2019); D. S. Levine <em>et al.</em>, arXiv (2025).</p>
+</div>
+<aside class="notes">
+<p>For ML people: this is a ladder of label quality versus label cost.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>If these methods already give us energies and forces, why not just keep using them?</p>
+</div>
+</section>
+<section id="why-we-invented-semi-empirical-methods" class="slide level2" data-section="Background">
+<h2>Why we invented semi-empirical methods</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>Cost grows steeply with size: roughly <em>N</em><sup>4</sup> for Hartree–Fock, <em>N</em><sup>5</sup> for MP2, <em>N</em><sup>7</sup> for CCSD(T)</li>
+<li>Molecular dynamics needs energies and forces at <strong>millions</strong> of time steps</li>
+<li>Semi-empirical methods replaced expensive integrals with <strong>fitted parameters</strong></li>
+</ul>
+<div class="key">
+<p>Every step down the ladder makes the same trade: accuracy for time and computer resources.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/cost_scaling.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>M. J. S. Dewar, W. Thiel, <em>J. Am. Chem. Soc.</em> <strong>99</strong>, 4899 (1977); W. Thiel, <em>WIREs Comput. Mol. Sci.</em> <strong>4</strong>, 145 (2014).</p>
+</div>
+<div class="bridge fragment">
+<p>Machine learning makes a similar trade, by fitting to data. So what kind of method is it?</p>
+</div>
+</section>
+<section id="enter-machine-learning-potentials" class="slide level2" data-section="Background">
+<h2>Enter machine-learning potentials</h2>
+<div class="columns middle">
+<div class="column" style="width:48%;">
+<ul>
+<li>Learn from reference calculations <strong>once</strong></li>
+<li>Then predict energies and forces in milliseconds, close to the reference accuracy</li>
+<li>Nanosecond MD at near-reference accuracy becomes routine</li>
+</ul>
+<div class="ask">
+<p>Is machine learning a numerical, a semi-empirical, or an empirical method?</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/ml_where.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>J. Behler, <em>Chem. Rev.</em> <strong>121</strong>, 10037 (2021).</p>
+</div>
+<aside class="notes">
+<p>Don’t answer the question. Pause and let both halves of the room think.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Whatever it is, it learns from data. If labels are this expensive, why not pay once, at scale, for all of chemistry?</p>
+</div>
+</section>
+<section id="foundation-models-for-atoms" class="slide level2" data-section="Background">
+<h2>Foundation models for atoms</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>More DFT calculations, bigger datasets: MPtrj (materials), OMol25 (molecules, 100M+ calculations)</li>
+<li>Pre-train once on millions of structures, then fine-tune or use zero-shot</li>
+<li>Examples: MACE-MP-0, UMA, PET-MAD</li>
+</ul>
+<div class="warn">
+<p>The assumption: they learn chemistry itself. Or do they stay grounded in what they have seen?</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/universal_models.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>I. Batatia <em>et al.</em>, arXiv:2401.00096 (2023); D. S. Levine <em>et al.</em>, arXiv (2025); A. Mazitov <em>et al.</em>, arXiv (2025).</p>
+</div>
+<div class="bridge fragment">
+<p>Even with millions of structures, what happens where the data runs out?</p>
+</div>
+<!-- ===================== MOTIVATION ===================== -->
+</section>
+<section id="what-the-data-covers" class="slide level2" data-section="Motivation">
+<h2>What the data covers</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>A model is only checked where its training data are</li>
+<li>Room-temperature MD samples the energy well densely, and the steep repulsive wall almost never</li>
+<li>On the wall the model has to guess, and it guesses wrong</li>
+</ul>
+<div class="key">
+<p>High-energy geometries the data does not cover: one kind of out-of-distribution.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/steep_wall.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>J. Behler, <em>Chem. Rev.</em> <strong>121</strong>, 10037 (2021); X. Fu <em>et al.</em>, <em>Trans. Mach. Learn. Res.</em> (2023).</p>
+</div>
+<div class="bridge fragment">
+<p>Now think of a reaction. Which point on the path does MD visit least?</p>
+</div>
+</section>
+<section id="reactions-the-rarest-point-matters-most" class="slide level2" data-section="Motivation">
+<h2>Reactions: the rarest point matters most</h2>
+<div class="columns">
+<div class="column" style="width:48%;">
+<ul>
+<li>MD spends almost all its time in the reactant and product wells</li>
+<li>The <strong>transition state</strong> is visited rarely, so it is barely in the data</li>
+<li>At 298 K, every 1.4 kcal/mol of barrier error is a factor of 10 in the rate</li>
+</ul>
+<div class="key">
+<p>Rare events the data barely covers: a second kind of out-of-distribution.</p>
+</div>
+</div><div class="column" style="width:52%;">
+<p><img data-src="../figures/reaction_ts.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>H. Eyring, <em>J. Chem. Phys.</em> <strong>3</strong>, 107 (1935).</p>
+</div>
+<aside class="notes">
+<p>From k ∝ exp(−ΔG‡/RT): RT ln 10 ≈ 1.36 kcal/mol at 298 K. Schematic profile.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Steep walls, rare events… what else counts as out-of-distribution?</p>
+</div>
+</section>
+<section id="many-ways-to-be-out-of-distribution" class="slide level2" data-section="Motivation">
+<h2>Many ways to be out-of-distribution</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<p><strong>Out-of-distribution</strong>: anything the training data does not represent, where the model has to go beyond its data rather than fill in between it.</p>
+<ul>
+<li>High-energy geometries; rare events</li>
+<li>Higher temperature than in training</li>
+<li>Elements, charges or spin states never seen</li>
+<li>Solvent or surfaces, when trained in vacuum</li>
+<li><strong>A new combination of known groups</strong></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<p><img data-src="../figures/ood_map.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>S. Chmiela <em>et al.</em>, <em>Sci. Adv.</em> <strong>3</strong>, e1603015 (2017); X. Fu <em>et al.</em>, <em>Trans. Mach. Learn. Res.</em> (2023).</p>
+</div>
+<aside class="notes">
+<p>All but the last change the conditions. The last one changes only the composition: every part is covered, the whole is not.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Which of these do we actually test when we evaluate ML potentials today?</p>
+</div>
+</section>
+<section id="how-ml-potentials-are-evaluated-today" class="slide level2" data-section="Motivation">
+<h2>How ML potentials are evaluated today</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="random-splits">Random splits</h3>
+<p>Test frames come from the same MD trajectories as training frames, so they are near-copies of what the model saw</p>
+<h3 id="shifts-in-conditions">Shifts in conditions</h3>
+<p>Higher temperature, distorted geometries, rare events, unseen elements</p>
+</div><div class="column" style="width:50%;">
+<h3 id="scaffold-splits">Scaffold splits</h3>
+<p>Standard for predicting molecular <strong>properties</strong> (MoleculeNet), but not used for potentials</p>
+<h3 id="what-is-missing">What is missing</h3>
+<p>A controlled shift in <strong>composition</strong>: every part seen, only the whole new</p>
+</div></div>
+<div class="key">
+<p>The test chemists would care about most, a new molecule built from known groups, is the one we rarely run.</p>
+</div>
+<div class="slide-ref">
+<p>S. Chmiela <em>et al.</em>, <em>Sci. Adv.</em> <strong>3</strong>, e1603015 (2017); X. Fu <em>et al.</em>, <em>TMLR</em> (2023); Z. Wu <em>et al.</em>, <em>Chem. Sci.</em> <strong>9</strong>, 513 (2018).</p>
+</div>
+<div class="bridge fragment">
+<p>Shouldn’t these models handle new combinations anyway? After all, they are built from local parts.</p>
+</div>
+</section>
+<section id="locality-where-chemistry-and-ml-agree" class="slide level2" data-section="Motivation">
+<h2>Locality: where chemistry and ML agree</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li><strong>Chemistry</strong>: a property is roughly a sum of group contributions</li>
+<li><strong>ML potential</strong>: the energy is a sum of contributions from each atom’s neighbourhood</li>
+<li>Both say the whole is built from local parts</li>
+</ul>
+<div class="warn">
+<p>So compositional generalisation should come for free. Does it?</p>
+</div>
+</div><div class="column" style="width:60%;">
+<p><img data-src="../figures/additivity.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>S. W. Benson, J. H. Buss, <em>J. Chem. Phys.</em> <strong>29</strong>, 546 (1958); J. Behler, M. Parrinello, <em>Phys. Rev.&nbsp;Lett.</em> <strong>98</strong>, 146401 (2007).</p>
+</div>
+<aside class="notes">
+<p>This is the bridge between the two halves of the room: Benson’s additivity and the Behler–Parrinello energy decomposition have the same shape. Group-additivity values are schematic here.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>How would we test that cleanly?</p>
+</div>
+</section>
+<section id="our-choice-scaffold-out-of-distribution" class="slide level2" data-section="Motivation">
+<h2>Our choice: scaffold out-of-distribution</h2>
+<div class="columns">
+<div class="column" style="width:36%;">
+<ul>
+<li><strong>Fusion</strong>: –OH and C=O seen apart; tested together on one carbon, as –COOH</li>
+<li><strong>Duplication</strong>: one –COOH seen; tested with two</li>
+</ul>
+<div class="key">
+<p>Every group is in training; only the molecule is new.</p>
+</div>
+</div><div class="column" style="width:64%;">
+<p><img data-src="../figures/scaffold_fd.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>G. W. Bemis, M. A. Murcko, <em>J. Med. Chem.</em> <strong>39</strong>, 2887 (1996); A. M. Nourollah <em>et al.</em>, <em>NeurIPS</em> (2026); arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Two examples now; the full set of five comes in the next section.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>To run this test properly, we need a dataset built for it. That is GMD.</p>
+</div>
+<!-- ===================== GMD ===================== -->
+</section>
+<section id="gmd-generalisation-for-molecular-dynamics" class="slide level2" data-section="GMD">
+<h2>GMD: Generalisation for Molecular Dynamics</h2>
+<div class="columns">
+<div class="column" style="width:46%;">
+<ul>
+<li>140 molecules in 12 families, built from H, C, N and O</li>
+<li>300 K MD for each molecule, DFT energies and forces for every snapshot: about 280,000 configurations</li>
+<li>Splits are <strong>by molecule</strong>, never by snapshot</li>
+</ul>
+<div class="key">
+<p>Models are usually tested on new shapes of known molecules. GMD tests them on new molecules.</p>
+</div>
+</div><div class="column" style="width:54%;">
+<p><img data-src="../figures/gmd_pipeline.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Open data and code: huggingface.co/datasets/AmirMasoud/GMD. Splitting by molecule is what makes this a test of new molecules rather than new frames.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>“New molecule” can mean many things. Which kinds of novelty do we test?</p>
+</div>
+</section>
+<section id="which-kinds-of-compositionality" class="slide level2" data-section="GMD">
+<h2>Which kinds of compositionality?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="five-aspects-from-linguistics-and-ml">Five aspects, from linguistics and ML</h3>
+<p>Systematicity, productivity, substitutivity, localism, overgeneralisation</p>
+<h3 id="gmd-tests-two-of-them">GMD tests two of them</h3>
+<p>The two that transfer cleanly to atoms</p>
+</div><div class="column" style="width:50%;">
+<h3 id="productivity">Productivity</h3>
+<p>Handle <strong>longer</strong> structures than in training: one task, chain extension</p>
+<h3 id="systematicity">Systematicity</h3>
+<p><strong>Recombine</strong> known parts in new ways: four tasks, fusion, duplication, combination, fission</p>
+</div></div>
+<div class="key">
+<p>Each GMD task is one compositional operation, chosen from a framework the ML community already uses.</p>
+</div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>For chemists: productivity is “bigger molecules from the same pieces”; systematicity is “new arrangements of the same pieces”. Substitutivity, localism and overgeneralisation do not transfer directly to atoms and are left to future work.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>So what do these five operations look like?</p>
+</div>
+</section>
+<section id="five-ways-to-build-a-new-molecule-from-known-parts" class="slide level2" data-section="GMD">
+<h2>Five ways to build a new molecule from known parts</h2>
+<div class="columns">
+<div class="column" style="width:58%;">
+<p><img data-src="../figures/gmd_tasks.png" style="height:420px; max-height:420px"></p>
+</div><div class="column" style="width:42%;">
+<p><img data-src="../figures/gmd_examples_rows.png" style="height:420px; max-height:420px"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Abstract task on the left, real molecules on the right, row by row. Chain extension: C2–C6 alkanes in training, C7–C13 at test, motivated by drug discovery, where models trained on fragments must handle larger lead compounds. Fusion: C4–C10 with extra complex carbonyls and alcohols for coverage. Duplication and fission: C5–C10. Combination: C2–C9. Why small molecules: one operation per task, every part of a test molecule is in training, chemists can check the answers, and failing the smallest step is a strong result.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>But if a model fails, is it because it never saw enough, or because it cannot compose?</p>
+</div>
+</section>
+<section id="two-reasons-a-model-could-fail" class="slide level2" data-section="GMD">
+<h2>Two reasons a model could fail</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="missing-coverage">Missing coverage</h3>
+<p>The model never saw long chains, or never saw a group in a given setting</p>
+<p><em>Fix: add the missing coverage to training</em></p>
+</div><div class="column" style="width:50%;">
+<h3 id="missing-composition">Missing composition</h3>
+<p>The model saw every piece, but never learned how pieces combine</p>
+<p><em>Fix: show it a worked example of combining pieces</em></p>
+</div></div>
+<div class="key">
+<p>The augmented variants close the first gap and leave the second, so we can tell the two apart.</p>
+</div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>What do the augmented variants look like?</p>
+</div>
+</section>
+<section id="the-augmented-variants" class="slide level2" data-section="GMD">
+<h2>The augmented variants</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../figures/augmented.png" class="quarto-figure quarto-figure-center" height="340"></p>
+</figure>
+</div>
+<div class="small" style="text-align:center">
+<p>Chain extension gets the missing coverage; fusion gets a worked example of composition.</p>
+</div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>Which models do we put through all of this?</p>
+</div>
+</section>
+<section id="models-and-protocol" class="slide level2" data-section="GMD">
+<h2>Models and protocol</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="trained-from-scratch">Trained from scratch</h3>
+<p>SchNet, DimeNet++, GemNet, PaiNN, NequIP, MACE, eSCN, EquiFormerV2: from the oldest to the newest designs, 2017 to 2024</p>
+<h3 id="foundation-models">Foundation models</h3>
+<p>MACE-MP-0 Small, Medium and Large and UMA-Small, fine-tuned per task; MACE-MP-0 Medium zero-shot</p>
+</div><div class="column" style="width:50%;">
+<h3 id="error">Error</h3>
+<p>Mean absolute error of energies and forces against DFT</p>
+<h3 id="id-and-ood">ID and OOD</h3>
+<p>On known molecules (in-distribution) and new ones (out-of-distribution); headline: the OOD/ID ratio</p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Foundation models fine-tuned for 2000 epochs per task: an upper bound on what fine-tuning can do. [Check seeds and error bars before the talk.]</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>So what happens on new molecules?</p>
+</div>
+<!-- ===================== RESULTS ===================== -->
+</section>
+<section id="known-molecules-versus-new-molecules" class="slide level2" data-section="Results">
+<h2>Known molecules versus new molecules</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="../figures/results_forces_simple.png" class="quarto-figure quarto-figure-center" height="435"></p>
+</figure>
+</div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Each bar runs from a model’s error on known molecules (|) to its error on new ones, one marker per task; right column is the average OOD/ID ratio. MACE-Medium zero-shot shows ×1.0 only because it is already about ten times worse on known molecules. Energies are worse still: over 1000× on new molecules. In-distribution accuracy does not reliably predict out-of-distribution accuracy.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Where inside the molecule does the error appear?</p>
+</div>
+</section>
+<section id="where-the-failure-happens-inside-the-molecule" class="slide level2" data-section="Results">
+<h2>Where the failure happens: inside the molecule</h2>
+<div class="columns middle">
+<div class="column" style="width:34%;">
+<ul>
+<li><strong>Hexanoic acid</strong>: new in the fusion task</li>
+<li>Inner disc: error in force <strong>strength</strong>; ring: error in <strong>direction</strong></li>
+<li>Backbone fine; error on <strong>–COOH</strong>, mostly strength</li>
+</ul>
+<div class="warn">
+<p>Known: –OH and C=O. Not composed: –COOH.</p>
+</div>
+</div><div class="column" style="width:66%;">
+<p><img data-src="../figures/per_atom_fusion.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Across tasks, direction errors localise on the heteroatoms of each task’s new environment: oxygen for fusion, duplication and fission; the O–N pairing for combination. The same atoms are fine where their environment matches training.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Combining parts fails badly. How does the simplest task, a longer chain, compare?</p>
+</div>
+</section>
+<section id="chain-extension-a-smaller-drop" class="slide level2" data-section="Results">
+<h2>Chain extension: a smaller drop</h2>
+<div class="columns">
+<div class="column" style="width:40%;">
+<ul>
+<li>Train on ethane to hexane; test on heptane to tridecane</li>
+<li>Errors <strong>still rise</strong> with length, but far less than in the other four tasks</li>
+<li>SchNet and DimeNet++ break down past the training lengths</li>
+</ul>
+<div class="key">
+<p>Repeating a known part costs some accuracy. Combining parts in a new way costs far more.</p>
+</div>
+</div><div class="column" style="width:60%;">
+<p><img data-src="../figures/results_grid_FCE.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>So is the problem coverage, or composition? The augmented variants answer that.</p>
+</div>
+</section>
+<section id="coverage-helps-length-not-composition" class="slide level2" data-section="Results">
+<h2>Coverage helps length, not composition</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="augmented-chain-extension">Augmented chain extension</h3>
+<p>Much easier for every model except SchNet: OOD/ID close to ×1, and DimeNet++ recovers</p>
+<p><em>Coverage was the missing piece</em></p>
+</div><div class="column" style="width:50%;">
+<h3 id="augmented-fusion">Augmented fusion</h3>
+<p>The amide example does not help: errors on carboxylic acids stay as large as before</p>
+<p><em>Composition is the missing piece</em></p>
+</div></div>
+<div class="warn">
+<p>Consistent with models treating each group as a standalone token, not learning how groups combine.</p>
+</div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Paper Figure 19 has the full results if you want to show them here.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>And if we run fusion backwards, can a model split a group it only saw whole?</p>
+</div>
+</section>
+<section id="fission-the-group-is-learned-as-one-unit" class="slide level2" data-section="Results">
+<h2>Fission: the group is learned as one unit</h2>
+<div class="columns middle">
+<div class="column" style="width:40%;">
+<ul>
+<li>Trained on carboxylic acids: –OH and C=O only ever appear <strong>together</strong></li>
+<li>Tested on alcohols and aldehydes: each part <strong>alone</strong></li>
+<li>The models cannot recover the parts</li>
+</ul>
+<div class="key">
+<p>Consistent with –COOH being learned as one unit, not built up from its parts.</p>
+</div>
+</div><div class="column" style="width:60%;">
+<p><img data-src="../figures/fission_unit.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<aside class="notes">
+<p>Related to localism in the compositionality framework, but not a direct test of it: the –OH and C=O environments in the test molecules differ physically from those inside –COOH.</p>
+<style type="text/css">
+        span.MJX_Assistive_MathML {
+          position:absolute!important;
+          clip: rect(1px, 1px, 1px, 1px);
+          padding: 1px 0 0 0!important;
+          border: 0!important;
+          height: 1px!important;
+          width: 1px!important;
+          overflow: hidden!important;
+          display:block!important;
+      }</style></aside>
+<div class="bridge fragment">
+<p>Could bigger models, pre-training or a different level of theory close the gap?</p>
+</div>
+</section>
+<section id="not-a-data-scale-or-label-problem" class="slide level2" data-section="Results">
+<h2>Not a data, scale or label problem</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="pre-training">Pre-training</h3>
+<p>Foundation models pre-trained on millions of structures do not consistently beat MACE trained from scratch</p>
+<h3 id="scale">Scale</h3>
+<p>Larger MACE-MP-0 helps on some tasks; the gap remains</p>
+</div><div class="column" style="width:50%;">
+<h3 id="labels">Labels</h3>
+<p>GFN2-xTB labels instead of DFT give the same pattern</p>
+<h3 id="coverage">Coverage</h3>
+<p>Helps chain extension, not fusion (previous slides)</p>
+</div></div>
+<div class="warn">
+<p>Fine-tuning fixes the molecules the model was shown, not the ones it was not.</p>
+</div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>So what does all this mean, for chemists and for machine learning?</p>
+</div>
+</section>
+<section id="what-it-means" class="slide level2" data-section="Results">
+<h2>What it means</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="for-chemists">For chemists</h3>
+<ul>
+<li>Errors sit on the new functional group: wrong vibrations, conformers, barriers</li>
+<li>They appear exactly where a molecule is new, which is where you would use a model</li>
+<li>A good score on known molecules says little about yours</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="for-machine-learning">For machine learning</h3>
+<ul>
+<li>Locality in the architecture does not give compositional generalisation</li>
+<li>Scale, pre-training and fine-tuning do not either</li>
+<li>In-distribution accuracy does not reliably predict out-of-distribution accuracy</li>
+</ul>
+</div></div>
+<div class="warn">
+<p>Before trusting a model on a new molecule, ask: has it seen this combination, or only these parts?</p>
+</div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>How far do these conclusions reach, and where should we look next?</p>
+</div>
+<!-- ===================== TAKEAWAYS ===================== -->
+</section>
+<section id="scope-and-next-steps-for-the-benchmark" class="slide level2" data-section="Takeaways">
+<h2>Scope and next steps for the benchmark</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-gmd-covers">What GMD covers</h3>
+<p>Small H/C/N/O molecules in vacuum, one DFT level (PBE/def2-TZVP+D3BJ)</p>
+<h3 id="why-that-is-enough">Why that is enough</h3>
+<p>Every part of each test molecule is in training: failure under this minimal shift is a strong result</p>
+</div><div class="column" style="width:50%;">
+<h3 id="what-it-does-not-cover">What it does not cover</h3>
+<p>Aromatic, charged, inorganic or transition-metal chemistry; condensed phases</p>
+<h3 id="natural-extensions">Natural extensions</h3>
+<p>Richer fragment vocabularies: peptides for proteins, monomers for polymers</p>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<div class="bridge fragment">
+<p>So what do we take home, and can we teach a model to see molecules as we do?</p>
+</div>
+</section>
+<section id="takeaways-and-future-work" class="slide level2" data-section="Takeaways">
+<h2>Takeaways and future work</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<h3 id="what-we-found">What we found</h3>
+<ul>
+<li><strong>More of the same</strong> (longer chains) costs some accuracy</li>
+<li><strong>Known parts in new combinations</strong> cost far more</li>
+<li>Coverage, scale and pre-training do not fix composition</li>
+<li>Models learn groups as units, not from their parts</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<h3 id="what-i-am-working-on">What I am working on</h3>
+<ul>
+<li>A model whose learning is guided by chemical structure</li>
+<li>Forcing it to see a molecule as a chemist does: functional groups and how they connect</li>
+</ul>
+<div class="key">
+<p>Goal: a model that understands a new molecule from its parts.</p>
+</div>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+</section>
+<section id="thank-you" class="slide level2 closing" data-section="Takeaways">
+<h2>Thank you</h2>
+<div class="columns middle">
+<div class="column" style="width:50%;">
+<p><strong>Amir Masoud Nourollah</strong></p>
+<p>Paper: arXiv:2605.08988 (NeurIPS 2026)</p>
+<p>Data: huggingface.co/datasets/AmirMasoud/GMD</p>
+<p>Code: github.com/Nourollah/GMD-26</p>
+<div class="key">
+<p>Questions?</p>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="../figures/overview_teaser.png"></p>
+</div></div>
+<!-- ===================== BACKUP ===================== -->
+</section>
+<section id="backup-are-the-test-environments-really-local-repeats" class="slide level2" data-section="Takeaways">
+<h2>Backup: are the test environments really local repeats?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li>Expected question from ML people: with a cut-off of [r<sub>c</sub>] Å, does every OOD local environment appear in training?</li>
+<li>Partial answer from the paper: the same atoms are predicted well where their environment matches training, and poorly where it does not</li>
+<li>[Add any direct coverage measure you have]</li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="img-slot">
+<p>Image: local-environment coverage</p>
+<p>[If available: nearest-training-neighbour distance of each OOD atomic environment, per task.]</p>
+<p><code>env_coverage.png</code></p>
+</div>
+</div></div>
+<div class="slide-ref">
+<p>A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, <em>NeurIPS</em> (2026), Evaluations &amp; Datasets Track; arXiv:2605.08988.</p>
+</div>
+<!-- ===================== APPENDIX ===================== -->
+</section>
+<section id="fitting-well-is-not-generalising-well" class="slide level2" data-section="Appendix">
+<h2>Fitting well is not generalising well</h2>
+<div class="columns">
+<div class="column" style="width:44%;">
+<ul>
+<li>Two kinds of points: the model learns a <strong>border</strong> between them</li>
+<li>A straight line misses a few training points, but gets new points right</li>
+<li>A wiggly border gets <strong>every</strong> training point right, and new points wrong</li>
+</ul>
+<div class="key">
+<p>The goal is accuracy on data the model has never seen: <strong>generalisation</strong>.</p>
+</div>
+</div><div class="column" style="width:56%;">
+<p><img data-src="../figures/generalisation_scatter.png"></p>
+</div></div>
+<div class="slide-ref">
+<p>C. M. Bishop, <em>Pattern Recognition and Machine Learning</em>, Springer (2006), §1.1, §4.1.</p>
+</div>
+<div class="bridge fragment">
+<p>What about points that land outside everything the model has seen, or outside what our data covers?</p>
+</div>
 
 
 </section>

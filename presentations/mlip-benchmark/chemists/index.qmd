@@ -12,26 +12,33 @@ format:
 # Image slots: replace each ::: {.img-slot} ... ::: block with ![](your_file.png)
 # Anything in [square brackets] is a placeholder to fill from the GMD paper.
 ---
+
+
+
 ## Overview {data-section="Overview"}
 
 :::: {.columns .middle}
 
-::: {.column width="46%"}
-1. **Introduction**: how machine learning learns, and what it learns from
-2. **Motivation**: how chemists read molecules, and where models go wrong
+::: {.column width="64%"}
+1. **Introduction**: how machine learning learns, and how chemists and computers read molecules
+2. **Motivation**: where the data runs out, and what counts as new
 3. **GMD: the benchmark**: familiar parts, new molecules
 4. **Results**: where today's models break
-5. **Takeaways** and what comes next
+5. **Takeaways**
 :::
 
-::: {.column width="54%"}
-![](figures/overview_teaser.png)
+::: {.column width="36%"}
+![](../figures/overview_teaser.png)
 :::
 
 ::::
 
 ::: {.notes}
 One sentence: chemists know a molecule from its parts; we ask whether ML models do too.
+:::
+
+::: {.bridge .fragment}
+So how does a computer learn anything at all?
 :::
 
 <!-- ===================== INTRODUCTION ===================== -->
@@ -46,12 +53,12 @@ One sentence: chemists know a molecule from its parts; we ask whether ML models 
 - "Learning" just means finding the parameters with the smallest error
 
 ::: {.key}
-You already do this: fitting a calibration curve or a rate law is the same idea, with three parameters instead of millions.
+You already do this: fit a curve to two or three experimental points, then predict other amounts of reactant without running more experiments.
 :::
 :::
 
 ::: {.column width="52%"}
-![](figures/fit_example.png)
+![](../figures/fit_example.png)
 :::
 
 ::::
@@ -65,39 +72,7 @@ Keep it friendly. Model = summary of the data it has seen.
 :::
 
 ::: {.bridge .fragment}
-The curve passes close to every point. But is that really what we want?
-:::
-
-## Fitting well is not generalising well {data-section="Introduction"}
-
-:::: {.columns}
-
-::: {.column width="48%"}
-- Two kinds of points: the model learns a **border** between them
-- A straight line misses a few training points, but gets new points right
-- A wiggly border gets **every** training point right, and new points wrong
-
-::: {.key}
-We want a model that works on data it has never seen, not one that remembers its training data. That is **generalisation**.
-:::
-:::
-
-::: {.column width="52%"}
-![](figures/generalisation_scatter.png)
-:::
-
-::::
-
-::: {.slide-ref}
-C. M. Bishop, *Pattern Recognition and Machine Learning*, Springer (2006), §1.1, §4.1.
-:::
-
-::: {.notes}
-Point at the circled new points on the right panel. The over-fitted model "learned" the noise.
-:::
-
-::: {.bridge .fragment}
-And what about points that lie outside everything the model has seen?
+Can we trust that curve everywhere, even far from the points we measured?
 :::
 
 ## Inside the data versus outside it {data-section="Introduction"}
@@ -115,7 +90,7 @@ A small error on the training data says little about data the model has never se
 :::
 
 ::: {.column width="52%"}
-![](figures/extrapolation.png)
+![](../figures/extrapolation.png)
 :::
 
 ::::
@@ -129,7 +104,23 @@ Plant the seed: "outside the data" is the theme of the talk. Don't say "out-of-d
 :::
 
 ::: {.bridge .fragment}
-So a model is only as good as its data. For molecules, what does that data look like?
+Let's see how different our interpretation of a molecule is from a computer's.
+:::
+
+## How a chemist reads a molecule {data-section="Introduction"}
+
+![](../figures/ir_mapped.png){height="430px" fig-align="center"}
+
+::: {.slide-ref}
+G. Socrates, *Infrared and Raman Characteristic Group Frequencies*, 3rd ed., Wiley (2001).
+:::
+
+::: {.notes}
+Each part of ethyl acetate has its own peak: C–H stretch near 2980 cm⁻¹, C=O near 1740 cm⁻¹, C–O–C near 1240 and 1050 cm⁻¹. We read the whole molecule from its parts. Schematic spectrum.
+:::
+
+::: {.bridge .fragment}
+How is that different from how a computer reads a molecule?
 :::
 
 ## What does a molecule look like to a computer? {data-section="Introduction"}
@@ -137,9 +128,9 @@ So a model is only as good as its data. For molecules, what does that data look 
 :::: {.columns}
 
 ::: {.column width="48%"}
-- **Input**: each atom's element and its 3D position, exactly what an `.xyz` file holds
-- **Output**: the energy *E*, and the force on every atom, **F** = −∂*E*/∂**r**
-- Each atom looks at its neighbours within a few ångström; the total energy is built from these atomic contributions
+- **Input**: each atom's element and 3D position, exactly what an `.xyz` file holds
+- **Output**: the energy *E*, and the force on every atom
+- There are many ways to give a molecule to a computer: 3D coordinates, adjacency matrices, molecular graphs, SMILES strings, fingerprints
 
 ::: {.key}
 The model never sees a label like "carbonyl" or "ring": only elements and distances.
@@ -147,7 +138,7 @@ The model never sees a label like "carbonyl" or "ring": only elements and distan
 :::
 
 ::: {.column width="52%"}
-![](figures/molecule_as_data.png)
+![](../figures/molecule_as_data.png)
 :::
 
 ::::
@@ -161,10 +152,42 @@ Avoid "graph", "message passing". Neighbourhood + sum over atoms is enough.
 :::
 
 ::: {.bridge .fragment}
-Where can we get this data, and how much of it is available?
+Then does machine learning read molecules the way a chemist does?
 :::
 
-## Any method can be the teacher {data-section="Introduction"}
+## Does machine learning read molecules this way? {data-section="Introduction"}
+
+:::: {.columns}
+
+::: {.column width="48%"}
+- The model learns from whole molecules, one geometry at a time
+- Nothing forces it to learn "parts" the way a chemist does
+- It might learn rules, or it might memorise the molecules it was shown
+
+::: {.warn}
+If every part of a new molecule is familiar, does the model find the whole familiar?
+:::
+:::
+
+::: {.column width="52%"}
+![](../figures/chemist_vs_model.png)
+:::
+
+::::
+
+::: {.slide-ref}
+B. Lake, M. Baroni, *Proc. ICML* (2018).
+:::
+
+::: {.notes}
+Analogy: a student who memorised answers for 20 molecules vs one who learned group frequencies. Both score well on the homework; only one passes the exam.
+:::
+
+::: {.bridge .fragment}
+Where to get these data, and how?
+:::
+
+## Any method can supply the data and become a teacher {data-section="Introduction"}
 
 :::: {.columns}
 
@@ -179,7 +202,7 @@ A model is at best as accurate as the method that produced its data.
 :::
 
 ::: {.column width="52%"}
-![](figures/methods_ladder.png)
+![](../figures/methods_ladder.png)
 :::
 
 ::::
@@ -192,7 +215,7 @@ S. Chmiela *et al.*, *Sci. Adv.* **3**, e1603015 (2017); C. Bannwarth, S. Ehlert
 If these methods already give us energies and forces, why not just keep using them?
 :::
 
-## Why were semi-empirical methods invented? {data-section="Introduction"}
+## Why we invented semi-empirical methods {data-section="Introduction"}
 
 :::: {.columns}
 
@@ -207,7 +230,7 @@ Every step down the ladder makes the same trade: accuracy for time and computer 
 :::
 
 ::: {.column width="52%"}
-![](figures/cost_scaling.png)
+![](../figures/cost_scaling.png)
 :::
 
 ::::
@@ -239,7 +262,7 @@ Is machine learning a numerical, a semi-empirical, or an empirical method?
 :::
 
 ::: {.column width="52%"}
-![](figures/ml_where.png)
+![](../figures/ml_where.png)
 :::
 
 ::::
@@ -271,7 +294,7 @@ The promise: download a model and simulate your molecule. But what has the model
 :::
 
 ::: {.column width="52%"}
-![](figures/universal_models.png)
+![](../figures/universal_models.png)
 :::
 
 ::::
@@ -285,98 +308,10 @@ End on the question. This is the bridge to Motivation.
 :::
 
 ::: {.bridge .fragment}
-To answer that, let's first ask how we, as chemists, understand a molecule.
+Even with millions of molecules, what happens where the data runs out?
 :::
 
 <!-- ===================== MOTIVATION ===================== -->
-
-## How a chemist reads a molecule {data-section="Motivation"}
-
-:::: {.columns}
-
-::: {.column width="48%"}
-- We see a molecule as **parts**: functional groups, rings, chains
-- Parts carry their behaviour with them: an ester behaves like an ester
-- Many properties are close to additive, which is why group-additivity schemes work
-
-::: {.key}
-Shown a molecule you have never met, built from groups you know, you can still predict a lot about it.
-:::
-:::
-
-::: {.column width="52%"}
-![](figures/molecule_parts.png)
-:::
-
-::::
-
-::: {.slide-ref}
-S. W. Benson, J. H. Buss, *J. Chem. Phys.* **29**, 546 (1958).
-:::
-
-::: {.bridge .fragment}
-Is this only a habit on paper, or does experiment read molecules the same way?
-:::
-
-## Even a spectrum is read in parts {data-section="Motivation"}
-
-:::: {.columns}
-
-::: {.column width="48%"}
-- In IR, peaks belong to groups, not to whole molecules
-- C=O stretch near 1700 cm⁻¹, broad O–H near 3300 cm⁻¹, C–H just below 3000 cm⁻¹
-- Specific **combinations** of atoms leave their own signatures in the fingerprint region
-
-::: {.key}
-Chemistry is compositional: we understand the whole by knowing the parts and how they connect.
-:::
-:::
-
-::: {.column width="52%"}
-![](figures/ir_spectrum.png)
-:::
-
-::::
-
-::: {.slide-ref}
-G. Socrates, *Infrared and Raman Characteristic Group Frequencies*, 3rd ed., Wiley (2001).
-:::
-
-::: {.bridge .fragment}
-We read molecules in parts. Do machine-learning models?
-:::
-
-## Does machine learning read molecules this way? {data-section="Motivation"}
-
-:::: {.columns}
-
-::: {.column width="48%"}
-- The model learns from whole molecules, one geometry at a time
-- Nothing forces it to learn "parts" the way a chemist does
-- It might learn rules, or it might memorise the molecules it was shown
-
-::: {.warn}
-If every part of a new molecule is familiar, does the model find the whole familiar?
-:::
-:::
-
-::: {.column width="52%"}
-![](figures/chemist_vs_model.png)
-:::
-
-::::
-
-::: {.slide-ref}
-B. Lake, M. Baroni, *Proc. ICML* (2018).
-:::
-
-::: {.notes}
-Analogy: a student who memorised answers for 20 molecules vs one who learned group frequencies. Both score well on the homework; only one passes the exam.
-:::
-
-::: {.bridge .fragment}
-If a model only learns what its data covers, what happens where the data runs out?
-:::
 
 ## What the data covers {data-section="Motivation"}
 
@@ -393,7 +328,7 @@ High-energy geometries the data does not cover: one kind of out-of-distribution.
 :::
 
 ::: {.column width="52%"}
-![](figures/steep_wall.png)
+![](../figures/steep_wall.png)
 :::
 
 ::::
@@ -425,7 +360,7 @@ Rare events the data barely covers: a second kind of out-of-distribution.
 :::
 
 ::: {.column width="52%"}
-![](figures/reaction_ts.png)
+![](../figures/reaction_ts.png)
 :::
 
 ::::
@@ -457,7 +392,7 @@ Steep walls, rare events... what else counts as out-of-distribution?
 :::
 
 ::: {.column width="50%"}
-![](figures/ood_map.png)
+![](../figures/ood_map.png)
 :::
 
 ::::
@@ -488,7 +423,7 @@ Every group is in training; only the molecule is new.
 :::
 
 ::: {.column width="64%"}
-![](figures/scaffold_fd.png)
+![](../figures/scaffold_fd.png)
 :::
 
 ::::
@@ -504,7 +439,6 @@ Two of the five GMD tasks, shown as examples; the full set comes in the next sec
 ::: {.bridge .fragment}
 To run this test, we need a dataset built for it. That is GMD.
 :::
-
 
 <!-- ===================== GMD ===================== -->
 
@@ -523,13 +457,13 @@ Usually models are tested on new shapes of known molecules. GMD tests them on ne
 :::
 
 ::: {.column width="54%"}
-![](figures/gmd_pipeline.png)
+![](../figures/gmd_pipeline.png)
 :::
 
 ::::
 
 ::: {.slide-ref}
-A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluations & Datasets Track; arXiv:2605.08988. F. Bigi *et al.*, arXiv:2505.19350 (2025); F. Neese, *WIREs Comput. Mol. Sci.* **2**, 73 (2012).
+A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluations & Datasets Track; arXiv:2605.08988.
 :::
 
 ::: {.notes}
@@ -542,43 +476,24 @@ So which new molecules do we test them on?
 
 ## Five ways to build a new molecule from known parts {data-section="GMD"}
 
-![](figures/gmd_tasks.png){height="365px" fig-align="center"}
-
-::: {.small style="text-align:center"}
-Every part of a test molecule is in the training data; only how the parts are joined is new.
-:::
-
-::: {.slide-ref}
-A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluations & Datasets Track; arXiv:2605.08988.
-:::
-
-::: {.notes}
-Paper Figure 1. Walk through the five tasks: chain extension, fusion, duplication, combination, fission.
-:::
-
-::: {.bridge .fragment}
-Why build all of this from such small, simple molecules?
-:::
-
-## Why small molecules? {data-section="GMD"}
-
 :::: {.columns}
 
-::: {.column width="48%"}
-- **Control:** each task changes exactly one thing, so a failure has one cause
-- **Nothing hidden:** every part of a test molecule is in the training data
-- **Checkable:** chemists can see what a sensible answer looks like
-- **A strong test:** if a model fails at the smallest possible step, bigger molecules will not be easier
+::: {.column width="58%"}
+![](../figures/gmd_tasks.png){style="height:420px; max-height:420px"}
 :::
 
-::: {.column width="52%"}
-![](figures/gmd_families.png)
+::: {.column width="42%"}
+![](../figures/gmd_examples_rows.png){style="height:420px; max-height:420px"}
 :::
 
 ::::
 
 ::: {.slide-ref}
 A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluations & Datasets Track; arXiv:2605.08988.
+:::
+
+::: {.notes}
+Walk down the rows: abstract task on the left, real molecules on the right. Why small molecules: each task changes exactly one thing, so a failure has one cause; every part of a test molecule is in training; chemists can check what a sensible answer looks like; failing the smallest possible step is a strong result.
 :::
 
 ::: {.bridge .fragment}
@@ -587,33 +502,16 @@ So how do today's models do?
 
 <!-- ===================== RESULTS ===================== -->
 
-## New molecules: errors often ten times larger {data-section="Results"}
+## Known molecules versus new molecules {data-section="Results"}
 
-:::: {.columns .middle}
-
-::: {.column width="38%"}
-- Each row is a model; each bar runs from its error on **known** molecules (|) to its error on **new** ones
-- Fusion and duplication give the longest bars
-- Chain extension (◆) gives the shortest
-- Right: how many times larger the error gets, on average
-
-::: {.small}
-Error = mean absolute error of the forces against DFT.
-:::
-:::
-
-::: {.column width="62%"}
-![](figures/results_forces.png)
-:::
-
-::::
+![](../figures/results_forces_simple.png){height="435px" fig-align="center"}
 
 ::: {.slide-ref}
 A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluations & Datasets Track; arXiv:2605.08988.
 :::
 
 ::: {.notes}
-Paper Figure 2a. Energies are worse: on new molecules, energy errors can exceed known-molecule errors by more than 1000 times.
+Each bar runs from a model's error on known molecules (|) to its error on new ones, one marker per task; right column is the average OOD/ID ratio. MACE-Medium zero-shot shows ×1.0 only because it is already about ten times worse on known molecules. Energies are worse still: over 1000× on new molecules.
 :::
 
 ::: {.bridge .fragment}
@@ -635,7 +533,7 @@ But where inside the molecule do these errors actually appear?
 :::
 
 ::: {.column width="66%"}
-![](figures/per_atom_fusion.png)
+![](../figures/per_atom_fusion.png)
 :::
 
 ::::
@@ -667,7 +565,7 @@ Combining parts fails badly. How does the simplest task, a longer chain, compare
 :::
 
 ::: {.column width="60%"}
-![](figures/results_grid_FCE.png)
+![](../figures/results_grid_FCE.png)
 :::
 
 ::::
@@ -681,10 +579,69 @@ A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluatio
 :::
 
 ::: {.bridge .fragment}
-Maybe the models were just too small, or saw too little data?
+So what do we take home from all this?
 :::
 
-## Not a data or model-size problem {data-section="Results"}
+<!-- ===================== TAKEAWAYS ===================== -->
+
+## Takeaways {data-section="Takeaways"}
+
+:::: {.columns}
+
+::: {.column width="54%"}
+- **More of the same** (longer chains) costs some accuracy; **known parts in new combinations** cost far more
+- Wrong force strengths on a functional group mean wrong vibrations, wrong conformers, wrong barriers
+- More data, bigger models and pre-training do not fix it
+- Accuracy on known molecules does not predict accuracy on new ones
+:::
+
+::: {.column width="46%"}
+![](../figures/molecule_parts.png)
+:::
+
+::::
+
+::: {.warn}
+Before trusting a model on a new molecule, ask: has it seen this combination, or only these parts?
+:::
+
+::: {.slide-ref}
+A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluations & Datasets Track; arXiv:2605.08988.
+:::
+
+::: {.notes}
+Call back to the first slides: every molecule you care about is a new combination of familiar parts. Details on data and model size are in the appendix.
+:::
+
+## Thank you {.closing data-section="Takeaways"}
+
+:::: {.columns .middle}
+
+::: {.column width="50%"}
+**Amir Masoud Nourollah**
+
+Stefano Leoni · Steven Schockaert
+
+Paper: arXiv:2605.08988 (NeurIPS 2026)
+
+Data: huggingface.co/datasets/AmirMasoud/GMD
+
+Code: github.com/Nourollah/GMD-26
+
+::: {.key}
+Questions?
+:::
+:::
+
+::: {.column width="50%"}
+![](../figures/overview_teaser.png)
+:::
+
+::::
+
+<!-- ===================== APPENDIX ===================== -->
+
+## Not a data or model-size problem {data-section="Appendix"}
 
 :::: {.columns}
 
@@ -718,91 +675,58 @@ A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluatio
 Paper Section 4.3 and Appendices A.3 and C.2. Foundation models were fine-tuned for 2000 epochs per task, an upper bound on what fine-tuning can do.
 :::
 
-::: {.bridge .fragment}
-So where does this leave us, and why should a chemist care?
-:::
-
-## Why a chemist should care {data-section="Results"}
-
-:::: {.columns .middle}
-
-::: {.column width="46%"}
-- Wrong force strengths on a functional group mean wrong vibrations, wrong conformers, wrong barriers
-- The errors appear exactly where a molecule is new, which is where you would use a model
-- A good score on known molecules says little about your molecule
-
-::: {.warn}
-Before trusting a model on a new molecule, ask: has it seen this combination, or only these parts?
-:::
-:::
-
-::: {.column width="54%"}
-![](figures/molecule_parts.png)
-:::
-
-::::
-
-::: {.slide-ref}
-A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluations & Datasets Track; arXiv:2605.08988.
-:::
-
-::: {.notes}
-Call back to the paracetamol slide: every molecule you care about is a new combination of familiar parts.
-:::
-
-
-<!-- ===================== TAKEAWAYS ===================== -->
-
-## Takeaways and future work {data-section="Takeaways"}
+## Future work {data-section="Appendix"}
 
 :::: {.columns}
-
-::: {.column width="50%"}
-### What we found
-- **More of the same** (longer chains) costs some accuracy
-- **Known parts in new combinations** cost far more
-- More data, bigger models and pre-training do not fix it
-- Accuracy on known molecules does not predict accuracy on new ones
-:::
 
 ::: {.column width="50%"}
 ### What I am working on
 - A model whose learning is guided by chemical structure
 - It is forced to see a molecule the way a chemist does: as functional groups and how they connect
+:::
+
+::: {.column width="50%"}
+![](../figures/overview_teaser.png)
+:::
+
+::::
 
 ::: {.key}
 Goal: a model that understands a new molecule from its parts.
 :::
-:::
-
-::::
 
 ::: {.slide-ref}
 A. M. Nourollah, I. Khalid, S. Leoni, S. Schockaert, *NeurIPS* (2026), Evaluations & Datasets Track; arXiv:2605.08988.
 :::
 
-## Thank you {.closing data-section="Takeaways"}
+## Fitting well is not generalising well {data-section="Appendix"}
 
-:::: {.columns .middle}
+:::: {.columns}
 
-::: {.column width="60%"}
-**Amir Masoud Nourollah**
-
-Stefano Leoni · Steven Schockaert
-
-Paper: arXiv:2605.08988 (NeurIPS 2026)
-
-Data: huggingface.co/datasets/AmirMasoud/GMD
-
-Code: github.com/Nourollah/GOAL
+::: {.column width="48%"}
+- Two kinds of points: the model learns a **border** between them
+- A straight line misses a few training points, but gets new points right
+- A wiggly border gets **every** training point right, and new points wrong
 
 ::: {.key}
-Questions?
+We want a model that works on data it has never seen, not one that remembers its training data. That is **generalisation**.
 :::
 :::
 
-::: {.column width="50%"}
-![](figures/overview_teaser.png)
+::: {.column width="52%"}
+![](../figures/generalisation_scatter.png)
 :::
 
 ::::
+
+::: {.slide-ref}
+C. M. Bishop, *Pattern Recognition and Machine Learning*, Springer (2006), §1.1, §4.1.
+:::
+
+::: {.notes}
+Point at the circled new points on the right panel. The over-fitted model "learned" the noise.
+:::
+
+::: {.bridge .fragment}
+What about points that land outside everything the model has seen, or outside what our data covers?
+:::
